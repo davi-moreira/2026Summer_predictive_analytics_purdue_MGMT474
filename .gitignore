@@ -1,34 +1,78 @@
+# R/RStudio
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 .DS_Store
 
-_command_line_activity_solution.qmd
-_command_line_activity_solution.html
-_command_line_activity_solution_files/
-
+# Quarto
 /.quarto/
+_freeze/
 
-_complementary_material/
-_syllabus/
-_syllabus_docx/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.pyc
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Admin (keep out of public repo)
 _adm_stuff/
-_notebook_lm/
-_test_ignore/
-_00_py4ps_install_guide/
-_handouts/
-# figs/
-#images/
-_homework/
-_lecture_notes/
-_quizzes/
-_supplemental_material/
 _grades/
 _grade/
 grades/
 grade/
+_students_contact/
+_tas/
+_accomodation/
+_course_eval/
+_reflection_*/
+
+# Course materials to exclude
+_complementary_material/
+_syllabus/
+_syllabus_docx/
+_notebook_lm/
+_test_ignore/
+_00_py4ps_install_guide/
+_handouts/
+_homework/
+_lecture_notes/
+_quizzes/
+_supplemental_material/
 _in_class_participation/
 _notebook/
 _lab/
 _old_files/
+_command_line_activity_solution.qmd
+_command_line_activity_solution.html
+_command_line_activity_solution_files/
+
+# Large files (exclude from repo, link instead)
+*.zip
+*.mp4
+*.mp3
+*.m4a
+*.mov
+
+# Keep docs for GitHub Pages
+!docs/
+
+# Temporary
+*.tmp
+*.bak
+.scratch/
