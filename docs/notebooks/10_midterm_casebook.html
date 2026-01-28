@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 10: Midterm - Business-Case Predictive Strategy Practicum + Project Baseline Submission – MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day 10: Midterm - Business-Case Predictive Strategy Practicum + Project Baseline Submission</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule and Material</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#midterm-instructions" id="toc-midterm-instructions" class="nav-link" data-scroll-target="#midterm-instructions">Midterm Instructions</a>
+  <ul class="collapse">
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic Integrity</a></li>
+  </ul></li>
+  <li><a href="#case-1-customer-churn-prediction-for-subscription-service" id="toc-case-1-customer-churn-prediction-for-subscription-service" class="nav-link" data-scroll-target="#case-1-customer-churn-prediction-for-subscription-service">Case 1: Customer Churn Prediction for Subscription Service</a>
+  <ul class="collapse">
+  <li><a href="#business-context" id="toc-business-context" class="nav-link" data-scroll-target="#business-context">Business Context</a></li>
+  <li><a href="#your-task-case-1" id="toc-your-task-case-1" class="nav-link" data-scroll-target="#your-task-case-1">Your Task (Case 1)</a></li>
+  </ul></li>
+  <li><a href="#pause-and-do-case-1-response-10-minutes" id="toc-pause-and-do-case-1-response-10-minutes" class="nav-link" data-scroll-target="#pause-and-do-case-1-response-10-minutes">📝 PAUSE-AND-DO: Case 1 Response (10 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#case-1-your-response" id="toc-case-1-your-response" class="nav-link" data-scroll-target="#case-1-your-response">CASE 1: YOUR RESPONSE</a></li>
+  </ul></li>
+  <li><a href="#case-2-loan-default-prediction" id="toc-case-2-loan-default-prediction" class="nav-link" data-scroll-target="#case-2-loan-default-prediction">Case 2: Loan Default Prediction</a>
+  <ul class="collapse">
+  <li><a href="#business-context-1" id="toc-business-context-1" class="nav-link" data-scroll-target="#business-context-1">Business Context</a></li>
+  <li><a href="#your-task-case-2" id="toc-your-task-case-2" class="nav-link" data-scroll-target="#your-task-case-2">Your Task (Case 2)</a></li>
+  </ul></li>
+  <li><a href="#pause-and-do-case-2-response-10-minutes" id="toc-pause-and-do-case-2-response-10-minutes" class="nav-link" data-scroll-target="#pause-and-do-case-2-response-10-minutes">📝 PAUSE-AND-DO: Case 2 Response (10 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#case-2-your-response" id="toc-case-2-your-response" class="nav-link" data-scroll-target="#case-2-your-response">CASE 2: YOUR RESPONSE</a></li>
+  </ul></li>
+  <li><a href="#mini-case-3-medical-diagnosis-optional-bonus" id="toc-mini-case-3-medical-diagnosis-optional-bonus" class="nav-link" data-scroll-target="#mini-case-3-medical-diagnosis-optional-bonus">Mini-Case 3: Medical Diagnosis (Optional Bonus)</a>
+  <ul class="collapse">
+  <li><a href="#quick-scenario" id="toc-quick-scenario" class="nav-link" data-scroll-target="#quick-scenario">Quick Scenario</a></li>
+  <li><a href="#mini-case-3-your-response-optional" id="toc-mini-case-3-your-response-optional" class="nav-link" data-scroll-target="#mini-case-3-your-response-optional">MINI-CASE 3: YOUR RESPONSE (OPTIONAL)</a></li>
+  </ul></li>
+  <li><a href="#submission-checklist-self-audit" id="toc-submission-checklist-self-audit" class="nav-link" data-scroll-target="#submission-checklist-self-audit">Submission Checklist (Self-Audit)</a>
+  <ul class="collapse">
+  <li><a href="#case-1-checklist" id="toc-case-1-checklist" class="nav-link" data-scroll-target="#case-1-checklist">Case 1 Checklist</a></li>
+  <li><a href="#case-2-checklist" id="toc-case-2-checklist" class="nav-link" data-scroll-target="#case-2-checklist">Case 2 Checklist</a></li>
+  <li><a href="#general-checklist" id="toc-general-checklist" class="nav-link" data-scroll-target="#general-checklist">General Checklist</a></li>
+  </ul></li>
+  <li><a href="#project-milestone-2-baseline-model-evaluation-plan" id="toc-project-milestone-2-baseline-model-evaluation-plan" class="nav-link" data-scroll-target="#project-milestone-2-baseline-model-evaluation-plan">Project Milestone 2: Baseline Model + Evaluation Plan</a>
+  <ul class="collapse">
+  <li><a href="#deliverable-requirements" id="toc-deliverable-requirements" class="nav-link" data-scroll-target="#deliverable-requirements">Deliverable Requirements</a></li>
+  </ul></li>
+  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric</a>
+  <ul class="collapse">
+  <li><a href="#midterm-cases-70-points" id="toc-midterm-cases-70-points" class="nav-link" data-scroll-target="#midterm-cases-70-points">Midterm Cases (70 points)</a></li>
+  <li><a href="#project-baseline-30-points" id="toc-project-baseline-30-points" class="nav-link" data-scroll-target="#project-baseline-30-points">Project Baseline (30 points)</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-to-avoid" id="toc-common-mistakes-to-avoid" class="nav-link" data-scroll-target="#common-mistakes-to-avoid">Common Mistakes to Avoid</a>
+  <ul class="collapse">
+  <li><a href="#case-analysis-mistakes" id="toc-case-analysis-mistakes" class="nav-link" data-scroll-target="#case-analysis-mistakes">Case Analysis Mistakes</a></li>
+  <li><a href="#code-mistakes" id="toc-code-mistakes" class="nav-link" data-scroll-target="#code-mistakes">Code Mistakes</a></li>
+  </ul></li>
+  <li><a href="#how-to-earn-full-credit" id="toc-how-to-earn-full-credit" class="nav-link" data-scroll-target="#how-to-earn-full-credit">How to Earn Full Credit</a>
+  <ul class="collapse">
+  <li><a href="#excellent-response-characteristics" id="toc-excellent-response-characteristics" class="nav-link" data-scroll-target="#excellent-response-characteristics">Excellent Response Characteristics</a></li>
+  <li><a href="#example-of-excellent-vs-poor-answer" id="toc-example-of-excellent-vs-poor-answer" class="nav-link" data-scroll-target="#example-of-excellent-vs-poor-answer">Example of Excellent vs Poor Answer</a></li>
+  </ul></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Day 10: Midterm - Business-Case Predictive Strategy Practicum + Project Baseline Submission</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>MGMT 47400 - Predictive Analytics</strong><br>
+<strong>4-Week Online Course</strong><br>
+<strong>Day 10 - Monday May 31, 2027</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/10_midterm_casebook.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<hr>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this notebook, you will be able to:</p>
+<ol type="1">
+<li>Translate business cases into predictive tasks (target, unit, horizon, KPI)</li>
+<li>Select split strategy and metrics aligned to case and cost structure</li>
+<li>Identify leakage risks and data availability constraints</li>
+<li>Propose a modeling shortlist and an evaluation plan</li>
+<li>Deliver a baseline model + evaluation plan for the course project</li>
+</ol>
+<hr>
+</section>
+<section id="midterm-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="midterm-instructions">Midterm Instructions</h2>
+<section id="academic-integrity" class="level3">
+<h3 class="anchored" data-anchor-id="academic-integrity">Academic Integrity</h3>
+<p><strong>Allowed resources:</strong> - Course notebooks (Days 1-9) - scikit-learn documentation - Course textbooks (ISLP, ESL, Provost &amp; Fawcett) - Gemini for code generation (with explain + verify workflow)</p>
+<p><strong>NOT allowed:</strong> - Communication with other students during the exam - Pre-written code from external sources without attribution - Asking Gemini for complete answers without your own analysis</p>
+<p><strong>Gemini usage boundaries:</strong> - ✓ Ask Gemini to generate code scaffolds - ✓ Ask Gemini to explain concepts - ✓ Use Gemini to debug errors - ✗ Ask Gemini to solve entire case problems - ✗ Copy Gemini’s analysis without your own critical thinking</p>
+<hr>
+<div id="cell-3" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, StratifiedKFold</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report, roc_auc_score</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.precision'</span>, <span class="dv">4</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>RANDOM_SEED <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>np.random.seed(RANDOM_SEED)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✓ Setup complete!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="case-1-customer-churn-prediction-for-subscription-service" class="level2">
+<h2 class="anchored" data-anchor-id="case-1-customer-churn-prediction-for-subscription-service">Case 1: Customer Churn Prediction for Subscription Service</h2>
+<section id="business-context" class="level3">
+<h3 class="anchored" data-anchor-id="business-context">Business Context</h3>
+<p><strong>Company:</strong> StreamFlix, a video streaming service</p>
+<p><strong>Problem:</strong> Monthly churn rate is 5%. Acquiring new customers costs $50, while retaining costs $10 (discount offer).</p>
+<p><strong>Data available:</strong> - Customer demographics (age, location, device type) - Usage patterns (watch hours, genres, last login) - Account history (tenure, payment method, support tickets) - Churn status (binary: churned in next month or not)</p>
+<p><strong>Business goal:</strong> Identify customers likely to churn in the next 30 days to target with retention offers.</p>
+</section>
+<section id="your-task-case-1" class="level3">
+<h3 class="anchored" data-anchor-id="your-task-case-1">Your Task (Case 1)</h3>
+<p>Design a predictive modeling plan that addresses:</p>
+<ol type="1">
+<li><strong>Prediction Target</strong>: What exactly are we predicting?</li>
+<li><strong>Prediction Unit</strong>: What is one row in the dataset?</li>
+<li><strong>Prediction Horizon</strong>: How far ahead are we predicting?</li>
+<li><strong>Primary Metric</strong>: Which metric aligns with business cost structure?</li>
+<li><strong>Split Strategy</strong>: Train/val/test? Time-based? Why?</li>
+<li><strong>Leakage Risks</strong>: List 3 potential leakage sources</li>
+<li><strong>Model Shortlist</strong>: Which 2-3 models would you try first?</li>
+<li><strong>Threshold Selection</strong>: How would you choose the decision threshold?</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="pause-and-do-case-1-response-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="pause-and-do-case-1-response-10-minutes">📝 PAUSE-AND-DO: Case 1 Response (10 minutes)</h2>
+<p>Write your structured response below.</p>
+<hr>
+<section id="case-1-your-response" class="level3">
+<h3 class="anchored" data-anchor-id="case-1-your-response">CASE 1: YOUR RESPONSE</h3>
+<section id="prediction-target" class="level4">
+<h4 class="anchored" data-anchor-id="prediction-target">1. Prediction Target</h4>
+<p>[What exactly are we predicting? Be specific.]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+<section id="prediction-unit" class="level4">
+<h4 class="anchored" data-anchor-id="prediction-unit">2. Prediction Unit</h4>
+<p>[What is one row? Customer-month? Customer? Subscription?]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+<section id="prediction-horizon" class="level4">
+<h4 class="anchored" data-anchor-id="prediction-horizon">3. Prediction Horizon</h4>
+<p>[How far ahead? Why this timeframe?]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+<section id="primary-metric" class="level4">
+<h4 class="anchored" data-anchor-id="primary-metric">4. Primary Metric</h4>
+<p>[Which metric and why? Consider business costs.]</p>
+<p><strong>Your answer:</strong></p>
+<p><strong>Justification based on costs:</strong> - Cost of False Negative (missing a churner): $____ - Cost of False Positive (unnecessary retention offer): $____ - Therefore, metric should be: _____</p>
+<hr>
+</section>
+<section id="split-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="split-strategy">5. Split Strategy</h4>
+<p>[Random? Time-based? Stratified? Why?]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+<section id="leakage-risks" class="level4">
+<h4 class="anchored" data-anchor-id="leakage-risks">6. Leakage Risks</h4>
+<p>[List 3 specific features or patterns that could cause leakage]</p>
+<p><strong>Risk 1:</strong></p>
+<p><strong>Risk 2:</strong></p>
+<p><strong>Risk 3:</strong></p>
+<hr>
+</section>
+<section id="model-shortlist" class="level4">
+<h4 class="anchored" data-anchor-id="model-shortlist">7. Model Shortlist</h4>
+<p>[Which 2-3 models would you try? Why?]</p>
+<p><strong>Model 1:</strong></p>
+<p><strong>Model 2:</strong></p>
+<p><strong>Model 3 (optional):</strong></p>
+<hr>
+</section>
+<section id="threshold-selection" class="level4">
+<h4 class="anchored" data-anchor-id="threshold-selection">8. Threshold Selection</h4>
+<p>[How would you choose the threshold? What factors matter?]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="case-2-loan-default-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="case-2-loan-default-prediction">Case 2: Loan Default Prediction</h2>
+<section id="business-context-1" class="level3">
+<h3 class="anchored" data-anchor-id="business-context-1">Business Context</h3>
+<p><strong>Company:</strong> FinTech lending platform</p>
+<p><strong>Problem:</strong> Approve loans for creditworthy applicants, reject risky ones.</p>
+<p><strong>Data available:</strong> - Applicant demographics (age, income, employment) - Credit history (credit score, previous loans, payment history) - Loan details (amount, purpose, term) - Default status (binary: defaulted within 12 months or not)</p>
+<p><strong>Business constraints:</strong> - Average loan: $10,000 - Average profit per successful loan: $500 - Average loss per default: $7,000 - Must maintain default rate &lt; 3% for regulatory compliance</p>
+</section>
+<section id="your-task-case-2" class="level3">
+<h3 class="anchored" data-anchor-id="your-task-case-2">Your Task (Case 2)</h3>
+<p>Design an evaluation plan:</p>
+<ol type="1">
+<li><strong>Primary Metric</strong>: What metric aligns with profit/loss?</li>
+<li><strong>Constraint Handling</strong>: How to enforce default rate &lt; 3%?</li>
+<li><strong>Class Imbalance</strong>: If defaults are rare (1-2%), how do you handle it?</li>
+<li><strong>Threshold Logic</strong>: Write the decision rule for loan approval</li>
+<li><strong>Monitoring</strong>: What would you track in production?</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="pause-and-do-case-2-response-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="pause-and-do-case-2-response-10-minutes">📝 PAUSE-AND-DO: Case 2 Response (10 minutes)</h2>
+<hr>
+<section id="case-2-your-response" class="level3">
+<h3 class="anchored" data-anchor-id="case-2-your-response">CASE 2: YOUR RESPONSE</h3>
+<section id="primary-metric-1" class="level4">
+<h4 class="anchored" data-anchor-id="primary-metric-1">1. Primary Metric</h4>
+<p>[What metric captures profit/loss tradeoff?]</p>
+<p><strong>Your answer:</strong></p>
+<p><strong>Expected value calculation:</strong> - E[value | approve good applicant] = $____ - E[value | approve bad applicant] = $____ - E[value | reject good applicant] = $____ - E[value | reject bad applicant] = $____</p>
+<hr>
+</section>
+<section id="constraint-handling" class="level4">
+<h4 class="anchored" data-anchor-id="constraint-handling">2. Constraint Handling</h4>
+<p>[How to enforce default rate &lt; 3%?]</p>
+<p><strong>Your answer:</strong></p>
+<hr>
+</section>
+<section id="class-imbalance-handling" class="level4">
+<h4 class="anchored" data-anchor-id="class-imbalance-handling">3. Class Imbalance Handling</h4>
+<p>[Defaults are 1-2%. What strategies would you use?]</p>
+<p><strong>Strategy 1:</strong></p>
+<p><strong>Strategy 2:</strong></p>
+<p><strong>Strategy 3:</strong></p>
+<hr>
+</section>
+<section id="decision-rule" class="level4">
+<h4 class="anchored" data-anchor-id="decision-rule">4. Decision Rule</h4>
+<p>[Write the logic for loan approval]</p>
+<p><strong>Your answer:</strong></p>
+<pre><code>if probability_default &lt; threshold:
+    approve loan
+else:
+    reject loan
+
+threshold = ???? (explain how you'd set this)</code></pre>
+<hr>
+</section>
+<section id="production-monitoring" class="level4">
+<h4 class="anchored" data-anchor-id="production-monitoring">5. Production Monitoring</h4>
+<p>[What metrics would you track over time?]</p>
+<p><strong>Metric 1:</strong></p>
+<p><strong>Metric 2:</strong></p>
+<p><strong>Metric 3:</strong></p>
+<p><strong>Metric 4:</strong></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="mini-case-3-medical-diagnosis-optional-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="mini-case-3-medical-diagnosis-optional-bonus">Mini-Case 3: Medical Diagnosis (Optional Bonus)</h2>
+<section id="quick-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="quick-scenario">Quick Scenario</h3>
+<p><strong>Task:</strong> Predict rare disease (0.1% prevalence) from lab tests</p>
+<p><strong>Constraints:</strong> - False negative (missing disease) = life-threatening - False positive = unnecessary expensive test ($5,000) - Dataset: 100,000 patients, 100 with disease</p>
+<p><strong>Questions:</strong> 1. Which metric: Precision, Recall, F1, ROC-AUC, or PR-AUC? Why? 2. What threshold bias (high/low)? Why? 3. How to handle 100:99,900 class imbalance?</p>
+<hr>
+</section>
+<section id="mini-case-3-your-response-optional" class="level3">
+<h3 class="anchored" data-anchor-id="mini-case-3-your-response-optional">MINI-CASE 3: YOUR RESPONSE (OPTIONAL)</h3>
+<p><strong>Metric choice:</strong></p>
+<p><strong>Threshold bias:</strong></p>
+<p><strong>Imbalance handling:</strong></p>
+<hr>
+</section>
+</section>
+<section id="submission-checklist-self-audit" class="level2">
+<h2 class="anchored" data-anchor-id="submission-checklist-self-audit">Submission Checklist (Self-Audit)</h2>
+<p>Before submitting, verify:</p>
+<section id="case-1-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="case-1-checklist">Case 1 Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">All 8 questions answered</label></li>
+<li><label><input type="checkbox">Leakage risks are specific (not generic)</label></li>
+<li><label><input type="checkbox">Metric choice is justified with costs</label></li>
+<li><label><input type="checkbox">Split strategy considers time dimension</label></li>
+</ul>
+</section>
+<section id="case-2-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="case-2-checklist">Case 2 Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">All 5 questions answered</label></li>
+<li><label><input type="checkbox">Expected value calculations shown</label></li>
+<li><label><input type="checkbox">Constraint handling is concrete</label></li>
+<li><label><input type="checkbox">Imbalance strategies are actionable</label></li>
+</ul>
+</section>
+<section id="general-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="general-checklist">General Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Responses demonstrate understanding (not just keywords)</label></li>
+<li><label><input type="checkbox">Answers are specific to the case (not generic)</label></li>
+<li><label><input type="checkbox">Business context drives technical choices</label></li>
+<li><label><input type="checkbox">Tradeoffs are acknowledged</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="project-milestone-2-baseline-model-evaluation-plan" class="level2">
+<h2 class="anchored" data-anchor-id="project-milestone-2-baseline-model-evaluation-plan">Project Milestone 2: Baseline Model + Evaluation Plan</h2>
+<section id="deliverable-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="deliverable-requirements">Deliverable Requirements</h3>
+<p>Your project baseline submission must include:</p>
+<section id="baseline-pipeline-code" class="level4">
+<h4 class="anchored" data-anchor-id="baseline-pipeline-code">1. Baseline Pipeline (Code)</h4>
+<ul>
+<li>Train/val/test splits</li>
+<li>Simple preprocessing</li>
+<li>At least one baseline model</li>
+<li>Evaluation on validation set</li>
+</ul>
+</section>
+<section id="baseline-report-table" class="level4">
+<h4 class="anchored" data-anchor-id="baseline-report-table">2. Baseline Report (Table)</h4>
+<p>Comparison table with: - Baseline model - At least one improved model - Multiple metrics - Clear winner identified</p>
+</section>
+<section id="evaluation-plan-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="evaluation-plan-documentation">3. Evaluation Plan (Documentation)</h4>
+<ul>
+<li>Primary metric + justification</li>
+<li>Split/CV design</li>
+<li>Leakage prevention measures</li>
+<li>Next steps identified</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="grading-rubric" class="level2">
+<h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric</h2>
+<section id="midterm-cases-70-points" class="level3">
+<h3 class="anchored" data-anchor-id="midterm-cases-70-points">Midterm Cases (70 points)</h3>
+<p><strong>Case 1 (35 points)</strong> - Problem framing (10 pts): Target, unit, horizon clearly defined - Metric selection (10 pts): Justified by business costs - Leakage awareness (5 pts): Specific, realistic risks identified - Modeling plan (10 pts): Reasonable shortlist + threshold strategy</p>
+<p><strong>Case 2 (35 points)</strong> - Expected value logic (10 pts): Correct cost calculations - Constraint handling (10 pts): Concrete approach to 3% limit - Imbalance handling (10 pts): Multiple actionable strategies - Monitoring plan (5 pts): Relevant production metrics</p>
+</section>
+<section id="project-baseline-30-points" class="level3">
+<h3 class="anchored" data-anchor-id="project-baseline-30-points">Project Baseline (30 points)</h3>
+<ul>
+<li>Code quality (10 pts): Runs without errors, proper pipeline</li>
+<li>Evaluation rigor (10 pts): Appropriate metrics, no leakage</li>
+<li>Documentation (10 pts): Clear plan, justified choices</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="common-mistakes-to-avoid" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<section id="case-analysis-mistakes" class="level3">
+<h3 class="anchored" data-anchor-id="case-analysis-mistakes">Case Analysis Mistakes</h3>
+<ul>
+<li><p>✗ Generic answers (“use cross-validation”)</p></li>
+<li><p>✓ Specific answers (“use time-based split because…”)</p></li>
+<li><p>✗ Ignoring business costs</p></li>
+<li><p>✓ Justify metrics with cost structure</p></li>
+<li><p>✗ Vague leakage risks (“data leakage might happen”)</p></li>
+<li><p>✓ Specific risks (“including ‘account_status_after_churn’ would leak”)</p></li>
+</ul>
+</section>
+<section id="code-mistakes" class="level3">
+<h3 class="anchored" data-anchor-id="code-mistakes">Code Mistakes</h3>
+<ul>
+<li><p>✗ Fitting on full dataset before split</p></li>
+<li><p>✓ Split first, then fit only on train</p></li>
+<li><p>✗ Looking at test set during development</p></li>
+<li><p>✓ Lock test set, use only validation</p></li>
+<li><p>✗ No baseline for comparison</p></li>
+<li><p>✓ Always include simple baseline</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="how-to-earn-full-credit" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-earn-full-credit">How to Earn Full Credit</h2>
+<section id="excellent-response-characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="excellent-response-characteristics">Excellent Response Characteristics</h3>
+<ol type="1">
+<li><strong>Specificity</strong>: Answers are tailored to the specific case</li>
+<li><strong>Justification</strong>: Every choice is explained with reasoning</li>
+<li><strong>Business alignment</strong>: Technical choices driven by business needs</li>
+<li><strong>Completeness</strong>: All parts of each question addressed</li>
+<li><strong>Realistic</strong>: Acknowledges tradeoffs and limitations</li>
+</ol>
+</section>
+<section id="example-of-excellent-vs-poor-answer" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-excellent-vs-poor-answer">Example of Excellent vs Poor Answer</h3>
+<p><strong>Question:</strong> Which metric for churn prediction?</p>
+<p><strong>Poor answer:</strong><br>
+“I would use accuracy because it’s a good metric.”</p>
+<p><strong>Excellent answer:</strong><br>
+“I would use PR-AUC as primary metric with a focus on recall at 20% precision. Reasoning: (1) Churn is likely imbalanced (~5% rate), making accuracy misleading. (2) Missing churners (FN) costs $50 (lost customer acquisition cost), while unnecessary retention offers (FP) cost only $10. (3) We can afford high FP rate if it means catching most churners. (4) Will use precision-recall curve to find optimal operating point where cost is minimized, likely favoring high recall even with moderate precision.”</p>
+<hr>
+</section>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
+<ul>
+<li>Provost, F., &amp; Fawcett, T. (2013). <em>Data Science for Business</em> - End-to-end predictive modeling process and business framing</li>
+<li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An Introduction to Statistical Learning with Python</em> - Assessment/selection + classification/regression chapters</li>
+<li>scikit-learn User Guide: <a href="https://scikit-learn.org/stable/common_pitfalls.html">Common pitfalls</a> - Especially leakage and improper evaluation</li>
+</ul>
+<hr>
+<p><strong>End of Day 10 Midterm Notebook</strong><br>
+<strong>PROJECT MILESTONE 2 DUE TODAY: Baseline model + evaluation plan</strong></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

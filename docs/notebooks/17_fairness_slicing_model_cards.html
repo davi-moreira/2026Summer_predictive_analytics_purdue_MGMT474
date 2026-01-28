@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 17: Fairness and Ethics Basics - Responsible Predictive Analytics – MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day 17: Fairness and Ethics Basics - Responsible Predictive Analytics</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule and Material</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">1. Setup</a></li>
+  <li><a href="#fairness-vocabulary" id="toc-fairness-vocabulary" class="nav-link" data-scroll-target="#fairness-vocabulary">2. Fairness Vocabulary</a>
+  <ul class="collapse">
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts:</a></li>
+  <li><a href="#common-fairness-metrics" id="toc-common-fairness-metrics" class="nav-link" data-scroll-target="#common-fairness-metrics">Common Fairness Metrics:</a></li>
+  </ul></li>
+  <li><a href="#generate-synthetic-data-with-group-attribute" id="toc-generate-synthetic-data-with-group-attribute" class="nav-link" data-scroll-target="#generate-synthetic-data-with-group-attribute">3. Generate Synthetic Data with Group Attribute</a></li>
+  <li><a href="#train-model-without-using-group-attribute" id="toc-train-model-without-using-group-attribute" class="nav-link" data-scroll-target="#train-model-without-using-group-attribute">4. Train Model (Without Using Group Attribute)</a></li>
+  <li><a href="#slice-based-performance-evaluation" id="toc-slice-based-performance-evaluation" class="nav-link" data-scroll-target="#slice-based-performance-evaluation">5. Slice-Based Performance Evaluation</a>
+  <ul class="collapse">
+  <li><a href="#performance-by-group" id="toc-performance-by-group" class="nav-link" data-scroll-target="#performance-by-group">5.1 Performance by Group</a></li>
+  </ul></li>
+  <li><a href="#pause-and-do-exercise-1-10-minutes" id="toc-pause-and-do-exercise-1-10-minutes" class="nav-link" data-scroll-target="#pause-and-do-exercise-1-10-minutes">📝 PAUSE-AND-DO Exercise 1 (10 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#your-disparity-analysis-here" id="toc-your-disparity-analysis-here" class="nav-link" data-scroll-target="#your-disparity-analysis-here">YOUR DISPARITY ANALYSIS HERE:</a></li>
+  </ul></li>
+  <li><a href="#fairness-metrics" id="toc-fairness-metrics" class="nav-link" data-scroll-target="#fairness-metrics">6. Fairness Metrics</a>
+  <ul class="collapse">
+  <li><a href="#selection-rate-demographic-parity" id="toc-selection-rate-demographic-parity" class="nav-link" data-scroll-target="#selection-rate-demographic-parity">6.1 Selection Rate (Demographic Parity)</a></li>
+  </ul></li>
+  <li><a href="#model-card-template" id="toc-model-card-template" class="nav-link" data-scroll-target="#model-card-template">7. Model Card Template</a>
+  <ul class="collapse">
+  <li><a href="#model-card-structure" id="toc-model-card-structure" class="nav-link" data-scroll-target="#model-card-structure">7.1 Model Card Structure</a></li>
+  </ul></li>
+  <li><a href="#model-card-your-model-name" id="toc-model-card-your-model-name" class="nav-link" data-scroll-target="#model-card-your-model-name">Model Card: [Your Model Name]</a>
+  <ul class="collapse">
+  <li><a href="#model-details" id="toc-model-details" class="nav-link" data-scroll-target="#model-details">Model Details</a></li>
+  <li><a href="#intended-use" id="toc-intended-use" class="nav-link" data-scroll-target="#intended-use">Intended Use</a></li>
+  <li><a href="#training-data" id="toc-training-data" class="nav-link" data-scroll-target="#training-data">Training Data</a></li>
+  <li><a href="#evaluation-data" id="toc-evaluation-data" class="nav-link" data-scroll-target="#evaluation-data">Evaluation Data</a></li>
+  <li><a href="#metrics" id="toc-metrics" class="nav-link" data-scroll-target="#metrics">Metrics</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">Recommendations</a></li>
+  <li><a href="#pause-and-do-exercise-2-10-minutes" id="toc-pause-and-do-exercise-2-10-minutes" class="nav-link" data-scroll-target="#pause-and-do-exercise-2-10-minutes">📝 PAUSE-AND-DO Exercise 2 (10 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#your-model-card-limitations-section" id="toc-your-model-card-limitations-section" class="nav-link" data-scroll-target="#your-model-card-limitations-section">YOUR MODEL CARD LIMITATIONS SECTION:</a></li>
+  </ul></li>
+  <li><a href="#limitations-1" id="toc-limitations-1" class="nav-link" data-scroll-target="#limitations-1">Limitations</a></li>
+  <li><a href="#wrap-up-key-takeaways" id="toc-wrap-up-key-takeaways" class="nav-link" data-scroll-target="#wrap-up-key-takeaways">8. Wrap-Up: Key Takeaways</a>
+  <ul class="collapse">
+  <li><a href="#what-we-learned-today" id="toc-what-we-learned-today" class="nav-link" data-scroll-target="#what-we-learned-today">What We Learned Today:</a></li>
+  <li><a href="#responsible-ai-best-practices" id="toc-responsible-ai-best-practices" class="nav-link" data-scroll-target="#responsible-ai-best-practices">Responsible AI Best Practices:</a></li>
+  <li><a href="#remember" id="toc-remember" class="nav-link" data-scroll-target="#remember">Remember:</a></li>
+  </ul></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Day 17: Fairness and Ethics Basics - Responsible Predictive Analytics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>MGMT 47400 - Predictive Analytics</strong><br>
+<strong>4-Week Online Course</strong><br>
+<strong>Day 17 - Wednesday June 9, 2027</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/17_fairness_slicing_model_cards.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<hr>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this notebook, you will be able to:</p>
+<ol type="1">
+<li>Identify fairness risks and ethical failure modes in predictive systems</li>
+<li>Compute basic group fairness diagnostics (when sensitive attributes exist)</li>
+<li>Use slicing to detect performance disparities across segments</li>
+<li>Write a model card-style limitations and responsible-use section</li>
+<li>Apply responsible AI framing to the course project deliverable</li>
+</ol>
+<hr>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">1. Setup</h2>
+<div id="cell-3" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_classification</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, confusion_matrix</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="dv">12</span>, <span class="dv">6</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>RANDOM_SEED <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>np.random.seed(RANDOM_SEED)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✓ Setup complete!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="fairness-vocabulary" class="level2">
+<h2 class="anchored" data-anchor-id="fairness-vocabulary">2. Fairness Vocabulary</h2>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts:</h3>
+<p><strong>Disparity</strong>: Systematic difference in outcomes across groups</p>
+<p><strong>Harm</strong>: Negative impact on individuals or groups - <strong>Allocation harm</strong>: Withholding opportunities or resources - <strong>Quality-of-service harm</strong>: Worse performance for some groups - <strong>Representational harm</strong>: Stereotyping or denigration</p>
+<p><strong>Proxy variables</strong>: Features correlated with sensitive attributes</p>
+<p><strong>Feedback loops</strong>: Model decisions influence future data, potentially amplifying bias</p>
+</section>
+<section id="common-fairness-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="common-fairness-metrics">Common Fairness Metrics:</h3>
+<ol type="1">
+<li><p><strong>Demographic Parity</strong>: Equal selection rate across groups<br>
+P(ŷ=1 | A=a) = P(ŷ=1 | A=b)</p></li>
+<li><p><strong>Equal Opportunity</strong>: Equal true positive rate across groups<br>
+P(ŷ=1 | y=1, A=a) = P(ŷ=1 | y=1, A=b)</p></li>
+<li><p><strong>Equalized Odds</strong>: Equal TPR and FPR across groups</p></li>
+</ol>
+<p>⚠️ <strong>Important</strong>: These metrics often conflict with each other!</p>
+<hr>
+</section>
+</section>
+<section id="generate-synthetic-data-with-group-attribute" class="level2">
+<h2 class="anchored" data-anchor-id="generate-synthetic-data-with-group-attribute">3. Generate Synthetic Data with Group Attribute</h2>
+<div id="cell-6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate classification data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_classification(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    n_samples<span class="op">=</span><span class="dv">2000</span>, n_features<span class="op">=</span><span class="dv">15</span>, n_informative<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    n_redundant<span class="op">=</span><span class="dv">5</span>, weights<span class="op">=</span>[<span class="fl">0.6</span>, <span class="fl">0.4</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span>RANDOM_SEED</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add synthetic "group" attribute (not used in training)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Group A: 60%, Group B: 40%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>group <span class="op">=</span> np.random.choice([<span class="st">'Group_A'</span>, <span class="st">'Group_B'</span>], size<span class="op">=</span><span class="bu">len</span>(X), p<span class="op">=</span>[<span class="fl">0.6</span>, <span class="fl">0.4</span>])</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DataFrame</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> [<span class="ss">f'feature_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>])]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(X, columns<span class="op">=</span>feature_names)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target'</span>] <span class="op">=</span> y</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'group'</span>] <span class="op">=</span> group</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset shape: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Group distribution:"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'group'</span>].value_counts())</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Target distribution by group:"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.crosstab(df[<span class="st">'group'</span>], df[<span class="st">'target'</span>], normalize<span class="op">=</span><span class="st">'index'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="train-model-without-using-group-attribute" class="level2">
+<h2 class="anchored" data-anchor-id="train-model-without-using-group-attribute">4. Train Model (Without Using Group Attribute)</h2>
+<div id="cell-8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data (stratified by group to ensure representation)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>train_df, test_df <span class="op">=</span> train_test_split(df, test_size<span class="op">=</span><span class="fl">0.3</span>, stratify<span class="op">=</span>df[<span class="st">'group'</span>], random_state<span class="op">=</span>RANDOM_SEED)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate features, target, and group</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> train_df[feature_names]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train_df[<span class="st">'target'</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>group_train <span class="op">=</span> train_df[<span class="st">'group'</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> test_df[feature_names]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> test_df[<span class="st">'target'</span>]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>group_test <span class="op">=</span> test_df[<span class="st">'group'</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Train model WITHOUT group attribute</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>, max_depth<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span>RANDOM_SEED, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>y_proba <span class="op">=</span> model.predict_proba(X_test)[:, <span class="dv">1</span>]</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== OVERALL MODEL PERFORMANCE ==="</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1: </span><span class="sc">{</span>f1_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="slice-based-performance-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="slice-based-performance-evaluation">5. Slice-Based Performance Evaluation</h2>
+<section id="performance-by-group" class="level3">
+<h3 class="anchored" data-anchor-id="performance-by-group">5.1 Performance by Group</h3>
+<div id="cell-10" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute metrics by group</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>slice_results <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> grp <span class="kw">in</span> [<span class="st">'Group_A'</span>, <span class="st">'Group_B'</span>]:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> group_test <span class="op">==</span> grp</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    y_true_grp <span class="op">=</span> y_test[mask]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    y_pred_grp <span class="op">=</span> y_pred[mask]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    slice_results.append({</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Group'</span>: grp,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Sample_Size'</span>: <span class="bu">len</span>(y_true_grp),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Accuracy'</span>: accuracy_score(y_true_grp, y_pred_grp),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Precision'</span>: precision_score(y_true_grp, y_pred_grp, zero_division<span class="op">=</span><span class="dv">0</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Recall'</span>: recall_score(y_true_grp, y_pred_grp, zero_division<span class="op">=</span><span class="dv">0</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'F1'</span>: f1_score(y_true_grp, y_pred_grp, zero_division<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>slice_df <span class="op">=</span> pd.DataFrame(slice_results)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== PERFORMANCE BY GROUP ==="</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(slice_df.to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute disparities</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== PERFORMANCE DISPARITIES ==="</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> metric <span class="kw">in</span> [<span class="st">'Accuracy'</span>, <span class="st">'Precision'</span>, <span class="st">'Recall'</span>, <span class="st">'F1'</span>]:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    gap <span class="op">=</span> slice_df.loc[<span class="dv">0</span>, metric] <span class="op">-</span> slice_df.loc[<span class="dv">1</span>, metric]</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss"> Gap (A - B): </span><span class="sc">{</span>gap<span class="sc">:+.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-11" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize performance gaps</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> [<span class="st">'Accuracy'</span>, <span class="st">'Precision'</span>, <span class="st">'Recall'</span>, <span class="st">'F1'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(metrics))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, slice_df.loc[<span class="dv">0</span>, metrics], width, label<span class="op">=</span><span class="st">'Group A'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, slice_df.loc[<span class="dv">1</span>, metrics], width, label<span class="op">=</span><span class="st">'Group B'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Metric'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Score'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Model Performance by Group'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(metrics)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="pause-and-do-exercise-1-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="pause-and-do-exercise-1-10-minutes">📝 PAUSE-AND-DO Exercise 1 (10 minutes)</h2>
+<p><strong>Task:</strong> Create slice performance table and highlight one disparity (if any).</p>
+<p><strong>Instructions:</strong> 1. Review the slice performance results above 2. Identify the largest performance gap between groups 3. Assess whether this gap is meaningful/concerning 4. Propose one hypothesis for why the gap exists</p>
+<hr>
+<section id="your-disparity-analysis-here" class="level3">
+<h3 class="anchored" data-anchor-id="your-disparity-analysis-here">YOUR DISPARITY ANALYSIS HERE:</h3>
+<p><strong>Largest Disparity:</strong><br>
+[Which metric and how large?]</p>
+<p><strong>Is it Concerning?:</strong><br>
+[Your assessment with reasoning]</p>
+<p><strong>Hypothesis:</strong><br>
+[Why might this disparity exist?]</p>
+<hr>
+</section>
+</section>
+<section id="fairness-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="fairness-metrics">6. Fairness Metrics</h2>
+<section id="selection-rate-demographic-parity" class="level3">
+<h3 class="anchored" data-anchor-id="selection-rate-demographic-parity">6.1 Selection Rate (Demographic Parity)</h3>
+<div id="cell-15" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute selection rates</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fairness_metrics <span class="op">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> grp <span class="kw">in</span> [<span class="st">'Group_A'</span>, <span class="st">'Group_B'</span>]:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> group_test <span class="op">==</span> grp</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    y_pred_grp <span class="op">=</span> y_pred[mask]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    y_true_grp <span class="op">=</span> y_test[mask]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Selection rate</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    selection_rate <span class="op">=</span> y_pred_grp.mean()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Confusion matrix</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    tn, fp, fn, tp <span class="op">=</span> confusion_matrix(y_true_grp, y_pred_grp).ravel()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rates</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    tpr <span class="op">=</span> tp <span class="op">/</span> (tp <span class="op">+</span> fn) <span class="cf">if</span> (tp <span class="op">+</span> fn) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span>  <span class="co"># True Positive Rate</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    fpr <span class="op">=</span> fp <span class="op">/</span> (fp <span class="op">+</span> tn) <span class="cf">if</span> (fp <span class="op">+</span> tn) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span>  <span class="co"># False Positive Rate</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    fairness_metrics.append({</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Group'</span>: grp,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Selection_Rate'</span>: selection_rate,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'TPR'</span>: tpr,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'FPR'</span>: fpr</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>fairness_df <span class="op">=</span> pd.DataFrame(fairness_metrics)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== FAIRNESS METRICS ==="</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fairness_df.to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute fairness gaps</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== FAIRNESS GAPS ==="</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>sr_gap <span class="op">=</span> fairness_df.loc[<span class="dv">0</span>, <span class="st">'Selection_Rate'</span>] <span class="op">-</span> fairness_df.loc[<span class="dv">1</span>, <span class="st">'Selection_Rate'</span>]</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>tpr_gap <span class="op">=</span> fairness_df.loc[<span class="dv">0</span>, <span class="st">'TPR'</span>] <span class="op">-</span> fairness_df.loc[<span class="dv">1</span>, <span class="st">'TPR'</span>]</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>fpr_gap <span class="op">=</span> fairness_df.loc[<span class="dv">0</span>, <span class="st">'FPR'</span>] <span class="op">-</span> fairness_df.loc[<span class="dv">1</span>, <span class="st">'FPR'</span>]</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Selection Rate Gap: </span><span class="sc">{</span>sr_gap<span class="sc">:+.4f}</span><span class="ss">"</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"TPR Gap (Equal Opportunity): </span><span class="sc">{</span>tpr_gap<span class="sc">:+.4f}</span><span class="ss">"</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"FPR Gap: </span><span class="sc">{</span>fpr_gap<span class="sc">:+.4f}</span><span class="ss">"</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">⚠️ Interpretation:"</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  - Selection Rate: Are both groups selected at similar rates?"</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  - TPR Gap: Do qualified individuals have equal chance across groups?"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  - FPR Gap: Are false positives distributed equally?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="model-card-template" class="level2">
+<h2 class="anchored" data-anchor-id="model-card-template">7. Model Card Template</h2>
+<section id="model-card-structure" class="level3">
+<h3 class="anchored" data-anchor-id="model-card-structure">7.1 Model Card Structure</h3>
+</section>
+</section>
+<section id="model-card-your-model-name" class="level1">
+<h1>Model Card: [Your Model Name]</h1>
+<section id="model-details" class="level2">
+<h2 class="anchored" data-anchor-id="model-details">Model Details</h2>
+<ul>
+<li><strong>Model Type</strong>: Random Forest Classifier</li>
+<li><strong>Version</strong>: 1.0</li>
+<li><strong>Date</strong>: June 9, 2027</li>
+<li><strong>Developed By</strong>: [Your name/team]</li>
+</ul>
+</section>
+<section id="intended-use" class="level2">
+<h2 class="anchored" data-anchor-id="intended-use">Intended Use</h2>
+<p><strong>Primary Use Cases:</strong> - [Describe primary intended application] - [Context where model should be used]</p>
+<p><strong>Out-of-Scope Uses:</strong> - [Contexts where model should NOT be used] - [Scenarios where model may fail or cause harm]</p>
+</section>
+<section id="training-data" class="level2">
+<h2 class="anchored" data-anchor-id="training-data">Training Data</h2>
+<ul>
+<li><strong>Source</strong>: [Dataset name and source]</li>
+<li><strong>Size</strong>: [Number of samples]</li>
+<li><strong>Time Period</strong>: [When data was collected]</li>
+<li><strong>Geography</strong>: [Where data was collected]</li>
+<li><strong>Preprocessing</strong>: [Key preprocessing steps]</li>
+</ul>
+</section>
+<section id="evaluation-data" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-data">Evaluation Data</h2>
+<ul>
+<li><strong>Source</strong>: [Test set details]</li>
+<li><strong>Size</strong>: [Number of samples]</li>
+<li><strong>Split Method</strong>: [How test set was created]</li>
+</ul>
+</section>
+<section id="metrics" class="level2">
+<h2 class="anchored" data-anchor-id="metrics">Metrics</h2>
+<p><strong>Overall Performance:</strong> - Accuracy: X.XX - Precision: X.XX - Recall: X.XX - F1: X.XX</p>
+<p><strong>Performance by Group:</strong> - Group A: <a href="#metrics">Metrics</a> - Group B: <a href="#metrics">Metrics</a> - Performance Gap: [Description]</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<ol type="1">
+<li><strong>Data Limitations</strong>:
+<ul>
+<li>[Describe data quality issues, biases, or gaps]</li>
+<li>[Temporal or geographic limitations]</li>
+</ul></li>
+<li><strong>Model Limitations</strong>:
+<ul>
+<li>[Known failure modes or weak segments]</li>
+<li>[Assumptions that may not hold]</li>
+<li>[Performance disparities across groups]</li>
+</ul></li>
+<li><strong>Deployment Limitations</strong>:
+<ul>
+<li>[Contexts where model should not be used]</li>
+<li>[Required human oversight]</li>
+<li>[Monitoring requirements]</li>
+</ul></li>
+</ol>
+</section>
+<section id="ethical-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h2>
+<p><strong>Potential Harms:</strong> - [Allocation harms - who might be denied opportunities?] - [Quality-of-service harms - who might receive worse predictions?] - [Feedback loop risks - how might the model affect future data?]</p>
+<p><strong>Mitigation Strategies:</strong> - [What steps are taken to reduce harm?] - [How are performance disparities addressed?] - [What oversight mechanisms exist?]</p>
+</section>
+<section id="recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="recommendations">Recommendations</h2>
+<ol type="1">
+<li><strong>Usage Recommendations</strong>:
+<ul>
+<li>[How should model outputs be used?]</li>
+<li>[What human review is required?]</li>
+</ul></li>
+<li><strong>Monitoring</strong>:
+<ul>
+<li>[What metrics should be tracked over time?]</li>
+<li>[How often should model be re-evaluated?]</li>
+</ul></li>
+<li><strong>Update Schedule</strong>:
+<ul>
+<li>[When should model be retrained?]</li>
+<li>[What triggers retraining?]</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="pause-and-do-exercise-2-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="pause-and-do-exercise-2-10-minutes">📝 PAUSE-AND-DO Exercise 2 (10 minutes)</h2>
+<p><strong>Task:</strong> Draft a model card limitations section (6-8 lines).</p>
+<p><strong>Instructions:</strong> 1. Review the model card template above 2. Write a limitations section for your project model 3. Include data limitations, model limitations, and ethical considerations 4. Be specific and evidence-based</p>
+<hr>
+<section id="your-model-card-limitations-section" class="level3">
+<h3 class="anchored" data-anchor-id="your-model-card-limitations-section">YOUR MODEL CARD LIMITATIONS SECTION:</h3>
+</section>
+</section>
+<section id="limitations-1" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-1">Limitations</h2>
+<ol type="1">
+<li><p><strong>Data Limitations</strong>:<br>
+[Your text here - be specific]</p></li>
+<li><p><strong>Model Limitations</strong>:<br>
+[Your text here - reference specific performance issues]</p></li>
+<li><p><strong>Ethical Considerations</strong>:<br>
+[Your text here - discuss potential harms]</p></li>
+</ol>
+<hr>
+</section>
+<section id="wrap-up-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up-key-takeaways">8. Wrap-Up: Key Takeaways</h2>
+<section id="what-we-learned-today" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-learned-today">What We Learned Today:</h3>
+<ol type="1">
+<li><strong>Fairness Vocabulary</strong>: Disparity, harm, proxies, feedback loops</li>
+<li><strong>Slice Evaluation</strong>: Performance analysis by demographic groups</li>
+<li><strong>Fairness Metrics</strong>: Selection rate, TPR/FPR gaps, equalized odds</li>
+<li><strong>Model Cards</strong>: Structured documentation of model details and limitations</li>
+<li><strong>Responsible Communication</strong>: Honest disclosure of limitations and risks</li>
+</ol>
+</section>
+<section id="responsible-ai-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="responsible-ai-best-practices">Responsible AI Best Practices:</h3>
+<ul>
+<li>✓ Always evaluate performance across relevant demographic groups</li>
+<li>✓ Document known limitations and failure modes</li>
+<li>✓ Consider both allocation and quality-of-service harms</li>
+<li>✓ Be cautious about fairness claims - trade-offs are inevitable</li>
+<li>✓ Plan for monitoring and regular re-evaluation</li>
+<li>✓ Involve diverse stakeholders in evaluation and deployment decisions</li>
+</ul>
+</section>
+<section id="remember" class="level3">
+<h3 class="anchored" data-anchor-id="remember">Remember:</h3>
+<blockquote class="blockquote">
+<p><strong>“Perfect fairness is impossible - but honest documentation of limitations is essential.”</strong><br>
+Focus on transparency, not perfection.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
+<ul>
+<li>Barocas, S., Hardt, M., &amp; Narayanan, A. (2019). <em>Fairness and Machine Learning</em>. <a href="http://fairmlbook.org/">fairmlbook.org</a></li>
+<li>Hardt, M., Price, E., &amp; Srebro, N. (2016). “Equality of Opportunity in Supervised Learning.” <em>NeurIPS</em>.</li>
+<li>Mitchell, M., et al.&nbsp;(2019). “Model Cards for Model Reporting.” *FAT**.</li>
+<li>Chouldechova, A. (2017). “Fair prediction with disparate impact.” <em>Big Data</em>.</li>
+<li>Selbst, A.D., et al.&nbsp;(2019). “Fairness and Abstraction in Sociotechnical Systems.” *FAT**.</li>
+</ul>
+<hr>
+<p><strong>End of Day 17 Notebook</strong> 🎉</p>
+<p><strong>Next:</strong> Day 18 - Deployment Thinking: Reproducibility and Monitoring</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

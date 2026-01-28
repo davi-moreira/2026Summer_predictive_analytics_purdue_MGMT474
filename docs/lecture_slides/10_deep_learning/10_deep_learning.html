@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Professor: Davi Moreira">
-  <title>MGMT 47400: Predictive Analytics –  MGMT 47400: Predictive Analytics </title>
+  <title>MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive) –  MGMT 47400: Predictive Analytics </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-c812a774c17cd743a31b19f8745c44ab.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-96a67a1340eb436771fd03060be7db16.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -619,7 +619,7 @@ XXXXXXXXXXXXXXXXx
 <p>The code below extracts a single image‑tensor from the <code>training_data</code> used in the tutorial (you can use <code>test_data</code> the same way), prints its basic properties, and visualizes it.</p>
 <div class="cell" style="font-size: 80%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a><span class="co"># Choose the index of the image you wish to inspect</span></span>
@@ -637,7 +637,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb1-16"><a></a>plt.imshow(image_tensor.squeeze(), cmap<span class="op">=</span><span class="st">"gray"</span>)</span>
 <span id="cb1-17"><a></a>plt.title(<span class="ss">f"Fashion‑MNIST class</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-18"><a></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb1-19"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -673,7 +673,7 @@ XXXXXXXXXXXXXXXXx
 <p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
 <span id="cb2-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb2-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
 <span id="cb2-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
@@ -688,7 +688,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb2-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb2-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
 <span id="cb2-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
-<span id="cb2-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-16"><a></a>        <span class="cf">return</span> logits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>What Are We Doing?</strong></p>
@@ -720,7 +720,7 @@ XXXXXXXXXXXXXXXXx
 <p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
 <span id="cb3-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb3-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
 <span id="cb3-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
@@ -735,18 +735,18 @@ XXXXXXXXXXXXXXXXx
 <span id="cb3-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb3-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
 <span id="cb3-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
-<span id="cb3-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a></a>        <span class="cf">return</span> logits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Define a sequence of layers:</strong></p>
 <p>Here we build the main body of the neural network.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
 <span id="cb4-2"><a></a>    nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
 <span id="cb4-3"><a></a>    nn.ReLU(),</span>
 <span id="cb4-4"><a></a>    nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
 <span id="cb4-5"><a></a>    nn.ReLU(),</span>
 <span id="cb4-6"><a></a>    nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
-<span id="cb4-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In most contexts when we say “how many layers?” we refer to the learnable ones. So this network has <strong>three fully‑connected (Linear) layers, with ReLU activations in between</strong>.</p>
 <ul>
 <li class="fragment">You can think of the linear layer as a <strong>filter</strong> that projects the image into a <strong>new space with 512 dimensions</strong>. These new values are <strong>not pixels</strong> anymore, but rather <strong>abstract features</strong> learned by the network.</li>
@@ -762,7 +762,7 @@ XXXXXXXXXXXXXXXXx
 <p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
 <span id="cb5-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb5-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
 <span id="cb5-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
@@ -777,7 +777,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb5-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb5-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
 <span id="cb5-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
-<span id="cb5-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-16"><a></a>        <span class="cf">return</span> logits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Define a sequence of layers:</strong></p>
@@ -808,7 +808,7 @@ XXXXXXXXXXXXXXXXx
 <p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
 <span id="cb6-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb6-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
 <span id="cb6-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
@@ -823,7 +823,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb6-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb6-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
 <span id="cb6-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
-<span id="cb6-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-16"><a></a>        <span class="cf">return</span> logits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Define a sequence of layers:</strong></p>
@@ -847,7 +847,7 @@ XXXXXXXXXXXXXXXXx
 <p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
 <span id="cb7-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb7-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
 <span id="cb7-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
@@ -862,7 +862,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb7-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
 <span id="cb7-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
 <span id="cb7-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
-<span id="cb7-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-16"><a></a>        <span class="cf">return</span> logits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Define a sequence of layers:</strong></p>
@@ -894,13 +894,13 @@ XXXXXXXXXXXXXXXXx
 <div class="column" style="width:50%;">
 <p>We create an instance of <code>NeuralNetwork</code>, and move it to the <code>device</code>, and print its structure.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
-<span id="cb8-2"><a></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
+<span id="cb8-2"><a></a><span class="bu">print</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To use the model, we pass it the input data.</p>
 <p><strong>Example</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
 <span id="cb9-2"><a></a>logits <span class="op">=</span> model(X)</span>
 <span id="cb9-3"><a></a>pred_probab <span class="op">=</span> nn.Softmax(dim<span class="op">=</span><span class="dv">1</span>)(logits)</span>
 <span id="cb9-4"><a></a>y_pred <span class="op">=</span> pred_probab.argmax(<span class="dv">1</span>)</span>
@@ -917,7 +917,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb9-15"><a></a>plt.imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)  <span class="co"># Use 'gray' colormap for grayscale image</span></span>
 <span id="cb9-16"><a></a>plt.title(<span class="st">"Random 28x28 Image"</span>)</span>
 <span id="cb9-17"><a></a>plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb9-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-18"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
@@ -930,17 +930,17 @@ XXXXXXXXXXXXXXXXx
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># To see tensor:</span></span>
-<span id="cb10-2"><a></a><span class="bu">print</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># To see tensor:</span></span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
 <p>Let’s say the tensor shown is:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>X <span class="op">=</span> torch.tensor([[</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>X <span class="op">=</span> torch.tensor([[</span>
 <span id="cb11-2"><a></a>    [<span class="fl">0.1177</span>, <span class="fl">0.2669</span>, <span class="fl">0.6367</span>, <span class="fl">0.6148</span>, <span class="fl">0.3085</span>, ...],  <span class="co"># row 0</span></span>
 <span id="cb11-3"><a></a>    [<span class="fl">0.8672</span>, <span class="fl">0.3645</span>, <span class="fl">0.4822</span>, <span class="fl">0.9566</span>, <span class="fl">0.8999</span>, ...],  <span class="co"># row 1</span></span>
 <span id="cb11-4"><a></a>    ...</span>
-<span id="cb11-5"><a></a>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a></a>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">This is a <strong>3D tensor</strong> of shape <code>[1, 28, 28]</code>:
@@ -965,13 +965,13 @@ XXXXXXXXXXXXXXXXx
 <div class="column" style="width:50%;">
 <p>We create an instance of <code>NeuralNetwork</code>, and move it to the <code>device</code>, and print its structure.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
-<span id="cb12-2"><a></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
+<span id="cb12-2"><a></a><span class="bu">print</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To use the model, we pass it the input data.</p>
 <p><strong>Example</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
 <span id="cb13-2"><a></a>logits <span class="op">=</span> model(X)</span>
 <span id="cb13-3"><a></a>pred_probab <span class="op">=</span> nn.Softmax(dim<span class="op">=</span><span class="dv">1</span>)(logits)</span>
 <span id="cb13-4"><a></a>y_pred <span class="op">=</span> pred_probab.argmax(<span class="dv">1</span>)</span>
@@ -988,7 +988,7 @@ XXXXXXXXXXXXXXXXx
 <span id="cb13-15"><a></a>plt.imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)  <span class="co"># Use 'gray' colormap for grayscale image</span></span>
 <span id="cb13-16"><a></a>plt.title(<span class="st">"Random 28x28 Image"</span>)</span>
 <span id="cb13-17"><a></a>plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb13-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-18"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
@@ -2476,13 +2476,14 @@ v_T
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
