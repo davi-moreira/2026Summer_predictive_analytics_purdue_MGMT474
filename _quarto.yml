@@ -5,7 +5,7 @@ project:
   
 
 website:
-  title: "MGMT 47400: Predictive Analytics"
+  title: "MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
   sidebar:
     background: primary
     logo: "images/mgmt_474_ai_logo_02-modified.png"
@@ -13,7 +13,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/davi-moreira/2025F_predictive_analytics_purdue_MGMT474
+        href: https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474
         text: GitHub
     style: docked
     contents:
