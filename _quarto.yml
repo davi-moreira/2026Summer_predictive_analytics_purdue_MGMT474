@@ -2,7 +2,11 @@
 project:
   type: website
   output-dir: docs
-  
+  render:
+    - "*.qmd"
+    - "!DAY1_NOTEBOOK_UPDATE_PLAN.md"
+    - "!CLAUDE_MD_PLAN.md"
+
 
 website:
   title: "MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
