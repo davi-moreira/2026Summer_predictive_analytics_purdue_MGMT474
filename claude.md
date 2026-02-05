@@ -32,6 +32,43 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 - **Student-first:** Every change should improve student learning experience
 - **Reproducibility:** All code must run in fresh Colab environment
 
+### 🚨 CRITICAL WORKFLOW - Commit AND Update Webpage
+
+**EVERY TIME you make changes to course content, you MUST:**
+
+1. **Commit your changes** to git
+2. **Render the Quarto site** (`quarto render`)
+3. **Commit the rendered docs/** folder
+4. **Push to GitHub**
+
+**Why this matters:**
+- GitHub Pages serves the `docs/` folder
+- Changes to `.qmd` files or notebooks won't appear on the website until docs/ is rendered and committed
+- The course website is the student-facing interface - it MUST stay up-to-date
+
+**Standard workflow after ANY content change:**
+```bash
+# 1. Commit your content changes
+git add notebooks/XX_topic.ipynb  # or schedule.qmd, syllabus.qmd, etc.
+git commit -m "feat: Update Day X notebook
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+# 2. Render Quarto site
+/Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto render
+
+# 3. Commit rendered docs/
+git add docs/
+git commit -m "build: Render Quarto site for Day X updates
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+# 4. Push everything
+git push origin main
+```
+
+**Remember:** If you don't render and commit docs/, students won't see your changes on the website!
+
 ---
 
 ## 📁 Repository Structure
@@ -127,7 +164,7 @@ sns.set_style('whitegrid')
 plt.rcParams['figure.figsize'] = (10, 6)
 
 # Set random seed for reproducibility
-RANDOM_SEED = 42
+RANDOM_SEED = 474
 np.random.seed(RANDOM_SEED)
 
 print("✓ Setup complete!")
@@ -209,7 +246,7 @@ print(f"Random seed: {RANDOM_SEED}")
 
 ### Style Guidelines
 
-- **Random seed:** Always `RANDOM_SEED = 42`
+- **Random seed:** Always `RANDOM_SEED = 474` (NOT 42)
 - **Train/Val/Test split:** Always 60/20/20
 - **Figure size:** `plt.rcParams['figure.figsize'] = (10, 6)`
 - **Display precision:** `pd.set_option('display.precision', 3)`
@@ -391,14 +428,14 @@ git push origin main
 - Sufficient validation data for tuning
 - Realistic test set size
 
-### Decision 3: RANDOM_SEED = 42 Everywhere
-**Decision:** All random operations use seed 42
+### Decision 3: RANDOM_SEED = 474 Everywhere
+**Decision:** All random operations use seed 474 (MGMT 474 course number)
 
 **Rationale:**
 - Complete reproducibility
 - Students get identical outputs
 - Easier to debug (same results every time)
-- Industry-standard "joke" seed
+- Course-specific seed (MGMT 474)
 
 ### Decision 4: Google Colab + Gemini (Not Local Jupyter)
 **Decision:** Primary platform is Google Colab, not local installations
@@ -459,7 +496,7 @@ git push origin main
 - **Why:** Avoid committing temp files, secrets, or broken code
 
 ### ❌ DON'T: Change Random Seeds
-- Always use `RANDOM_SEED = 42`
+- Always use `RANDOM_SEED = 474`
 - **Why:** Breaks reproducibility, students get different results
 
 ### ❌ DON'T: Skip Testing in Colab
@@ -474,9 +511,11 @@ git push origin main
 - Always APPEND to the log, never replace
 - **Why:** Lose project history and context
 
-### ❌ DON'T: Push Without Rendering Quarto
-- Always run `quarto render` before pushing website changes
-- **Why:** GitHub Pages serves docs/, must be up-to-date
+### ❌ DON'T: Push Content Changes Without Rendering Quarto
+- ALWAYS run `quarto render` and commit docs/ after ANY content change
+- This includes: .qmd files, notebooks, images, syllabus, schedule
+- **Why:** GitHub Pages serves docs/, not the source files. If you don't render and commit docs/, the website won't update even though you pushed your changes!
+- **Common mistake:** Updating a notebook, committing it, pushing, but forgetting to render → website shows old version
 
 ### ❌ DON'T: Add Complexity Without Request
 - No extra features, refactoring, or "improvements" unless asked
@@ -608,12 +647,16 @@ At the beginning of EVERY session:
 
 At the end of EVERY session:
 - [ ] All changes committed with clear messages
+- [ ] **CRITICAL:** If ANY content changed (.qmd files, notebooks, images):
+  - [ ] Run `quarto render`
+  - [ ] Commit docs/ folder
 - [ ] CONVERSATION_LOG.md updated with session summary
-- [ ] If website changed: Quarto rendered and docs/ committed
 - [ ] If notebooks changed: Tested in Colab
-- [ ] Git pushed to origin main
+- [ ] Git pushed to origin main (includes BOTH content AND docs/)
 - [ ] Provide clear summary to user of what was accomplished
 - [ ] List any remaining work for next session
+
+**Note:** The most common mistake is forgetting to render Quarto and commit docs/. This causes the website to be out of sync with the repository content.
 
 ---
 
