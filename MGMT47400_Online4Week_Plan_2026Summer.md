@@ -94,7 +94,13 @@ For each topic/day, content follows a repeating loop:
   - Setup (installs, imports, seeds, display settings)
   - Gemini workflow rules (“ask → verify → document”)
   - Load dataset (course-provided sample)
-  - EDA checklist (tables + plots)
+  - EDA checklist (Section 6 in notebook):
+    - 6.1 Data Types Audit — `df.dtypes` and `df.info()` to confirm all features are numeric, identify column count, and verify no unexpected object/string columns
+    - 6.2 Missingness Check — per-column missing count and percentage table; confirms California Housing has zero missing values
+    - 6.3 Basic Descriptive Statistics — `df.describe()` summary (mean, std, min, quartiles, max) across all features and target; students spot scale differences and outlier-prone columns (AveRooms, AveOccup, Population)
+    - 6.4 Target Distribution — side-by-side histogram and box plot of MedHouseVal with mean/median reference lines; reveals right skew and the $500k cap; outputs key statistics (count, mean, median, std, min, max)
+    - 6.5 Feature Distributions — 3×3 grid of histograms (one per feature) with mean reference lines; highlights MedInc right skew, HouseAge uniformity, Population heavy tail, and Latitude/Longitude geographic clustering
+    - 6.6 Correlation Analysis — annotated heatmap of the full correlation matrix plus sorted correlations with target; confirms MedInc is the strongest predictor (r ≈ 0.69) and surfaces multicollinearity (AveRooms–AveBedrms)
   - Splits (train/val/test) + leakage sniff test
   - Wrap-up: key takeaways + “next-day readiness” cells
 
