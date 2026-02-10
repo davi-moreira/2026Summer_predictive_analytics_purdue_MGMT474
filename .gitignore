@@ -76,3 +76,5 @@ _command_line_activity_solution_files/
 *.tmp
 *.bak
 .scratch/
+
+**/*.quarto_ipynb

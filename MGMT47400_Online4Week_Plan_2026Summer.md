@@ -52,19 +52,41 @@ For each topic/day, content follows a repeating loop:
 ## Day 1 — Tue May 18  
 ### Launchpad: Colab workflow, Gemini vibe-coding, EDA, and splitting correctly  
 **Learning objectives**
-- Operate course workflow in Google Colab (run-all, save-copy, submit link).
+- Course Syllabus and Logistics
+- Operate course workflow in Google Colab (run-all, save-copy, etc.).
 - Use Gemini in Colab to accelerate coding while preserving accountability (explain + verify).
+- Understand the Predictive Analytics Workflow
 - Perform structured EDA (types, missingness, target distribution, leakage sniff test).
 - Create train/validation/test splits with reproducible seeds.
 - Identify obvious leakage patterns before modeling.
 
 **Micro-videos (total 54 min)**
-1. Concept+demo: Colab setup + course notebook conventions (10)  
-2. Guided practice: EDA checklist (what to compute/plot first) (8)  
-3. Solution: EDA walkthrough + common plotting/data-type mistakes + extensions (9)  
-4. Concept+demo: Train/validation/test and why leakage happens (10)  
-5. Guided practice: Implement reproducible splits + sanity checks (8)  
-6. Solution: Split validation + leakage red flags + extension: stratified splits (9)
+1. Welcome and Introductions 
+  1.1 Instructor
+  1.2 Students
+2. Course Syllabus and Logistics
+  2.1 Course Brightspace Page
+  2.2 Course Syllabus
+  2.3 Grade
+  2.4 Quizzes
+  2.5 Course Case competition
+  2.6 Final Project
+  2.7 AI Policy
+3. Concept+demo: Colab setup + course notebook conventions (10)  
+4. Introduction to Predictive Analytics
+  4.1 Examples
+  4.2 Supervised vs Unsupervised Learning Models: we will focus on Supervised models
+  4.3 End-to-End Workflow
+  4.4 Data Leakage
+  4.5 Assessing model accuracy
+  4.6 The curse of dimensionality
+  4.7 Flexibility vs. Interpretability
+  4.8 Bias-Variance Trade-off
+5. Guided practice: EDA checklist (what to compute/plot first) (8)  
+6. Solution: EDA walkthrough + common plotting/data-type mistakes + extensions (9)  
+7. Concept+demo: Train/validation/test and why leakage happens (10)  
+8. Guided practice: Implement reproducible splits + sanity checks (8)  
+9. Solution: Split validation + leakage red flags + extension: stratified splits (9)
 
 **Notebook(s)**
 - File: `01_launchpad_eda_splits.ipynb`  
