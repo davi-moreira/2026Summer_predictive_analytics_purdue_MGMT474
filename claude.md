@@ -50,9 +50,9 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 ```bash
 # 1. Commit your content changes
 git add notebooks/XX_topic.ipynb  # or schedule.qmd, syllabus.qmd, etc.
-git commit -m "feat: Update Day X notebook
+git commit -m "feat: Update notebook XX
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 
 # 2. Render Quarto site
 /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto render
@@ -116,20 +116,32 @@ git push origin main
 
 ### Notebook Structure (MUST FOLLOW)
 
+> **Canonical reference:** `notebooks/01_launchpad_eda_splits.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
+
 Every notebook MUST include these sections in order:
 
 #### 1. Header Cell (Markdown)
 ```markdown
-# Day X: [Topic Title]
+# [Topic Title]
 
-**MGMT 47400 - Predictive Analytics**
-**4-Week Online Course**
-**Day X - [Day of Week] [Month Day], 2027**
+<hr>
+
+<center>
+<div>
+<img src="https://raw.githubusercontent.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/main/notebooks/figures/mgmt_474_ai_logo_02-modified.png" width="200"/>
+</div>
+</center>
+
+# <center><a class="tocSkip"></center>
+# <center>MGMT47400 Predictive Analytics</center>
+# <center>Professor: Davi Moreira </center>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic.ipynb)
 
 ---
 ```
+
+**Important:** No "Day X:" prefix in titles. No date lines. Notebooks are self-paced and should not reference specific days or dates.
 
 #### 2. Learning Objectives (Markdown)
 ```markdown
@@ -231,8 +243,15 @@ print(f"Random seed: {RANDOM_SEED}")
 - scikit-learn User Guide: [Relevant section](URL)
 
 ---
+```
 
-**End of Day X Notebook** 🎉
+#### 8. Thank You Cell (Markdown, final cell)
+```markdown
+<center>
+
+Thank you!
+
+</center>
 ```
 
 ### Naming Conventions
@@ -242,7 +261,7 @@ print(f"Random seed: {RANDOM_SEED}")
   - Types: `feat`, `docs`, `chore`, `build`, `fix`
   - Always include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
 - **Variables:** `lowercase_with_underscores` (Python convention)
-- **Constants:** `UPPERCASE` (e.g., `RANDOM_SEED = 42`)
+- **Constants:** `UPPERCASE` (e.g., `RANDOM_SEED = 474`)
 
 ### Style Guidelines
 
@@ -263,9 +282,9 @@ print(f"Random seed: {RANDOM_SEED}")
 
 ### Task 1: Add a New Notebook
 
-1. **Choose the right day number** (01-20)
-2. **Copy structure from existing notebook** (e.g., `01_launchpad_eda_splits.ipynb`)
-3. **Update header** with correct day, date, topic
+1. **Choose the right notebook number** (01-20)
+2. **Copy structure from canonical notebook** (`01_launchpad_eda_splits.ipynb`)
+3. **Update header** with correct topic title (no "Day X:" prefix, no date)
 4. **Update Colab badge URL** to match filename
 5. **Write 4-5 learning objectives**
 6. **Follow the established section structure**

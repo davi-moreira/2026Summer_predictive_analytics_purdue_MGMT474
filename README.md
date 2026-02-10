@@ -112,7 +112,7 @@ All course materials are designed to run directly in Google Colab with no local 
 
 ## Course Notebooks
 
-All notebooks are designed to run in Google Colab with one-click access. Each notebook includes setup, imports, learning objectives, guided exercises, and "pause-and-do" activities.
+All notebooks are designed to run in Google Colab with one-click access. Each notebook follows a standardized format: course logo and instructor header, learning objectives, setup, content sections, PAUSE-AND-DO exercises, wrap-up, bibliography, and a closing cell. The canonical reference for notebook structure is `01_launchpad_eda_splits.ipynb`. All notebooks use `RANDOM_SEED = 474` for reproducibility.
 
 | Day | Date | Topic | Notebook | Colab Link |
 |-----|------|-------|----------|------------|
