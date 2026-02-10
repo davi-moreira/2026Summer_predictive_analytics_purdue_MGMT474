@@ -62,6 +62,9 @@ _command_line_activity_solution.qmd
 _command_line_activity_solution.html
 _command_line_activity_solution_files/
 
+# Instructor solution notebooks (keep out of public repo)
+notebooks/*_instructor*.ipynb
+
 # Large files (exclude from repo, link instead)
 *.zip
 *.mp4
