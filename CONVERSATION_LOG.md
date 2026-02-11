@@ -1152,3 +1152,66 @@ Standardize all 20 notebooks to the canonical format established by notebook 01,
 - [ ] Continue developing remaining notebook content
 
 ---
+
+## Session 5: February 10, 2026
+
+### Objective
+Enrich all 19 notebooks (02-20) with explanatory "Reading the output:" markdown cells and expanded section headers, matching the canonical style established in notebook 01.
+
+### Work Completed
+
+**Enrichment of Notebooks 02-20:**
+- Added **155 "Reading the output:" markdown cells** across all 19 notebooks
+- Expanded **~69 thin section headers** with 2-4 sentences of context
+- Every code cell that produces visible output now has an explanation cell after it
+- Each explanation follows the canonical pattern: bold metrics, interpretation guidance, "Why this matters" / "Key takeaway" blocks, closing `---`
+
+**Per-Notebook Cell Counts (Before → After):**
+
+| Notebook | Before | After | Added |
+|----------|--------|-------|-------|
+| 02 Preprocessing Pipelines | 28 | 37 | +9 |
+| 03 Regression Metrics & Baselines | 27 | 37 | +10 |
+| 04 Linear Features & Diagnostics | 23 | 31 | +8 |
+| 05 Regularization & Project Proposal | 24 | 31 | +7 |
+| 06 Logistic Pipelines | 25 | 34 | +9 |
+| 07 Classification Metrics | 24 | 33 | +9 |
+| 08 Cross-Validation & Model Comparison | 22 | 29 | +7 |
+| 09 Tuning & Feature Engineering | 22 | 30 | +8 |
+| 10 Midterm Casebook | 19 | 20 | +1 |
+| 11 Decision Trees | 21 | 28 | +7 |
+| 12 Random Forests | 25 | 34 | +9 |
+| 13 Gradient Boosting | 24 | 32 | +8 |
+| 14 Model Selection Protocol | 24 | 33 | +9 |
+| 15 Interpretation & Error Analysis | 35 | 45 | +10 |
+| 16 Decision Thresholds & Calibration | 27 | 37 | +10 |
+| 17 Fairness & Model Cards | 23 | 29 | +6 |
+| 18 Reproducibility & Monitoring | 43 | 56 | +13 |
+| 19 Project Narrative & Video | 30 | 38 | +8 |
+| 20 Final Submission & Peer Review | 26 | 33 | +7 |
+| **Total** | **492** | **647** | **+155** |
+
+**Quality Fixes:**
+- Fixed 116 char-level source arrays (from NotebookEdit tool) to proper line-level format
+- Verified zero "Day X" references across all notebooks
+- Verified all RANDOM_SEED = 474
+
+**Files Changed:**
+- 19 notebook files modified: `notebooks/02_*.ipynb` through `notebooks/20_*.ipynb`
+
+### Technical Notes
+- Enrichment was parallelized across 4 background agents for efficiency
+- Some agents used Python scripts (json.load/dump), others used NotebookEdit tool
+- NotebookEdit tool created char-level source arrays (each character as a separate element) which rendered correctly but were non-standard; fixed with a normalization script
+- Back-to-front insertion strategy preserved cell indices during enrichment
+
+### Commits
+- `b095dea` - feat: Add explanatory markdown to all course notebooks (02-20)
+- `90e0c83` - build: Render Quarto site with enriched notebooks
+
+### Next Steps
+- [ ] Test enriched notebooks in Google Colab (verify markdown renders correctly)
+- [ ] Review explanation content for accuracy against actual code outputs
+- [ ] Continue developing remaining course content
+
+---
