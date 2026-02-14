@@ -17,11 +17,11 @@ This guide covers:
    - `SimpleImputer` — anticipates real-world missingness even though the demo dataset is complete
    - `LinearRegression` — deliberately simple baseline so focus stays on pipeline mechanics
 
-5. **Suggested video structure** — both single-video (10-12 min) and multi-video (2-3 segments) formats with timing
+5. **Common student questions** with answers (e.g., why not `pd.get_dummies()`?, why scale if LinearRegression doesn't need it?)
 
-6. **Common student questions** with answers (e.g., why not `pd.get_dummies()`?, why scale if LinearRegression doesn't need it?)
+6. **Connection to the full course arc** — how the pipeline template from NB02 is reused in all 18 subsequent notebooks
 
-7. **Connection to the full course arc** — how the pipeline template from NB02 is reused in all 18 subsequent notebooks
+7. **Suggested video structure** — both single-video (~12 min) and three-video (~4-5 min each) formats with speaking prompts, timestamps, and notebook cell references
 
 ---
 
@@ -228,28 +228,7 @@ After watching your video and completing this notebook, students should be able 
 
 ---
 
-## 7. Suggested Video Structure
-
-If you are recording **one video** for this notebook (~10-12 minutes):
-
-| Segment | Duration | Content |
-|---|---|---|
-| **Opening** | 1 min | "In the previous notebook we learned to split data and avoid leakage. Today we build the infrastructure that makes safe preprocessing automatic." |
-| **Why pipelines** | 2 min | Walk through the leakage example (wrong vs. right). Show how Pipeline makes it impossible to leak. |
-| **Data audit** | 2 min | Run `make_data_report()`. Explain what you look for: types, missing values, cardinality. |
-| **ColumnTransformer** | 3 min | Build the numeric and categorical pipelines. Explain why each step exists (imputer → scaler, imputer → encoder). |
-| **Full pipeline + results** | 2 min | Chain preprocessor + LinearRegression. Show R² ≈ 0.60. Discuss what this means and what comes next. |
-| **Closing** | 1 min | "This pipeline template will be the starting point for every model in this course. Next notebook: we learn how to *measure* model quality properly." |
-
-If you are recording **multiple shorter videos** (2-3 videos of 5-6 minutes):
-
-- **Video 1:** Motivation + Data Audit (Sections 1-3)
-- **Video 2:** ColumnTransformer + Pipeline + Results (Sections 4-5)
-- **Video 3:** Exercises + Checklist + Wrap-Up (Sections 5-7)
-
----
-
-## 8. Common Student Questions (Anticipate These)
+## 7. Common Student Questions (Anticipate These)
 
 **Q: "If LinearRegression doesn't need scaling, why do we scale?"**
 A: Because the pipeline is a *template*. In NB05, we swap LinearRegression for Ridge/Lasso, which *do* need scaling. By scaling from the start, the swap requires changing one line instead of restructuring the entire pipeline.
@@ -268,7 +247,7 @@ A: `get_dummies()` is a pandas function that works on the *entire DataFrame at o
 
 ---
 
-## 9. Connection to the Broader Course Arc
+## 8. Connection to the Broader Course Arc
 
 | Week | Notebooks | What NB02's Pipeline Enables |
 |---|---|---|
@@ -278,6 +257,168 @@ A: `get_dummies()` is a pandas function that works on the *entire DataFrame at o
 | **Week 4** | 16-20 | Pipeline is serialized for deployment (NB18), used in final project (NB20) |
 
 **The pipeline is the backbone of the entire course.** Every modeling notebook from NB03 onward follows the same structure: load → split → preprocess (pipeline) → model → evaluate. NB02 is where students learn this structure for the first and most important time.
+
+---
+
+## 9. Suggested Video Structure
+
+Below are two recording options. Each segment includes the **speaking prompt** (what to say), **timestamps**, and the **notebook cells** to show on screen.
+
+All cell references use the format `Cell N` where N is the zero-indexed cell number in `02_preprocessing_pipelines.ipynb`.
+
+---
+
+### Option A: Single Video (~12 minutes)
+
+#### Segment 1 — Opening & Motivation `[0:00–1:30]`
+
+> **Show:** Cell 0 (header) and Cell 1 (learning objectives) on screen.
+
+**Say:**
+
+"Welcome back. In the previous notebook we learned three things: how to split data into train, validation, and test sets; what data leakage is; and why we must split *before* we do anything else to the data. We ended with a promise — split first, preprocess second, model third. Today we deliver on that promise. We are going to build a preprocessing pipeline — a single scikit-learn object that handles imputation, scaling, and encoding, all while guaranteeing that no information from the validation or test sets leaks into our training process. By the end of this notebook, you will have a reusable template that you will use in every single notebook for the rest of this course."
+
+> **Action:** Scroll through the 5 learning objectives in Cell 1, briefly reading each one aloud.
+
+---
+
+#### Segment 2 — Setup & Data Loading `[1:30–3:00]`
+
+> **Show:** Cell 2 (setup explanation), then **run** Cell 3 (imports).
+
+**Say:**
+
+"Let's start with our standard setup. Every notebook in this course begins the same way — we import pandas, numpy, matplotlib, seaborn, and our scikit-learn tools. Notice the new imports here that we did not have in notebook 01: Pipeline, ColumnTransformer, StandardScaler, SimpleImputer, and OneHotEncoder. Each one has a specific job in the preprocessing chain, and I will explain them as we build the pipeline. As always, we lock the random seed to 474 — the course number — so every split and every result is reproducible."
+
+> **Run** Cell 3. Point to the `✓ Setup complete!` output.
+
+> **Show:** Cell 5 (dataset explanation), then **run** Cell 6 (load data).
+
+**Say:**
+
+"We continue with the California Housing dataset from notebook 01 — about 20,000 census block-groups with 8 numeric features and a target variable, median house value. Since you already explored this data in the previous notebook, we can move quickly here."
+
+> **Run** Cell 6. Point to the shape (20640, 9) and the `.head()` preview.
+
+> **Run** Cell 8 (split). Point to the 60/20/20 percentages.
+
+**Say:**
+
+"And here is our 60-20-20 split — same pattern as notebook 01. Training set: about 12,000 samples. Validation: about 4,000. Test: about 4,000. The test set is locked away — we will not touch it until the very end of the course. Everything we do today uses only the training and validation sets."
+
+---
+
+#### Segment 3 — Data Audit `[3:00–5:00]`
+
+> **Show:** Cell 10 (data audit explanation), then **run** Cell 11 (`make_data_report` on training set).
+
+**Say:**
+
+"Before we preprocess anything, we audit the training data. This function checks three things for every column: the data type, how many values are missing, and how many unique values there are. Think of it as a health check-up for your data. On this dataset, the audit is clean — all 8 features are float64, zero missing values, and the unique counts look reasonable. But in your course project, this will not always be the case. You might find string columns that should be numeric, missing values in 30% of a column, or a categorical column with 10,000 unique values. Running this audit first saves you from surprises later."
+
+> **Run** Cell 14 (audit on validation and test sets).
+
+**Say:**
+
+"Now we run the same audit on the validation and test sets. We are looking for consistency — same data types, similar distributions of unique values, no unexpected missingness. If you ever see a column that is float64 in training but object in validation, something went wrong in your data loading. This three-way comparison is a simple but powerful sanity check."
+
+> **Mention:** "Pause the video here and complete Exercise 1 — run the audit on all three splits and document any differences." Point to Cell 13 (PAUSE-AND-DO 1).
+
+---
+
+#### Segment 4 — Building the ColumnTransformer `[5:00–8:00]`
+
+> **Run** Cell 17 (identify column types). Point to the output: 8 numeric, 0 categorical.
+
+**Say:**
+
+"Before we build the pipeline, we need to know what types of columns we have. We use `select_dtypes` to automatically separate numeric and categorical features. This dataset is all numeric, but we write the code to handle both types because your project data will almost certainly have categorical columns — things like neighborhood names, product categories, or yes/no flags."
+
+> **Show:** Cell 19 (pipeline design principles), then **run** Cell 20 (build preprocessor).
+
+**Say:**
+
+"Now the heart of this notebook — the ColumnTransformer. Here is what it does: it takes your feature matrix and routes different columns through different transformation pipelines. Numeric features go through two steps: first, SimpleImputer with median strategy fills any missing values; then StandardScaler centers each feature to mean zero and standard deviation one. Categorical features go through a different path: SimpleImputer fills missing values with the string 'missing', then OneHotEncoder converts each category into binary columns. The ColumnTransformer applies these transformations in parallel and concatenates the results into one clean matrix.
+
+Two things I want you to notice. First, the imputer uses median, not mean. Why? Because median is robust to outliers. If you have a column where most values are between 2 and 5 but one row has a value of 1,200 — which happens in this dataset — the mean would be pulled way up, but the median stays sensible. Second, we include the categorical path even though this dataset has zero categorical columns. That is intentional. When you swap in a different dataset for your project, this same code works without changes. Build the pipeline right once, reuse it everywhere."
+
+> **Show:** Cell 22 (full pipeline explanation), then **run** Cell 23 (fit pipeline + scores).
+
+**Say:**
+
+"Now we chain the ColumnTransformer with a model — LinearRegression — into a single Pipeline object. When I call `pipeline.fit(X_train, y_train)`, three things happen in sequence: the imputer computes medians from the training data, the scaler computes means and standard deviations from the training data, and the linear regression fits its coefficients on the scaled training data. All from one line of code. And when I call `pipeline.score(X_val, y_val)`, the validation data is transformed using the *training* statistics — not its own. That is how the pipeline prevents leakage by construction.
+
+The results: train R-squared is about 0.60, validation R-squared is about 0.62. The gap is tiny — essentially no overfitting. But R-squared of 0.60 means this linear model explains only 60 percent of the variance in house prices. That is a reasonable *baseline*, not a great model. In the next notebooks, we will learn how to measure this properly and then improve it with feature engineering, regularization, and more flexible models."
+
+---
+
+#### Segment 5 — Inspecting the Pipeline `[8:00–9:30]`
+
+> **Run** Cell 26 (get feature names).
+
+**Say:**
+
+"One more important skill — inspecting what comes out of the pipeline. The `get_feature_names_out` method shows every column that exits the ColumnTransformer. Notice the `num__` prefix on each name — that tells you which transformer created it. In this case, 8 features went in and 8 came out, just rescaled. If we had categorical columns, you would see `cat__` prefixed columns — one for each category created by the one-hot encoder. Being able to trace transformed features back to their original names is essential when you start interpreting model coefficients in later notebooks."
+
+> **Mention:** "Pause the video here and complete Exercise 2 — experiment with different imputation strategies and compare validation scores." Point to Cell 28 (PAUSE-AND-DO 2).
+
+---
+
+#### Segment 6 — Checklist, Wrap-Up & Closing `[9:30–12:00]`
+
+> **Show:** Cell 33 (Pipeline Done Right Checklist). Read through the 4 categories.
+
+**Say:**
+
+"Before we wrap up, let me walk through the Pipeline Done Right Checklist. This is your quality control for every pipeline you build in this course. Pre-fitting: did you split before building the pipeline? Did you identify your column types? Fitting: did you fit only on training data? Is the model the last step? Evaluation: did you evaluate on validation, not test? Is the train-val gap reasonable? Code quality: are your parameters explicit? Can you explain every step? Go through this checklist every time."
+
+> **Show:** Cell 34 (Wrap-Up).
+
+**Say:**
+
+"Let me leave you with two critical rules. First: fit only on training data. Any statistics — means, medians, category lists — must come from the training set only. If you compute them on the full dataset, you have leakage, and your evaluation numbers are lying to you. Second: put everything inside the pipeline. If you do preprocessing manually — scaling here, encoding there, fitting the model over here — you will eventually make a mistake. The pipeline makes that mistake structurally impossible.
+
+This pipeline template — load, split, audit, ColumnTransformer, Pipeline, fit, evaluate — is the starting point for every single model in this course. In the next notebook, we will learn how to properly *measure* model quality using regression metrics like MAE and RMSE, and we will establish baseline models that give us a floor to beat. See you there."
+
+> **Show:** Cell 35 (Submission Instructions) briefly, then Cell 36 (Thank You).
+
+---
+
+### Option B: Three Shorter Videos (~4-5 minutes each)
+
+---
+
+#### Video 1: "Why Pipelines? Data Loading and Auditing" (~5 min)
+
+| Timestamp | Action | Notebook Cell | Speaking Prompt |
+|---|---|---|---|
+| `0:00–0:45` | Show header + objectives | Cell 0, Cell 1 | "Welcome back. In notebook 01 we split our data and learned about leakage. Today we build the tool that makes safe preprocessing automatic — the scikit-learn Pipeline. Here are our five learning objectives." (Read them briefly.) |
+| `0:45–1:30` | Run setup | Cell 2, Cell 3 | "Standard setup — same as every notebook. Notice the new imports: Pipeline, ColumnTransformer, StandardScaler, SimpleImputer, OneHotEncoder. Each has a specific role in the preprocessing chain. Random seed 474 for reproducibility." |
+| `1:30–2:30` | Load + split | Cell 5, Cell 6, Cell 8 | "California Housing dataset, same as notebook 01. 20,000 rows, 8 numeric features, target is median house value. We split 60-20-20 — training, validation, test. All preprocessing decisions will be based on the training set only." |
+| `2:30–4:15` | Data audit | Cell 10, Cell 11, Cell 14 | "Before any transformation, we audit. This function checks data types, missing values, and unique counts for every column. On training: all float64, zero missing. We run it on validation and test too — same schema, no surprises. In your project, this is where you will discover problems: string columns, missing data, weird cardinality." |
+| `4:15–5:00` | Exercise 1 prompt | Cell 13 | "Pause the video now and complete Exercise 1. Run the data audit on all three splits. Document any differences you observe. Come back when you are done." |
+
+---
+
+#### Video 2: "Building the Preprocessing Pipeline" (~5 min)
+
+| Timestamp | Action | Notebook Cell | Speaking Prompt |
+|---|---|---|---|
+| `0:00–0:30` | Recap | — | "Welcome back. We have our data loaded, split, and audited. Now we build the preprocessing pipeline — the core skill of this notebook." |
+| `0:30–1:30` | Identify column types | Cell 16, Cell 17 | "First, we identify which columns are numeric and which are categorical. We use `select_dtypes` so the code adapts automatically to any dataset. Here: 8 numeric, 0 categorical. Your project will likely have both." |
+| `1:30–3:30` | Build ColumnTransformer | Cell 19, Cell 20 | "The ColumnTransformer routes each column group through its own mini-pipeline. Numeric columns: impute with median, then scale to mean-zero and unit-variance. Categorical columns: impute with a constant string, then one-hot encode. Why median instead of mean? Robust to outliers. Why include the categorical path when we have no categorical columns? Because this is a template — when you use a different dataset, it just works." |
+| `3:30–5:00` | Full pipeline + scores | Cell 22, Cell 23 | "Now we chain the ColumnTransformer with LinearRegression into one Pipeline object. One call to fit — imputer, scaler, and model all train on the training data only. One call to score — validation data is transformed with training statistics, then predicted. Train R-squared about 0.60, validation about 0.62. No overfitting, but only 60 percent of variance explained. That is our baseline — we will beat it in future notebooks." |
+
+---
+
+#### Video 3: "Pipeline Inspection, Exercises & Wrap-Up" (~4 min)
+
+| Timestamp | Action | Notebook Cell | Speaking Prompt |
+|---|---|---|---|
+| `0:00–1:00` | Inspect pipeline | Cell 25, Cell 26 | "Let's look inside the pipeline. `get_feature_names_out` shows every column that exits the ColumnTransformer. The `num__` prefix traces each feature back to its transformer. 8 in, 8 out — just rescaled. When you have categorical columns, you will see `cat__` prefixed one-hot columns here too." |
+| `1:00–2:00` | Exercise 2 prompt + results | Cell 28, Cell 29, Cell 30 | "Pause and complete Exercise 2 — swap median imputation for mean and compare scores. You will find the scores are identical. Why? Because there are no missing values, so the imputer is a no-op either way. The lesson: we include the imputer not for *this* dataset, but for the day your data has gaps." |
+| `2:00–3:00` | Checklist | Cell 33 | "Before you submit, run through the Pipeline Done Right Checklist. Four categories: pre-fitting, fitting, evaluation, code quality. Did you split before building? Did you fit only on train? Did you evaluate on validation? Can you explain every step? This checklist applies to every notebook going forward." |
+| `3:00–4:00` | Wrap-Up + closing | Cell 34, Cell 35 | "Two rules to remember. One: fit only on training data. Two: put everything inside the pipeline. This template — load, split, audit, ColumnTransformer, Pipeline, fit, evaluate — is the backbone of the entire course. Next notebook, we learn how to properly measure model quality with regression metrics and baseline models. Submit your notebook to Brightspace and complete the quiz. See you there." |
 
 ---
 
