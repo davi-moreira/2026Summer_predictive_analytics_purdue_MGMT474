@@ -1101,7 +1101,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 
 ---
 
-*Last updated: February 10, 2026 (Session 4)*
+*Last updated: February 14, 2026 (Session 6)*
 
 ---
 
@@ -1212,6 +1212,86 @@ Enrich all 19 notebooks (02-20) with explanatory "Reading the output:" markdown 
 ### Next Steps
 - [ ] Test enriched notebooks in Google Colab (verify markdown renders correctly)
 - [ ] Review explanation content for accuracy against actual code outputs
+- [ ] Continue developing remaining course content
+
+---
+
+## Session 6: February 14, 2026
+
+### Objective
+Sync student notebook 01 with instructor notebook 01, and standardize PAUSE-AND-DO exercise duration and submission instructions across all 20 notebooks.
+
+### Work Completed
+
+#### 1. Synced Student Notebook 01 with Instructor Version
+- **Cell-by-cell comparison** of `01_launchpad_eda_splits.ipynb` (57 cells) vs `01_launchpad_eda_splits_instructor.ipynb` (61 cells)
+- **Only formatting differences** needed propagation (content was already aligned)
+- **Two fixes applied to cell 10** (Section 4.1 - Predictive Analytics motivation):
+  - Removed trailing spaces on `</div>` tag in zip code image HTML
+  - Added missing blank line after YouTube Video link in Netflix Prize section
+- **Intentionally preserved** student-specific adaptations: "from the start" (not "from Day 1"), 10-minute exercises in NB01, answer placeholders (not solutions), "next notebook" wording
+
+#### 2. Changed PAUSE-AND-DO Exercises from 10 to 5 Minutes (Notebooks 02-20)
+- **38 exercise headers updated** across 19 notebooks
+- Changed `(10 minutes)` → `(5 minutes)` in all PAUSE-AND-DO headers
+- Notebook 01 intentionally left at 10 minutes (student-specific adaptation preserved from instructor sync)
+
+#### 3. Standardized Submission Instructions (Notebooks 01-20)
+- **All 20 notebooks** now have unified "Participation Assignment Submission Instructions" matching the instructor template
+- **Standard submission block** prepended to each notebook's existing Bibliography cell:
+  1. Complete all exercises — fill in PAUSE-AND-DO cells
+  2. Run All Cells — `Runtime → Run all`
+  3. Save a Copy — `File → Save a copy in Drive or Download the .ipynb extension`
+  4. Submit — Upload `.ipynb` to Brightspace participation assignment
+  5. Before Submitting checklist (errors, outputs, exercises, permissions, explain code)
+  6. Next Step — Complete the Quiz in Brightspace
+- **Replaced inconsistent instructions:**
+  - NB02: Old "share link → paste in LMS" format
+  - NB03: Old "submit Colab link + evaluation note" format
+  - NB04-09, 11-17: Had bibliography only (no submission instructions) — now have both
+  - NB10: Removed standalone "Submission Checklist (Self-Audit)" cell
+  - NB18: Removed standalone "share link → LMS" submission cell
+  - NB20: Removed standalone "Submission Checklist" cell
+- **Each notebook's unique Bibliography preserved intact**
+- **All "Thank you!" final cells preserved**
+
+#### 4. Updated Save a Copy Instruction (Notebooks 01-20)
+- Changed step 3 from `File → Save a copy in Drive` to `File → Save a copy in Drive or Download the .ipynb extension`
+- Applied consistently across all 20 notebooks
+
+### Commits
+- `f40948f` - fix: Sync student notebook 01 HTML formatting with instructor version
+- `694fcfb` - build: Render Quarto site with notebook 01 formatting fix
+- `1e9a282` - feat: Change PAUSE-AND-DO exercises from 10 to 5 minutes (notebooks 02-20)
+- `0f1bffa` - build: Render Quarto site with 5-minute exercise updates
+- `b4c2f36` - feat: Standardize submission instructions across all 20 notebooks
+- `b056a37` - build: Render Quarto site with standardized submission instructions
+- `0d960d6` - feat: Add download .ipynb option to Save a Copy instruction (notebooks 01-20)
+- `488b0b8` - build: Render Quarto site with updated Save a Copy instruction
+
+### Files Modified
+- All 20 student notebooks (`notebooks/01_*.ipynb` through `notebooks/20_*.ipynb`)
+- Quarto site rendered and pushed after each content change
+
+### Decisions Made
+
+**Decision 1: Keep NB01 at 10-minute exercises**
+- NB01 is the introductory notebook and was intentionally left at 10 minutes during the instructor sync
+- Notebooks 02-20 changed to 5 minutes to match instructor version
+
+**Decision 2: Unified submission via Brightspace .ipynb upload**
+- Replaced varied submission methods (Colab link sharing, LMS link pasting, evaluation notes)
+- Single consistent method: upload `.ipynb` file to Brightspace participation assignment
+- Added download option alongside Drive save for flexibility
+
+**Decision 3: Combined submission + bibliography in single cell**
+- Submission instructions prepended to the existing Bibliography cell
+- Avoids adding extra cells while keeping both sections together
+- Matches the instructor notebook 01 structure
+
+### Next Steps
+- [ ] Test notebooks in Google Colab to verify submission instructions render correctly
+- [ ] Consider updating NB01 exercise duration if instructor decides on consistent 5 minutes
 - [ ] Continue developing remaining course content
 
 ---
