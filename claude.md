@@ -32,6 +32,15 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 - **Student-first:** Every change should improve student learning experience
 - **Reproducibility:** All code must run in fresh Colab environment
 
+### 🚨 CRITICAL WORKFLOW - Keep Video Lecture Guides in Sync
+
+**EVERY TIME a notebook (`notebooks/NN_*.ipynb`) is updated, you MUST also update the corresponding video lecture guide (`video_guides/NN_video_lecture_guide.md`).**
+
+- Video guides are local-only (gitignored) — no commit/push needed for them
+- Update affected sections: cell references, speaking prompts, section content, timestamps
+- Template reference: `video_guides/02_video_lecture_guide.md`
+- Guide structure: At a Glance, Purpose, 9 sections (Why exists, Why after N-1, Why before N+1, Libraries/Tools, Key Concepts, Student Takeaways, Common Questions, Course Arc, Suggested Video Structure with Options A & B)
+
 ### 🚨 CRITICAL WORKFLOW - Commit AND Update Webpage
 
 **EVERY TIME you make changes to course content, you MUST:**
@@ -86,6 +95,7 @@ git push origin main
 │   └── notebooks/              # HTML versions of notebooks
 ├── lecture_slides/             # Legacy slides (maintained for reference)
 ├── images/                     # Course logo and assets
+├── video_guides/              # EXCLUDED from git (local-only instructor video lecture guides)
 ├── _adm_stuff/                # EXCLUDED from git (admin materials)
 ├── index.qmd                   # Homepage source
 ├── schedule.qmd                # Schedule source
@@ -521,6 +531,10 @@ git push origin main
 ### ❌ DON'T: Skip Testing in Colab
 - Always click "Open in Colab" and "Run All" before committing
 - **Why:** Notebooks MUST work in fresh Colab environment
+
+### ❌ DON'T: Update a Notebook Without Updating Its Video Guide
+- Every notebook change MUST be accompanied by updating `video_guides/NN_video_lecture_guide.md`
+- **Why:** Guides contain cell references, speaking prompts, and content descriptions that become stale if not synced
 
 ### ❌ DON'T: Forget Co-Authorship
 - Every commit MUST include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
