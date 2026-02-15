@@ -1295,3 +1295,81 @@ Sync student notebook 01 with instructor notebook 01, and standardize PAUSE-AND-
 - [ ] Continue developing remaining course content
 
 ---
+
+## Session 7: February 14, 2026 (continued)
+
+### Objective
+Create comprehensive video lecture preparation guides for all 20 notebooks, and establish a workflow rule to keep guides in sync with notebooks.
+
+### Work Completed
+
+#### 1. Created Video Lecture Guide for Notebook 02 (Template)
+- Created `video_guides/02_video_lecture_guide.md` as the canonical template
+- Structure: At a Glance summary, Purpose, 9 sections covering:
+  - Why the notebook exists
+  - Sequencing rationale (why after NB01, why before NB03)
+  - Library and tool explanations with teaching notes
+  - Key concepts with analogies
+  - Student takeaways (5 questions students should answer)
+  - Common student Q&A (4-5 anticipated questions)
+  - Course arc connections (week-by-week table)
+  - Suggested Video Structure with two options:
+    - **Option A:** Single ~12-minute video with 6 segments, timestamps, cell references, and full speaking prompts
+    - **Option B:** Three shorter ~4-5 minute videos in table format (Timestamp | Action | Notebook Cell | Speaking Prompt)
+
+#### 2. Created Video Lecture Guides for All Remaining Notebooks (01, 03-20)
+- **19 additional guides** created using 6 parallel background agents:
+  - Agent 1: NB01 (669 lines — larger due to course launchpad scope)
+  - Agent 2: NB03, 04, 05
+  - Agent 3: NB06, 07, 08, 09
+  - Agent 4: NB10, 11, 12, 13
+  - Agent 5: NB14, 15, 16, 17
+  - Agent 6: NB18, 19, 20
+- Each guide is 31-65 KB, following the NB02 template exactly
+- All cell references are zero-indexed matching actual notebook cells
+- Speaking prompts are full sentences ready for on-camera delivery
+- **7,719 lines of content** across all 19 files
+
+#### 3. Made Video Guides Local-Only
+- Added `video_guides/` to `.gitignore`
+- Removed all 20 guides from git tracking (`git rm --cached`)
+- Files remain on disk but are invisible to git and will never be pushed to the remote repository
+
+#### 4. Established Sync Workflow Rule
+- Added to auto memory: every time a notebook is updated, the corresponding video lecture guide must also be updated
+- This ensures guides stay accurate as notebooks evolve
+
+### Commits
+- `80164c6` - docs: Add video lecture guide for notebook 02
+- `4f12f50` - docs: Restructure video guide with speaking prompts, timestamps, and cell refs
+- `51a9377` - feat: Add video lecture guides for all 20 notebooks (19 files, 7,719 insertions)
+- `5f90e0b` - chore: Remove video_guides from git tracking, add to .gitignore
+
+### Files Created (local-only, gitignored)
+- `video_guides/01_video_lecture_guide.md` through `video_guides/20_video_lecture_guide.md` (20 files)
+
+### Files Modified
+- `.gitignore` — added `video_guides/` exclusion
+
+### Decisions Made
+
+**Decision 1: Video guide template structure**
+- 9-section format covering pedagogy, sequencing, tools, concepts, and recording logistics
+- Two video structure options (single long vs. three short) give recording flexibility
+- Full speaking prompts reduce preparation time for the instructor
+
+**Decision 2: Local-only via .gitignore**
+- Guides are instructor preparation materials, not student-facing
+- Added to `.gitignore` and removed from git tracking
+- Files persist on disk but never appear in the remote repository
+
+**Decision 3: Notebook-guide sync rule**
+- Any notebook update must be accompanied by a corresponding guide update
+- Stored in auto memory to persist across AI assistant sessions
+
+### Next Steps
+- [ ] Test notebooks in Google Colab to verify all recent changes render correctly
+- [ ] Record video lectures using the guides
+- [ ] Update guides as notebooks evolve (enforced by sync rule)
+
+---
