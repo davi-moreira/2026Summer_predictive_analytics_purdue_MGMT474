@@ -65,6 +65,9 @@ _command_line_activity_solution_files/
 # Instructor solution notebooks (keep out of public repo)
 notebooks/*_instructor*.ipynb
 
+# Video lecture guides (local only, not for students)
+video_guides/
+
 # Large files (exclude from repo, link instead)
 *.zip
 *.mp4
