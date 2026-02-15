@@ -1373,3 +1373,115 @@ Create comprehensive video lecture preparation guides for all 20 notebooks, and 
 - [ ] Update guides as notebooks evolve (enforced by sync rule)
 
 ---
+
+## Session 8: February 14, 2026
+
+### Objective
+Add Gemini prompt cells to all 20 student notebooks, create instructor notebooks for all 20 notebooks, and update all 20 video lecture guides with shifted cell references.
+
+### Work Completed
+
+#### Phase 1: Gemini Prompt Cells Added to All 20 Student Notebooks
+
+Added 149 total Gemini prompt markdown cells across all 20 student notebooks. Each prompt cell uses blockquote format with a natural-language Gemini prompt and 3 verification bullets:
+
+```markdown
+> 💡 **Gemini Prompt:** "Load the California Housing dataset..."
+>
+> **After running, verify:**
+> - Training set has ~12,384 rows (60% of 20,640)
+> - All three sets have the same 8 feature columns
+> - Target variable MedHouseVal is separated from features
+```
+
+**Classification rules applied:**
+- **Skipped:** Import-dominated cells, setup cells, `!pip install`, trivial one-liners (<3 lines)
+- **Included:** Data loading, visualizations, models/pipelines, metrics, feature engineering, CV, function definitions
+
+**Prompt counts by notebook:**
+| NB | Prompts | NB | Prompts | NB | Prompts | NB | Prompts |
+|----|---------|----|---------|----|---------|----| --------|
+| 01 | 17 | 06 | 8 | 11 | 7 | 16 | 10 |
+| 02 | 10 | 07 | 8 | 12 | 9 | 17 | 7 |
+| 03 | 9 | 08 | 5 | 13 | 7 | 18 | 10 |
+| 04 | 6 | 09 | 7 | 14 | 8 | 19 | 7 |
+| 05 | 5 | 10 | 0 | 15 | 11 | 20 | 7 |
+
+NB 10 (Midterm Casebook) has 0 substantive code cells — skipped as expected.
+
+#### Phase 2: 20 Instructor Notebooks Created
+
+Created instructor versions for all 20 notebooks (`notebooks/NN_*_instructor.ipynb`). Each contains:
+- All student content including Gemini prompt cells
+- INSTRUCTOR SOLUTION cells after each PAUSE-AND-DO exercise
+
+**Instructor solution format:**
+```markdown
+### INSTRUCTOR SOLUTION — Exercise N
+
+**Finding 1 — [Title]:**
+[Detailed answer with evidence. 2-3 sentences.]
+
+**Finding 2 — [Title]:**
+[Second key point with reasoning. 2-3 sentences.]
+```
+
+- 41 total instructor solutions across all 20 notebooks (2 per notebook, 3 for NB 10 midterm)
+- All validated: correct JSON, solutions placed after "YOUR ANSWER HERE" cells
+
+#### Phase 3: All 20 Video Lecture Guides Updated
+
+Updated cell references in all 20 video guides to account for Gemini prompt cell insertions:
+- Built old→new cell index mappings for each notebook
+- Applied regex replacements across all `Cell N` references
+- Added speaking notes about the Gemini prompt pattern in Suggested Video Structure sections
+- All references validated within valid range
+
+#### Phase 4: Validation, Commit, and Push
+
+**Validation results:**
+- All 20 student notebooks: valid JSON, Gemini prompt cells present, each prompt followed by a code cell
+- All 20 instructor notebooks: valid JSON, instructor solutions correctly placed
+- All 20 video guides: cell references updated and validated
+
+### Commits
+- `724ea76` - feat: Add Gemini prompt cells to notebooks 01-04
+- `11e3fda` - feat: Add Gemini prompt cells to notebooks 05-08
+- `3b918de` - feat: Add Gemini prompt cells to notebooks 09, 11-12
+- `076bc48` - feat: Add Gemini prompt cells to notebooks 13-16
+- `7f8a226` - feat: Add Gemini prompt cells to notebooks 17-20
+- `02a3cc9` - build: Render Quarto site with Gemini prompt cells
+
+### Files Modified (committed + pushed)
+- `notebooks/01_launchpad_eda_splits.ipynb` through `notebooks/20_final_submission_peer_review.ipynb` (19 files modified; NB 10 unchanged)
+
+### Files Created (local-only, gitignored)
+- 19 new instructor notebooks: `notebooks/02_*_instructor.ipynb` through `notebooks/20_*_instructor.ipynb`
+- Updated existing: `notebooks/01_launchpad_eda_splits_instructor.ipynb`
+
+### Files Updated (local-only, gitignored)
+- `video_guides/01_video_lecture_guide.md` through `video_guides/20_video_lecture_guide.md` (all 20)
+
+### Decisions Made
+
+**Decision 1: Gemini prompt cell format**
+- Blockquote with 💡 emoji, natural-language prompt, and 3 verification bullets
+- Prompts are pedagogically contextual (not cookie-cutter) — each references the specific task and expected outputs
+
+**Decision 2: Classification rules for substantive code cells**
+- Cells with <3 lines of logic, import-dominated cells, and setup cells are skipped
+- Ensures prompts appear only where students would realistically use Gemini for help
+
+**Decision 3: Instructor solution depth**
+- 2-3 detailed findings per exercise with evidence and interpretation
+- Matches existing NB 01 instructor pattern established in Session 6
+
+**Decision 4: Reverse-order insertion**
+- Processed cells in reverse index order when inserting Gemini prompts to avoid shifting issues
+
+### Next Steps
+- [ ] Test notebooks in Google Colab to verify Gemini prompt cells render correctly
+- [ ] Record video lectures using the updated guides
+- [ ] Update CONVERSATION_LOG.md with this session's summary ✅
+
+---
