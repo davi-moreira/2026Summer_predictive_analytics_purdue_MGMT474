@@ -44,6 +44,59 @@ For each topic/day, content follows a repeating loop:
 
 ---
 
+## Notebook Sequence Rationale
+
+The 20 notebooks follow a deliberate pedagogical progression: each notebook builds exactly one conceptual layer, assumes only what prior notebooks have taught, and prepares exactly what the next notebook needs. The sequence is organized into four weekly arcs, each culminating in a project milestone that forces integration of that week's skills.
+
+### Sequencing Table
+
+| NB | Title | Why It Exists | Why This Position |
+|----|-------|---------------|-------------------|
+| 01 | Launchpad: EDA & Splits | Foundation layer — orients students to tools (Colab, Gemini), introduces predictive analytics concepts, and establishes the data workflow (EDA + train/val/test splitting) that every subsequent notebook depends on. | First notebook; no predecessor. Students cannot preprocess, model, or evaluate anything until they understand the platform, leakage, and data splitting. |
+| 02 | Preprocessing Pipelines | Operationalizes leakage prevention from NB01 by teaching Pipeline + ColumnTransformer — the tool that makes safe preprocessing automatic and reproducible. | NB01 provides the vocabulary (split, leakage, EDA); NB02 gives the tool that enforces it. NB03 assumes the pipeline is a solved problem. |
+| 03 | Regression Metrics & Baselines | Teaches formal regression metrics (MAE, RMSE, R²) and baseline models, giving every future comparison a meaningful performance floor. | NB02 solves preprocessing; NB03 shifts focus to evaluation. NB04 needs metrics to measure whether feature engineering helps. |
+| 04 | Linear Features & Diagnostics | Teaches feature engineering (interactions, polynomials) and residual diagnostics — revealing the accuracy vs. complexity tradeoff and exposing overfitting risk. | NB03 provides the evaluation framework; without it, students would engineer features blindly. NB04 creates the overfitting problem that NB05 solves. |
+| 05 | Regularization (Ridge/Lasso) | Introduces regularization as the direct solution to NB04's overfitting problem. Closes the Week 1 regression arc and hosts the project proposal milestone. | NB04 creates the problem (polynomial explosion, unstable coefficients); NB05 delivers the solution. Completes the regression toolkit before the Week 2 pivot to classification. |
+| 06 | Logistic Regression & Pipelines | Marks the transition from regression to classification, teaching predicted probabilities, threshold sensitivity, and pipeline reuse in a classification context. | NB05 introduces regularization via alpha; NB06 applies the same idea via C in classification, reusing the Pipeline pattern for a seamless transition. NB07 needs probability foundations. |
+| 07 | Classification Metrics & Thresholding | Builds the complete classification evaluation toolkit — precision, recall, F1, ROC/PR curves, and cost-based threshold selection. | NB06 introduces probabilities and confusion matrices informally; NB07 formalizes them. NB08 needs metric vocabulary to choose a `scoring` parameter for CV. |
+| 08 | Cross-Validation & Model Comparison | Teaches reliable, low-variance performance estimation through k-fold CV, replacing the fragile single train/val split with a systematic evaluation framework. | NB07 provides the metrics NB08 passes as `scoring`. NB09 embeds CV inside grid search; students must understand standalone CV first. |
+| 09 | Tuning & Feature Engineering (Project Baseline) | Integrates everything from Week 2 into a practical workflow: feature engineering inside pipelines, GridSearchCV/RandomizedSearchCV, and a project baseline report scaffold. | NB08 teaches standalone CV; NB09 embeds it inside grid search. NB10 (midterm) requires the baseline scaffold and tuning tools from NB09. |
+| 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. | NB09 completes the toolkit; NB10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
+| 11 | Decision Trees | Introduces the first non-linear model family (CART), teaching the bias-variance tradeoff concretely through depth sweeps and overfitting demonstrations. | NB10 consolidates Weeks 1–2; students enter NB11 with solid evaluation skills and can focus on tree mechanics. NB12 solves the single tree's high-variance problem. |
+| 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. | NB11 proves single trees overfit; NB12's motivation ("average many unstable trees") only makes sense after experiencing that instability. NB13 needs bagging as a contrast for boosting. |
+| 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. | NB12 establishes the parallel ensemble baseline (bagging reduces variance); NB13 contrasts with sequential approach (boosting reduces bias). NB14 needs the full candidate roster. |
+| 14 | Model Selection Protocol | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric, test set opened once. | NB13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. NB15 interprets the selected champion. |
+| 15 | Interpretation & Error Analysis (Project Improved Model) | Answers "what is the champion learning and where does it fail?" via permutation importance, PDP/ICE, and segment-level error analysis. Hosts the improved model milestone. | NB14 selects the champion; interpretation is only meaningful after commitment to one model. NB16 uses error analysis to motivate threshold adjustments. |
+| 16 | Decision Thresholds & Calibration | Bridges predictions to business decisions — cost matrices, threshold sweeps, calibration curves, and sensitivity analysis replace the default 0.50 cutoff. | NB15 reveals failure segments; NB16 sets thresholds that minimize business cost of those failures. NB17 needs threshold mechanics to analyze fairness implications. |
+| 17 | Fairness & Model Cards | Teaches that excellent aggregate metrics can still harm specific groups. Introduces slice-based evaluation, fairness diagnostics, and model card documentation. | NB16 teaches threshold setting; NB17 asks whether that threshold is fair across groups. NB18 needs fairness signals for its monitoring plan. |
+| 18 | Reproducibility & Monitoring | Transitions from "works in a notebook" to "can be saved, loaded, verified, and monitored" through function refactoring, joblib serialization, and monitoring plans. | NB17 establishes the ethical layer; NB18 adds the operational layer. Together they form the pre-deployment checklist. NB19 needs artifacts and vocabulary for the executive narrative. |
+| 19 | Executive Narrative & Video Studio | Teaches translation of 18 notebooks of technical work into a compelling Five-Act executive narrative (Problem → Approach → Results → Recommendation → Risks). | NB18 provides reproducible artifacts and monitoring vocabulary; without them, the narrative would lack operational credibility. NB20 requires the deliverables developed here. |
+| 20 | Final Submission & Peer Review | Capstone — self-audit, submit complete deliverable package, peer review using structured rubric, and postmortem reflection. | NB19 develops deliverables; NB20 audits and submits them. Closes the course arc from NB01's first data split to a fully reviewed and reflected-upon submission. |
+
+### Weekly Arc Dependencies
+
+```
+Week 1 — REGRESSION ARC
+  01 EDA/Splits → 02 Pipelines → 03 Metrics/Baselines → 04 Features/Diagnostics → 05 Regularization
+  (Foundation)    (Tool)         (Measurement)          (Improvement)             (Control + Proposal)
+
+Week 2 — CLASSIFICATION ARC
+  06 LogReg → 07 Classification Metrics → 08 Cross-Validation → 09 Tuning/Eng → 10 Midterm
+  (New task)   (New metrics)               (Reliable comparison) (Integration)   (Assessment + Baseline)
+
+Week 3 — ENSEMBLES ARC
+  11 Trees → 12 Random Forests → 13 Gradient Boosting → 14 Model Selection → 15 Interpretation
+  (Non-linear) (Parallel ensemble) (Sequential ensemble) (Fair protocol)     (Explain + Improved Model)
+
+Week 4 — PRODUCTION ARC
+  16 Thresholds → 17 Fairness → 18 Deployment → 19 Narrative → 20 Final Submission
+  (Decisions)     (Ethics)      (Operations)   (Communication) (Audit + Review + Reflection)
+```
+
+Each week follows the same pattern: introduce a new capability, build evaluation skills, practice integration, then deliver a milestone. The dependency arrows within each week are strict — no notebook can be skipped without breaking the next one's assumptions.
+
+---
+
 # Week 1 (Days 1–5): Foundations, EDA, Splits, Linear Regression, Regularization  
 **Project milestone:** Week 1 proposal due **Day 5**
 

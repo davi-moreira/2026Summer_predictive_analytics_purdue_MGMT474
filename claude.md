@@ -41,6 +41,15 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 - Template reference: `video_guides/02_video_lecture_guide.md`
 - Guide structure: At a Glance, Purpose, 9 sections (Why exists, Why after N-1, Why before N+1, Libraries/Tools, Key Concepts, Student Takeaways, Common Questions, Course Arc, Suggested Video Structure with Options A & B)
 
+### 🚨 CRITICAL WORKFLOW - Keep Planning Documents in Sync
+
+**When notebooks change significantly (new sections, reordered content, new tools/libraries), you MUST also update the sequencing rationale in:**
+
+- `MGMT47400_Online4Week_Plan_2026Summer.md` — the "Notebook Sequence Rationale" table and dependency diagram
+- `claude_course_plan.md` — the "Notebook Sequence and Content Justification" table
+
+**What triggers an update:** Adding/removing notebook sections, changing the tools/libraries used, reordering content, or changing dependencies between notebooks. Minor fixes (typos, wording) do not require updates.
+
 ### 🚨 CRITICAL WORKFLOW - Commit AND Update Webpage
 
 **EVERY TIME you make changes to course content, you MUST:**
@@ -535,6 +544,10 @@ git push origin main
 ### ❌ DON'T: Update a Notebook Without Updating Its Video Guide
 - Every notebook change MUST be accompanied by updating `video_guides/NN_video_lecture_guide.md`
 - **Why:** Guides contain cell references, speaking prompts, and content descriptions that become stale if not synced
+
+### ❌ DON'T: Make Significant Notebook Changes Without Updating Planning Documents
+- When notebooks gain new sections, change tools/libraries, or shift dependencies, update the sequencing rationale in `MGMT47400_Online4Week_Plan_2026Summer.md` and `claude_course_plan.md`
+- **Why:** These documents contain dependency tables and arc descriptions that become inaccurate if not synced with actual notebook content
 
 ### ❌ DON'T: Forget Co-Authorship
 - Every commit MUST include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`

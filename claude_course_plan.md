@@ -26,6 +26,48 @@ Transform the 2025F semester-based course into a 2026 Summer 4-week intensive fo
 
 ---
 
+## Notebook Sequence and Content Justification
+
+Each notebook builds exactly one conceptual layer, assumes only what prior notebooks have taught, and prepares exactly what the next notebook needs. The table below summarizes the rationale; full speaking prompts and cell-level detail are in each `video_guides/NN_video_lecture_guide.md` (Sections 1–3).
+
+### Sequencing Map
+
+| NB | Title | Key Libraries/Tools | Depends On | Prepares For | Why This Position |
+|----|-------|---------------------|------------|--------------|-------------------|
+| 01 | Launchpad: EDA & Splits | pandas, numpy, matplotlib, seaborn, train_test_split | — (first) | 02 (pipeline), all subsequent | Foundation: Colab setup, EDA workflow, 60/20/20 split, leakage vocabulary |
+| 02 | Preprocessing Pipelines | Pipeline, ColumnTransformer, SimpleImputer, OneHotEncoder, StandardScaler | 01 (split, leakage) | 03 (metrics assume pipeline solved) | Operationalizes leakage prevention with the tool that makes safe preprocessing automatic |
+| 03 | Regression Metrics & Baselines | mean_absolute_error, mean_squared_error, r2_score, DummyRegressor | 02 (pipeline) | 04 (needs metrics to measure feature engineering impact) | Teaches how to measure model quality before attempting to improve it |
+| 04 | Linear Features & Diagnostics | LinearRegression, PolynomialFeatures, make_pipeline | 03 (evaluation framework) | 05 (creates overfitting problem Ridge/Lasso solves) | Feature engineering + residual analysis; exposes polynomial overfitting |
+| 05 | Regularization (Ridge/Lasso) | Ridge, Lasso, RidgeCV, LassoCV, ElasticNet | 04 (overfitting problem) | 06 (complete regression toolkit before classification pivot) | Direct solution to NB04's overfitting; closes Week 1 regression arc + project proposal |
+| 06 | Logistic Regression & Pipelines | LogisticRegression, accuracy_score, log_loss | 05 (regularization via alpha → C) | 07 (needs probability foundations) | Regression → classification pivot; reuses Pipeline pattern in new context |
+| 07 | Classification Metrics | confusion_matrix, precision/recall/f1, roc_curve, precision_recall_curve | 06 (probabilities, confusion matrix) | 08 (needs metric vocabulary for CV scoring) | Complete classification evaluation toolkit; cost-based threshold selection |
+| 08 | Cross-Validation | cross_val_score, StratifiedKFold, cross_validate | 07 (metrics for scoring param) | 09 (CV embedded inside grid search) | Reliable model comparison replacing fragile single split |
+| 09 | Tuning & Feature Eng. | GridSearchCV, RandomizedSearchCV | 08 (standalone CV) | 10 (midterm needs baseline scaffold) | Integration: feature engineering + tuning + project baseline report |
+| 10 | Midterm Casebook | — (strategy, no new libraries) | 01–09 (full toolkit) | 11 (pause before tree-based arc) | Strategic assessment; tests reasoning, not mechanics; project baseline due |
+| 11 | Decision Trees | DecisionTreeClassifier/Regressor, plot_tree | 10 (evaluation skills consolidated) | 12 (high-variance problem motivates forests) | First non-linear model; concrete bias-variance demonstration via depth sweep |
+| 12 | Random Forests | RandomForestClassifier/Regressor, permutation_importance | 11 (tree instability) | 13 (bagging baseline for boosting contrast) | Parallel ensemble solving single-tree variance; introduces importance |
+| 13 | Gradient Boosting | GradientBoostingClassifier/Regressor, HistGradientBoosting | 12 (bagging baseline) | 14 (needs full candidate roster) | Sequential ensemble; bias reduction vs. variance reduction contrast |
+| 14 | Model Selection Protocol | — (comparison harness, no new estimators) | 13 (full candidate pool) | 15 (champion committed for interpretation) | Formal, fair, reproducible comparison; test set opened once |
+| 15 | Interpretation & Error Analysis | permutation_importance, PartialDependenceDisplay | 14 (champion selected) | 16 (error analysis motivates thresholds) | Explain champion + find failure segments; project improved model due |
+| 16 | Decision Thresholds & Calibration | calibration_curve, CalibratedClassifierCV | 15 (failure segments) | 17 (threshold mechanics needed for fairness) | Bridge predictions to business decisions; cost-based threshold sweep |
+| 17 | Fairness & Model Cards | — (slicing, no new sklearn) | 16 (threshold setting) | 18 (fairness signals for monitoring) | Audit group-level impact; model card documentation |
+| 18 | Reproducibility & Monitoring | joblib, json (serialization) | 17 (ethical layer) | 19 (artifacts/vocabulary for narrative) | Operational layer: save/load/verify/monitor; pre-deployment checklist |
+| 19 | Executive Narrative & Video | — (markdown/narrative, no new libraries) | 18 (artifacts, monitoring plan) | 20 (deliverables ready for submission) | Translate technical work into Five-Act executive story |
+| 20 | Final Submission & Peer Review | — (audit/review, no new libraries) | 19 (deliverables developed) | — (last) | Self-audit, submit, peer review, postmortem; closes the course arc |
+
+### Weekly Arc Pattern
+
+Each week follows: introduce capability → build evaluation skills → practice integration → deliver milestone.
+
+- **Week 1 (Regression):** EDA/Splits → Pipelines → Metrics → Features → Regularization → *Proposal*
+- **Week 2 (Classification):** LogReg → Metrics → CV → Tuning → *Midterm + Baseline*
+- **Week 3 (Ensembles):** Trees → Forests → Boosting → Selection → *Interpretation + Improved Model*
+- **Week 4 (Production):** Thresholds → Fairness → Deployment → Narrative → *Final Submission*
+
+> **Cross-reference:** For full speaking prompts, cell references, and timestamps, see `video_guides/NN_video_lecture_guide.md` Sections 1–3 (Why exists, Why after N-1, Why before N+1).
+
+---
+
 ## Phase 1: Complete Notebook Creation (Days 18-20)
 
 ### Files to Create
