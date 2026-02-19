@@ -1485,3 +1485,81 @@ Updated cell references in all 20 video guides to account for Gemini prompt cell
 - [ ] Update CONVERSATION_LOG.md with this session's summary ✅
 
 ---
+
+## Session 9: February 19, 2026
+
+### Objective
+Add **business case warm-up cells** to all 18 content notebooks (NB02-09, NB11-20), grounding each technique in a real-world scenario before diving into technical content. The warm-ups use three connected narrative arcs tied to the datasets actually used in the notebooks.
+
+### Narrative Arcs
+
+| Arc | Notebooks | Setting | Dataset |
+|-----|-----------|---------|---------|
+| **Arc 1: Real Estate Analytics** | NB02-05, 15 | HomeValue Analytics startup | California Housing |
+| **Arc 2: Medical Diagnostics** | NB06-09, 11-14 | State Health Department | Breast Cancer Wisconsin |
+| **Arc 3: Deployment & Responsibility** | NB16-20 | Hospital deployment of screening tool | Synthetic / continued |
+
+### Work Completed
+
+**Cell insertion (54 files modified):**
+- Inserted a `## 💼 Why This Matters: [Title]` markdown cell after Cell 2 (participation reminder) in each notebook
+- Each warm-up includes 2-3 narrative paragraphs + a `> **Today's focus:**` connector
+- Processed in 4 parallel batches using subagents:
+  - **Batch 1 (NB02-05):** California Housing arc — "The Messy Reality of Real-World Data", "How Good Is 'Good Enough'?", "What Drives the Price?", "When the Model Memorizes Instead of Learns"
+  - **Batch 2 (NB06-09):** Breast Cancer classification — "From Prices to Probabilities", "When 95% Accuracy Isn't Good Enough", "One Lucky Split or Genuinely Better?", "Squeezing Out Every Percentage Point"
+  - **Batch 3 (NB11-15):** Tree-based + interpretation — "A Model the Doctor Can Read", "Wisdom of the Crowd", "Learning from Mistakes, One Tree at a Time", "The Final Showdown: Which Model Gets Deployed?", "Explain Yourself"
+  - **Batch 4 (NB16-20):** Deployment arc — "At What Probability Do You Act?", "Does the Model Work for Everyone?", "Will It Still Work in Six Months?", "Telling the Story Behind the Numbers", "The Professional Deliverable"
+
+**Video guide updates (18 files):**
+- Incremented all cell references by +1 (Cell N → Cell N+1 for N ≥ 3)
+- Added warm-up mention in Section 3 ("Why This Notebook Exists")
+- Updated Section 9 Segment 1 with business case speaking prompts
+
+**Verification spot-checks (all passed):**
+- NB03: Cell 3 = "How Good Is 'Good Enough'?" ✓
+- NB07: Cell 3 = "When 95% Accuracy Isn't Good Enough" ✓
+- NB12: Cell 3 = "Wisdom of the Crowd" ✓
+- NB18: Cell 3 = "Will It Still Work in Six Months?" ✓
+- NB06 instructor: Cell 3 = "From Prices to Probabilities" ✓
+- NB08 instructor: Cell 3 = "One Lucky Split or Genuinely Better?" ✓
+
+### Git Commits
+- `01714fb` - feat: Add business case warm-ups to NB02-05 (California Housing arc)
+- `1051b0e` - feat: Add business case warm-ups to NB06-09 (Breast Cancer classification arc)
+- `79f1ed5` - feat: Add business case warm-ups to NB11-15 (tree-based methods + interpretation)
+- `a691e77` - feat: Add business case warm-ups to NB16-20 (deployment & responsibility)
+- `98f9e8b` - build: Render Quarto site with business case warm-ups
+
+### Files Modified (committed + pushed)
+- `notebooks/02_preprocessing_pipelines.ipynb` through `notebooks/20_final_submission_peer_review.ipynb` (18 files; NB01 and NB10 unchanged)
+
+### Files Modified (local-only, gitignored)
+- 18 instructor notebooks: `notebooks/02_*_instructor.ipynb` through `notebooks/20_*_instructor.ipynb`
+- 18 video guides: `video_guides/02_video_lecture_guide.md` through `video_guides/20_video_lecture_guide.md`
+
+### Problems Encountered & Fixes
+
+**1. Batch 2 video guides not updated:**
+The Batch 2 agent ran out of context before updating video guides 06-09. Fixed by launching a follow-up agent that successfully updated all 4 guides.
+
+**2. Cell reference cascade bug (Batch 3):**
+Simple string replacement `"Cell 3" → "Cell 4"` also matched substrings like "Cell 30" → "Cell 40". Fixed with context-specific replacements and processing from highest cell number downward.
+
+### Decisions Made
+
+**Decision 1: Three connected narrative arcs**
+- Warm-ups aren't standalone vignettes — they form a progressive story that follows two "clients" (HomeValue Analytics and the State Health Department) through increasingly sophisticated analytics challenges
+
+**Decision 2: Insertion after Cell 2 (participation reminder)**
+- Cell order: Header → Learning Objectives → Participation Reminder → Business Case Warm-Up → Setup/Content
+- Warm-up motivates the "why" before diving into the "how"
+
+**Decision 3: Dollar sign escaping**
+- Used `\$` in notebook markdown to prevent MathJax rendering of currency amounts
+
+### Next Steps
+- [ ] Test notebooks in Google Colab to verify warm-up cells render correctly
+- [ ] Record video lectures using the updated guides
+- [ ] Consider adding a brief callback to the business case in wrap-up sections
+
+---
