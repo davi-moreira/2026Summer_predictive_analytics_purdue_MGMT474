@@ -32,6 +32,22 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 - **Student-first:** Every change should improve student learning experience
 - **Reproducibility:** All code must run in fresh Colab environment
 
+### 🚨 CRITICAL WORKFLOW - Instructor-First Notebook Editing
+
+**ALWAYS edit `notebooks/NN_*_instructor.ipynb` FIRST, then propagate changes to `notebooks/NN_*.ipynb`.**
+
+- The **instructor notebook** is the source of truth for all notebook content
+- The **student notebook** is identical to the instructor notebook **except** instructor solution cells are omitted
+- Every time an instructor notebook is updated, the corresponding student notebook **MUST** be updated in the same session
+
+**Workflow:**
+1. Make all edits in `notebooks/NN_*_instructor.ipynb`
+2. Copy every change to `notebooks/NN_*.ipynb`, excluding cells that contain instructor solutions (cells whose markdown starts with `### INSTRUCTOR SOLUTION`)
+3. Update the video guide (`video_guides/NN_video_lecture_guide.md`)
+4. Commit only the student notebook (instructor notebooks are gitignored)
+
+**Remember:** The instructor file is gitignored — it lives only on the instructor's machine. The student file is the one that gets committed, rendered by Quarto, and published to the course website.
+
 ### 🚨 CRITICAL WORKFLOW - Keep Video Lecture Guides in Sync
 
 **EVERY TIME a notebook (`notebooks/NN_*.ipynb`) is updated, you MUST also update the corresponding video lecture guide (`video_guides/NN_video_lecture_guide.md`).**
