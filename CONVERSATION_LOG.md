@@ -1736,3 +1736,90 @@ Enhance NB02 with a function explanation cell and improved section 4.3 (business
 - [ ] Continue enhancing remaining notebooks as needed
 
 ---
+
+## Session 13: February 22, 2026
+
+### Objective
+Enrich technical content sections across NB03–NB20 with business-case context. Many notebooks had strong "Why This Matters" warmups but reverted to generic textbook explanations in technical sections. The goal was to add 1–3 sentences per cell connecting metrics, algorithms, and techniques back to the notebook's business scenario (HomeValue Analytics for housing, State Health Department for cancer screening).
+
+### Work Completed
+
+**15 instructor notebooks edited, 15 student notebooks regenerated, 15 video guides updated.**
+
+Enrichment followed four patterns modeled on NB14 (the exemplar):
+- **(A) Section-Intro Anchoring:** First sentence ties technique to business case
+- **(B) Stakeholder Callout:** Names who cares (CEO, oncologist, board, hospital IT)
+- **(C) Consequence-Driven Rules:** Business consequences, not just math
+- **(D) Inline Feature/Stakeholder Naming:** Dataset features and roles, not "feature X"
+
+#### Batch 1 — HomeValue Analytics (NB03, NB04, NB05): 9 cells enriched
+| Notebook | Cells | Key Additions |
+|----------|-------|---------------|
+| NB03 | 4 cells (11, 15, 28, 33) | MAE→$53k pricing error; baseline = neighborhood average; CEO framing |
+| NB04 | 3 cells (17, 21, 32) | MedInc coefficient meaning; Income×Location interaction; luxury-home residual risk |
+| NB05 | 2 cells (14, 23) | Ridge stability for 100+ features; Lasso zeroing = operational cost saving |
+
+#### Batch 2 — State Health Dept (NB06, NB07, NB08, NB09): 11 cells enriched
+| Notebook | Cells | Key Additions |
+|----------|-------|---------------|
+| NB06 | 4 cells (17, 21, 32, 43) | 0.51 vs 0.99 clinical meaning; threshold as policy decision; FN = missed cancer |
+| NB07 | 3 cells (13, 17, 30) | FN/FP asymmetry; Recall ≥ 0.95 minimum; cost of missed cancer incalculable |
+| NB08 | 3 cells (6, 14, 25) | CV across hospital cohorts; stratified CV preserves class balance; identical folds for fair comparison |
+| NB09 | 2 cells (13, 24) | 30→20 features = simpler lab workflow; C regularization = clinical stakes balance |
+
+#### Batch 3 — State Health Dept (NB11, NB12, NB13): 10 cells enriched
+| Notebook | Cells | Key Additions |
+|----------|-------|---------------|
+| NB11 | 4 cells (6, 10, 17, 35) | Oncologist-readable decision path; shallow tree = clinician trust; generalization across hospitals |
+| NB12 | 3 cells (6, 28, 36) | Oncologist panel analogy; OOB with small datasets; permutation importance → lab investment |
+| NB13 | 3 cells (6, 17, 35) | Medical resident revision analogy; conservative learning rate; early stopping = stop second-guessing |
+
+#### Batch 4 — Mixed (NB15–NB20): 10 cells enriched
+| Notebook | Cells | Key Additions |
+|----------|-------|---------------|
+| NB15 | 2 cells | Income dominance → fairness question; luxury segment = deployment risk |
+| NB16 | 2 cells | Calibrated probabilities for clinicians; AUC vs threshold cost trade-offs |
+| NB17 | 2 cells | Reproducible disparity measurements for audits; equal opportunity > demographic parity |
+| NB18 | 2 cells | EHR integration artifact; hospital-specific monitoring checklist |
+| NB19 | 1 cell | Recall improvement → lives saved; MAE improvement → revenue |
+| NB20 | 1 cell | Test-set leakage = regulatory rejection |
+
+**Total: ~40 cells enriched across 15 notebooks**
+
+**Unchanged notebooks:** NB01, NB02 (already contextualized), NB10 (midterm exam), NB14 (exemplar)
+
+### Additional Fixes
+- Fixed Colab badge URLs in 7 student notebooks (NB13, NB15–NB20) that pointed to base filenames without `_student` suffix
+
+### Commits
+- `b915512` — feat: Enrich technical sections with business-case context across NB03-NB20
+- `d132024` — build: Render Quarto site with business-case enrichments
+
+### Files Modified (committed + pushed)
+- 16 student notebooks in `notebooks/` (NB03–NB09, NB11–NB13, NB15–NB20)
+- `docs/` (re-rendered Quarto site)
+
+### Files Modified (local-only, gitignored)
+- 15 instructor notebooks (NB03–NB09, NB11–NB13, NB15–NB20)
+- 15 video lecture guides (03–09, 11–13, 15–20)
+
+### Decisions Made
+
+**Decision 1: Enrich existing cells, don't add new cells**
+- Editing in-place preserves all cell indices and references in video guides
+- No structural changes means lower risk of breaking notebook flow
+
+**Decision 2: Use NB14 as the tone exemplar**
+- NB14 (Model Selection Protocol) already had excellent business context throughout
+- Four writing patterns (anchoring, stakeholder callout, consequence rules, inline naming) provide consistent enrichment style
+
+**Decision 3: Fix pre-existing Colab badge URL issues during student generation**
+- 7 instructor notebooks had badge URLs without `_instructor`/`_student` suffix convention
+- Fixed during student generation to ensure correct Colab links
+
+### Next Steps
+- [ ] Test enriched notebooks in Google Colab (spot-check 3–4)
+- [ ] Record video lectures using updated guides
+- [ ] Consider enriching NB01/NB02 if consistency desired
+
+---
