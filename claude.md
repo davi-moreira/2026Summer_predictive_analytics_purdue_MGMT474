@@ -58,6 +58,15 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
   - Hidden markdown: `<!-- INSTRUCTOR SOLUTION -->` (as the first line)
 - Student placeholder cells (e.g., `### YOUR FINDINGS HERE:`) live in the instructor notebook and survive the deletion
 - Placeholder cells must NOT contain `INSTRUCTOR SOLUTION`
+- **Code exercise block structure (instructor notebook):**
+  1. `## 📝 PAUSE-AND-DO Exercise X` (exercise prompt markdown)
+  2. `> 💡 Gemini Prompt:` (Gemini suggestion with "After running, verify:" checklist)
+  3. Student code cell: `# YOUR SOLUTION CODE HERE` (must NOT contain INSTRUCTOR SOLUTION)
+  4. `### INSTRUCTOR SOLUTION — Exercise X` (solution heading markdown)
+  5. `# INSTRUCTOR SOLUTION` code cell (solution implementation — removed from student)
+  6. `<!-- INSTRUCTOR SOLUTION -->` "Reading the output" markdown (removed from student)
+- The student code cell survives into the student notebook (students write their code here)
+- The instructor solution code and reading-the-output are removed during student generation
 
 **Remember:** The instructor file stays untouched in the folder. The student file is the one that gets committed, rendered by Quarto, and published to the course website.
 
@@ -239,18 +248,12 @@ print(f"Random seed: {RANDOM_SEED}")
 - Subsections as needed (### 1.1, ### 1.2, etc.)
 
 #### 5. PAUSE-AND-DO Exercises (2 per notebook, 10 min each)
+
+**Text-only exercise (interpretation/analysis):**
 ```markdown
 ## 📝 PAUSE-AND-DO Exercise X (10 minutes)
 
 **Task:** [Clear, specific task]
-
-**Instructions:**
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
-
-**What to look for:**
-[Guidance on interpretation]
 
 ---
 
@@ -259,7 +262,32 @@ print(f"Random seed: {RANDOM_SEED}")
 **[Question 1]:**
 [Student response]
 
-**[Question 2]:**
+---
+```
+
+**Code exercise (students write code):**
+```markdown
+## 📝 PAUSE-AND-DO Exercise X (10 minutes)
+
+**Task:** [Clear, specific task]
+
+---
+```
+```markdown
+> 💡 **Gemini Prompt:** "[Step-by-step instructions for Gemini]"
+>
+> **After running, verify:**
+> - [Expected output 1]
+> - [Expected output 2]
+```
+```python
+# YOUR SOLUTION CODE HERE
+# Hint: Use the Gemini prompt above for step-by-step guidance
+```
+```markdown
+### YOUR FINDINGS HERE:
+
+**[Question 1]:**
 [Student response]
 
 ---
@@ -586,6 +614,11 @@ git push origin main
 - Every cell that should be excluded from the student version MUST contain `INSTRUCTOR SOLUTION` in its source
 - This includes code cells (use `# INSTRUCTOR SOLUTION` as the first comment) and follow-up markdown cells (use `<!-- INSTRUCTOR SOLUTION -->` as the first line)
 - **Why:** The copy-delete workflow relies on this marker to strip solutions. Unmarked cells will leak into the student notebook
+
+### ❌ DON'T: Mix Student Placeholder and Instructor Solution in the Same Code Cell
+- Student code cells must contain ONLY `# YOUR SOLUTION CODE HERE` (plus optional hints)
+- Instructor solution code must be in a SEPARATE cell marked with `# INSTRUCTOR SOLUTION`
+- **Why:** Mixed cells leak the full solution into the student notebook since the cell doesn't get removed
 
 ### ❌ DON'T: Forget Co-Authorship
 - Every commit MUST include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
