@@ -34,23 +34,36 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 
 ### 🚨 CRITICAL WORKFLOW - Instructor-First Notebook Editing
 
-**ALWAYS edit `notebooks/NN_*_instructor.ipynb` FIRST, then propagate changes to `notebooks/NN_*.ipynb`.**
+**ALWAYS edit `notebooks/NN_*_instructor.ipynb` FIRST, then generate the student file.**
 
-- The **instructor notebook** is the source of truth for all notebook content
-- The **student notebook** is identical to the instructor notebook **except** instructor solution cells are omitted
-- Every time an instructor notebook is updated, the corresponding student notebook **MUST** be updated in the same session
+- The **instructor notebook** is the source of truth — it is NEVER modified by this procedure
+- The **student notebook** (`NN_*_student.ipynb`) is generated from the instructor notebook by deleting solution cells
+- Both files coexist in the `notebooks/` folder; only the student file is tracked in git
 
-**Workflow:**
-1. Make all edits in `notebooks/NN_*_instructor.ipynb`
-2. Copy every change to `notebooks/NN_*.ipynb`, excluding cells that contain instructor solutions (cells whose markdown starts with `### INSTRUCTOR SOLUTION`)
-3. Update the video guide (`video_guides/NN_video_lecture_guide.md`)
-4. Commit only the student notebook (instructor notebooks are gitignored)
+**Naming convention:**
+- Instructor: `NN_topic_instructor.ipynb` (gitignored, local only)
+- Student: `NN_topic_student.ipynb` (committed, rendered, published)
 
-**Remember:** The instructor file is gitignored — it lives only on the instructor's machine. The student file is the one that gets committed, rendered by Quarto, and published to the course website.
+**Generating the student notebook:**
+1. Copy the instructor file: `cp notebooks/NN_*_instructor.ipynb notebooks/NN_*_student.ipynb`
+2. Delete all cells containing `INSTRUCTOR SOLUTION` in the student copy (markdown or code)
+3. Update the Colab badge URL to match the student filename
+4. Update the video guide (`video_guides/NN_video_lecture_guide.md`)
+5. Commit only the student notebook (instructor notebooks are gitignored)
+
+**Instructor notebook conventions (for this workflow to work):**
+- Every cell that should be excluded from the student version MUST contain the string `INSTRUCTOR SOLUTION` somewhere in its source:
+  - Markdown cells: `### INSTRUCTOR SOLUTION — Exercise N` (as the heading)
+  - Code cells: `# INSTRUCTOR SOLUTION` (as the first comment line)
+  - Hidden markdown: `<!-- INSTRUCTOR SOLUTION -->` (as the first line)
+- Student placeholder cells (e.g., `### YOUR FINDINGS HERE:`) live in the instructor notebook and survive the deletion
+- Placeholder cells must NOT contain `INSTRUCTOR SOLUTION`
+
+**Remember:** The instructor file stays untouched in the folder. The student file is the one that gets committed, rendered by Quarto, and published to the course website.
 
 ### 🚨 CRITICAL WORKFLOW - Keep Video Lecture Guides in Sync
 
-**EVERY TIME a notebook (`notebooks/NN_*.ipynb`) is updated, you MUST also update the corresponding video lecture guide (`video_guides/NN_video_lecture_guide.md`).**
+**EVERY TIME a notebook (`notebooks/NN_*_student.ipynb`) is updated, you MUST also update the corresponding video lecture guide (`video_guides/NN_video_lecture_guide.md`).**
 
 - Video guides are local-only (gitignored) — no commit/push needed for them
 - Update affected sections: cell references, speaking prompts, section content, timestamps
@@ -83,7 +96,7 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 **Standard workflow after ANY content change:**
 ```bash
 # 1. Commit your content changes
-git add notebooks/XX_topic.ipynb  # or schedule.qmd, syllabus.qmd, etc.
+git add notebooks/XX_topic_student.ipynb  # or schedule.qmd, syllabus.qmd, etc.
 git commit -m "feat: Update notebook XX
 
 Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
@@ -109,10 +122,11 @@ git push origin main
 
 ```
 ├── notebooks/                  # 20 Jupyter notebooks (Days 1-20)
-│   ├── 01_launchpad_eda_splits.ipynb
-│   ├── 02_preprocessing_pipelines.ipynb
+│   ├── 01_launchpad_eda_splits_student.ipynb
+│   ├── 01_launchpad_eda_splits_instructor.ipynb  # gitignored
+│   ├── 02_preprocessing_pipelines_student.ipynb
 │   ├── ...
-│   └── 20_final_submission_peer_review.ipynb
+│   └── 20_final_submission_peer_review_student.ipynb
 ├── docs/                       # GitHub Pages output (compiled by Quarto)
 │   ├── index.html
 │   ├── schedule.html
@@ -151,7 +165,7 @@ git push origin main
 
 ### Notebook Structure (MUST FOLLOW)
 
-> **Canonical reference:** `notebooks/01_launchpad_eda_splits.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
+> **Canonical reference:** `notebooks/01_launchpad_eda_splits_student.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
 
 Every notebook MUST include these sections in order:
 
@@ -171,7 +185,7 @@ Every notebook MUST include these sections in order:
 # <center>MGMT47400 Predictive Analytics</center>
 # <center>Professor: Davi Moreira </center>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic_student.ipynb)
 
 ---
 ```
@@ -291,7 +305,8 @@ Thank you!
 
 ### Naming Conventions
 
-- **Notebooks:** `NN_topic_description.ipynb` (e.g., `01_launchpad_eda_splits.ipynb`)
+- **Notebooks (student):** `NN_topic_student.ipynb` (e.g., `01_launchpad_eda_splits_student.ipynb`) — committed to git
+- **Notebooks (instructor):** `NN_topic_instructor.ipynb` (e.g., `01_launchpad_eda_splits_instructor.ipynb`) — gitignored
 - **Git commits:** `<type>: <subject>`
   - Types: `feat`, `docs`, `chore`, `build`, `fix`
   - Always include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
@@ -318,17 +333,19 @@ Thank you!
 ### Task 1: Add a New Notebook
 
 1. **Choose the right notebook number** (01-20)
-2. **Copy structure from canonical notebook** (`01_launchpad_eda_splits.ipynb`)
-3. **Update header** with correct topic title (no "Day X:" prefix, no date)
-4. **Update Colab badge URL** to match filename
-5. **Write 4-5 learning objectives**
-6. **Follow the established section structure**
-7. **Include 2 PAUSE-AND-DO exercises** (10 min each)
-8. **Add bibliography section**
-9. **Test in Colab:** Click "Open in Colab" → "Runtime → Run all"
-10. **Commit:**
+2. **Create the instructor notebook first** (`NN_topic_instructor.ipynb`)
+   - Copy structure from canonical reference (`01_launchpad_eda_splits_student.ipynb`)
+   - Write all content including `INSTRUCTOR SOLUTION` cells
+   - Include student placeholder cells (e.g., `### YOUR FINDINGS HERE:`)
+3. **Generate the student notebook** using the copy-delete workflow:
+   - Copy instructor → `NN_topic_student.ipynb`
+   - Delete all cells containing `INSTRUCTOR SOLUTION`
+   - Update the Colab badge URL to point to `_student.ipynb`
+4. **Verify:** Student file has no `INSTRUCTOR SOLUTION` cells, correct Colab badge
+5. **Test in Colab:** Click "Open in Colab" → "Runtime → Run all"
+6. **Commit:**
     ```bash
-    git add notebooks/XX_topic.ipynb
+    git add notebooks/XX_topic_student.ipynb
     git commit -m "feat: Add Day XX notebook
 
     Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
@@ -342,7 +359,7 @@ Thank you!
 4. **Use correct date** (business days only, May 18 - June 14, 2027)
 5. **Link to notebook:**
    ```
-   [XX_topic.ipynb](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic.ipynb)
+   [XX_topic_student.ipynb](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic_student.ipynb)
    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](...)
    ```
 6. **Render site:** `/Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto render`
@@ -564,6 +581,11 @@ git push origin main
 ### ❌ DON'T: Make Significant Notebook Changes Without Updating Planning Documents
 - When notebooks gain new sections, change tools/libraries, or shift dependencies, update the sequencing rationale in `MGMT47400_Online4Week_Plan_2026Summer.md` and `claude_course_plan.md`
 - **Why:** These documents contain dependency tables and arc descriptions that become inaccurate if not synced with actual notebook content
+
+### ❌ DON'T: Leave Solution Cells Unmarked in Instructor Notebooks
+- Every cell that should be excluded from the student version MUST contain `INSTRUCTOR SOLUTION` in its source
+- This includes code cells (use `# INSTRUCTOR SOLUTION` as the first comment) and follow-up markdown cells (use `<!-- INSTRUCTOR SOLUTION -->` as the first line)
+- **Why:** The copy-delete workflow relies on this marker to strip solutions. Unmarked cells will leak into the student notebook
 
 ### ❌ DON'T: Forget Co-Authorship
 - Every commit MUST include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
