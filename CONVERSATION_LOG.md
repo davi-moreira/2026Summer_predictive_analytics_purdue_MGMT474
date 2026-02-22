@@ -1563,3 +1563,107 @@ Simple string replacement `"Cell 3" → "Cell 4"` also matched substrings like "
 - [ ] Consider adding a brief callback to the business case in wrap-up sections
 
 ---
+
+## Session 10: February 22, 2026
+
+### Objective
+Update NB01 wording: professor bio, student introduction questions, and generic cross-references.
+
+### Work Completed
+
+- **Updated professor bio** with current research interests
+- **Simplified student introduction questions** for better engagement
+- **Replaced notebook-specific cross-references** with generic phrasing (e.g., "next notebook" instead of naming specific notebooks)
+- **Added section number** to Participation Assignment heading
+
+### Commits
+- `9922643` — feat: Update NB01 wording (bio, intro questions, generic cross-references)
+- `7bf6a86` — build: Render Quarto site with NB01 wording updates
+
+### Files Modified
+- `notebooks/01_launchpad_eda_splits.ipynb` (160 insertions, 160 deletions — wording changes only)
+
+---
+
+## Session 11: February 22, 2026
+
+### Objective
+Implement a new instructor-to-student notebook workflow (copy → delete solution cells → rename) and rename all 20 student notebooks from `NN_topic.ipynb` to `NN_topic_student.ipynb` for clarity.
+
+### Context
+The old workflow required manual, error-prone cell-by-cell diffing to propagate instructor changes to student notebooks. The new approach: copy the instructor file, delete cells containing `INSTRUCTOR SOLUTION`, and rename to `_student.ipynb`. This also adds `_student` to filenames so the naming convention makes both roles explicit.
+
+### Work Completed
+
+#### 1. Renamed All 20 Student Notebooks
+- Used `git mv` for all 20 files: `NN_topic.ipynb` → `NN_topic_student.ipynb`
+- Git correctly detected renames (98-99% similarity) preserving full history
+
+#### 2. Regenerated NB02-NB20 from Instructor Files
+- Wrote a Python script that for each instructor notebook:
+  - Copies the instructor file
+  - Deletes all cells containing `INSTRUCTOR SOLUTION` in their source
+  - Updates Colab badge URLs to the new `_student.ipynb` filename
+  - Writes the result as the student file
+- 39 total solution cells removed across 19 notebooks (2 per notebook, 3 for NB10)
+
+#### 3. Handled NB01 Manually
+- NB01 instructor has multi-cell solution blocks (markdown header + code + "Reading the output") where only the first cell is marked with `INSTRUCTOR SOLUTION`
+- Deleted 6 instructor solution cells (cells 65-67, 69-71)
+- Preserved 2 student placeholder cells ("YOUR FINDINGS HERE", "YOUR LEAKAGE ANALYSIS HERE") from the existing student version
+- Final cell count: 71 (75 instructor - 6 solution + 2 placeholder)
+
+#### 4. Updated schedule.qmd
+- Updated 60 URL references across 20 notebook entries (3 per notebook: link text, GitHub URL, Colab badge URL)
+
+#### 5. Updated CLAUDE.md
+- **Rewrote "Instructor-First Notebook Editing" workflow** with the new copy-delete procedure
+- **Added instructor notebook conventions** (every solution cell must contain `INSTRUCTOR SOLUTION`)
+- **Updated naming conventions** to show both `_instructor` and `_student` patterns
+- **Updated Task 1 (Add a New Notebook)** to reference the new workflow
+- **Added anti-pattern** about unmarked solution cells
+- **Updated repository structure**, canonical reference, and example URLs throughout
+
+#### 6. Verification (All Passed)
+- All 20 student notebooks have correct cell counts (instructor cells - solution cells)
+- No student notebook contains `INSTRUCTOR SOLUTION`
+- All 20 Colab badges point to correct `_student.ipynb` URLs
+- All 20 schedule.qmd links use new filenames
+- `.gitignore` correctly ignores instructor files, tracks student files
+- `quarto render` succeeds
+
+### Commits
+- `e1f19a9` — feat: Rename student notebooks to *_student.ipynb and update workflow
+- `8ae30fb` — build: Render Quarto site with renamed _student notebooks
+
+### Files Modified (committed + pushed)
+- 20 student notebooks (renamed + regenerated): `notebooks/01_*_student.ipynb` through `notebooks/20_*_student.ipynb`
+- `schedule.qmd` (60 link updates)
+- `claude.md` (workflow section rewrite, naming conventions, anti-patterns)
+- `docs/` (re-rendered Quarto site)
+
+### Decisions Made
+
+**Decision 1: `_student` suffix for all student notebooks**
+- Makes the naming convention explicit: `_instructor` (local) vs `_student` (committed)
+- Avoids ambiguity about which file is the source of truth
+
+**Decision 2: Copy-delete workflow replaces cell-by-cell sync**
+- Old: manually diff instructor and student notebooks, copy changes cell by cell
+- New: copy instructor → delete `INSTRUCTOR SOLUTION` cells → update Colab badge
+- Faster, less error-prone, fully scriptable
+
+**Decision 3: All solution cells must contain `INSTRUCTOR SOLUTION` marker**
+- Enables automated deletion during student file generation
+- Convention: markdown headings use `### INSTRUCTOR SOLUTION — Exercise N`, code cells use `# INSTRUCTOR SOLUTION` as first comment, hidden markdown uses `<!-- INSTRUCTOR SOLUTION -->`
+
+**Decision 4: NB01 handled as one-time exception**
+- NB01 instructor has multi-cell solution blocks without full marking (legacy from before the convention)
+- Going forward, all instructor notebooks must mark every solution cell individually
+
+### Next Steps
+- [ ] Test renamed notebooks in Google Colab (verify Colab badge URLs resolve)
+- [ ] Record video lectures using the updated guides
+- [ ] Mark all instructor solution cells in NB01 instructor (optional cleanup for full convention compliance)
+
+---
