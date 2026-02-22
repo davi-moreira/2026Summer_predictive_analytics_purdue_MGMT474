@@ -1667,3 +1667,72 @@ The old workflow required manual, error-prone cell-by-cell diffing to propagate 
 - [ ] Mark all instructor solution cells in NB01 instructor (optional cleanup for full convention compliance)
 
 ---
+
+## Session 12: February 22, 2026
+
+### Objective
+Enhance NB02 with a function explanation cell and improved section 4.3 (business case, R², bar plot), then regenerate NB01 student notebook after instructor updates.
+
+### Work Completed
+
+#### 1. Added "Why Write a Function?" Explanation to NB02
+- Searched NB01 and NB02 instructor notebooks for the first Gemini prompt requiring a Python function
+- NB01: 13 Gemini prompts, none require writing a function
+- NB02 cell 16 (originally cell 15, shifted after insertion): first Gemini prompt asks students to write `make_data_report(df, name)`
+- Inserted a new markdown cell at position 15 in NB02 instructor: "Why Write a Function Instead of Step-by-Step Code?" with a 5-row advantages table (Reusability, Readability, Fewer bugs, Maintainability, Professional habit) and a rule-of-thumb blockquote
+- Generated NB02 student notebook (50 cells, verified clean)
+- Updated video guide `02_video_lecture_guide.md`: incremented all cell references >= 15 by +1, added mention of new cell
+
+#### 2. Enhanced NB02 Section 4.3 (Full Pipeline: Preprocessing + Model)
+- **Cell 33 (section header):** Rewrote to connect with "HomeValue Analytics" business case, added plain-English R² explanation with LaTeX formula, added "Why Compare R² on Both Train and Validation?" subsection with diagnostic table
+- **Cell 35 (code):** Added bar chart comparing Train vs Validation R² (blue/orange bars, value labels, dotted line at R²=1.0)
+- **Cell 36 (Reading the output):** Rewrote to reference bar chart, explain near-equal bars indicating no overfitting, connect back to business case
+- Generated NB02 student notebook (50 cells, verified clean)
+- Updated video guide speaking prompts and cell references for section 4.3
+
+#### 3. Regenerated NB01 Student from Updated Instructor
+- User updated the NB01 instructor notebook independently
+- Confirmed instructor structure unchanged: 75 cells, INSTRUCTOR SOLUTION at cells 65 and 69, solution blocks spanning 3 cells each (65-67, 69-71)
+- Generated student notebook using the manual NB01 approach:
+  - Kept instructor cells 0-64
+  - Inserted placeholder 1 (YOUR FINDINGS HERE) from existing student cell 65
+  - Kept instructor cell 68 (PAUSE-AND-DO exercise prompt)
+  - Inserted placeholder 2 (YOUR LEAKAGE ANALYSIS HERE) from existing student cell 67
+  - Kept instructor cells 72-74 (wrap-up)
+- Updated Colab badge URL to `_student.ipynb`
+- Verified: 71 cells, no INSTRUCTOR SOLUTION content, correct Colab badge
+
+### Commits
+- `e8a4e68` — feat: Add 'Why Write a Function?' explanation to NB02
+- `992ba00` — build: Render Quarto site with NB02 function explanation
+- `4fc10cb` — feat: Enhance NB02 section 4.3 with business case, R² explanation, and bar plot
+- `3b3a712` — build: Render Quarto site with NB02 section 4.3 enhancements
+- `2c99152` — feat: Regenerate NB01 student notebook from updated instructor
+- `e9e207d` — build: Render Quarto site with NB01 student update
+
+### Files Modified (committed + pushed)
+- `notebooks/02_preprocessing_pipelines_student.ipynb` (regenerated twice — function cell + section 4.3)
+- `notebooks/01_launchpad_eda_splits_student.ipynb` (regenerated from updated instructor)
+- `video_guides/02_video_lecture_guide.md` (cell references + speaking prompts, local-only)
+- `docs/` (re-rendered Quarto site, 3 separate builds)
+
+### Decisions Made
+
+**Decision 1: Function explanation placed in NB02 (not NB01)**
+- NB01 uses Gemini for exploration prompts but never asks students to write a function
+- NB02 cell 16 is the first place Gemini asks for `make_data_report(df, name)` — explanation goes right before it
+
+**Decision 2: R² explanation uses both formula and plain English**
+- Business students benefit from the intuitive "percentage of variance explained" framing
+- LaTeX formula included for completeness but not emphasized
+
+**Decision 3: Bar plot for train vs validation comparison**
+- Visual comparison is more intuitive than raw numbers for detecting overfitting
+- Blue (train) and orange (validation) color coding matches sklearn convention
+
+### Next Steps
+- [ ] Test updated NB01 and NB02 in Google Colab
+- [ ] Record video lectures using updated guides
+- [ ] Continue enhancing remaining notebooks as needed
+
+---
