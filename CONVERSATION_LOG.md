@@ -1905,8 +1905,65 @@ The rewrite followed NB14 (Model Selection Protocol) as the exemplar, applying t
 
 ### Next Steps
 - [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
-- [ ] Update video lecture guides to reflect the deeper business narrative
+- [x] Update video lecture guides to reflect the deeper business narrative
 - [ ] Record video lectures
+- [ ] Consider whether NB01/NB02 need similar treatment
+
+---
+
+## Session 14b: February 22, 2026 (continued)
+
+### Objective
+Update all 15 video lecture guides to reflect the deeper business narrative now woven throughout the rewritten notebooks. Since the notebook cell structure didn't change (same indices, same headings), cell references and timestamps remain valid — the updates focus on speaking prompts, key concepts, student takeaways, and common questions.
+
+### Work Completed
+
+**15 video lecture guides updated (local-only, gitignored).**
+
+Sections updated per guide:
+- **Section 3 (Why This Notebook Exists):** Updated to reflect integrated business narrative, not just warmup context
+- **Section 7 (Key Concepts):** Explanations and analogies rewritten with business framing (e.g., "MAE as HomeValue's pricing error", "threshold as medical director policy decision")
+- **Section 8 (Student Takeaways):** Questions/answers now include business-context framing
+- **Section 9 (Common Questions):** New Q&A pairs added with clinical/business framing
+- **Section 11 (Suggested Video Structure):** Speaking prompts in both Option A and Option B updated to reference the business narrative — stakeholder names, feature names, consequence framing
+
+Sections NOT modified (unchanged by notebook rewrite):
+- Section 2 (Purpose), Sections 4/5 (dependency order), Section 6 (Libraries/Tools), Section 10 (Course Arc)
+
+#### Batch 1 — HomeValue (guides 03, 04, 05)
+- Dollar-denominated speaking prompts ($53k error, $91k baseline), CEO/pricing team/client framing
+- NB04: Luxury-segment residual risk, interaction effects as upscale suburb synergies
+- NB05: CTO memorization alarm, Lasso as operational cost saving
+
+#### Batch 2 — Health Dept (guides 06, 07, 08, 09)
+- FN=missed cancer / FP=unnecessary biopsy framing throughout all speaking prompts
+- NB06: Sigmoid as clinical confidence, threshold as policy not statistics
+- NB07: Board meeting framing, 50:1 cost ratio, accuracy paradox as "clinic that does nothing"
+- NB08: Partner hospital cohorts, borderline patient subpopulations, board audit needs
+- NB09: Lab workflow simplification, C parameter as clinical balance
+
+#### Batch 3 — Health Dept Trees (guides 11, 12, 13)
+- NB11: Oncologist-readable decision paths, depth as interpretability tradeoff, advisory board approval
+- NB12: Oncologist panel voting analogy, OOB for small datasets, lab investment decisions
+- NB13: Medical resident revision analogy, diagnostic conservatism, early stopping discipline
+
+#### Batch 4 — Mixed (guides 15–20)
+- NB15: Client pushback framing, luxury-segment deployment risk, regulator demographic questions
+- NB16: Medical director policy, calibration as clinician trust, three views for different stakeholders
+- NB17: Ethics board 8pp recall gap, Model Card as "nutrition label", equal opportunity for screening
+- NB18: EHR integration, Privacy Officer sign-off, 8-signal monitoring plan
+- NB19: Both scenarios as worked examples, Five-Act Framework, impact translation (recall→lives, MAE→revenue)
+- NB20: Self-audit as credibility gate, peer review as professional practice, regulatory context
+
+### Files Modified (local-only, gitignored)
+- `video_guides/03_video_lecture_guide.md` through `video_guides/20_video_lecture_guide.md` (15 files, excluding 10 and 14)
+
+### No Commits Required
+Video guides are gitignored (local-only instructor materials).
+
+### Next Steps
+- [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
+- [ ] Record video lectures using updated guides
 - [ ] Consider whether NB01/NB02 need similar treatment
 
 ---
