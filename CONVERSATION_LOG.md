@@ -1823,3 +1823,90 @@ Enrichment followed four patterns modeled on NB14 (the exemplar):
 - [ ] Consider enriching NB01/NB02 if consistency desired
 
 ---
+
+## Session 14: February 22, 2026 (continued)
+
+### Objective
+Full rewrite of technical markdown cells across NB03–NB20 so that business-case context is **woven throughout** the narrative, not just appended as 1–3 sentences. The Session 13 enrichment pass added sentences to ~40 cells; this session rewrites ~257 cells so every section intro and "Reading the output" cell reads as if written by someone building a product for real stakeholders.
+
+### Work Completed
+
+**15 instructor notebooks rewritten, 15 student notebooks regenerated, ~257 cells total.**
+
+The rewrite followed NB14 (Model Selection Protocol) as the exemplar, applying three writing patterns consistently:
+
+1. **Section intros lead with business context**, embedding technical content within it (not the reverse)
+2. **"Reading the output" cells** connect observations to stakeholder concerns and quantify in real-world units
+3. **Forward references** motivate why each concept matters for the next step in the analysis
+
+#### Batch 1 — HomeValue Analytics (NB03, NB04, NB05): ~45 cells rewritten
+| Notebook | Cells Rewritten | Key Themes |
+|----------|----------------|------------|
+| NB03 | 17 | MAE→$53k error, baseline as neighborhood average, CEO pricing tool framing |
+| NB04 | 14 | MedInc coefficient meaning, interaction effects for coastal pricing, luxury-home residual risk |
+| NB05 | 14 | Ridge stability for 100+ features, Lasso→operational cost savings, project proposal framing |
+
+#### Batch 2 — State Health Dept (NB06, NB07, NB08, NB09): ~53 cells rewritten
+| Notebook | Cells Rewritten | Key Themes |
+|----------|----------------|------------|
+| NB06 | ~16 | Sigmoid as clinical probability, threshold as policy decision, FN=missed cancer |
+| NB07 | ~13 | FN/FP asymmetry, Recall≥0.95 minimum, cost-based threshold as medical director decision |
+| NB08 | ~13 | CV across hospital cohorts, stratified folds for class balance, fair comparison protocol |
+| NB09 | ~14 | Feature selection→simpler lab workflow, regularization as clinical stakes balance |
+
+#### Batch 3 — State Health Dept (NB11, NB12, NB13): ~44 cells rewritten
+| Notebook | Cells Rewritten | Key Themes |
+|----------|----------------|------------|
+| NB11 | 13 | Shallow tree=auditable by clinician, depth control as generalization, pruning for hospital deployment |
+| NB12 | 16 | Oncologist panel analogy, OOB for small datasets, permutation importance→lab investment |
+| NB13 | 15 | Medical resident revision analogy, conservative learning rate, early stopping as diagnostic discipline |
+
+#### Batch 4 — Mixed (NB15–NB20): ~115 cells rewritten
+| Notebook | Cells Rewritten | Key Themes |
+|----------|----------------|------------|
+| NB15 | ~26 | Permutation importance as "what drives pricing?", error analysis as deployment risk |
+| NB16 | ~18 | Threshold as clinical policy, calibration as clinician trust, cost matrix framing |
+| NB17 | ~13 | Fairness as audit deliverable, Model Card as "nutrition label", equal opportunity screening |
+| NB18 | ~30 | EHR integration, Privacy Officer approval, monitoring plan with hospital ownership |
+| NB19 | ~15 | Five-Act Framework with both scenarios, impact column translation |
+| NB20 | ~13 | Self-audit as credibility gate, peer review as industry practice, regulatory context |
+
+**Total: ~257 cells rewritten across 15 notebooks**
+**Unchanged notebooks:** NB01, NB02 (already contextualized), NB10 (midterm exam), NB14 (exemplar)
+
+### Additional Fixes
+- Fixed Colab badge URLs in 7 student notebooks (NB13, NB15–NB20) — same pre-existing issue as Session 13
+- NB20: Fixed a pre-existing cell-type issue (code cell containing markdown text → converted to student code placeholder)
+
+### Commits
+- `2578b67` — feat: Rewrite technical sections with integrated business-case narrative (NB03-NB20)
+- `a48c746` — build: Render Quarto site with business-case narrative rewrites
+
+### Files Modified (committed + pushed)
+- 16 student notebooks in `notebooks/` (NB03–NB09, NB11–NB13, NB15–NB20)
+- `docs/` (re-rendered Quarto site)
+
+### Files Modified (local-only, gitignored)
+- 15 instructor notebooks (NB03–NB09, NB11–NB13, NB15–NB20)
+
+### Decisions Made
+
+**Decision 1: Full rewrite, not incremental enrichment**
+- Session 13's approach of appending sentences left the narrative voice split between "textbook mode" and "business mode"
+- Full rewrite ensures consistent voice throughout each cell
+
+**Decision 2: NB14 as canonical exemplar**
+- NB14 (Model Selection Protocol) demonstrates the target quality: every cell naturally references the screening scenario, names stakeholders, and connects technical concepts to deployment decisions
+- Style guide distilled from NB14 was shared across all 4 parallel workers
+
+**Decision 3: Preserve cell structure, rewrite prose only**
+- No cells added or removed — same indices, same headings, same "Reading the output:" prefix
+- This preserves all cell references in video guides and Gemini prompts
+
+### Next Steps
+- [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
+- [ ] Update video lecture guides to reflect the deeper business narrative
+- [ ] Record video lectures
+- [ ] Consider whether NB01/NB02 need similar treatment
+
+---
