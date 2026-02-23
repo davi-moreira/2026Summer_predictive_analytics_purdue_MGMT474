@@ -1964,6 +1964,67 @@ Video guides are gitignored (local-only instructor materials).
 ### Next Steps
 - [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
 - [ ] Record video lectures using updated guides
-- [ ] Consider whether NB01/NB02 need similar treatment
+- [x] ~~Consider whether NB01/NB02 need similar treatment~~ → NB02 done in Session 15
+
+---
+
+## Session 15: February 22, 2026
+
+### Objective
+Apply the same business-narrative rewrite treatment to NB02 (Preprocessing Pipelines), which was not included in the original NB03–NB20 batch.
+
+### Work Completed
+
+#### NB02 Business Narrative Rewrite
+Rewrote 15 markdown cells in the instructor notebook to lead with HomeValue Analytics context (matching the NB14 exemplar quality established in Session 14):
+
+| Cell | Section | Key Change |
+|------|---------|------------|
+| 4 | Setup intro | Imports framed as "tools HomeValue's data team needs" |
+| 6 | Reading the output (Setup) | RANDOM_SEED ensures "every data team member reproduces identical results" |
+| 7 | Load Dataset | "This is the data the CEO handed to HomeValue's data team" |
+| 10 | Reading the output (Load) | Each feature explained through HomeValue's pricing lens |
+| 13 | Reading the output (Splits) | Train/val/test as business roles in HomeValue's workflow |
+| 14 | Data Audit intro | "Before HomeValue's data team builds anything, they audit" |
+| 16 | Why Write a Function? | Table reframed with "What it means for HomeValue" column |
+| 18 | Reading the output (Audit) | Zero missing as "good news for the pricing tool" |
+| 25 | Pipeline Template | "Infrastructure that will power the pricing tool" |
+| 28 | Reading the output (Column types) | All 8 features named explicitly |
+| 29 | Build Pipeline | Design principles framed through HomeValue consequences |
+| 32 | Reading the output (ColumnTransformer) | Three paths through HomeValue lens |
+| 33 | Beyond This Dataset | HomeValue examples (property types, conditions, descriptions) |
+| 38 | Inspecting Pipeline | "Pricing team will ask 'Which features drive estimates?'" |
+| 41 | Reading the output (Feature names) | "`num__MedInc` with largest coefficient" → CEO explanation |
+
+#### Student Notebook Generation
+- Source: 54 cells → Student: 49 cells (5 instructor solutions removed)
+- Verification: 0 INSTRUCTOR SOLUTION leaks, Colab badge correct
+
+#### Video Guide Update (`video_guides/02_video_lecture_guide.md`)
+- Section 1 (Why Exists): HomeValue context "woven throughout every technical section"
+- Section 5 (Key Concepts): Reframed through HomeValue analogies and consequences
+- Section 6 (Takeaways): Added HomeValue framing + new takeaway #6
+- Section 7 (Common Questions): Added HomeValue framing + 2 new Q&As
+- Section 9 (Video Structure): Speaking prompts updated in both Option A and Option B
+
+### Commits
+- `dc4e30f` — feat: Rewrite NB02 technical sections with integrated HomeValue business narrative
+- `d6c0bff` — build: Render Quarto site with NB02 business narrative rewrite
+
+### Coverage Summary (All Business Narrative Work)
+| Notebook | Status | Session |
+|----------|--------|---------|
+| NB01 | Not yet treated | — |
+| NB02 | ✅ Rewritten | Session 15 |
+| NB03–NB09 | ✅ Rewritten | Session 14 |
+| NB10 | Midterm exam (no changes needed) | — |
+| NB11–NB13 | ✅ Rewritten | Session 14 |
+| NB14 | Exemplar (no changes needed) | — |
+| NB15–NB20 | ✅ Rewritten | Session 14 |
+
+### Next Steps
+- [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
+- [ ] Record video lectures using updated guides
+- [ ] Consider whether NB01 needs similar treatment (it's the introductory EDA notebook)
 
 ---
