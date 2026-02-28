@@ -34,7 +34,8 @@ Each notebook builds exactly one conceptual layer, assumes only what prior noteb
 
 | NB | Title | Key Libraries/Tools | Depends On | Prepares For | Why This Position |
 |----|-------|---------------------|------------|--------------|-------------------|
-| 01 | Launchpad: EDA & Splits | pandas, numpy, matplotlib, seaborn, train_test_split | — (first) | 02 (pipeline), all subsequent | Foundation: Colab setup, EDA workflow, 60/20/20 split, leakage vocabulary |
+| 00 | Launchpad: Course Setup | Google Colab, Google Gemini | — (first) | 01 (platform ready), all subsequent | Pre-course: Colab navigation, Gemini Ask→Verify→Document, course structure, environment verification |
+| 01 | EDA & Splits | pandas, numpy, matplotlib, seaborn, train_test_split | 00 (platform ready) | 02 (pipeline), all subsequent | Foundation: statistical learning framework, EDA workflow, 60/20/20 split, leakage vocabulary |
 | 02 | Preprocessing Pipelines | Pipeline, ColumnTransformer, SimpleImputer, OneHotEncoder, StandardScaler | 01 (split, leakage) | 03 (metrics assume pipeline solved) | Operationalizes leakage prevention with the tool that makes safe preprocessing automatic |
 | 03 | Regression Metrics & Baselines | mean_absolute_error, mean_squared_error, r2_score, DummyRegressor | 02 (pipeline) | 04 (needs metrics to measure feature engineering impact) | Teaches how to measure model quality before attempting to improve it |
 | 04 | Linear Features & Diagnostics | LinearRegression, PolynomialFeatures, make_pipeline | 03 (evaluation framework) | 05 (creates overfitting problem Ridge/Lasso solves) | Feature engineering + residual analysis; exposes polynomial overfitting |
@@ -222,7 +223,8 @@ All three notebooks follow the established template:
 ```markdown
 | Day | Date | Topic | Videos | Notebook | Assessment | Materials |
 |-----|------|-------|--------|----------|------------|-----------|
-| 1 | Tue May 18 | Launchpad: EDA, Splits, Leakage | 6 videos (54 min) | [01_launchpad](link) | Concept Quiz | ISLP Ch2, sklearn |
+| 0 | Pre-course | Launchpad: Course Setup, Colab Orientation | 2 videos (10 min) | [00_launchpad](link) | Colab Readiness Check | Colab docs |
+| 1 | Tue May 18 | PA Fundamentals, EDA, Splits | 5 videos (48 min) | [01_eda_splits](link) | Concept Quiz | ISLP Ch2, sklearn |
 | 2 | Wed May 19 | Preprocessing Pipelines | 6 videos (54 min) | [02_preprocessing](link) | Concept Quiz | sklearn Pipelines |
 ...
 ```

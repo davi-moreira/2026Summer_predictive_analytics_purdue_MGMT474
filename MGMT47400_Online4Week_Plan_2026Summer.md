@@ -52,7 +52,8 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 
 | NB | Title | Why It Exists | Why This Position |
 |----|-------|---------------|-------------------|
-| 01 | Launchpad: EDA & Splits | Foundation layer — orients students to tools (Colab, Gemini), introduces predictive analytics concepts, and establishes the data workflow (EDA + train/val/test splitting) that every subsequent notebook depends on. | First notebook; no predecessor. Students cannot preprocess, model, or evaluate anything until they understand the platform, leakage, and data splitting. |
+| 00 | Launchpad: Course Setup | Pre-course orientation — orients students to the platform (Colab, Gemini) and course logistics (syllabus, grading, daily workflow) so NB01 can focus purely on analytics content. | Day 0 (pre-course); no predecessor. Students cannot engage with any technical content until they understand the platform and AI assistant policy. |
+| 01 | EDA & Splits | Conceptual foundation — introduces predictive analytics (Y = f(X) + ε), the EDA checklist, and the data workflow (60/20/20 splitting, leakage prevention) that every subsequent notebook depends on. | Follows NB00 (platform ready). Students cannot preprocess, model, or evaluate anything until they understand leakage and data splitting. |
 | 02 | Preprocessing Pipelines | Operationalizes leakage prevention from NB01 by teaching Pipeline + ColumnTransformer — the tool that makes safe preprocessing automatic and reproducible. | NB01 provides the vocabulary (split, leakage, EDA); NB02 gives the tool that enforces it. NB03 assumes the pipeline is a solved problem. |
 | 03 | Regression Metrics & Baselines | Teaches formal regression metrics (MAE, RMSE, R²) and baseline models, giving every future comparison a meaningful performance floor. | NB02 solves preprocessing; NB03 shifts focus to evaluation. NB04 needs metrics to measure whether feature engineering helps. |
 | 04 | Linear Features & Diagnostics | Teaches feature engineering (interactions, polynomials) and residual diagnostics — revealing the accuracy vs. complexity tradeoff and exposing overfitting risk. | NB03 provides the evaluation framework; without it, students would engineer features blindly. NB04 creates the overfitting problem that NB05 solves. |
@@ -76,6 +77,10 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 ### Weekly Arc Dependencies
 
 ```
+Pre-course — ORIENTATION
+  00 Launchpad/Setup
+  (Platform fluency)
+
 Week 1 — REGRESSION ARC
   01 EDA/Splits → 02 Pipelines → 03 Metrics/Baselines → 04 Features/Diagnostics → 05 Regularization
   (Foundation)    (Tool)         (Measurement)          (Improvement)             (Control + Proposal)
