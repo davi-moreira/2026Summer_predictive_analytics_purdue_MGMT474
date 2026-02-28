@@ -2025,6 +2025,80 @@ Rewrote 15 markdown cells in the instructor notebook to lead with HomeValue Anal
 ### Next Steps
 - [ ] Test rewritten notebooks in Google Colab (spot-check 3–4)
 - [ ] Record video lectures using updated guides
-- [ ] Consider whether NB01 needs similar treatment (it's the introductory EDA notebook)
+- [x] ~~Consider whether NB01 needs similar treatment~~ → Done in Session 16
+
+---
+
+## Session 16: February 28, 2026
+
+### Objective
+Split NB01 (77 cells, largest notebook) into two focused notebooks:
+- **NB00** (Day 0, pre-course): Launchpad & course logistics
+- **NB01** (Day 1): Predictive analytics fundamentals, EDA, and data splitting
+
+### Work Completed
+
+#### NB00: `00_launchpad_course_setup` (15 cells)
+- Created instructor notebook with cells from old NB01 Sections 1–3
+- New header, learning objectives, wrap-up, submission instructions, bibliography
+- 1 PAUSE-AND-DO exercise (self-introduction)
+- Generated student notebook (15 cells, 0 instructor solutions to remove)
+
+#### NB01: `01_eda_splits` (70 instructor / 64 student cells)
+- Created instructor notebook with cells from old NB01 Sections 4–9
+- New header, learning objectives, setup code cell
+- Sections renumbered: old 4→1, 5→2, 6→3, 7→4, 8→5, 9→6
+- Exercises renumbered: old Exercise 2→1, Exercise 3→2
+- Fixed 4 instructor solution cells missing `INSTRUCTOR SOLUTION` markers (code cells 67, 72 and markdown cells 68, 73 from original)
+- Wrap-up updated: removed Colab/Gemini points (now in NB00)
+- Generated student notebook (64 cells, 6 instructor solutions removed)
+
+#### Video Guides (gitignored, local-only)
+- Created `video_guides/00_video_lecture_guide.md` (NB00 guide)
+- Updated `video_guides/01_video_lecture_guide.md` (new title, cell references, content, 4-video structure)
+
+#### Schedule & Planning Documents
+- `schedule.qmd`: Added Day 0 row, updated Day 1 row (new filename + topic)
+- `MGMT47400_Online4Week_Plan_2026Summer.md`: Added NB00 in sequence table + pre-course arc in dependency diagram
+- `claude_course_plan.md`: Added NB00 row, updated NB01 row in both sequencing map and schedule table
+
+#### Git Operations
+- `git rm notebooks/01_launchpad_eda_splits_student.ipynb` (old filename)
+- Committed content changes + rendered Quarto site + committed docs/
+
+### Files Created
+- `notebooks/00_launchpad_course_setup_instructor.ipynb` (gitignored)
+- `notebooks/00_launchpad_course_setup_student.ipynb`
+- `notebooks/01_eda_splits_instructor.ipynb` (gitignored)
+- `notebooks/01_eda_splits_student.ipynb`
+- `video_guides/00_video_lecture_guide.md` (gitignored)
+
+### Files Modified
+- `video_guides/01_video_lecture_guide.md` (gitignored)
+- `schedule.qmd`
+- `MGMT47400_Online4Week_Plan_2026Summer.md`
+- `claude_course_plan.md`
+- `CONVERSATION_LOG.md`
+
+### Files Deleted
+- `notebooks/01_launchpad_eda_splits_student.ipynb` (old filename, git rm'd)
+
+### Decisions Made
+- NB00 is Day 0 (pre-course activity), not Day 1
+- Exercises restart numbering per notebook (NB00: Exercise 1; NB01: Exercise 1 + 2)
+- NB02–NB20 cross-references remain valid (01_ prefix preserved)
+- Instructor solution markers fixed for cells that were missing them
+
+### Verification
+- NB00 student: 0 INSTRUCTOR SOLUTION occurrences ✓
+- NB01 student: 0 INSTRUCTOR SOLUTION occurrences ✓
+- Colab badges point to correct _student.ipynb filenames ✓
+- Section numbering starts at 1 in NB01 ✓
+- Quarto renders without errors ✓
+
+### Next Steps
+- [ ] Test NB00 and NB01 student notebooks in Google Colab
+- [ ] Record video lectures for NB00 (1–2 short videos) and NB01 (3–5 videos)
+- [ ] Update CLAUDE.md canonical reference (currently references old 01_launchpad filename)
 
 ---
