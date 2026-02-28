@@ -130,9 +130,11 @@ git push origin main
 ## 📁 Repository Structure
 
 ```
-├── notebooks/                  # 20 Jupyter notebooks (Days 1-20)
-│   ├── 01_launchpad_eda_splits_student.ipynb
-│   ├── 01_launchpad_eda_splits_instructor.ipynb  # gitignored
+├── notebooks/                  # 21 Jupyter notebooks (Day 0 + Days 1-20)
+│   ├── 00_launchpad_course_setup_student.ipynb
+│   ├── 00_launchpad_course_setup_instructor.ipynb  # gitignored
+│   ├── 01_eda_splits_student.ipynb
+│   ├── 01_eda_splits_instructor.ipynb  # gitignored
 │   ├── 02_preprocessing_pipelines_student.ipynb
 │   ├── ...
 │   └── 20_final_submission_peer_review_student.ipynb
@@ -174,7 +176,7 @@ git push origin main
 
 ### Notebook Structure (MUST FOLLOW)
 
-> **Canonical reference:** `notebooks/01_launchpad_eda_splits_student.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
+> **Canonical reference:** `notebooks/01_eda_splits_student.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
 
 Every notebook MUST include these sections in order:
 
@@ -333,8 +335,8 @@ Thank you!
 
 ### Naming Conventions
 
-- **Notebooks (student):** `NN_topic_student.ipynb` (e.g., `01_launchpad_eda_splits_student.ipynb`) — committed to git
-- **Notebooks (instructor):** `NN_topic_instructor.ipynb` (e.g., `01_launchpad_eda_splits_instructor.ipynb`) — gitignored
+- **Notebooks (student):** `NN_topic_student.ipynb` (e.g., `01_eda_splits_student.ipynb`) — committed to git
+- **Notebooks (instructor):** `NN_topic_instructor.ipynb` (e.g., `01_eda_splits_instructor.ipynb`) — gitignored
 - **Git commits:** `<type>: <subject>`
   - Types: `feat`, `docs`, `chore`, `build`, `fix`
   - Always include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
@@ -362,7 +364,7 @@ Thank you!
 
 1. **Choose the right notebook number** (01-20)
 2. **Create the instructor notebook first** (`NN_topic_instructor.ipynb`)
-   - Copy structure from canonical reference (`01_launchpad_eda_splits_student.ipynb`)
+   - Copy structure from canonical reference (`01_eda_splits_student.ipynb`)
    - Write all content including `INSTRUCTOR SOLUTION` cells
    - Include student placeholder cells (e.g., `### YOUR FINDINGS HERE:`)
 3. **Generate the student notebook** using the copy-delete workflow:
