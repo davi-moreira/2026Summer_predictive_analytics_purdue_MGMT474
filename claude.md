@@ -354,6 +354,7 @@ Thank you!
   - ⚠️ for warnings
   - 📝 for exercises
   - 💡 for insights
+- **Dollar signs in markdown cells:** Always use `\$` (escaped) when referring to money in markdown cells (e.g., `\$50,000`, `\$100k`). An unescaped `$` triggers LaTeX math mode in Google Colab and breaks text rendering. This applies to markdown cells only — `$` in Python code strings is fine.
 - **No unnecessary code:** Don't add features not explicitly requested
 
 ---
@@ -635,6 +636,12 @@ git push origin main
 - This includes: .qmd files, notebooks, images, syllabus, schedule
 - **Why:** GitHub Pages serves docs/, not the source files. If you don't render and commit docs/, the website won't update even though you pushed your changes!
 - **Common mistake:** Updating a notebook, committing it, pushing, but forgetting to render → website shows old version
+
+### ❌ DON'T: Use Unescaped `$` for Money in Markdown Cells
+- In notebook markdown cells, always write `\$50,000` not `$50,000`
+- An unescaped `$` triggers LaTeX math mode in Google Colab, breaking text rendering
+- This applies to markdown cells only — `$` in Python code strings is fine
+- **Why:** Colab renders markdown with MathJax; `$50,000` becomes a broken math expression instead of displaying as a dollar amount
 
 ### ❌ DON'T: Add Complexity Without Request
 - No extra features, refactoring, or "improvements" unless asked
