@@ -164,11 +164,11 @@ The course assessment is based on multiple components designed to ensure continu
 
 | Assessment Component | Weight |
 |---------------------|--------|
-| Final Project + Milestones | 35% |
+| Participation | 10% |
+| Daily Concept Quizzes | 15% |
 | Midterm (Business Case Practicum) | 20% |
 | Kaggle Case Competition | 20% |
-| Daily Concept Quizzes | 15% |
-| Participation | 10% |
+| Final Project + Milestones | 35% |
 
 ### Project Milestones (individual or pairs)
 1. **Week 1 (Day 5):** Proposal + dataset selection

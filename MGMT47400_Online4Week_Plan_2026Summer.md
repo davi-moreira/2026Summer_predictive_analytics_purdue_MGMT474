@@ -55,11 +55,11 @@ For each topic/day, content follows a repeating loop:
 
 | Assessment | Weight |
 |---|---:|
-| Final Project + Milestones | 35% |
+| Participation | 10% |
+| Daily Concept Quizzes | 15% |
 | Midterm (Business Case Practicum) | 20% |
 | Kaggle Case Competition | 20% |
-| Daily Concept Quizzes | 15% |
-| Participation | 10% |
+| Final Project + Milestones | 35% |
 
 **Kaggle Case Competition (20%):**
 - At least one Kaggle submission: 30% of competition grade (6% of total)

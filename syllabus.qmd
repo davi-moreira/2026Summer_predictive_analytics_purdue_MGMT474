@@ -73,11 +73,11 @@ As part of a university-wide initiative, the Business School has adopted an **Of
 
 | **Assessment**                    | **Weight** |
 |-----------------------------------|-----------:|
-| Final Project + Milestones        |        35% |
+| Participation                     |        10% |
+| Daily Concept Quizzes             |        15% |
 | Midterm (Business Case Practicum) |        20% |
 | Kaggle Case Competition           |        20% |
-| Daily Concept Quizzes             |        15% |
-| Participation                     |        10% |
+| Final Project + Milestones        |        35% |
 
 ### Daily Concept Quizzes (15%)
 
