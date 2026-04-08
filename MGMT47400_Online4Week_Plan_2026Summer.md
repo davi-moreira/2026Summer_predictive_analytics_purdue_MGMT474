@@ -56,7 +56,7 @@ For each topic/day, content follows a repeating loop:
 | Assessment | Weight |
 |---|---:|
 | Daily Concept Quizzes | 15% |
-| Notebook Checkpoints | 10% |
+| Participation | 10% |
 | Midterm (Business Case Practicum) | 20% |
 | Kaggle Case Competition | 20% |
 | Final Project + Milestones | 35% |
@@ -240,7 +240,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: pipelines, fit/transform, leakage via preprocessing  
-- Notebook checkpoint submission (Colab link)
+- Participation: notebook submission with completed exercises (Colab link)
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -329,7 +329,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: linear regression, features, diagnostics  
-- Notebook checkpoint submission (Colab link)
+- Participation: notebook submission with completed exercises (Colab link)
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -423,7 +423,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: logistic regression, probabilities, thresholds  
-- Notebook checkpoint submission (Colab link)
+- Participation: notebook submission with completed exercises (Colab link)
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -510,7 +510,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: CV logic, stratification, comparison discipline  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -647,7 +647,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: tree mechanics + overfitting  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -690,7 +690,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: bagging/forests + importance  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -733,7 +733,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: boosting, tuning tradeoffs  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -776,7 +776,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: selection protocol + robustness  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
@@ -956,7 +956,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: reproducibility + drift  
-- Notebook checkpoint submission
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5

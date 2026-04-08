@@ -165,7 +165,7 @@ The course assessment is based on multiple components designed to ensure continu
 | Assessment Component | Weight |
 |---------------------|--------|
 | Daily Concept Quizzes | 15% |
-| Notebook Checkpoints | 10% |
+| Participation | 10% |
 | Midterm (Business Case Practicum) | 20% |
 | Kaggle Case Competition | 20% |
 | Final Project + Milestones | 35% |
@@ -193,7 +193,7 @@ The course assessment is based on multiple components designed to ensure continu
    - Watch micro-videos (posted on Brightspace)
    - Open the day's notebook in Colab
    - Complete "pause-and-do" exercises
-   - Submit notebook checkpoint and concept quiz on Brightspace
+   - Submit completed notebook and concept quiz on Brightspace
 
 ### For Instructors
 
