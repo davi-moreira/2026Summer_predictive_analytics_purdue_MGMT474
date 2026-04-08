@@ -35,12 +35,39 @@ For each topic/day, content follows a repeating loop:
 
 ---
 
-# Weekly structure and project milestones
-## Project (single end-to-end applied project; progresses weekly)
+# Weekly structure, project milestones, and case competition
+
+## Kaggle Case Competition (individual or pairs)
+- **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn
+- **Task:** Predict the probability that a bank customer will churn (`Exited` = 1)
+- **Metric:** AUC-ROC
+- **Platform:** Kaggle (private class competition, max 5 submissions per day)
+- **Deadline:** Fri June 12, 2026 at 11:59 PM (both Kaggle final submission and Brightspace code submission)
+- **Brightspace deliverable:** Submit the complete code for your best-performing model. The code must be fully replicable, allowing the instructor and TA to reproduce the same results and performance metrics. Include all necessary steps: data preprocessing, feature engineering, model training, evaluation, and generation of the submission file.
+
+## Project (single end-to-end applied project; individual or pairs; progresses weekly)
 - **Week 1 (due Day 5): Proposal + dataset selection**
 - **Week 2 (due Day 10): Baseline model + evaluation plan**
 - **Week 3 (due Day 15): Improved model + interpretation**
 - **Week 4 (due Day 20): Final model + executive-ready deliverable (slide-style narrative + 5-minute research presentation video)**
+
+## Grading
+
+| Assessment | Weight |
+|---|---:|
+| Daily Concept Quizzes | 15% |
+| Notebook Checkpoints | 10% |
+| Midterm (Business Case Practicum) | 20% |
+| Kaggle Case Competition | 20% |
+| Final Project + Milestones | 35% |
+
+**Kaggle Case Competition (20%):**
+- At least one Kaggle submission: 30% of competition grade (6% of total)
+- Leaderboard ranking: 70% of competition grade (14% of total)
+
+**Final Project + Milestones (35%):**
+- Milestones (4 deliverables): 60% of project grade (21% of total)
+- Final submission (notebook + deck + 5-minute video): 40% of project grade (14% of total)
 
 ---
 
@@ -806,7 +833,8 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 ---
 
 # Week 4 (Days 16–20): Error Analysis, Fairness/Ethics, Deployment Thinking, Executive Narrative, Final Project  
-**Project milestone:** Week 4 final deliverable due **Day 20**
+**Project milestone:** Week 4 final deliverable due **Day 20**  
+**Kaggle Case Competition:** Final submission deadline **Day 20 (Fri June 12, 11:59 PM)**
 
 ---
 
@@ -1020,11 +1048,10 @@ Each week follows the same pattern: introduce a new capability, build evaluation
   - Final run-all notebook + model card/limitations + monitoring plan  
   - Slide narrative (deck or slide markdown)  
   - 5-minute research presentation video (slide presentation with voice-over narration, uploaded as unlisted YouTube video; following Purdue Summer Research Symposium guidelines)  
-- Peer review submission (graded for quality)  
-- Final concept quiz (course wrap)
+- **Kaggle Case Competition deadline (11:59 PM):** Final Kaggle submission + Brightspace code submission (complete, replicable code for best-performing model)
 
 **Time budget (112.5 min)**
-- Videos 30 + Final submission notebook work 55 + Peer review 20 + Wrap quiz 7.5 = 112.5
+- Videos 30 + Final submission notebook work 55 + Competition code packaging 20 + Postmortem 7.5 = 112.5
 
 **Bibliography**
 - Mitchell et al.: Model Cards (responsible reporting alignment)  

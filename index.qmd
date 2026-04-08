@@ -23,7 +23,7 @@ This 4-week fully online intensive course enables students to navigate the entir
 
 Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach (draft → verify → document). By exploring topics such as exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, and deployment thinking, participants gain both theoretical understanding and practical experience.
 
-The course centers on **one comprehensive capstone project** that progresses through four weekly milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
+The course centers on **one comprehensive capstone project** (individual or pairs) that progresses through four weekly milestones, and a **Kaggle case competition** (individual or pairs) predicting bank customer churn. Project milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
 
 Ultimately, students will leave the course equipped to apply predictive models to data-driven problems, communicate their findings to diverse audiences, and critically evaluate model performance to inform strategic decision-making across various business contexts.
 

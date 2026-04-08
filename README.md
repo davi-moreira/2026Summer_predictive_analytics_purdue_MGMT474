@@ -21,7 +21,7 @@ This 4-week fully online intensive course enables students to navigate the entir
 
 Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach: **draft → verify → document**. Topics include exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, fairness considerations, and deployment thinking.
 
-The course centers on **one comprehensive capstone project** that progresses through four weekly milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
+The course centers on **one comprehensive capstone project** (individual or pairs) that progresses through four weekly milestones, and a **Kaggle case competition** (individual or pairs) predicting bank customer churn. Project milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
 
 ## Course Structure
 
@@ -164,18 +164,22 @@ The course assessment is based on multiple components designed to ensure continu
 
 | Assessment Component | Weight |
 |---------------------|--------|
-| Daily Concept Quizzes | 20% |
-| Notebook Checkpoints | 15% |
+| Daily Concept Quizzes | 15% |
+| Notebook Checkpoints | 10% |
 | Midterm (Business Case Practicum) | 20% |
-| Project Milestones (4 deliverables) | 35% |
-| Peer Review | 5% |
-| Final Concept Quiz | 5% |
+| Kaggle Case Competition | 20% |
+| Final Project + Milestones | 35% |
 
-### Project Milestones
+### Project Milestones (individual or pairs)
 1. **Week 1 (Day 5):** Proposal + dataset selection
 2. **Week 2 (Day 10):** Baseline model + evaluation plan
 3. **Week 3 (Day 15):** Improved model + interpretation
 4. **Week 4 (Day 20):** Final deliverable (notebook + slide narrative + 5-minute research presentation video)
+
+### Kaggle Case Competition (individual or pairs)
+- **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn
+- **Task:** Predict bank customer churn probability (AUC-ROC)
+- **Deadline:** Fri June 12, 2026 at 11:59 PM (Kaggle + Brightspace code submission)
 
 ## Getting Started
 
