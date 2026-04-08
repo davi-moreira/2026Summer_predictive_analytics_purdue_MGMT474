@@ -21,7 +21,7 @@ This 4-week fully online intensive course enables students to navigate the entir
 
 Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach: **draft → verify → document**. Topics include exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, fairness considerations, and deployment thinking.
 
-The course centers on **one comprehensive capstone project** that progresses through four weekly milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and conference-style video (Day 20).
+The course centers on **one comprehensive capstone project** that progresses through four weekly milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
 
 ## Course Structure
 
@@ -134,7 +134,7 @@ All notebooks are designed to run in Google Colab with one-click access. Each no
 | 16 | Mon Jun 8 | Error analysis to decisions: thresholds, calibration, KPI alignment | [16_decision_thresholds_calibration.ipynb](notebooks/16_decision_thresholds_calibration.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/16_decision_thresholds_calibration.ipynb) |
 | 17 | Tue Jun 9 | Fairness and ethics: responsible predictive analytics | [17_fairness_slicing_model_cards.ipynb](notebooks/17_fairness_slicing_model_cards.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/17_fairness_slicing_model_cards.ipynb) |
 | 18 | Wed Jun 10 | Deployment thinking: reproducibility, monitoring, drift | [18_reproducibility_monitoring.ipynb](notebooks/18_reproducibility_monitoring.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/18_reproducibility_monitoring.ipynb) |
-| 19 | Thu Jun 11 | Executive narrative: slide-style story + conference video plan | [19_project_narrative_video_studio.ipynb](notebooks/19_project_narrative_video_studio.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/19_project_narrative_video_studio.ipynb) |
+| 19 | Thu Jun 11 | Executive narrative: slide-style story + 5-min research presentation video plan | [19_project_narrative_video_studio.ipynb](notebooks/19_project_narrative_video_studio.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/19_project_narrative_video_studio.ipynb) |
 | 20 | Fri Jun 12 | Final delivery: project package + peer review + closeout | [20_final_submission_peer_review.ipynb](notebooks/20_final_submission_peer_review.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/20_final_submission_peer_review.ipynb) |
 
 ## Textbooks and References
@@ -175,7 +175,7 @@ The course assessment is based on multiple components designed to ensure continu
 1. **Week 1 (Day 5):** Proposal + dataset selection
 2. **Week 2 (Day 10):** Baseline model + evaluation plan
 3. **Week 3 (Day 15):** Improved model + interpretation
-4. **Week 4 (Day 20):** Final deliverable (notebook + slide narrative + conference-style video)
+4. **Week 4 (Day 20):** Final deliverable (notebook + slide narrative + 5-minute research presentation video)
 
 ## Getting Started
 

@@ -40,7 +40,7 @@ For each topic/day, content follows a repeating loop:
 - **Week 1 (due Day 5): Proposal + dataset selection**
 - **Week 2 (due Day 10): Baseline model + evaluation plan**
 - **Week 3 (due Day 15): Improved model + interpretation**
-- **Week 4 (due Day 20): Final model + executive-ready deliverable (slide-style narrative + conference video)**
+- **Week 4 (due Day 20): Final model + executive-ready deliverable (slide-style narrative + 5-minute research presentation video)**
 
 ---
 
@@ -943,12 +943,12 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 ---
 
 ## Day 19 — Thu June 11  
-### Executive narrative: slide-style story + conference video plan (project studio)  
+### Executive narrative: slide-style story + 5-minute research presentation video plan (project studio)  
 **Learning objectives**
 - Convert technical work into an executive-ready slide narrative.
 - Build a clear “problem → approach → results → recommendation → risks” flow.
 - Create credible visuals (comparison table, key plots, decision policy).
-- Script a short conference video (tight, evidence-based, non-technical).
+- Script a 5-minute research presentation video following Purdue Summer Research Symposium guidelines (tight, evidence-based, non-technical).
 - Finalize the project deliverable package.
 
 **Micro-videos (42 min)**
@@ -956,7 +956,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 2. Guided practice: Storyboard your deck (10-slide target) (6)  
 3. Solution: Storyboard example + mistakes + extension: stakeholder tailoring (7)  
 4. Concept+demo: What visuals to include (and what to avoid) (7)  
-5. Guided practice: Draft speaker script + timing plan (6)  
+5. Guided practice: Draft speaker script + timing plan for 5-minute video (6)  
 6. Solution: Script tightening + extension: Q&A slide and limitations (9)
 
 **Notebook(s)**
@@ -964,12 +964,13 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 - Sections:
   - Slide outline template (markdown → slides)
   - Required visuals checklist
-  - Script template (time-coded)
+  - Script template (time-coded for 5 minutes)
+  - Video recording guidelines (Purdue Summer Research Symposium format: slide presentation with voice-over narration, uploaded as unlisted YouTube video; record using PowerPoint/Keynote narration, Zoom, or screen recording software; ensure clean audio with no background noise)
   - Gemini prompts: tighten script; convert findings to executive bullets
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Create a 10-slide outline (titles + 2 bullets each).  
-- Pause-and-do (10): Write a 2–3 minute script aligned to the outline.
+- Pause-and-do (10): Write a 5-minute script aligned to the outline.
 
 **Assessments**
 - Concept quiz: executive communication and evidence discipline  
@@ -989,7 +990,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 ### Final delivery: project package submission + peer review + course closeout  
 **Learning objectives**
 - Deliver a complete end-to-end predictive analytics package.
-- Produce an executive-ready deck and a conference-style video.
+- Produce an executive-ready deck and a 5-minute research presentation video (Purdue Summer Research Symposium format).
 - Demonstrate reproducibility (run-all notebook, documented choices).
 - Evaluate peers’ work using a structured rubric and provide actionable feedback.
 - Write a concise postmortem: what worked, what didn’t, what you’d do next.
@@ -1018,7 +1019,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 - **Project Milestone 4 (due): Final model + executive-ready deliverable**
   - Final run-all notebook + model card/limitations + monitoring plan  
   - Slide narrative (deck or slide markdown)  
-  - Conference-style video  
+  - 5-minute research presentation video (slide presentation with voice-over narration, uploaded as unlisted YouTube video; following Purdue Summer Research Symposium guidelines)  
 - Peer review submission (graded for quality)  
 - Final concept quiz (course wrap)
 
