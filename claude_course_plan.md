@@ -194,7 +194,7 @@ All three notebooks follow the established template:
 ### 2.2 Update `index.qmd` (Homepage)
 **File:** `index.qmd`
 **Changes:**
-- Update course dates: "May 18 - June 14, 2027 (20 business days)"
+- Update course dates: "May 18 - June 12, 2026 (20 business days)"
 - Update format description: "4-week fully online intensive"
 - Update course structure:
   - 20 business days (Mon-Fri)
@@ -208,11 +208,11 @@ All three notebooks follow the established template:
 **File:** `schedule.qmd`
 **Strategy:** Replace 16-week semester schedule with 20-day intensive schedule
 **Structure:**
-- Introduction: 20 business days, May 18 - June 14, 2027
+- Introduction: 20 business days, May 18 - June 12, 2026
 - Weekly breakdown with daily rows
 - Columns:
   - **Day** (1-20)
-  - **Date** (May 18 - June 14, business days only)
+  - **Date** (May 18 - June 12, business days only)
   - **Topic** (from course plan)
   - **Videos** (micro-video count + total time)
   - **Notebook** (link to Colab-ready notebook on GitHub)
@@ -224,8 +224,8 @@ All three notebooks follow the established template:
 | Day | Date | Topic | Videos | Notebook | Assessment | Materials |
 |-----|------|-------|--------|----------|------------|-----------|
 | 0 | Pre-course | Launchpad: Course Setup, Colab Orientation | 2 videos (10 min) | [00_launchpad](link) | Colab Readiness Check | Colab docs |
-| 1 | Tue May 18 | PA Fundamentals, EDA, Splits | 5 videos (48 min) | [01_eda_splits](link) | Concept Quiz | ISLP Ch2, sklearn |
-| 2 | Wed May 19 | Preprocessing Pipelines | 6 videos (54 min) | [02_preprocessing](link) | Concept Quiz | sklearn Pipelines |
+| 1 | Mon May 18 | PA Fundamentals, EDA, Splits | 5 videos (48 min) | [01_eda_splits](link) | Concept Quiz | ISLP Ch2, sklearn |
+| 2 | Tue May 19 | Preprocessing Pipelines | 6 videos (54 min) | [02_preprocessing](link) | Concept Quiz | sklearn Pipelines |
 ...
 ```
 
@@ -239,7 +239,7 @@ All three notebooks follow the established template:
 **File:** `syllabus.qmd`
 **Changes:**
 - Update course title: "MGMT 47400 - Predictive Analytics (Summer 2026, 4-Week Online Intensive)"
-- Update dates: May 18 - June 14, 2027
+- Update dates: May 18 - June 12, 2026
 - Update course description:
   - 20 business days
   - 112.5 minutes daily engagement
@@ -444,7 +444,7 @@ Transform 2025F semester-based course into 2026 Summer 4-week intensive format (
 - **Course:** MGMT 47400 - Predictive Analytics
 - **Institution:** Purdue Daniels School of Business
 - **Old format:** 16-week semester (2025 Fall)
-- **New format:** 4-week intensive (May 18 - June 14, 2027, 20 business days)
+- **New format:** 4-week intensive (May 18 - June 12, 2026, 20 business days)
 
 ### Work Completed
 

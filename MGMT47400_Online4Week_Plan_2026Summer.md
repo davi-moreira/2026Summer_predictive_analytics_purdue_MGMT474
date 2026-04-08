@@ -1,6 +1,6 @@
 # MGMT 47400 – Predictive Analytics (3 credits)  
 ## 4-Week Fully Online Course Plan (Daniels School of Business)  
-**Run dates (business days):** Tue **May 18, 2027** → Mon **June 14, 2027** (20 business days)  
+**Run dates (business days):** Mon **May 18, 2026** → Fri **June 12, 2026** (20 business days)  
 **Daily engagement target:** **112.5 minutes per business day** (videos + Colab notebooks + exercises + quizzes + project work)  
 **Instruction format:** short recorded **micro-videos (≤ 12 minutes each)** + **hands-on Jupyter Notebooks** opened in **Google Colab**  
 **AI support:** students use **Gemini inside Colab** for guided “vibe coding” (draft → verify → document)  
@@ -107,7 +107,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 1 — Tue May 18  
+## Day 1 — Mon May 18  
 ### Launchpad: Colab workflow, Gemini vibe-coding, EDA, and splitting correctly  
 **Learning objectives**
 - Course Syllabus and Logistics
@@ -180,7 +180,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 2 — Wed May 19  
+## Day 2 — Tue May 19  
 ### Data setup and preprocessing pipelines (the professional way)  
 **Learning objectives**
 - Audit data types and fix common pandas pitfalls (strings, categories, dates).
@@ -225,7 +225,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 3 — Thu May 20  
+## Day 3 — Wed May 20  
 ### Train/validation/test rigor + regression metrics + baseline modeling  
 **Learning objectives**
 - Choose regression metrics aligned to business loss (MAE vs RMSE).
@@ -270,7 +270,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 4 — Fri May 21  
+## Day 4 — Thu May 21  
 ### Linear regression that actually works: features, interactions, diagnostics  
 **Learning objectives**
 - Fit and interpret linear regression in a pipeline.
@@ -314,7 +314,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 5 — Mon May 24  
+## Day 5 — Fri May 22  
 ### Regularization (Ridge/Lasso) + Project proposal sprint  
 **Learning objectives**
 - Explain why regularization improves generalization.
@@ -365,7 +365,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 6 — Tue May 25  
+## Day 6 — Mon May 25  
 ### Logistic regression: probabilities, decision boundaries, and pipelines  
 **Learning objectives**
 - Fit logistic regression with preprocessing in a pipeline.
@@ -408,7 +408,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 7 — Wed May 26  
+## Day 7 — Tue May 26  
 ### Classification metrics: confusion matrix, ROC/PR, calibration, and business costs  
 **Learning objectives**
 - Compute and interpret precision, recall, F1, ROC-AUC, PR-AUC.
@@ -452,7 +452,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 8 — Thu May 27  
+## Day 8 — Wed May 27  
 ### Resampling and CV: how to compare models without fooling yourself  
 **Learning objectives**
 - Run k-fold cross-validation for classification and regression.
@@ -495,7 +495,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 9 — Fri May 28  
+## Day 9 — Thu May 28  
 ### Feature engineering + model selection workflow (and Project baseline build)  
 **Learning objectives**
 - Engineer features with pipelines without leakage.
@@ -538,7 +538,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 10 — Mon May 31  
+## Day 10 — Fri May 29  
 ### Midterm: Business-case predictive strategy practicum + Project baseline submission  
 **Learning objectives**
 - Translate business cases into predictive tasks (target, unit, horizon, KPI).
@@ -589,7 +589,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 11 — Tue June 1  
+## Day 11 — Mon June 1  
 ### Decision trees: interpretable models with sharp edges  
 **Learning objectives**
 - Fit decision trees for regression/classification.
@@ -632,7 +632,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 12 — Wed June 2  
+## Day 12 — Tue June 2  
 ### Random forests: bagging, OOB intuition, and feature importance  
 **Learning objectives**
 - Explain bagging and why forests reduce variance.
@@ -675,7 +675,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 13 — Thu June 3  
+## Day 13 — Wed June 3  
 ### Gradient boosting: performance with discipline (and leakage avoidance)  
 **Learning objectives**
 - Explain boosting vs bagging at a high level.
@@ -718,7 +718,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 14 — Fri June 4  
+## Day 14 — Thu June 4  
 ### Model selection and comparison: making the call like a professional  
 **Learning objectives**
 - Build a standardized model comparison workflow (same CV, same metric).
@@ -761,7 +761,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 15 — Mon June 7  
+## Day 15 — Fri June 5  
 ### Interpretation: feature importance + partial dependence + project improved model delivery  
 **Learning objectives**
 - Generate model interpretation artifacts (permutation importance, PDP/ICE).
@@ -810,7 +810,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 16 — Tue June 8  
+## Day 16 — Mon June 8  
 ### Error analysis to decisions: thresholds, calibration, and KPI alignment  
 **Learning objectives**
 - Translate model outputs into business decisions (thresholds, costs, constraints).
@@ -853,7 +853,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 17 — Wed June 9  
+## Day 17 — Tue June 9  
 ### Fairness and ethics basics: responsible predictive analytics (minimum viable rigor)  
 **Learning objectives**
 - Identify fairness risks and ethical failure modes in predictive systems.
@@ -897,7 +897,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 18 — Thu June 10  
+## Day 18 — Wed June 10  
 ### Deployment thinking: reproducibility, monitoring, drift, and “don’t ship a notebook”  
 **Learning objectives**
 - Package a model pipeline reproducibly (single function, fixed preprocessing).
@@ -942,7 +942,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 19 — Fri June 11  
+## Day 19 — Thu June 11  
 ### Executive narrative: slide-style story + conference video plan (project studio)  
 **Learning objectives**
 - Convert technical work into an executive-ready slide narrative.
@@ -985,7 +985,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 ---
 
-## Day 20 — Mon June 14  
+## Day 20 — Fri June 12  
 ### Final delivery: project package submission + peer review + course closeout  
 **Learning objectives**
 - Deliver a complete end-to-end predictive analytics package.

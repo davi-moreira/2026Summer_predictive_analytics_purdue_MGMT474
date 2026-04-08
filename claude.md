@@ -2,7 +2,7 @@
 
 ## Project Mission
 
-This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensive summer course (20 business days) for Purdue University's Daniels School of Business. The course runs **May 18 - June 14, 2027**, with **112.5 minutes of daily engagement** through micro-videos (≤12 min) and Google Colab notebooks.
+This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensive summer course (20 business days) for Purdue University's Daniels School of Business. The course runs **May 18 - June 12, 2026**, with **112.5 minutes of daily engagement** through micro-videos (≤12 min) and Google Colab notebooks.
 
 ### Key Context
 - **Instructor:** Professor Davi Moreira
@@ -387,7 +387,7 @@ Thank you!
 1. **Read the course plan** (`MGMT47400_Online4Week_Plan_2026Summer.md`)
 2. **Edit `schedule.qmd`**
 3. **Add/update row in table** with: Day | Date | Topic | Videos | Notebook | Assessment | Materials
-4. **Use correct date** (business days only, May 18 - June 14, 2027)
+4. **Use correct date** (business days only, May 18 - June 12, 2026)
 5. **Link to notebook:**
    ```
    [XX_topic_student.ipynb](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic_student.ipynb)
