@@ -17,7 +17,7 @@
 
 ## Course Description
 
-This 4-week fully online intensive course enables students to navigate the entire predictive analytics pipeline skillfully—from data preparation and exploration to modeling, assessment, and interpretation. Running over **20 business days** with **112.5 minutes of daily engagement**, the course combines short micro-videos (12 minutes each), hands-on Google Colab notebooks, exercises, quizzes, and progressive project work.
+This 4-week fully online intensive course enables students to navigate the entire predictive analytics pipeline skillfully—from data preparation and exploration to modeling, assessment, and interpretation. Running over **20 business days** with **112.5 minutes of daily engagement**, the course combines short micro-videos (≤12 minutes each), hands-on Google Colab notebooks, exercises, quizzes, and progressive project work. **Every Friday (Days 5, 10, 15, 20)**, the class meets for a **synchronous 112.5-minute lecture** (recorded) covering weekly topics, project milestones, the Kaggle case competition, and student Q&A.
 
 Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach: **draft → verify → document**. Topics include exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, fairness considerations, and deployment thinking.
 

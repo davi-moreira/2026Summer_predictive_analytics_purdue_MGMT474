@@ -376,8 +376,21 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 - **Project Milestone 1 (due): Proposal + dataset selection**
   - 1-page proposal + dataset link + target + metric + split plan + leakage risks
 
-**Time budget (112.5 min)**
+**Time budget (async: 112.5 min)**
 - Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
+
+**Synchronous session plan (112.5 min, recorded)**
+Pre-recorded micro-videos are available for students to watch before or after the session.
+
+| Block | Duration | Content |
+|-------|----------|---------|
+| Welcome + Week 1 Recap | 10 min | Review Days 1-4 key concepts, address common questions from async work |
+| Live Recap & Demo: Regularization | 15 min | Condensed highlights from videos + live Colab demo reinforcing key ideas |
+| PAUSE-AND-DO (live) | 20 min | Students run RidgeCV/LassoCV with instructor available for help |
+| Break | 5 min | |
+| Project Discussion | 25 min | Milestone 1 review (proposals due today), dataset selection tips, Milestone 2 preview and expectations |
+| Kaggle Competition Launch | 20 min | Join competition walkthrough, explore data, submission format demo, pair formation |
+| Course Q&A + Quiz | 17.5 min | Week 1 doubts, logistics, concept quiz |
 
 **Bibliography**
 - ISLP: Linear Model Selection and Regularization (ridge/lasso/elastic net)  
@@ -601,8 +614,21 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 - **Project Milestone 2 (due): Baseline model + evaluation plan**
   - baseline pipeline + metric + split/CV design + baseline report table
 
-**Time budget (112.5 min)**
+**Time budget (async: 112.5 min)**
 - Videos 30 + Midterm notebook work 60 + Project baseline finalization 15 + Concept check 7.5 = 112.5
+
+**Synchronous session plan (112.5 min, recorded)**
+Pre-recorded micro-videos are available for students to watch before or after the session.
+
+| Block | Duration | Content |
+|-------|----------|---------|
+| Week 2 Recap + Midterm Instructions | 10 min | Review Days 6-9, explain midterm format, allowed resources, Gemini boundaries |
+| Midterm: Business Case Practicum | 50 min | Students work through cases live (instructor available for clarification only) |
+| Break | 5 min | |
+| Midterm Debrief | 10 min | Common strategies, pitfalls, what good answers look like (after submission) |
+| Project Discussion | 20 min | Milestone 2 review (baseline due today), Milestone 3 preview, common modeling issues |
+| Competition Check-in | 10 min | Leaderboard review, strategy tips (students now have classification + CV + tuning toolkit) |
+| Course Q&A | 7.5 min | Week 2 review, Week 3 tree-based methods preview |
 
 **Bibliography**
 - Provost & Fawcett: end-to-end predictive modeling process and business framing  
@@ -822,8 +848,21 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 - **Project Milestone 3 (due): Improved model + interpretation**
   - updated comparison, champion choice, importance + PDP/ICE, error segment findings
 
-**Time budget (112.5 min)**
+**Time budget (async: 112.5 min)**
 - Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
+
+**Synchronous session plan (112.5 min, recorded)**
+Pre-recorded micro-videos are available for students to watch before or after the session.
+
+| Block | Duration | Content |
+|-------|----------|---------|
+| Week 3 Recap | 10 min | Review Days 11-14 (trees, forests, boosting, model selection) |
+| Live Recap & Demo: Interpretation | 15 min | Condensed highlights + live Colab demo of importance & PDP on a real model |
+| PAUSE-AND-DO (live) | 20 min | Students interpret their champion model with instructor guidance |
+| Break | 5 min | |
+| Project Discussion | 25 min | Milestone 3 review (improved model due today), Milestone 4 preview (notebook + deck + 5-min video requirements, Purdue symposium format) |
+| Competition Strategy | 10 min | Advanced tips: ensembles, feature engineering, leaderboard update |
+| Course Q&A + Quiz | 17.5 min | Week 3 review, Week 4 preview, video recording guidance, concept quiz |
 
 **Bibliography**
 - scikit-learn User Guide: inspection tools (permutation importance, partial dependence)  
@@ -1050,8 +1089,22 @@ Each week follows the same pattern: introduce a new capability, build evaluation
   - 5-minute research presentation video (slide presentation with voice-over narration, uploaded as unlisted YouTube video; following Purdue Summer Research Symposium guidelines)  
 - **Kaggle Case Competition deadline (11:59 PM):** Final Kaggle submission + Brightspace code submission (complete, replicable code for best-performing model)
 
-**Time budget (112.5 min)**
+**Time budget (async: 112.5 min)**
 - Videos 30 + Final submission notebook work 55 + Competition code packaging 20 + Postmortem 7.5 = 112.5
+
+**Synchronous session plan (112.5 min, recorded)**
+Pre-recorded micro-videos are available for students to watch before or after the session.
+
+| Block | Duration | Content |
+|-------|----------|---------|
+| Final Submission Workshop | 25 min | Live run-all audit demo, reproducibility checklist, Brightspace submission walkthrough |
+| Break | 5 min | |
+| Student Presentations | 40 min | Selected teams/individuals present projects (~5 min each, 6-8 presentations) |
+| Competition Leaderboard Reveal | 15 min | Final rankings, top performers share their approaches |
+| Course Wrap-up | 20 min | Key takeaways, career applications, postmortem discussion, course evaluations |
+| Final Q&A | 7.5 min | Last questions |
+
+**Note:** Milestone 4 + Kaggle competition deadline at 11:59 PM (after the lecture).
 
 **Bibliography**
 - Mitchell et al.: Model Cards (responsible reporting alignment)  
