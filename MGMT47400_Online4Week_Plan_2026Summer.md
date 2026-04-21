@@ -469,10 +469,11 @@ Pre-recorded micro-videos are available for students to watch before or after th
 **Notebook(s)**
 - File: `07_classification_metrics_thresholding.ipynb`  
 - Sections:
-  - Metric functions + ROC/PR plotting
-  - Threshold sweep table
-  - Cost-based threshold selection
-  - Metrics dashboard (reusable function students carry into the project)
+  - Question-first metric framework (Precision / Recall / F1 / Accuracy paired with the business question each answers)
+  - ROC curve and AUC
+  - PR curve and Average Precision
+  - Threshold sweep + cost-based threshold selection
+  - Accuracy paradox under extreme imbalance (95/5 synthetic dataset)
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Build a threshold sweep and pick a threshold by business cost.  
