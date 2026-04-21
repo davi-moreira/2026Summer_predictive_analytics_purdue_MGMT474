@@ -86,7 +86,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 04 | Linear Features & Diagnostics | Teaches feature engineering (interactions, polynomials) and residual diagnostics — revealing the accuracy vs. complexity tradeoff and exposing overfitting risk. | NB03 provides the evaluation framework; without it, students would engineer features blindly. NB04 creates the overfitting problem that NB05 solves. |
 | 05 | Regularization (Ridge/Lasso) | Introduces regularization as the direct solution to NB04's overfitting problem. Closes the Week 1 regression arc and hosts the project proposal milestone. | NB04 creates the problem (polynomial explosion, unstable coefficients); NB05 delivers the solution. Completes the regression toolkit before the Week 2 pivot to classification. |
 | 06 | Logistic Regression & Pipelines | Marks the transition from regression to classification, teaching predicted probabilities, threshold sensitivity, and pipeline reuse in a classification context. | NB05 introduces regularization via alpha; NB06 applies the same idea via C in classification, reusing the Pipeline pattern for a seamless transition. NB07 needs probability foundations. |
-| 07 | Classification Metrics & Thresholding | Builds the complete classification evaluation toolkit — precision, recall, F1, ROC/PR curves, and cost-based threshold selection. | NB06 introduces probabilities and confusion matrices informally; NB07 formalizes them. NB08 needs metric vocabulary to choose a `scoring` parameter for CV. |
+| 07 | Classification Metrics & Thresholding | Builds the complete classification evaluation toolkit — precision, recall, F1, ROC/PR curves, and cost-based threshold selection. Calibration is deferred to NB16 where it naturally attaches to tree-based (often miscalibrated) classifiers. | NB06 introduces probabilities and confusion matrices informally; NB07 formalizes them. NB08 needs metric vocabulary to choose a `scoring` parameter for CV. |
 | 08 | Cross-Validation & Model Comparison | Teaches reliable, low-variance performance estimation through k-fold CV, replacing the fragile single train/val split with a systematic evaluation framework. | NB07 provides the metrics NB08 passes as `scoring`. NB09 embeds CV inside grid search; students must understand standalone CV first. |
 | 09 | Tuning & Feature Engineering (Project Baseline) | Integrates everything from Week 2 into a practical workflow: feature engineering inside pipelines, GridSearchCV/RandomizedSearchCV, and a project baseline report scaffold. | NB08 teaches standalone CV; NB09 embeds it inside grid search. NB10 (midterm) requires the baseline scaffold and tuning tools from NB09. |
 | 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. | NB09 completes the toolkit; NB10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
@@ -449,13 +449,14 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 7 — Tue May 26  
-### Classification metrics: confusion matrix, ROC/PR, calibration, and business costs  
+### Classification metrics: confusion matrix, ROC/PR, and business costs  
 **Learning objectives**
 - Compute and interpret precision, recall, F1, ROC-AUC, PR-AUC.
 - Select thresholds based on business cost tradeoffs.
-- Understand calibration and when it matters.
 - Handle class imbalance at the evaluation level (metrics first).
 - Produce a metrics dashboard table for model comparison.
+
+*(Calibration is deferred to NB16 — Decision Thresholds & Calibration — where students have already met classifiers, such as random forests and gradient boosting, that can actually be miscalibrated. Logistic regression is natively well-calibrated by its loss function, so covering calibration in Week 2 has no natural pain point to anchor it.)*
 
 **Micro-videos (54 min)**
 1. Concept+demo: Confusion matrix + precision/recall tradeoffs (10)  
@@ -463,7 +464,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 3. Solution: Common metric mistakes + extension: PR curves for imbalance (9)  
 4. Concept+demo: Thresholding via cost (expected cost framework) (10)  
 5. Guided practice: Choose an “optimal” threshold for a given cost matrix (8)  
-6. Solution: Cost-based thresholding + pitfalls + extension: calibration curves (9)
+6. Solution: Cost-based thresholding + pitfalls + extension: metrics dashboard as a reusable evaluation artifact (9)
 
 **Notebook(s)**
 - File: `07_classification_metrics_thresholding.ipynb`  
@@ -471,14 +472,14 @@ Pre-recorded micro-videos are available for students to watch before or after th
   - Metric functions + ROC/PR plotting
   - Threshold sweep table
   - Cost-based threshold selection
-  - Optional: calibration plot preview
+  - Metrics dashboard (reusable function students carry into the project)
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Build a threshold sweep and pick a threshold by business cost.  
 - Pause-and-do (10): Explain why accuracy fails under imbalance (with evidence).
 
 **Assessments**
-- Concept quiz: metrics, ROC/PR, calibration concepts  
+- Concept quiz: metrics, ROC/PR, cost-based thresholding concepts  
 - Short deliverable: threshold recommendation (1 paragraph)
 
 **Time budget (112.5 min)**
@@ -487,8 +488,8 @@ Pre-recorded micro-videos are available for students to watch before or after th
 **Bibliography**
 - Fawcett: “An introduction to ROC analysis”  
 - Saito & Rehmsmeier: PR curves under class imbalance  
-- scikit-learn User Guide: classification metrics + ROC/PR tooling  
-- Optional calibration: Niculescu-Mizil & Caruana; Zadrozny & Elkan
+- scikit-learn User Guide: classification metrics + ROC/PR tooling
+- (Calibration bibliography — Niculescu-Mizil & Caruana; Zadrozny & Elkan — moves to NB16's reading list.)
 
 ---
 
