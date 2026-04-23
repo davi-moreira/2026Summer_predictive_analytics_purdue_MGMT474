@@ -601,12 +601,13 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Debrief: scoring rubric + pitfalls + “how to earn full credit” (5)
 
 **Notebook(s)**
-- File: `10_midterm_casebook.ipynb`  
+- File: `10_midterm_casebook_student.ipynb`  
 - Sections:
   - Integrity + allowed resources + Gemini usage boundaries (explain/verify)
   - Case 1 prompt + structured response cells
   - Case 2 prompt + structured response cells
   - Optional mini-case 3
+  - **Midterm Cheat Sheet appendix** (decision tables for metric choice, scaler choice, stratify yes/no, Ridge vs Lasso, CI-overlap rule, leakage checklist — copied from NB01–NB09 into one reference card)
   - Submission checklist (self-audit)
 
 **In-notebook exercises (10-minute scope)**
@@ -993,11 +994,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Monitoring plan + mistakes + extension: governance (9)
 
 **Notebook(s)**
-- File: `18_reproducibility_monitoring.ipynb`  
+- File: `18_reproducibility_monitoring_student.ipynb`  
 - Sections:
   - Refactor into `train()` / `predict()` / `evaluate()`
   - Save/load via joblib
   - Monitoring plan template (tables)
+  - **From trained pipeline to Kaggle submission** (load the saved pipeline → read a held-out CSV → produce `submission.csv` with correct column names; the last-mile mechanics for the Bank Churn competition on Day 20)
   - “Ready-to-share” notebook hygiene checklist
 
 **In-notebook exercises (10-minute scope)**
