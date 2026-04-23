@@ -654,6 +654,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Control complexity (depth, min samples) to manage overfitting.
 - Interpret tree structure and failure modes.
 - Compare tree vs linear/logistic baselines under CV.
+- Handle class imbalance with `class_weight='balanced'` as the first-resort tool; understand why SMOTE is not the default.
 - Document “when a tree is the right tool.”
 
 **Micro-videos (54 min)**
@@ -661,15 +662,16 @@ Pre-recorded micro-videos are available for students to watch before or after th
 2. Guided practice: Fit a tree + visualize + baseline compare (8)  
 3. Solution: Overfitting patterns + mistakes + extension: cost-complexity pruning (9)  
 4. Concept+demo: Tree evaluation under CV + stability concerns (10)  
-5. Guided practice: Small grid over depth/min_samples (8)  
+5. Guided practice: Imbalanced classes — `class_weight='balanced'` on a down-sampled screening task, anti-SMOTE warning (8)  
 6. Solution: Tuning result + extension: sensitivity analysis (9)
 
 **Notebook(s)**
-- File: `11_decision_trees.ipynb`  
+- File: `11_decision_trees_student.ipynb`  
 - Sections:
   - Tree fit + visualization
   - Hyperparameter effects (depth sweep)
   - CV comparison table
+  - Imbalanced classes — `class_weight='balanced'` as the first-resort tool (artificially imbalanced Breast Cancer demo, anti-SMOTE warning)
   - Gemini prompts: “generate a clean depth sweep block”
 
 **In-notebook exercises (10-minute scope)**
@@ -708,8 +710,9 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Interpretation pitfalls + extension: grouped features (9)
 
 **Notebook(s)**
-- File: `12_random_forests_importance.ipynb`  
+- File: `12_random_forests_importance_student.ipynb`  
 - Sections:
+  - **Prelude — Four things we call "feature importance"** (coefficient magnitude / impurity / permutation / PDP) with a reconciliation table that is referenced for the rest of the course
   - Forest training + CV comparison
   - Permutation importance + plot
   - Reporting template (model table + narrative bullets)
@@ -751,11 +754,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Result interpretation + extension: stability notes (9)
 
 **Notebook(s)**
-- File: `13_gradient_boosting.ipynb`  
+- File: `13_gradient_boosting_student.ipynb`  
 - Sections:
   - Baseline GBM fit
   - Constrained tuning template
   - Comparison report (forest vs GBM)
+  - **A warning for boosting — leaky features dominate the top** (callout section tying NB09's leakage case study to GBM's sequential fitting + three red flags + debugging recipe)
   - Gemini prompts: constrained RandomizedSearchCV with guardrails
 
 **In-notebook exercises (10-minute scope)**
