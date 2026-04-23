@@ -798,11 +798,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Decision memo example + extension: robustness checks (9)
 
 **Notebook(s)**
-- File: `14_model_selection_protocol.ipynb`  
+- File: `14_model_selection_protocol_student.ipynb`  
 - Sections:
   - Comparison harness (pipelines list → CV scores table)
   - Multi-metric reporting (primary + supporting metrics)
   - Champion selection memo scaffold
+  - **Opening the locked test set — the ceremony** (NB08-style Student's t 95% CI on champion CV scores, INSIDE / ABOVE / BELOW verdict for the single test score, payoff for the whole course's locking discipline)
   - Gemini prompts: “generate experiment log table”
 
 **In-notebook exercises (10-minute scope)**
