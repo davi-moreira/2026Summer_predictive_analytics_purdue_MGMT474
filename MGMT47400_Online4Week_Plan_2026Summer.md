@@ -888,29 +888,30 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 16 — Mon June 8  
-### Error analysis to decisions: thresholds, calibration, and KPI alignment  
+### Probability calibration for decision quality  
 **Learning objectives**
-- Translate model outputs into business decisions (thresholds, costs, constraints).
-- Evaluate calibration and when to calibrate probabilities.
-- Compare models by decision impact, not only by AUC/accuracy.
-- Produce a threshold/decision recommendation.
-- Document risks and assumptions explicitly.
+- Diagnose whether a classifier's probabilities are trustworthy using reliability diagrams and the Brier score.
+- Apply post-hoc calibration with `CalibratedClassifierCV` (isotonic vs. sigmoid/Platt) and measure the improvement.
+- Explain why tree-based ensembles are often miscalibrated and why well-regularized linear models usually are not.
+- Recognize when calibration matters for a decision (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration).
+- Run a short cost-based threshold refresh from NB07, applied on top of calibrated probabilities.
 
 **Micro-videos (54 min)**
-1. Concept+demo: From prediction to action (thresholds and costs) (10)  
-2. Guided practice: Threshold sweep with expected cost (8)  
-3. Solution: Choosing thresholds + mistakes + extension: sensitivity analysis (9)  
-4. Concept+demo: Calibration intuition + reliability plots (10)  
-5. Guided practice: Calibrate and compare decision impact (8)  
-6. Solution: Calibration pitfalls + extension: decision policy reporting (9)
+1. Concept+demo: Discrimination vs. calibration — when a "70% probability" actually means 70% (10)  
+2. Guided practice: NB07 threshold-tuning 5-minute refresh on the screening cost matrix (8)  
+3. Concept+demo: Reliability diagrams + Brier score as the calibration metric (10)  
+4. Guided practice: `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay (8)  
+5. Concept+demo: Why tree ensembles need calibration and linear models usually don't (9)  
+6. Solution: Picking the calibrator + bridge to decision policy and Kaggle probabilistic scoring (9)
 
 **Notebook(s)**
-- File: `16_decision_thresholds_calibration.ipynb`  
+- File: `16_decision_thresholds_calibration_student.ipynb`  
 - Sections:
-  - Cost matrix + expected cost computation
-  - Threshold sweep dashboard
-  - Calibration plot + optional calibration model
+  - **NB07 threshold + cost refresh** (compact 5-minute section, references NB07 for deep context)
+  - **Calibration diagnostics** — reliability diagram + Brier score on a Random Forest from NB12
+  - **Calibration fixes** — `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay + Brier winner
   - Decision policy summary block (ready for slides)
+  - Sensitivity analysis on the FN cost
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Select a threshold that minimizes expected cost and justify it.  
