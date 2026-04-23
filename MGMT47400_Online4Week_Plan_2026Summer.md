@@ -539,45 +539,47 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 9 — Thu May 28  
-### Feature engineering + model selection workflow (and Project baseline build)  
+### Hyperparameter tuning + feature engineering + leakage detection  
 **Learning objectives**
-- Engineer features with pipelines without leakage.
-- Use `GridSearchCV` / `RandomizedSearchCV` for systematic tuning.
-- Define a project-grade evaluation plan (metric + split/CV + baseline + reporting).
-- Produce a baseline model notebook that can be extended.
-- Use Gemini to draft search grids and then simplify them.
+- Run `GridSearchCV` and `RandomizedSearchCV` on known models and read `cv_results_` as a table of NB08-style CV runs.
+- Apply the 95% CI overlap rule from NB08 to pick the simplest model among the top candidates in `cv_results_`.
+- Build a `ColumnTransformer` that handles both categorical and numeric features inside a single `Pipeline`.
+- Use `FunctionTransformer` to embed domain feature engineering inside the pipeline without leakage.
+- Detect a data-leakage bug in a provided pipeline by comparing CV scores before and after the fix.
+- Explain why every feature-engineering step must live inside the pipeline that `cross_val_score` or `GridSearchCV` evaluates.
 
-**Micro-videos (48 min)**
-1. Concept+demo: Feature engineering inside pipelines (safe patterns) (8)  
-2. Guided practice: Add engineered features and re-run CV (7)  
-3. Solution: Results + mistakes + extension: ablation mindset (8)  
-4. Concept+demo: Intro to GridSearchCV (what it really does) (8)  
-5. Guided practice: Run a small grid and collect best params (7)  
-6. Solution: Tuning pitfalls + extension: runtime controls (10)
+**Micro-videos (60 min)**
+1. Concept+demo: From one CV run to a grid — GridSearchCV intuition (7)  
+2. Guided practice: GridSearchCV on Ridge + reading `cv_results_` (8)  
+3. Solution: CI-overlap rule on the top rows of `cv_results_` + RandomizedSearchCV for large grids (8)  
+4. Concept+demo: TechCorp Talent Analytics case — `ColumnTransformer` on real categorical columns + `handle_unknown='ignore'` (8)  
+5. Guided practice: Build the TechCorp pipeline end-to-end + `FunctionTransformer` for domain ratios (7)  
+6. Concept+demo: The leakage trap — target encoding on full data inflates CV, the Kaggle classic (8)  
+7. Solution: Fix and re-run, observe the score drop to reality (7)  
+8. Solution: PAUSE-AND-DO 2 walkthrough — SelectKBest outside pipeline, same leak pattern different flavor (7)
 
 **Notebook(s)**
-- File: `09_tuning_feature_engineering_project_baseline.ipynb`  
-- Sections:
-  - Pipeline + feature blocks
-  - Minimal GridSearch template
-  - Reporting: baseline vs tuned model table
-  - Project baseline notebook scaffold (copy into project repo)
+- File: `09_tuning_feature_engineering_project_baseline_student.ipynb`  
+- Structure: two big sections in a single file
+  - **Section A — Grid search as NB08 × a grid**: `GridSearchCV` on Ridge α-grid (California Housing) + `RandomizedSearchCV` on LogReg `C` distribution (Breast Cancer); CI-overlap rule applied to `cv_results_` top rows; champion selection pattern. PAUSE-AND-DO 1: `GridSearchCV` on LogReg `C` grid with CI-overlap verdict.
+  - **Section B — Feature engineering + leakage detection + categoricals**: TechCorp Talent Analytics synthetic business case (2,000 employees, 5 numeric + 3 low-card categorical + `manager_id` high-cardinality + 30 HRIS noise metrics); leak-free baseline with `ColumnTransformer` + `OneHotEncoder(handle_unknown='ignore')`; domain feature via `FunctionTransformer`; intern's dramatic target-encoding leak and its fix. PAUSE-AND-DO 2: detect and fix a SelectKBest-outside-pipeline leak.
 
 **In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Build a small grid (2–3 params) and report best CV score.  
-- Pause-and-do (10): Create a baseline report table suitable for the project.
+- Pause-and-do (10): `GridSearchCV` on LogisticRegression `C` grid (MedScreen); apply CI-overlap rule to pick a simpler champion than `best_params_`.
+- Pause-and-do (10): Find and fix the SelectKBest-outside-pipeline leak in a provided snippet; compare leaky vs leak-free CV means.
 
 **Assessments**
-- Concept quiz: pipelines + tuning fundamentals  
-- Project checkpoint: draft baseline notebook link
+- Concept quiz: grid search, CI-overlap ranking, `ColumnTransformer`, leakage  
+- Participation: notebook submission with completed exercises
 
 **Time budget (112.5 min)**
-- Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
+- Videos 60 + Notebook 40 + Quiz 7.5 + Project work 5 = 112.5
 
 **Bibliography**
-- ISLP Python labs: feature engineering examples aligned to course datasets  
-- scikit-learn User Guide: grid search; randomized search; pipeline parameter tuning  
-- Provost & Fawcett: evaluation and business framing of predictive tasks
+- ISLP: Resampling Methods (grid search built on top of 5-fold CV)  
+- scikit-learn User Guide: grid search, randomized search, `ColumnTransformer`, common pitfalls  
+- Kaufman, Rosset, Perlich (2012): *Leakage in Data Mining — Formulation, Detection, and Avoidance*  
+- Provost & Fawcett: leakage and evaluation discipline in business framing
 
 ---
 
