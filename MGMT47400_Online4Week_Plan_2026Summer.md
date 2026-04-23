@@ -501,6 +501,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Run 5-fold CV on the California Housing regression case and the breast cancer classification case, reporting mean, standard deviation, and a 95% confidence interval every time.
 - Plot per-fold CV scores with the mean and CI, and compare against a single validation-set score using a second bar plot.
 - Interpret whether a single validation score was lucky, unlucky, or representative based on whether it falls inside the CV 95% CI.
+- Use the 95% CI overlap rule to decide whether one model (or hyperparameter choice) is convincingly better than another on the same task.
 
 **Micro-videos (54 min)**
 1. Concept+demo: Why one split is fragile — distribution of scores, not a single number (10)  
@@ -516,10 +517,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
   - Why CV exists (k-fold estimator for regression and classification, plus mean/SD/95% CI formulas)
   - K-fold CV for regression — California Housing (per-fold plot + single-split vs. CV comparison + interpretation)
   - Stratified k-fold CV for classification — Breast Cancer (same recipe)
-  - Pause-and-do: Ridge vs. OLS CI-overlap test on California Housing
+  - Pause-and-do 1: Ridge vs. OLS CI-overlap test on California Housing
+  - Pause-and-do 2: LogReg (C=1.0) vs. LogReg (C=0.01) CI-overlap test on Breast Cancer
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Ridge (α=1.0) vs. plain OLS on California Housing — run 5-fold CV for both and decide whether their 95% CIs overlap; use that to defend or reject regularization to the CFO.
+- Pause-and-do (10): LogReg (C=1.0) vs. LogReg (C=0.01) on Breast Cancer — run 5-fold stratified CV for both and decide whether their 95% CIs overlap; use that to judge whether regularization strength meaningfully moves MedScreen's ROC-AUC (previewing NB09's GridSearchCV).
 
 **Assessments**
 - Concept quiz: CV estimator, stratification, confidence-interval reporting  
