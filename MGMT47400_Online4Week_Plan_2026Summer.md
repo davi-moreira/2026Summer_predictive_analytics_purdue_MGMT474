@@ -495,43 +495,41 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 8 — Wed May 27  
-### Resampling and CV: how to compare models without fooling yourself  
+### Resampling and CV: mean, SD, and 95% CI for both business cases  
 **Learning objectives**
-- Run k-fold cross-validation for classification and regression.
-- Use stratified CV for classification.
-- Understand variance of performance estimates (why one split is fragile).
-- Compare models using consistent CV and a single primary metric.
-- Build a reusable CV evaluation function (project-ready).
+- Write the k-fold CV estimator for both regression (MSE) and classification (misclassification / score-based).
+- Run 5-fold CV on the California Housing regression case and the breast cancer classification case, reporting mean, standard deviation, and a 95% confidence interval every time.
+- Plot per-fold CV scores with the mean and CI, and compare against a single validation-set score using a second bar plot.
+- Interpret whether a single validation score was lucky, unlucky, or representative based on whether it falls inside the CV 95% CI.
 
 **Micro-videos (54 min)**
-1. Concept+demo: Why CV exists (variance, stability, fair comparison) (10)  
-2. Guided practice: Implement StratifiedKFold + cross_validate (8)  
-3. Solution: CV summary + pitfalls + extension: repeated CV (9)  
-4. Concept+demo: Model comparison under CV (what is “fair”) (10)  
-5. Guided practice: Compare two pipelines with identical CV (8)  
-6. Solution: Comparison table + extension: repeated runs for stability (9)
+1. Concept+demo: Why one split is fragile — distribution of scores, not a single number (10)  
+2. Concept+demo: The k-fold CV estimator for regression and classification (equations + stratification) (10)  
+3. Guided practice: Implement k-fold CV with mean, SD, and Student's-t 95% CI on California Housing (Ridge) (8)  
+4. Solution: Interpret the per-fold bar plot + single-split vs. CV comparison plot (9)  
+5. Guided practice: Repeat the recipe with StratifiedKFold on the breast cancer data (LogReg, ROC-AUC) (8)  
+6. Solution: Interpret the classification comparison plot + extension: Ridge vs. OLS CI-overlap test (9)
 
 **Notebook(s)**
 - File: `08_cross_validation_model_comparison.ipynb`  
 - Sections:
-  - CV utilities (`cross_validate`, scoring)
-  - StratifiedKFold template
-  - Comparison report function (mean, std, runtime)
-  - Gemini prompts for reusable `compare_models()`
+  - Why CV exists (k-fold estimator for regression and classification, plus mean/SD/95% CI formulas)
+  - K-fold CV for regression — California Housing (per-fold plot + single-split vs. CV comparison + interpretation)
+  - Stratified k-fold CV for classification — Breast Cancer (same recipe)
+  - Pause-and-do: Ridge vs. OLS CI-overlap test on California Housing
 
 **In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Write `cv_report(model, X, y, cv, scoring)` returning mean/std.  
-- Pause-and-do (10): Compare logistic vs regularized logistic under the same CV.
+- Pause-and-do (10): Ridge (α=1.0) vs. plain OLS on California Housing — run 5-fold CV for both and decide whether their 95% CIs overlap; use that to defend or reject regularization to the CFO.
 
 **Assessments**
-- Concept quiz: CV logic, stratification, comparison discipline  
-- Participation: notebook submission with completed exercises
+- Concept quiz: CV estimator, stratification, confidence-interval reporting  
+- Participation: notebook submission with completed exercise
 
 **Time budget (112.5 min)**
 - Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
 
 **Bibliography**
-- ISLP: Model Assessment and Selection (k-fold CV, resampling concepts)  
+- ISLP: Model Assessment and Selection (k-fold CV equations 5.3 and 5.4)  
 - ESL: resampling theory and selection bias  
 - scikit-learn User Guide: cross-validation utilities and scoring
 
