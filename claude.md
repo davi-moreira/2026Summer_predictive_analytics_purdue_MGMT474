@@ -32,6 +32,32 @@ This repository contains **MGMT 47400 - Predictive Analytics**, a 4-week intensi
 - **Student-first:** Every change should improve student learning experience
 - **Reproducibility:** All code must run in fresh Colab environment
 
+### 🚨 CRITICAL RULE - Voice and Audience in Student-Facing Content
+
+**The student notebook is read BY students, not BY instructors who then teach it.** This means every sentence in a student notebook — including Gemini prompts and "After running, verify" checklists — must be written **TO the student**, never ABOUT the student and never TO the instructor.
+
+**Hard rules:**
+
+1. **Never write "students" as a third-party noun inside a student-facing cell.** If the text says "so students see X", "help students understand Y", "when students run this", or "as students work through", it is wrong. Rewrite in second person (`you`), neutral imperative (`print X to see Y`), or first person (`I want to see X`).
+2. **Gemini prompts are scripts the student copies into Gemini.** They must sound like something a student would actually type. *Wrong:* `"... print classification_report so students see the per-class breakdown."` *Right:* `"... print classification_report to show the per-class breakdown."`
+3. **No instructor-voice, video-guide, or camera language in student cells.** Forbidden phrases in student notebooks include `"on camera"`, `"the instructor should"`, `"speaking prompt"`, `"you (the instructor)"`. Those belong only in `video_guides/NN_video_lecture_guide.md`, which is gitignored and instructor-facing.
+4. **The video guide can reference students in the third person.** The video guide is written FOR the instructor recording the video, so phrases like "Students should now understand…" are fine there. The student notebook is the opposite — write it as if the student is reading it alone at 11 PM, because usually they are.
+
+**Before shipping any edit to a student notebook, grep for the failure modes:**
+
+```bash
+# Should return zero hits in any notebooks/*_student.ipynb
+grep -iE '\bstudents?\b|\bthe instructor\b|on camera|speaking prompt' notebooks/NN_*_student.ipynb
+```
+
+If any hit shows up in a student file, rewrite before committing. (Hits in `video_guides/` are fine — those are instructor-facing.)
+
+**When writing Gemini prompts specifically:**
+- Use imperative verbs directed at Gemini (`"Load X, compute Y, print Z"`), not meta-commentary about what students will learn.
+- The trailing `"so students see"` / `"so students understand"` pattern is the most common regression. If you feel the need to explain *why* Gemini should print something, say `"... to show the per-class breakdown"` or `"... so the comparison is explicit"` — the justification is part of the prompt, not a side-note about the audience.
+
+---
+
 ### 🚨 CRITICAL WORKFLOW - Instructor-First Notebook Editing
 
 **ALWAYS edit `notebooks/NN_*_instructor.ipynb` FIRST, then generate the student file.**
