@@ -56,6 +56,123 @@ If any hit shows up in a student file, rewrite before committing. (Hits in `vide
 - Use imperative verbs directed at Gemini (`"Load X, compute Y, print Z"`), not meta-commentary about what students will learn.
 - The trailing `"so students see"` / `"so students understand"` pattern is the most common regression. If you feel the need to explain *why* Gemini should print something, say `"... to show the per-class breakdown"` or `"... so the comparison is explicit"` — the justification is part of the prompt, not a side-note about the audience.
 
+**The voice rule applies differently to video guides (`video_guides/`)**, which are instructor-facing. Two zones inside every guide:
+
+1. **Wrapper prose** (instructor-facing, read silently): `"Students often ask…"` is FINE — the instructor is being informed ABOUT the audience.
+2. **Blockquote read-aloud scripts** (`> *"..."*`) — the instructor SPEAKS these on camera, so the viewer IS a student. Inside blockquotes, the rule from student notebooks applies: no third-party "students", no "the instructor", no "on camera". Address the viewer as *you*; when introducing a Q&A, use `"A question that often comes up here"` instead of `"Students often ask"`.
+
+**Before shipping any video-guide edit, run the blockquote-only voice check** at `/tmp/nb09build/voice_check_guides.py` (or recreate it — the pattern is: flag any `students?` / `the instructor` / `on camera` / `speaking prompt` hit whose surrounding line starts with `>` AND is not `Student's t`). Fixing these in place is a one-line `sed` — the wrapper-prose hits are legitimate and must be left alone.
+
+---
+
+### 🚨 CRITICAL RULE - Narrative Polish Pattern (NB08 Style)
+
+**Every student notebook markdown cell should follow the NB08 narrative style.** When polishing NB01–NB20, or writing any new notebook, use these patterns — they are the course's voice, and they have been consistently applied across all 21 notebooks.
+
+**Five structural elements every student notebook has:**
+
+1. **Business-case "Why This Matters" cell** with a named stakeholder (HomeValue CFO, MedScreen chief medical officer, TechCorp People Analytics lead). The stakeholder's concern is phrased as a direct quote. This cell opens the analytical work and motivates every section below.
+2. **Narrative prose over bullet lists** — "Reading the output" cells are paragraphs, not terse enumerations. A bullet list is a fallback when the structure is genuinely list-like (a rubric, a checklist); flowing prose is the default for explanation.
+3. **Inline Q&A blocks** with the exact phrase **"A question that often comes up here"** (or "A question that often comes up"). Placement: after each dense explanation, anticipate one specific student confusion and answer it in one paragraph. This phrase is grep-findable — tooling uses it to count and audit Q&A coverage.
+4. **Section bridges** that explicitly name the transition: *"Section 2 landed the regression estimate with a tight CI. Now apply the identical four steps to the classification problem."* Never jump between sections without a one-sentence bridge.
+5. **Warm wrap-ups with next-notebook bridges** — the "Wrap-Up: Key Takeaways" cell ends with a paragraph naming the next notebook and what it builds on today's work. The wrap-up also typically carries one closing Q&A.
+
+**When polishing is warranted:**
+- Any new markdown cell longer than \~150 words in a student notebook.
+- Any "Reading the output" cell that is currently a bullet list.
+- Any section transition that feels abrupt.
+- Any "Why This Matters" cell that lacks a named stakeholder.
+
+**When the polish script pattern has worked well:**
+
+```python
+# Pattern used across every NB polish batch in this course
+def append_qa_if_missing(nb, signature_prefix, qa_block):
+    for c in nb['cells']:
+        if c['cell_type'] != 'markdown':
+            continue
+        src = ''.join(c['source'])
+        if not src.lstrip().startswith(signature_prefix):
+            continue
+        if 'A question that often comes up' in src:
+            return False  # already has Q&A — idempotent
+        stripped = src.rstrip()
+        if stripped.endswith('---'):
+            stripped = stripped[:-3].rstrip()
+        c['source'] = [stripped + '\n\n' + qa_block + '\n\n---\n']
+        return True
+    return False
+```
+
+The idempotent check (`if 'A question that often comes up' in src`) is critical — it prevents duplicating Q&As on re-runs.
+
+**Batching rule of thumb** — polish in groups of 2–3 notebooks per commit, not one notebook at a time. Polish + voice-check + render + commit per batch. This keeps commit messages meaningful and docs rendering in sync.
+
+---
+
+### 🚨 CRITICAL RULE - CV-First Evaluation + Test-Set Lock
+
+**From NB09 onward, all model-performance claims come from cross-validation.** Before NB14, the test set (`X_test`, `y_test`) is *locked* — no model evaluation touches it. NB14's "Opening the Locked Test Set" ceremony is the one and only authorized test-set opening in the entire course.
+
+**The rule, stated crisply:**
+
+| Where | What to use |
+|---|---|
+| NB01–NB07 | Single train/val/test split is introduced; `X_val` for mid-course evaluation |
+| NB08 | k-fold CV + Student's *t* 95% CI becomes the course's evaluation spine |
+| NB09–NB13, NB15, NB16, NB17 | `cross_val_score`, `cross_val_predict`, `GridSearchCV`, `RandomizedSearchCV` on `X_train`; held-out evaluation uses `X_val`, never `X_test` |
+| **NB14 cell 33 ONLY** | `X_test` / `y_test` opened for the one-shot ceremony (INSIDE/ABOVE/BELOW verdict) |
+| NB18 | `X_test` may be used in the Kaggle-submission demo to simulate predicting on a held-out CSV — this is legitimate because it is a production-pipeline pattern, not model evaluation |
+| NB20 | No model evaluation — peer review + postmortem |
+
+**The CV-first principle is not a style preference; it is the course's pedagogical spine.** NB14's ceremony loses its meaning if the test set has been touched 30 times before students get there. The value of the lock is the consistency.
+
+**Before shipping any evaluation code in NB09–NB20, run the audit:**
+
+```python
+# Tight audit — finds MODEL-EVAL uses of X_test/y_test (not just train_test_split)
+import json, re
+from pathlib import Path
+
+MODEL_EVAL_TEST_PATTERNS = [
+    r'\.score\(X_test', r'\.predict\(X_test', r'\.predict_proba\(X_test',
+    r'roc_auc_score\(y_test', r'accuracy_score\(y_test', r'f1_score\(y_test',
+    r'precision_score\(y_test', r'recall_score\(y_test',
+    r'classification_report\(y_test', r'brier_score_loss\(y_test',
+    r'permutation_importance\([^,)]+,\s*X_test',
+]
+
+for path in sorted(Path('notebooks').glob('*_student.ipynb')):
+    nb = json.loads(path.read_text())
+    hits = []
+    for i, c in enumerate(nb['cells']):
+        if c['cell_type'] != 'code':
+            continue
+        src = ''.join(c['source'])
+        for pat in MODEL_EVAL_TEST_PATTERNS:
+            for m in re.finditer(pat, src):
+                line_start = src.rfind('\n', 0, m.start()) + 1
+                line = src[line_start:src.find('\n', m.start())]
+                if line.lstrip().startswith('#'):
+                    continue
+                hits.append((i, m.group(0)))
+    if hits:
+        print(f'{path.name}: {len(hits)} hits')
+        for cell, pat in hits:
+            print(f'  cell {cell}: {pat}')
+```
+
+**The only acceptable audit output** is 6 hits in `notebooks/14_model_selection_protocol_student.ipynb` cell 33, plus any submission-demo hits in `notebooks/18_reproducibility_monitoring_student.ipynb`. Anything else is a regression and must be fixed before committing.
+
+**Common CV-first patterns to reach for:**
+
+- Classifier comparison: `cross_val_score(model, X_train, y_train, cv=StratifiedKFold(5, ...), scoring='roc_auc')`, then report `mean ± (t_crit * sd / sqrt(k))` as a 95% CI.
+- `classification_report` on held-out predictions: `y_pred = cross_val_predict(model, X_train, y_train, cv=cv_strat)` — every row's prediction comes from a fold that never saw it during fitting.
+- Permutation importance that would otherwise touch `X_test`: split `X_train` further (e.g., 75/25 inside the cell), fit on the 75% slice, measure permutation importance on the 25% slice. Test set stays locked.
+- Calibration that needs a held-out sample: use `CalibratedClassifierCV(base, cv=5)` fit on `X_train` (internal CV handles the calibrator fit), evaluate Brier on `X_val`.
+
+**Before every commit in NB09–NB20, run both audits** — the voice-check grep *and* the CV-first audit above. Both must be clean (with the NB14 cell 33 exception on the test-set side).
+
 ---
 
 ### 🚨 CRITICAL WORKFLOW - Instructor-First Notebook Editing
@@ -799,6 +916,9 @@ At the beginning of EVERY session:
 
 At the end of EVERY session:
 - [ ] All changes committed with clear messages
+- [ ] **CRITICAL — Voice-check was run** on any modified student notebook (grep returns zero non-"Student's t" hits). If video guides were modified, run the blockquote-only voice-check too — wrapper-prose "students" refs are fine, blockquote-script "students" refs are not.
+- [ ] **CRITICAL — CV-first audit was run** if any NB09–NB20 evaluation code changed. The tight audit (see "CV-First Evaluation + Test-Set Lock" rule above) must return zero model-eval hits on `X_test`/`y_test` outside of NB14 cell 33 and NB18's Kaggle-submission demo.
+- [ ] **CRITICAL — Narrative polish applied** if any new or rewritten student markdown cells landed. Check for: named business stakeholder in Why-This-Matters, narrative prose over bullet lists in Reading-the-output, at least one `"A question that often comes up here"` Q&A block, warm wrap-up with an explicit bridge to the next notebook.
 - [ ] **CRITICAL:** If ANY content changed (.qmd files, notebooks, images):
   - [ ] Run `quarto render`
   - [ ] Commit docs/ folder
@@ -808,7 +928,7 @@ At the end of EVERY session:
 - [ ] Provide clear summary to user of what was accomplished
 - [ ] List any remaining work for next session
 
-**Note:** The most common mistake is forgetting to render Quarto and commit docs/. This causes the website to be out of sync with the repository content.
+**Note:** The most common mistake is forgetting to render Quarto and commit docs/. This causes the website to be out of sync with the repository content. The second most common mistake is committing a student-notebook polish without running the voice-check grep — hits in student files are rejected on review, so catching them pre-commit is cheaper than a revert.
 
 ---
 
@@ -852,6 +972,6 @@ This file serves as:
 
 ---
 
-**Last Updated:** January 27, 2026
-**Version:** 1.0
+**Last Updated:** April 24, 2026
+**Version:** 1.1 — adds Narrative Polish Pattern + CV-First Evaluation / Test-Set Lock rules; extends Voice Rule to cover video-guide blockquotes; adds polish + audit gates to Session End Checklist
 **Maintained by:** Professor Davi Moreira + AI Assistants
