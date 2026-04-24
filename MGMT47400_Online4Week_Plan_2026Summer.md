@@ -79,27 +79,27 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 
 | NB | Title | Why It Exists | Why This Position |
 |----|-------|---------------|-------------------|
-| 00 | Launchpad: Course Setup | Pre-course orientation — orients students to the platform (Colab, Gemini) and course logistics (syllabus, grading, daily workflow) so NB01 can focus purely on analytics content. | Day 0 (pre-course); no predecessor. Students cannot engage with any technical content until they understand the platform and AI assistant policy. |
-| 01 | EDA & Splits | Conceptual foundation — introduces predictive analytics (Y = f(X) + ε), the EDA checklist, and the data workflow (60/20/20 splitting, leakage prevention) that every subsequent notebook depends on. | Follows NB00 (platform ready). Students cannot preprocess, model, or evaluate anything until they understand leakage and data splitting. |
-| 02 | Preprocessing Pipelines | Operationalizes leakage prevention from NB01 by teaching Pipeline + ColumnTransformer — the tool that makes safe preprocessing automatic and reproducible. | NB01 provides the vocabulary (split, leakage, EDA); NB02 gives the tool that enforces it. NB03 assumes the pipeline is a solved problem. |
-| 03 | Regression Metrics & Baselines | Teaches formal regression metrics (MAE, RMSE, R²) and baseline models, giving every future comparison a meaningful performance floor. | NB02 solves preprocessing; NB03 shifts focus to evaluation. NB04 needs metrics to measure whether feature engineering helps. |
-| 04 | Linear Features & Diagnostics | Teaches feature engineering (interactions, polynomials) and residual diagnostics — revealing the accuracy vs. complexity tradeoff and exposing overfitting risk. | NB03 provides the evaluation framework; without it, students would engineer features blindly. NB04 creates the overfitting problem that NB05 solves. |
-| 05 | Regularization (Ridge/Lasso) | Introduces regularization as the direct solution to NB04's overfitting problem. Closes the Week 1 regression arc and hosts the project proposal milestone. | NB04 creates the problem (polynomial explosion, unstable coefficients); NB05 delivers the solution. Completes the regression toolkit before the Week 2 pivot to classification. |
-| 06 | Logistic Regression & Pipelines | Marks the transition from regression to classification, teaching predicted probabilities, threshold sensitivity, and pipeline reuse in a classification context. | NB05 introduces regularization via alpha; NB06 applies the same idea via C in classification, reusing the Pipeline pattern for a seamless transition. NB07 needs probability foundations. |
-| 07 | Classification Metrics & Thresholding | Builds the complete classification evaluation toolkit — precision, recall, F1, ROC/PR curves, and cost-based threshold selection. Calibration is deferred to NB16 where it naturally attaches to tree-based (often miscalibrated) classifiers. | NB06 introduces probabilities and confusion matrices informally; NB07 formalizes them. NB08 needs metric vocabulary to choose a `scoring` parameter for CV. |
-| 08 | Cross-Validation & Model Comparison | Teaches reliable, low-variance performance estimation through k-fold CV, replacing the fragile single train/val split with a systematic evaluation framework. | NB07 provides the metrics NB08 passes as `scoring`. NB09 embeds CV inside grid search; students must understand standalone CV first. |
-| 09 | Hyperparameter Tuning + Feature Engineering + Leakage Detection | Single-file two-section notebook. Section A turns NB08's CV ritual into `GridSearchCV` / `RandomizedSearchCV`, reading `cv_results_` through the CI-overlap rule. Section B introduces `ColumnTransformer` on a synthetic TechCorp Talent Analytics case (first dataset in the course with real categorical columns, including a high-cardinality `manager_id`), adds `FunctionTransformer` for domain features, and stages two leakage case studies (target-encoding in the main demo, `SelectKBest`-outside-pipeline in the pause-and-do). | NB08 teaches standalone CV; NB09 embeds it inside grid search. NB10 (midterm) requires the full pipeline template from NB09. The leakage case studies become the prerequisite for NB13's "leaky features dominate boosting" callout. |
-| 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. Includes a **one-page cheat-sheet appendix** with decision tables for metric/scaler/stratify choice, Ridge vs Lasso tie-breakers, CI-overlap rule, and leakage checklist. | NB09 completes the toolkit; NB10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
-| 11 | Decision Trees | Introduces the first non-linear model family (CART), teaching the bias-variance tradeoff concretely through depth sweeps and overfitting demonstrations. Includes a class-imbalance section with `class_weight='balanced'` on artificially down-sampled data and an explicit anti-SMOTE warning. | NB10 consolidates Weeks 1–2; students enter NB11 with solid evaluation skills and can focus on tree mechanics. NB12 solves the single tree's high-variance problem. |
-| 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. Opens with a **four-method feature-importance reconciliation table** (coefficient magnitude / impurity / permutation / PDP) that becomes the course-wide reference through NB15. | NB11 proves single trees overfit; NB12's motivation ("average many unstable trees") only makes sense after experiencing that instability. NB13 needs bagging as a contrast for boosting. |
-| 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting NB09's leakage case studies to boosting's amplification effect on any leaked feature. | NB12 establishes the parallel ensemble baseline (bagging reduces variance); NB13 contrasts with sequential approach (boosting reduces bias). NB14 needs the full candidate roster. |
-| 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using NB08's vocabulary — the payoff for eight notebooks of locking discipline. | NB13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. NB15 interprets the selected champion. |
-| 15 | Interpretation & Error Analysis (Project Improved Model) | Answers "what is the champion learning and where does it fail?" via permutation importance, PDP/ICE, and segment-level error analysis. Opens with an explicit cross-reference to NB12's four-method importance table, positioning PDP/ICE as the "shape" complement to NB12's three "rank" methods. Hosts the improved model milestone. | NB14 selects the champion; interpretation is only meaningful after commitment to one model. NB16 uses error analysis to motivate threshold adjustments. |
-| 16 | Probability Calibration for Decision Quality | Pivots from NB07's threshold-tuning content (now a 5-minute refresh) to calibration as the main focus: reliability diagrams, Brier score, `CalibratedClassifierCV` with isotonic vs. sigmoid, and a concrete demonstration on a Random Forest (which is typically miscalibrated). Explains when calibration matters (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration). | NB15 reveals failure segments; NB16 asks whether the champion's probabilities are trustworthy enough to inform business decisions. NB17 needs calibration-aware thresholds to analyze fairness implications. |
-| 17 | Fairness & Model Cards | Teaches that excellent aggregate metrics can still harm specific groups. Introduces slice-based evaluation, fairness diagnostics, and model card documentation. | NB16 teaches threshold setting; NB17 asks whether that threshold is fair across groups. NB18 needs fairness signals for its monitoring plan. |
-| 18 | Reproducibility & Monitoring | Transitions from "works in a notebook" to "can be saved, loaded, verified, and monitored" through function refactoring, joblib serialization, monitoring plans, and a **Kaggle submission mechanics section** (load saved pipeline → predict on held-out CSV → produce `submission.csv` with exact column names). | NB17 establishes the ethical layer; NB18 adds the operational layer and the last-mile Kaggle glue needed for the Day 20 competition deadline. Together they form the pre-deployment checklist. NB19 needs artifacts and vocabulary for the executive narrative. |
-| 19 | Executive Narrative & Video Studio | Teaches translation of 18 notebooks of technical work into a compelling Five-Act executive narrative (Problem → Approach → Results → Recommendation → Risks). | NB18 provides reproducible artifacts and monitoring vocabulary; without them, the narrative would lack operational credibility. NB20 requires the deliverables developed here. |
-| 20 | Final Submission & Peer Review | Capstone — self-audit, submit complete deliverable package, peer review using structured rubric, and postmortem reflection. | NB19 develops deliverables; NB20 audits and submits them. Closes the course arc from NB01's first data split to a fully reviewed and reflected-upon submission. |
+| 00 | Launchpad: Course Setup | Pre-course orientation — orients students to the platform (Colab, Gemini) and course logistics (syllabus, grading, daily workflow) so nb01 can focus purely on analytics content. | Day 0 (pre-course); no predecessor. Students cannot engage with any technical content until they understand the platform and AI assistant policy. |
+| 01 | EDA & Splits | Conceptual foundation — introduces predictive analytics (Y = f(X) + ε), the EDA checklist, and the data workflow (60/20/20 splitting, leakage prevention) that every subsequent notebook depends on. | Follows nb00 (platform ready). Students cannot preprocess, model, or evaluate anything until they understand leakage and data splitting. |
+| 02 | Preprocessing Pipelines | Operationalizes leakage prevention from nb01 by teaching Pipeline + ColumnTransformer — the tool that makes safe preprocessing automatic and reproducible. | nb01 provides the vocabulary (split, leakage, EDA); nb02 gives the tool that enforces it. nb03 assumes the pipeline is a solved problem. |
+| 03 | Regression Metrics & Baselines | Teaches formal regression metrics (MAE, RMSE, R²) and baseline models, giving every future comparison a meaningful performance floor. | nb02 solves preprocessing; nb03 shifts focus to evaluation. nb04 needs metrics to measure whether feature engineering helps. |
+| 04 | Linear Features & Diagnostics | Teaches feature engineering (interactions, polynomials) and residual diagnostics — revealing the accuracy vs. complexity tradeoff and exposing overfitting risk. | nb03 provides the evaluation framework; without it, students would engineer features blindly. nb04 creates the overfitting problem that nb05 solves. |
+| 05 | Regularization (Ridge/Lasso) | Introduces regularization as the direct solution to nb04's overfitting problem. Closes the Week 1 regression arc and hosts the project proposal milestone. | nb04 creates the problem (polynomial explosion, unstable coefficients); nb05 delivers the solution. Completes the regression toolkit before the Week 2 pivot to classification. |
+| 06 | Logistic Regression & Pipelines | Marks the transition from regression to classification, teaching predicted probabilities, threshold sensitivity, and pipeline reuse in a classification context. | nb05 introduces regularization via alpha; nb06 applies the same idea via C in classification, reusing the Pipeline pattern for a seamless transition. nb07 needs probability foundations. |
+| 07 | Classification Metrics & Thresholding | Builds the complete classification evaluation toolkit — precision, recall, F1, ROC/PR curves, and cost-based threshold selection. Calibration is deferred to nb16 where it naturally attaches to tree-based (often miscalibrated) classifiers. | nb06 introduces probabilities and confusion matrices informally; nb07 formalizes them. nb08 needs metric vocabulary to choose a `scoring` parameter for CV. |
+| 08 | Cross-Validation & Model Comparison | Teaches reliable, low-variance performance estimation through k-fold CV, replacing the fragile single train/val split with a systematic evaluation framework. | nb07 provides the metrics nb08 passes as `scoring`. nb09 embeds CV inside grid search; students must understand standalone CV first. |
+| 09 | Hyperparameter Tuning + Feature Engineering + Leakage Detection | Single-file two-section notebook. Section A turns nb08's CV ritual into `GridSearchCV` / `RandomizedSearchCV`, reading `cv_results_` through the CI-overlap rule. Section B introduces `ColumnTransformer` on a synthetic TechCorp Talent Analytics case (first dataset in the course with real categorical columns, including a high-cardinality `manager_id`), adds `FunctionTransformer` for domain features, and stages two leakage case studies (target-encoding in the main demo, `SelectKBest`-outside-pipeline in the pause-and-do). | nb08 teaches standalone CV; nb09 embeds it inside grid search. nb10 (midterm) requires the full pipeline template from nb09. The leakage case studies become the prerequisite for nb13's "leaky features dominate boosting" callout. |
+| 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. Includes a **one-page cheat-sheet appendix** with decision tables for metric/scaler/stratify choice, Ridge vs Lasso tie-breakers, CI-overlap rule, and leakage checklist. | nb09 completes the toolkit; nb10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
+| 11 | Decision Trees | Introduces the first non-linear model family (CART), teaching the bias-variance tradeoff concretely through depth sweeps and overfitting demonstrations. Includes a class-imbalance section with `class_weight='balanced'` on artificially down-sampled data and an explicit anti-SMOTE warning. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem. |
+| 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. Opens with a **four-method feature-importance reconciliation table** (coefficient magnitude / impurity / permutation / PDP) that becomes the course-wide reference through nb15. | nb11 proves single trees overfit; nb12's motivation ("average many unstable trees") only makes sense after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
+| 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect on any leaked feature. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
+| 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
+| 15 | Interpretation & Error Analysis (Project Improved Model) | Answers "what is the champion learning and where does it fail?" via permutation importance, PDP/ICE, and segment-level error analysis. Opens with an explicit cross-reference to nb12's four-method importance table, positioning PDP/ICE as the "shape" complement to nb12's three "rank" methods. Hosts the improved model milestone. | nb14 selects the champion; interpretation is only meaningful after commitment to one model. nb16 uses error analysis to motivate threshold adjustments. |
+| 16 | Probability Calibration for Decision Quality | Pivots from nb07's threshold-tuning content (now a 5-minute refresh) to calibration as the main focus: reliability diagrams, Brier score, `CalibratedClassifierCV` with isotonic vs. sigmoid, and a concrete demonstration on a Random Forest (which is typically miscalibrated). Explains when calibration matters (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration). | nb15 reveals failure segments; nb16 asks whether the champion's probabilities are trustworthy enough to inform business decisions. nb17 needs calibration-aware thresholds to analyze fairness implications. |
+| 17 | Fairness & Model Cards | Teaches that excellent aggregate metrics can still harm specific groups. Introduces slice-based evaluation, fairness diagnostics, and model card documentation. | nb16 teaches threshold setting; nb17 asks whether that threshold is fair across groups. nb18 needs fairness signals for its monitoring plan. |
+| 18 | Reproducibility & Monitoring | Transitions from "works in a notebook" to "can be saved, loaded, verified, and monitored" through function refactoring, joblib serialization, monitoring plans, and a **Kaggle submission mechanics section** (load saved pipeline → predict on held-out CSV → produce `submission.csv` with exact column names). | nb17 establishes the ethical layer; nb18 adds the operational layer and the last-mile Kaggle glue needed for the Day 20 competition deadline. Together they form the pre-deployment checklist. nb19 needs artifacts and vocabulary for the executive narrative. |
+| 19 | Executive Narrative & Video Studio | Teaches translation of 18 notebooks of technical work into a compelling Five-Act executive narrative (Problem → Approach → Results → Recommendation → Risks). | nb18 provides reproducible artifacts and monitoring vocabulary; without them, the narrative would lack operational credibility. nb20 requires the deliverables developed here. |
+| 20 | Final Submission & Peer Review | Capstone — self-audit, submit complete deliverable package, peer review using structured rubric, and postmortem reflection. | nb19 develops deliverables; nb20 audits and submits them. Closes the course arc from nb01's first data split to a fully reviewed and reflected-upon submission. |
 
 ### Weekly Arc Dependencies
 
@@ -174,7 +174,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 9. Solution: Split validation + leakage red flags + extension: stratified splits (9)
 
 **Notebook(s)**
-- File: `01_launchpad_eda_splits.ipynb`  
+- File: `nb01_launchpad_eda_splits.ipynb`  
 - Sections:
   - Setup (installs, imports, seeds, display settings)
   - Gemini workflow rules (“ask → verify → document”)
@@ -225,7 +225,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 6. Solution: Pipeline debugging + extension: `get_feature_names_out()` (9)
 
 **Notebook(s)**
-- File: `02_preprocessing_pipelines.ipynb`  
+- File: `nb02_preprocessing_pipelines.ipynb`  
 - Sections:
   - Setup + dataset load
   - Data audit report function
@@ -270,7 +270,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 6. Solution: Comparison table + pitfalls + extension: residual plots (9)
 
 **Notebook(s)**
-- File: `03_regression_metrics_baselines.ipynb`  
+- File: `nb03_regression_metrics_baselines.ipynb`  
 - Sections:
   - Metrics utilities (`mae`, `rmse`)
   - Baseline predictors (mean/median)
@@ -315,7 +315,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 6. Solution: Diagnostics + extension: compare MAE vs RMSE impacts (9)
 
 **Notebook(s)**
-- File: `04_linear_features_diagnostics.ipynb`  
+- File: `nb04_linear_features_diagnostics.ipynb`  
 - Sections:
   - Pipeline baseline recap
   - Linear regression + coefficient extraction
@@ -359,7 +359,7 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 6. Solution: Model comparison + pitfalls + extension: stability discussion (10)
 
 **Notebook(s)**
-- File: `05_regularization_project_proposal.ipynb`  
+- File: `nb05_regularization_project_proposal.ipynb`  
 - Sections:
   - Regularization pipeline templates
   - CV selection (`RidgeCV`, `LassoCV`)
@@ -423,7 +423,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Comparison + pitfalls + extension: coefficient stability (9)
 
 **Notebook(s)**
-- File: `06_logistic_pipelines.ipynb`  
+- File: `nb06_logistic_pipelines.ipynb`  
 - Sections:
   - Classification baselines
   - Logistic regression pipeline
@@ -456,7 +456,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Handle class imbalance at the evaluation level (metrics first).
 - Produce a metrics dashboard table for model comparison.
 
-*(Calibration is deferred to NB16 — Decision Thresholds & Calibration — where students have already met classifiers, such as random forests and gradient boosting, that can actually be miscalibrated. Logistic regression is natively well-calibrated by its loss function, so covering calibration in Week 2 has no natural pain point to anchor it.)*
+*(Calibration is deferred to nb16 — Decision Thresholds & Calibration — where students have already met classifiers, such as random forests and gradient boosting, that can actually be miscalibrated. Logistic regression is natively well-calibrated by its loss function, so covering calibration in Week 2 has no natural pain point to anchor it.)*
 
 **Micro-videos (54 min)**
 1. Concept+demo: Confusion matrix + precision/recall tradeoffs (10)  
@@ -467,7 +467,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Cost-based thresholding + pitfalls + extension: metrics dashboard as a reusable evaluation artifact (9)
 
 **Notebook(s)**
-- File: `07_classification_metrics_thresholding.ipynb`  
+- File: `nb07_classification_metrics_thresholding.ipynb`  
 - Sections:
   - Question-first metric framework (Precision / Recall / F1 / Accuracy paired with the business question each answers)
   - ROC curve and AUC
@@ -490,7 +490,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Fawcett: “An introduction to ROC analysis”  
 - Saito & Rehmsmeier: PR curves under class imbalance  
 - scikit-learn User Guide: classification metrics + ROC/PR tooling
-- (Calibration bibliography — Niculescu-Mizil & Caruana; Zadrozny & Elkan — moves to NB16's reading list.)
+- (Calibration bibliography — Niculescu-Mizil & Caruana; Zadrozny & Elkan — moves to nb16's reading list.)
 
 ---
 
@@ -512,7 +512,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Interpret the classification comparison plot + extension: Ridge vs. OLS CI-overlap test (9)
 
 **Notebook(s)**
-- File: `08_cross_validation_model_comparison.ipynb`  
+- File: `nb08_cross_validation_model_comparison.ipynb`  
 - Sections:
   - Why CV exists (k-fold estimator for regression and classification, plus mean/SD/95% CI formulas)
   - K-fold CV for regression — California Housing (per-fold plot + single-split vs. CV comparison + interpretation)
@@ -522,7 +522,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 
 **In-notebook exercises (10-minute scope)**
 - Pause-and-do (10): Ridge (α=1.0) vs. plain OLS on California Housing — run 5-fold CV for both and decide whether their 95% CIs overlap; use that to defend or reject regularization to the CFO.
-- Pause-and-do (10): LogReg (C=1.0) vs. LogReg (C=0.01) on Breast Cancer — run 5-fold stratified CV for both and decide whether their 95% CIs overlap; use that to judge whether regularization strength meaningfully moves MedScreen's ROC-AUC (previewing NB09's GridSearchCV).
+- Pause-and-do (10): LogReg (C=1.0) vs. LogReg (C=0.01) on Breast Cancer — run 5-fold stratified CV for both and decide whether their 95% CIs overlap; use that to judge whether regularization strength meaningfully moves MedScreen's ROC-AUC (previewing nb09's GridSearchCV).
 
 **Assessments**
 - Concept quiz: CV estimator, stratification, confidence-interval reporting  
@@ -541,8 +541,8 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ## Day 9 — Thu May 28  
 ### Hyperparameter tuning + feature engineering + leakage detection  
 **Learning objectives**
-- Run `GridSearchCV` and `RandomizedSearchCV` on known models and read `cv_results_` as a table of NB08-style CV runs.
-- Apply the 95% CI overlap rule from NB08 to pick the simplest model among the top candidates in `cv_results_`.
+- Run `GridSearchCV` and `RandomizedSearchCV` on known models and read `cv_results_` as a table of nb08-style CV runs.
+- Apply the 95% CI overlap rule from nb08 to pick the simplest model among the top candidates in `cv_results_`.
 - Build a `ColumnTransformer` that handles both categorical and numeric features inside a single `Pipeline`.
 - Use `FunctionTransformer` to embed domain feature engineering inside the pipeline without leakage.
 - Detect a data-leakage bug in a provided pipeline by comparing CV scores before and after the fix.
@@ -559,9 +559,9 @@ Pre-recorded micro-videos are available for students to watch before or after th
 8. Solution: PAUSE-AND-DO 2 walkthrough — SelectKBest outside pipeline, same leak pattern different flavor (7)
 
 **Notebook(s)**
-- File: `09_tuning_feature_engineering_project_baseline_student.ipynb`  
+- File: `nb09_tuning_feature_engineering_project_baseline_student.ipynb`  
 - Structure: two big sections in a single file
-  - **Section A — Grid search as NB08 × a grid**: `GridSearchCV` on Ridge α-grid (California Housing) + `RandomizedSearchCV` on LogReg `C` distribution (Breast Cancer); CI-overlap rule applied to `cv_results_` top rows; champion selection pattern. PAUSE-AND-DO 1: `GridSearchCV` on LogReg `C` grid with CI-overlap verdict.
+  - **Section A — Grid search as nb08 × a grid**: `GridSearchCV` on Ridge α-grid (California Housing) + `RandomizedSearchCV` on LogReg `C` distribution (Breast Cancer); CI-overlap rule applied to `cv_results_` top rows; champion selection pattern. PAUSE-AND-DO 1: `GridSearchCV` on LogReg `C` grid with CI-overlap verdict.
   - **Section B — Feature engineering + leakage detection + categoricals**: TechCorp Talent Analytics synthetic business case (2,000 employees, 5 numeric + 3 low-card categorical + `manager_id` high-cardinality + 30 HRIS noise metrics); leak-free baseline with `ColumnTransformer` + `OneHotEncoder(handle_unknown='ignore')`; domain feature via `FunctionTransformer`; intern's dramatic target-encoding leak and its fix. PAUSE-AND-DO 2: detect and fix a SelectKBest-outside-pipeline leak.
 
 **In-notebook exercises (10-minute scope)**
@@ -601,13 +601,13 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Debrief: scoring rubric + pitfalls + “how to earn full credit” (5)
 
 **Notebook(s)**
-- File: `10_midterm_casebook_student.ipynb`  
+- File: `nb10_midterm_casebook_student.ipynb`  
 - Sections:
   - Integrity + allowed resources + Gemini usage boundaries (explain/verify)
   - Case 1 prompt + structured response cells
   - Case 2 prompt + structured response cells
   - Optional mini-case 3
-  - **Midterm Cheat Sheet appendix** (decision tables for metric choice, scaler choice, stratify yes/no, Ridge vs Lasso, CI-overlap rule, leakage checklist — copied from NB01–NB09 into one reference card)
+  - **Midterm Cheat Sheet appendix** (decision tables for metric choice, scaler choice, stratify yes/no, Ridge vs Lasso, CI-overlap rule, leakage checklist — copied from nb01–nb09 into one reference card)
   - Submission checklist (self-audit)
 
 **In-notebook exercises (10-minute scope)**
@@ -667,7 +667,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Tuning result + extension: sensitivity analysis (9)
 
 **Notebook(s)**
-- File: `11_decision_trees_student.ipynb`  
+- File: `nb11_decision_trees_student.ipynb`  
 - Sections:
   - Tree fit + visualization
   - Hyperparameter effects (depth sweep)
@@ -711,7 +711,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Interpretation pitfalls + extension: grouped features (9)
 
 **Notebook(s)**
-- File: `12_random_forests_importance_student.ipynb`  
+- File: `nb12_random_forests_importance_student.ipynb`  
 - Sections:
   - **Prelude — Four things we call "feature importance"** (coefficient magnitude / impurity / permutation / PDP) with a reconciliation table that is referenced for the rest of the course
   - Forest training + CV comparison
@@ -755,12 +755,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Result interpretation + extension: stability notes (9)
 
 **Notebook(s)**
-- File: `13_gradient_boosting_student.ipynb`  
+- File: `nb13_gradient_boosting_student.ipynb`  
 - Sections:
   - Baseline GBM fit
   - Constrained tuning template
   - Comparison report (forest vs GBM)
-  - **A warning for boosting — leaky features dominate the top** (callout section tying NB09's leakage case study to GBM's sequential fitting + three red flags + debugging recipe)
+  - **A warning for boosting — leaky features dominate the top** (callout section tying nb09's leakage case study to GBM's sequential fitting + three red flags + debugging recipe)
   - Gemini prompts: constrained RandomizedSearchCV with guardrails
 
 **In-notebook exercises (10-minute scope)**
@@ -799,12 +799,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Decision memo example + extension: robustness checks (9)
 
 **Notebook(s)**
-- File: `14_model_selection_protocol_student.ipynb`  
+- File: `nb14_model_selection_protocol_student.ipynb`  
 - Sections:
   - Comparison harness (pipelines list → CV scores table)
   - Multi-metric reporting (primary + supporting metrics)
   - Champion selection memo scaffold
-  - **Opening the locked test set — the ceremony** (NB08-style Student's t 95% CI on champion CV scores, INSIDE / ABOVE / BELOW verdict for the single test score, payoff for the whole course's locking discipline)
+  - **Opening the locked test set — the ceremony** (nb08-style Student's t 95% CI on champion CV scores, INSIDE / ABOVE / BELOW verdict for the single test score, payoff for the whole course's locking discipline)
   - Gemini prompts: “generate experiment log table”
 
 **In-notebook exercises (10-minute scope)**
@@ -843,7 +843,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Error analysis patterns + extension: calibration check (10)
 
 **Notebook(s)**
-- File: `15_interpretation_error_analysis_project.ipynb`  
+- File: `nb15_interpretation_error_analysis_project.ipynb`  
 - Sections:
   - Importance + PDP/ICE
   - Segment-level error table (by key categorical / quantile bins)
@@ -895,21 +895,21 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Apply post-hoc calibration with `CalibratedClassifierCV` (isotonic vs. sigmoid/Platt) and measure the improvement.
 - Explain why tree-based ensembles are often miscalibrated and why well-regularized linear models usually are not.
 - Recognize when calibration matters for a decision (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration).
-- Run a short cost-based threshold refresh from NB07, applied on top of calibrated probabilities.
+- Run a short cost-based threshold refresh from nb07, applied on top of calibrated probabilities.
 
 **Micro-videos (54 min)**
 1. Concept+demo: Discrimination vs. calibration — when a "70% probability" actually means 70% (10)  
-2. Guided practice: NB07 threshold-tuning 5-minute refresh on the screening cost matrix (8)  
+2. Guided practice: nb07 threshold-tuning 5-minute refresh on the screening cost matrix (8)  
 3. Concept+demo: Reliability diagrams + Brier score as the calibration metric (10)  
 4. Guided practice: `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay (8)  
 5. Concept+demo: Why tree ensembles need calibration and linear models usually don't (9)  
 6. Solution: Picking the calibrator + bridge to decision policy and Kaggle probabilistic scoring (9)
 
 **Notebook(s)**
-- File: `16_decision_thresholds_calibration_student.ipynb`  
+- File: `nb16_decision_thresholds_calibration_student.ipynb`  
 - Sections:
-  - **NB07 threshold + cost refresh** (compact 5-minute section, references NB07 for deep context)
-  - **Calibration diagnostics** — reliability diagram + Brier score on a Random Forest from NB12
+  - **nb07 threshold + cost refresh** (compact 5-minute section, references nb07 for deep context)
+  - **Calibration diagnostics** — reliability diagram + Brier score on a Random Forest from nb12
   - **Calibration fixes** — `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay + Brier winner
   - Decision policy summary block (ready for slides)
   - Sensitivity analysis on the FN cost
@@ -950,7 +950,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Interpretation + what not to claim + extension: mitigation options (9)
 
 **Notebook(s)**
-- File: `17_fairness_slicing_model_cards.ipynb`  
+- File: `nb17_fairness_slicing_model_cards.ipynb`  
 - Sections:
   - Slice-based performance table
   - Optional fairness metrics (dataset permitting)
@@ -994,7 +994,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Monitoring plan + mistakes + extension: governance (9)
 
 **Notebook(s)**
-- File: `18_reproducibility_monitoring_student.ipynb`  
+- File: `nb18_reproducibility_monitoring_student.ipynb`  
 - Sections:
   - Refactor into `train()` / `predict()` / `evaluate()`
   - Save/load via joblib
@@ -1040,7 +1040,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Script tightening + extension: Q&A slide and limitations (9)
 
 **Notebook(s)**
-- File: `19_project_narrative_video_studio.ipynb`  
+- File: `nb19_project_narrative_video_studio.ipynb`  
 - Sections:
   - Slide outline template (markdown → slides)
   - Required visuals checklist
@@ -1084,7 +1084,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 6. Solution: Example peer review + extension: next-iteration roadmap (5)
 
 **Notebook(s)**
-- File: `20_final_submission_peer_review.ipynb`  
+- File: `nb20_final_submission_peer_review.ipynb`  
 - Sections:
   - Final self-audit checklist (run-all, outputs, links)
   - Submission links + artifact manifest (notebook, deck, video)

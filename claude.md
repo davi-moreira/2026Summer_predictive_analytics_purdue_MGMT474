@@ -65,9 +65,9 @@ If any hit shows up in a student file, rewrite before committing. (Hits in `vide
 
 ---
 
-### 🚨 CRITICAL RULE - Narrative Polish Pattern (NB08 Style)
+### 🚨 CRITICAL RULE - Narrative Polish Pattern (nb08 Style)
 
-**Every student notebook markdown cell should follow the NB08 narrative style.** When polishing NB01–NB20, or writing any new notebook, use these patterns — they are the course's voice, and they have been consistently applied across all 21 notebooks.
+**Every student notebook markdown cell should follow the nb08 narrative style.** When polishing nb01–nb20, or writing any new notebook, use these patterns — they are the course's voice, and they have been consistently applied across all 21 notebooks.
 
 **Five structural elements every student notebook has:**
 
@@ -112,22 +112,22 @@ The idempotent check (`if 'A question that often comes up' in src`) is critical 
 
 ### 🚨 CRITICAL RULE - CV-First Evaluation + Test-Set Lock
 
-**From NB09 onward, all model-performance claims come from cross-validation.** Before NB14, the test set (`X_test`, `y_test`) is *locked* — no model evaluation touches it. NB14's "Opening the Locked Test Set" ceremony is the one and only authorized test-set opening in the entire course.
+**From nb09 onward, all model-performance claims come from cross-validation.** Before nb14, the test set (`X_test`, `y_test`) is *locked* — no model evaluation touches it. nb14's "Opening the Locked Test Set" ceremony is the one and only authorized test-set opening in the entire course.
 
 **The rule, stated crisply:**
 
 | Where | What to use |
 |---|---|
-| NB01–NB07 | Single train/val/test split is introduced; `X_val` for mid-course evaluation |
-| NB08 | k-fold CV + Student's *t* 95% CI becomes the course's evaluation spine |
-| NB09–NB13, NB15, NB16, NB17 | `cross_val_score`, `cross_val_predict`, `GridSearchCV`, `RandomizedSearchCV` on `X_train`; held-out evaluation uses `X_val`, never `X_test` |
-| **NB14 cell 33 ONLY** | `X_test` / `y_test` opened for the one-shot ceremony (INSIDE/ABOVE/BELOW verdict) |
-| NB18 | `X_test` may be used in the Kaggle-submission demo to simulate predicting on a held-out CSV — this is legitimate because it is a production-pipeline pattern, not model evaluation |
-| NB20 | No model evaluation — peer review + postmortem |
+| nb01–nb07 | Single train/val/test split is introduced; `X_val` for mid-course evaluation |
+| nb08 | k-fold CV + Student's *t* 95% CI becomes the course's evaluation spine |
+| nb09–nb13, nb15, nb16, nb17 | `cross_val_score`, `cross_val_predict`, `GridSearchCV`, `RandomizedSearchCV` on `X_train`; held-out evaluation uses `X_val`, never `X_test` |
+| **nb14 cell 33 ONLY** | `X_test` / `y_test` opened for the one-shot ceremony (INSIDE/ABOVE/BELOW verdict) |
+| nb18 | `X_test` may be used in the Kaggle-submission demo to simulate predicting on a held-out CSV — this is legitimate because it is a production-pipeline pattern, not model evaluation |
+| nb20 | No model evaluation — peer review + postmortem |
 
-**The CV-first principle is not a style preference; it is the course's pedagogical spine.** NB14's ceremony loses its meaning if the test set has been touched 30 times before students get there. The value of the lock is the consistency.
+**The CV-first principle is not a style preference; it is the course's pedagogical spine.** nb14's ceremony loses its meaning if the test set has been touched 30 times before students get there. The value of the lock is the consistency.
 
-**Before shipping any evaluation code in NB09–NB20, run the audit:**
+**Before shipping any evaluation code in nb09–nb20, run the audit:**
 
 ```python
 # Tight audit — finds MODEL-EVAL uses of X_test/y_test (not just train_test_split)
@@ -162,7 +162,7 @@ for path in sorted(Path('notebooks').glob('*_student.ipynb')):
             print(f'  cell {cell}: {pat}')
 ```
 
-**The only acceptable audit output** is 6 hits in `notebooks/14_model_selection_protocol_student.ipynb` cell 33, plus any submission-demo hits in `notebooks/18_reproducibility_monitoring_student.ipynb`. Anything else is a regression and must be fixed before committing.
+**The only acceptable audit output** is 6 hits in `notebooks/nb14_model_selection_protocol_student.ipynb` cell 33, plus any submission-demo hits in `notebooks/nb18_reproducibility_monitoring_student.ipynb`. Anything else is a regression and must be fixed before committing.
 
 **Common CV-first patterns to reach for:**
 
@@ -171,7 +171,7 @@ for path in sorted(Path('notebooks').glob('*_student.ipynb')):
 - Permutation importance that would otherwise touch `X_test`: split `X_train` further (e.g., 75/25 inside the cell), fit on the 75% slice, measure permutation importance on the 25% slice. Test set stays locked.
 - Calibration that needs a held-out sample: use `CalibratedClassifierCV(base, cv=5)` fit on `X_train` (internal CV handles the calibrator fit), evaluate Brier on `X_val`.
 
-**Before every commit in NB09–NB20, run both audits** — the voice-check grep *and* the CV-first audit above. Both must be clean (with the NB14 cell 33 exception on the test-set side).
+**Before every commit in nb09–nb20, run both audits** — the voice-check grep *and* the CV-first audit above. Both must be clean (with the nb14 cell 33 exception on the test-set side).
 
 ---
 
@@ -319,7 +319,7 @@ git push origin main
 
 ### Notebook Structure (MUST FOLLOW)
 
-> **Canonical reference:** `notebooks/01_eda_splits_student.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
+> **Canonical reference:** `notebooks/nb01_eda_splits_student.ipynb` is the reference template for all notebook structure and formatting. When creating or updating notebooks, match its header format, section organization, and conventions exactly.
 
 Every notebook MUST include these sections in order:
 
@@ -478,8 +478,8 @@ Thank you!
 
 ### Naming Conventions
 
-- **Notebooks (student):** `NN_topic_student.ipynb` (e.g., `01_eda_splits_student.ipynb`) — committed to git
-- **Notebooks (instructor):** `NN_topic_instructor.ipynb` (e.g., `01_eda_splits_instructor.ipynb`) — gitignored
+- **Notebooks (student):** `NN_topic_student.ipynb` (e.g., `nb01_eda_splits_student.ipynb`) — committed to git
+- **Notebooks (instructor):** `NN_topic_instructor.ipynb` (e.g., `nb01_eda_splits_instructor.ipynb`) — gitignored
 - **Git commits:** `<type>: <subject>`
   - Types: `feat`, `docs`, `chore`, `build`, `fix`
   - Always include: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
@@ -508,7 +508,7 @@ Thank you!
 
 1. **Choose the right notebook number** (01-20)
 2. **Create the instructor notebook first** (`NN_topic_instructor.ipynb`)
-   - Copy structure from canonical reference (`01_eda_splits_student.ipynb`)
+   - Copy structure from canonical reference (`nb01_eda_splits_student.ipynb`)
    - Write all content including `INSTRUCTOR SOLUTION` cells
    - Include student placeholder cells (e.g., `### YOUR FINDINGS HERE:`)
 3. **Generate the student notebook** using the copy-delete workflow:
@@ -917,7 +917,7 @@ At the beginning of EVERY session:
 At the end of EVERY session:
 - [ ] All changes committed with clear messages
 - [ ] **CRITICAL — Voice-check was run** on any modified student notebook (grep returns zero non-"Student's t" hits). If video guides were modified, run the blockquote-only voice-check too — wrapper-prose "students" refs are fine, blockquote-script "students" refs are not.
-- [ ] **CRITICAL — CV-first audit was run** if any NB09–NB20 evaluation code changed. The tight audit (see "CV-First Evaluation + Test-Set Lock" rule above) must return zero model-eval hits on `X_test`/`y_test` outside of NB14 cell 33 and NB18's Kaggle-submission demo.
+- [ ] **CRITICAL — CV-first audit was run** if any nb09–nb20 evaluation code changed. The tight audit (see "CV-First Evaluation + Test-Set Lock" rule above) must return zero model-eval hits on `X_test`/`y_test` outside of nb14 cell 33 and nb18's Kaggle-submission demo.
 - [ ] **CRITICAL — Narrative polish applied** if any new or rewritten student markdown cells landed. Check for: named business stakeholder in Why-This-Matters, narrative prose over bullet lists in Reading-the-output, at least one `"A question that often comes up here"` Q&A block, warm wrap-up with an explicit bridge to the next notebook.
 - [ ] **CRITICAL:** If ANY content changed (.qmd files, notebooks, images):
   - [ ] Run `quarto render`

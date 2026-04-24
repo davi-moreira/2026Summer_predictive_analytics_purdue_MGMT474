@@ -39,18 +39,18 @@ Each notebook builds exactly one conceptual layer, assumes only what prior noteb
 | 02 | Preprocessing Pipelines | Pipeline, ColumnTransformer, SimpleImputer, OneHotEncoder, StandardScaler | 01 (split, leakage) | 03 (metrics assume pipeline solved) | Operationalizes leakage prevention with the tool that makes safe preprocessing automatic |
 | 03 | Regression Metrics & Baselines | mean_absolute_error, mean_squared_error, r2_score, DummyRegressor | 02 (pipeline) | 04 (needs metrics to measure feature engineering impact) | Teaches how to measure model quality before attempting to improve it |
 | 04 | Linear Features & Diagnostics | LinearRegression, PolynomialFeatures, make_pipeline | 03 (evaluation framework) | 05 (creates overfitting problem Ridge/Lasso solves) | Feature engineering + residual analysis; exposes polynomial overfitting |
-| 05 | Regularization (Ridge/Lasso) | Ridge, Lasso, RidgeCV, LassoCV, ElasticNet | 04 (overfitting problem) | 06 (complete regression toolkit before classification pivot) | Direct solution to NB04's overfitting; closes Week 1 regression arc + project proposal |
+| 05 | Regularization (Ridge/Lasso) | Ridge, Lasso, RidgeCV, LassoCV, ElasticNet | 04 (overfitting problem) | 06 (complete regression toolkit before classification pivot) | Direct solution to nb04's overfitting; closes Week 1 regression arc + project proposal |
 | 06 | Logistic Regression & Pipelines | LogisticRegression, accuracy_score, log_loss | 05 (regularization via alpha → C) | 07 (needs probability foundations) | Regression → classification pivot; reuses Pipeline pattern in new context |
 | 07 | Classification Metrics | confusion_matrix, precision/recall/f1, roc_curve, precision_recall_curve | 06 (probabilities, confusion matrix) | 08 (needs metric vocabulary for CV scoring) | Complete classification evaluation toolkit; cost-based threshold selection |
 | 08 | Cross-Validation | cross_val_score, StratifiedKFold, cross_validate | 07 (metrics for scoring param) | 09 (CV embedded inside grid search) | Reliable model comparison replacing fragile single split |
-| 09 | Tuning + Feature Eng. + Leakage Detection | GridSearchCV, RandomizedSearchCV, ColumnTransformer, FunctionTransformer, OneHotEncoder, SelectKBest | 08 (standalone CV) | 10 (midterm needs full pipeline template), 13 (leakage callout bridges here) | Two-section single file: (A) grid search as NB08 × a grid with CI-overlap ranking; (B) TechCorp synthetic business case with real categoricals + target-encoding leak + SelectKBest leak detection |
+| 09 | Tuning + Feature Eng. + Leakage Detection | GridSearchCV, RandomizedSearchCV, ColumnTransformer, FunctionTransformer, OneHotEncoder, SelectKBest | 08 (standalone CV) | 10 (midterm needs full pipeline template), 13 (leakage callout bridges here) | Two-section single file: (A) grid search as nb08 × a grid with CI-overlap ranking; (B) TechCorp synthetic business case with real categoricals + target-encoding leak + SelectKBest leak detection |
 | 10 | Midterm Casebook + Cheat Sheet | — (strategy + reference card, no new libraries) | 01–09 (full toolkit) | 11 (pause before tree-based arc) | Strategic assessment; tests reasoning, not mechanics; **one-page cheat-sheet appendix** for open-during-midterm reference; project baseline due |
 | 11 | Decision Trees + `class_weight` | DecisionTreeClassifier/Regressor, plot_tree, `class_weight='balanced'` | 10 (evaluation skills consolidated) | 12 (high-variance problem motivates forests) | First non-linear model; concrete bias-variance demonstration via depth sweep; class-imbalance segment with anti-SMOTE warning |
 | 12 | Random Forests + Importance Reconciliation | RandomForestClassifier/Regressor, permutation_importance | 11 (tree instability) | 13 (bagging baseline for boosting contrast), 15 (PDP as the "shape" complement) | Parallel ensemble solving single-tree variance; **four-method feature-importance reconciliation table** (coefficient / impurity / permutation / PDP) as course-wide reference |
-| 13 | Gradient Boosting + Leakage Callout | GradientBoostingClassifier/Regressor, HistGradientBoosting | 12 (bagging baseline) | 14 (needs full candidate roster) | Sequential ensemble; bias reduction vs. variance reduction contrast; **leaky-features-dominate-boosting callout** referencing NB09's case studies |
+| 13 | Gradient Boosting + Leakage Callout | GradientBoostingClassifier/Regressor, HistGradientBoosting | 12 (bagging baseline) | 14 (needs full candidate roster) | Sequential ensemble; bias reduction vs. variance reduction contrast; **leaky-features-dominate-boosting callout** referencing nb09's case studies |
 | 14 | Model Selection Protocol + Test Set Opening Ceremony | — (comparison harness, no new estimators) + scipy.stats.t for CI | 13 (full candidate pool), 08 (CI vocabulary) | 15 (champion committed for interpretation) | Formal, fair, reproducible comparison; **explicit test-set opening ceremony** with Student's *t* 95% CI and INSIDE/ABOVE/BELOW verdict — the payoff for eight notebooks of locking discipline |
-| 15 | Interpretation & Error Analysis | permutation_importance, PartialDependenceDisplay | 14 (champion selected), 12 (importance reconciliation table) | 16 (error analysis motivates calibration) | Explain champion + find failure segments; project improved model due; PDP/ICE positioned as "shape" complement to NB12's "rank" methods |
-| 16 | Probability Calibration for Decision Quality | calibration_curve, CalibratedClassifierCV (isotonic + sigmoid), brier_score_loss | 15 (champion + error segments) | 17 (calibration-aware thresholds needed for fairness) | Pivot from threshold re-tread (5-min recap of NB07) to calibration-first: reliability diagrams + Brier score + three-way overlay on a miscalibrated RF |
+| 15 | Interpretation & Error Analysis | permutation_importance, PartialDependenceDisplay | 14 (champion selected), 12 (importance reconciliation table) | 16 (error analysis motivates calibration) | Explain champion + find failure segments; project improved model due; PDP/ICE positioned as "shape" complement to nb12's "rank" methods |
+| 16 | Probability Calibration for Decision Quality | calibration_curve, CalibratedClassifierCV (isotonic + sigmoid), brier_score_loss | 15 (champion + error segments) | 17 (calibration-aware thresholds needed for fairness) | Pivot from threshold re-tread (5-min recap of nb07) to calibration-first: reliability diagrams + Brier score + three-way overlay on a miscalibrated RF |
 | 17 | Fairness & Model Cards | — (slicing, no new sklearn) | 16 (calibrated thresholds) | 18 (fairness signals for monitoring) | Audit group-level impact; model card documentation |
 | 18 | Reproducibility & Monitoring + Kaggle Submission | joblib, json (serialization), pandas.to_csv | 17 (ethical layer) | 19 (artifacts/vocabulary for narrative) | Operational layer: save/load/verify/monitor; pre-deployment checklist; **Kaggle submission mechanics** (pipeline → CSV in/out → submission.csv with exact column names) for Day 20 deadline |
 | 19 | Executive Narrative & Video | — (markdown/narrative, no new libraries) | 18 (artifacts, monitoring plan) | 20 (deliverables ready for submission) | Translate technical work into Five-Act executive story |
@@ -73,7 +73,7 @@ Each week follows: introduce capability → build evaluation skills → practice
 
 ### Files to Create
 
-#### 1.1 Day 18: `notebooks/18_reproducibility_monitoring.ipynb`
+#### 1.1 Day 18: `notebooks/nb18_reproducibility_monitoring.ipynb`
 **Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 812-856
 **Structure:**
 - Header with Colab badge
@@ -98,7 +98,7 @@ Each week follows: introduce capability → build evaluation skills → practice
 - Section 7: Wrap-up (key takeaways, critical rules)
 - Bibliography (Chip Huyen, scikit-learn User Guide, Dataset Shift papers)
 
-#### 1.2 Day 19: `notebooks/19_project_narrative_video_studio.ipynb`
+#### 1.2 Day 19: `notebooks/nb19_project_narrative_video_studio.ipynb`
 **Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 859-899
 **Structure:**
 - Header with Colab badge
@@ -130,7 +130,7 @@ Each week follows: introduce capability → build evaluation skills → practice
 - Section 7: Wrap-up
 - Bibliography (Cole Nussbaumer Knaflic, Barbara Minto, Provost & Fawcett)
 
-#### 1.3 Day 20: `notebooks/20_final_submission_peer_review.ipynb`
+#### 1.3 Day 20: `notebooks/nb20_final_submission_peer_review.ipynb`
 **Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 902-947
 **Structure:**
 - Header with Colab badge
@@ -451,9 +451,9 @@ Transform 2025F semester-based course into 2026 Summer 4-week intensive format (
 #### 1. Notebooks Created
 - **Days 1-17:** Already existed (created earlier in session)
 - **Days 18-20:** Created new notebooks:
-  - `18_reproducibility_monitoring.ipynb` - Deployment thinking, packaging, monitoring
-  - `19_project_narrative_video_studio.ipynb` - Executive communication, slide narrative, video
-  - `20_final_submission_peer_review.ipynb` - Final deliverable, peer review, postmortem
+  - `nb18_reproducibility_monitoring.ipynb` - Deployment thinking, packaging, monitoring
+  - `nb19_project_narrative_video_studio.ipynb` - Executive communication, slide narrative, video
+  - `nb20_final_submission_peer_review.ipynb` - Final deliverable, peer review, postmortem
 
 #### 2. Quarto Website Updated
 - `_quarto.yml` - Updated title and configuration
@@ -506,9 +506,9 @@ Repository Root
 ## Critical Files Summary
 
 ### Files to Create (New)
-1. `notebooks/18_reproducibility_monitoring.ipynb`
-2. `notebooks/19_project_narrative_video_studio.ipynb`
-3. `notebooks/20_final_submission_peer_review.ipynb`
+1. `notebooks/nb18_reproducibility_monitoring.ipynb`
+2. `notebooks/nb19_project_narrative_video_studio.ipynb`
+3. `notebooks/nb20_final_submission_peer_review.ipynb`
 4. `CONVERSATION_LOG.md`
 5. `README.md`
 6. `.gitignore` (update existing or create)
