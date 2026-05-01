@@ -167,6 +167,8 @@ The only acceptable output is hits in `nb14` cell 33 plus `nb18`'s Kaggle-submis
 
 See `NOTEBOOK_TEMPLATE.md` for the full notebook structure and `TROUBLESHOOTING.md` if a solution leaks into the student version.
 
+**NotebookLM markdown sync (auto):** A `PostToolUse` hook in `.claude/settings.json` runs `scripts/sync_instructor_md.sh` after any `Edit`/`Write`/`NotebookEdit` whose path ends in `_instructor.ipynb`, regenerating `_notebook_lm/<basename>.md` for NotebookLM podcast ingestion. The directory is gitignored. For direct Jupyter edits (outside Claude), run `bash scripts/sync_instructor_md.sh` manually, or watch with `fswatch -o notebooks/*_instructor.ipynb | xargs -n1 -I{} bash scripts/sync_instructor_md.sh`.
+
 ---
 
 ## 🚨 CRITICAL WORKFLOW — Sync Video Guides and Planning Docs
