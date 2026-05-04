@@ -45,11 +45,14 @@ For each topic/day, content follows a repeating loop:
 - **Deadline:** Fri June 12, 2026 at 11:59 PM (both Kaggle final submission and Brightspace code submission)
 - **Brightspace deliverable:** Submit the complete code for your best-performing model. The code must be fully replicable, allowing the instructor and TA to reproduce the same results and performance metrics. Include all necessary steps: data preprocessing, feature engineering, model training, evaluation, and generation of the submission file.
 
-## Project (single end-to-end applied project; individual or pairs; progresses weekly)
-- **Week 1 (due Day 5): Proposal + dataset selection**
-- **Week 2 (due Day 10): Baseline model + evaluation plan**
-- **Week 3 (due Day 15): Improved model + interpretation**
-- **Week 4 (due Day 20): Final model + executive-ready deliverable (slide-style narrative + 5-minute research presentation video)**
+## Project (single end-to-end applied project; **groups of four randomly assigned members**; progresses weekly)
+
+Canonical reference: [`_final_project/2026Summer/final_project_milestone_reference.md`](_final_project/2026Summer/final_project_milestone_reference.md)
+
+- **Week 1 (due Day 5): Initial Project Proposal** (prediction goal + motivation + data overview + preliminary methods + expected contributions; 1–2 pages). Detail: [`milestone_01_proposal.md`](_final_project/2026Summer/milestone_01_proposal.md)
+- **Week 2 (due Day 10): Simple Model + Performance Evaluation** (dataset exploration + feature engineering + missing-value handling + baseline pipeline with k-fold CV). Detail: [`milestone_02_baseline_model.md`](_final_project/2026Summer/milestone_02_baseline_model.md)
+- **Week 3 (due Day 15): More Complex Model + Hyperparameter Tuning + Draft Abstract** (~250 words). Detail: [`milestone_03_complex_model_and_abstract.md`](_final_project/2026Summer/milestone_03_complex_model_and_abstract.md)
+- **Week 4 (due Day 20): Final Research Poster + intra-group Peer Evaluation** (single PDF named `<group-number>.pdf`; optional Fall 2026 Purdue Undergraduate Research Conference presentation strongly encouraged). Detail: [`milestone_04_final_poster.md`](_final_project/2026Summer/milestone_04_final_poster.md)
 
 ## Grading
 
@@ -66,8 +69,9 @@ For each topic/day, content follows a repeating loop:
 - Leaderboard ranking: 70% of competition grade (14% of total)
 
 **Final Project + Milestones (35%):**
-- Milestones (4 deliverables): 60% of project grade (21% of total)
-- Final submission (notebook + deck + 5-minute video): 40% of project grade (14% of total)
+- Milestone Deliverables (M1–M4): 40% of project grade (14% of total)
+- Peer Evaluation (intra-group, confidential): 20% of project grade (7% of total)
+- Instructor / TA Evaluation (final research poster): 40% of project grade (14% of total)
 
 ---
 
@@ -373,8 +377,9 @@ Each week follows the same pattern: introduce a new capability, build evaluation
 
 **Assessments**
 - Concept quiz: regularization + CV  
-- **Project Milestone 1 (due): Proposal + dataset selection**
-  - 1-page proposal + dataset link + target + metric + split plan + leakage risks
+- **Project Milestone 1 (due): Initial Project Proposal**
+  - 1–2 pages: prediction goal + motivation + data overview + preliminary methods + expected contributions
+  - Detail: [`_final_project/2026Summer/milestone_01_proposal.md`](_final_project/2026Summer/milestone_01_proposal.md)
 
 **Time budget (async: 112.5 min)**
 - Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
@@ -618,8 +623,9 @@ Pre-recorded micro-videos are available for students to watch before or after th
 
 **Assessments**
 - **Midterm submission (graded):** completed notebook (strategy + minimal prototype code where requested)  
-- **Project Milestone 2 (due): Baseline model + evaluation plan**
-  - baseline pipeline + metric + split/CV design + baseline report table
+- **Project Milestone 2 (due): Simple Model + Performance Evaluation**
+  - dataset exploration + feature engineering + missing-value handling + baseline pipeline (Linear/Logistic) + feature selection inside k-fold CV + baseline report with 95% CI
+  - Detail: [`_final_project/2026Summer/milestone_02_baseline_model.md`](_final_project/2026Summer/milestone_02_baseline_model.md)
 
 **Time budget (async: 112.5 min)**
 - Videos 30 + Midterm notebook work 60 + Project baseline finalization 15 + Concept check 7.5 = 112.5
@@ -857,8 +863,9 @@ Pre-recorded micro-videos are available for students to watch before or after th
 
 **Assessments**
 - Concept quiz: interpretation + PDP caveats  
-- **Project Milestone 3 (due): Improved model + interpretation**
-  - updated comparison, champion choice, importance + PDP/ICE, error segment findings
+- **Project Milestone 3 (due): More Complex Model + Hyperparameter Tuning + Draft Abstract**
+  - complex-model implementation, GridSearch/RandomSearch CV, CI-overlap comparison vs. M2 baseline, importance + PDP/ICE, error segment findings, ~250-word draft abstract
+  - Detail: [`_final_project/2026Summer/milestone_03_complex_model_and_abstract.md`](_final_project/2026Summer/milestone_03_complex_model_and_abstract.md)
 
 **Time budget (async: 112.5 min)**
 - Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
@@ -872,7 +879,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 | Live Recap & Demo: Interpretation | 15 min | Condensed highlights + live Colab demo of importance & PDP on a real model |
 | PAUSE-AND-DO (live) | 20 min | Students interpret their champion model with instructor guidance |
 | Break | 5 min | |
-| Project Discussion | 25 min | Milestone 3 review (improved model due today), Milestone 4 preview (notebook + deck + 5-min video requirements, Purdue symposium format) |
+| Project Discussion | 25 min | Milestone 3 review (improved model + draft abstract due today), Milestone 4 preview (final research-poster requirements + intra-group peer-evaluation form, Purdue Undergraduate Research Conference poster format) |
 | Competition Strategy | 10 min | Advanced tips: ensembles, feature engineering, leaderboard update |
 | Course Q&A + Quiz | 17.5 min | Week 3 review, Week 4 preview, video recording guidance, concept quiz |
 
@@ -1024,12 +1031,12 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 19 — Thu June 11  
-### Executive narrative: slide-style story + 5-minute research presentation video plan (project studio)  
+### Poster narrative + abstract studio: turning the storytelling toolkit (Knaflic + Minto) into the headline panel and supporting figures of the final research poster  
 **Learning objectives**
 - Convert technical work into an executive-ready slide narrative.
 - Build a clear “problem → approach → results → recommendation → risks” flow.
 - Create credible visuals (comparison table, key plots, decision policy).
-- Script a 5-minute research presentation video following Purdue Summer Research Symposium guidelines (tight, evidence-based, non-technical).
+- Draft / refine the ~250-word poster abstract from M3 and lay out the supporting figures for the M4 research poster (Purdue Undergraduate Research Conference format).
 - Finalize the project deliverable package.
 
 **Micro-videos (42 min)**
@@ -1071,7 +1078,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ### Final delivery: project package submission + peer review + course closeout  
 **Learning objectives**
 - Deliver a complete end-to-end predictive analytics package.
-- Produce an executive-ready deck and a 5-minute research presentation video (Purdue Summer Research Symposium format).
+- Produce a final research poster (single PDF named `<group-number>.pdf`) following the Purdue Undergraduate Research Conference template, plus the supporting run-all notebook.
 - Demonstrate reproducibility (run-all notebook, documented choices).
 - Evaluate peers’ work using a structured rubric and provide actionable feedback.
 - Write a concise postmortem: what worked, what didn’t, what you’d do next.
@@ -1097,10 +1104,11 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Pause-and-do (10): Complete one peer review with rubric scores + 3 actionable edits.
 
 **Assessments**
-- **Project Milestone 4 (due): Final model + executive-ready deliverable**
-  - Final run-all notebook + model card/limitations + monitoring plan  
-  - Slide narrative (deck or slide markdown)  
-  - 5-minute research presentation video (slide presentation with voice-over narration, uploaded as unlisted YouTube video; following Purdue Summer Research Symposium guidelines)  
+- **Project Milestone 4 (due): Final Research Poster + intra-group Peer Evaluation**
+  - Single PDF poster named `<group-number>.pdf` (e.g., `01.pdf`, `17.pdf`) following the Brightspace template (Purdue Undergraduate Research Conference poster format)
+  - Each group member submits an individual confidential peer-evaluation form rating the other three teammates
+  - Optional Fall 2026 conference presentation strongly encouraged (faculty mentorship available — email Prof. Moreira before M3)
+  - Detail: [`_final_project/2026Summer/milestone_04_final_poster.md`](_final_project/2026Summer/milestone_04_final_poster.md)
 - **Kaggle Case Competition deadline (11:59 PM):** Final Kaggle submission + Brightspace code submission (complete, replicable code for best-performing model)
 
 **Time budget (async: 112.5 min)**

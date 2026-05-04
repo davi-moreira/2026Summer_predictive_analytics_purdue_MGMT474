@@ -21,7 +21,7 @@ This 4-week fully online intensive course enables students to navigate the entir
 
 Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach: **draft → verify → document**. Topics include exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, fairness considerations, and deployment thinking.
 
-The course centers on **one comprehensive capstone project** (individual or pairs) that progresses through four weekly milestones, and a **Kaggle case competition** (individual or pairs) predicting bank customer churn. Project milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
+The course centers on **one comprehensive capstone project** completed in **groups of four randomly assigned members**, progressing through four weekly milestones and culminating in a **final research poster**, plus a **Kaggle case competition** (individual or pairs) predicting bank customer churn. Project milestones: initial proposal (Day 5), simple model + performance evaluation (Day 10), more complex model + draft abstract (Day 15), and final research poster + intra-group peer evaluation (Day 20). Optional presentation at the Fall 2026 Purdue Undergraduate Research Conference is strongly encouraged but not required. Single source of truth: [`_final_project/2026Summer/final_project_milestone_reference.md`](_final_project/2026Summer/final_project_milestone_reference.md).
 
 ## Course Structure
 
@@ -170,11 +170,11 @@ The course assessment is based on multiple components designed to ensure continu
 | Kaggle Case Competition | 20% |
 | Final Project + Milestones | 35% |
 
-### Project Milestones (individual or pairs)
-1. **Week 1 (Day 5):** Proposal + dataset selection
-2. **Week 2 (Day 10):** Baseline model + evaluation plan
-3. **Week 3 (Day 15):** Improved model + interpretation
-4. **Week 4 (Day 20):** Final deliverable (notebook + slide narrative + 5-minute research presentation video)
+### Project Milestones (groups of four randomly assigned members)
+1. **Week 1 (Day 5):** Initial Project Proposal — prediction goal + motivation + data overview + preliminary methods + expected contributions
+2. **Week 2 (Day 10):** Simple Model + Performance Evaluation — dataset exploration + feature engineering + missing-value handling + baseline pipeline with k-fold CV
+3. **Week 3 (Day 15):** More Complex Model + Hyperparameter Tuning + Draft Abstract (~250 words)
+4. **Week 4 (Day 20):** Final Research Poster (single PDF named `<group-number>.pdf`) + intra-group Peer Evaluation form. Optional Fall 2026 Purdue Undergraduate Research Conference presentation. Detail files: [`_final_project/2026Summer/`](_final_project/2026Summer/).
 
 ### Kaggle Case Competition (individual or pairs)
 - **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn

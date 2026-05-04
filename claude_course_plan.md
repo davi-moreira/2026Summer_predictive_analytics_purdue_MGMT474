@@ -229,11 +229,11 @@ All three notebooks follow the established template:
 ...
 ```
 
-**Project milestones highlighted:**
-- Day 5: Project Proposal due
-- Day 10: Baseline Model + Midterm due
-- Day 15: Improved Model due
-- Day 20: Final Deliverable due (notebook + deck + video)
+**Project milestones highlighted (groups of four randomly assigned members; canonical reference at `_final_project/2026Summer/final_project_milestone_reference.md`):**
+- Day 5: M1 Initial Project Proposal due
+- Day 10: M2 Simple Model + Performance Evaluation + Midterm due
+- Day 15: M3 More Complex Model + Tuning + Draft Abstract due
+- Day 20: M4 Final Research Poster + intra-group Peer Evaluation due (`<group-number>.pdf` per Purdue Undergraduate Research Conference poster format; optional Fall 2026 conference presentation)
 
 ### 2.4 Update `syllabus.qmd`
 **File:** `syllabus.qmd`
