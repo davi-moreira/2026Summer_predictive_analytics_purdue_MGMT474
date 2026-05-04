@@ -18,11 +18,7 @@ editor: visual
 
 ## Course Description and Objectives
 
-This 4-week fully online intensive course enables students to navigate the entire predictive analytics pipeline skillfully---from data preparation and exploration to modeling, assessment, and interpretation. The course runs over **20 business days (May 18 -- June 12, 2026)** with **112.5 minutes of daily engagement** combining short micro-videos, hands-on Google Colab notebooks, exercises, quizzes, and project work. **Every Friday (Days 5, 10, 15, 20)**, the class meets for a **synchronous lecture, 10:30 am -- 12:00 pm EST (recorded)**, covering weekly topics, project milestones, the Kaggle case competition, and student Q&A.
-
-Throughout the course, learners engage with real-world examples and hands-on labs emphasizing essential programming and analytical skills, all designed to run in **Google Colab with Google Gemini AI assistance** through a "vibe coding" approach (draft $\rightarrow$ verify $\rightarrow$ document). By exploring topics such as linear and logistic regression, classification, resampling methods, regularization techniques, tree-based approaches, model interpretation, and deployment thinking, participants gain both a robust theoretical understanding and practical experience.
-
-The course centers on **one comprehensive capstone project** completed in **groups of four randomly assigned members**, progressing through four weekly milestones and culminating in a final research poster, plus a **Kaggle case competition** that runs throughout the course.
+The course enables students to navigate the entire predictive analytics pipeline skillfully, from data preparation and exploration to modeling, assessment, and interpretation. Throughout the course, learners engage with real-world examples and hands-on labs emphasizing essential programming and analytical skills. By exploring topics such as linear and logistic regression, classification, resampling methods, regularization techniques, tree-based approaches, and advanced learning paradigms (including neural networks), participants gain a robust theoretical understanding and practical experience. Ultimately, students will leave the course equipped to apply predictive models to data-driven problems, communicate their findings to diverse audiences, and critically evaluate model performance to inform strategic decision-making across various business contexts.
 
 **Course Website**: [https://davi-moreira.github.io/2026Summer_predictive_analytics_purdue_MGMT474/](https://davi-moreira.github.io/2026Summer_predictive_analytics_purdue_MGMT474/){target="_blank"}
 
@@ -40,15 +36,15 @@ The course centers on **one comprehensive capstone project** completed in **grou
 
 ## Learning Outcomes
 
-By the conclusion of this **4-week intensive course**, students will be able to:
+By the conclusion of this course, students will be able to:
 
-1.  **Explain Core Predictive Analytics Concepts:** Define, distinguish, and exemplify the key ideas of statistical/machine learning, including fundamental terminology, modeling strategies, and the role of data-driven insights in business contexts.
+1.  **Explain Core Predictive Analytics Concepts:** Define, distinguish, and exemplify the key ideas of statistical/machine learning.
 
-2.  **Prepare, Process, and Explore Data Effectively:** Clean, organize, and preprocess data using appropriate tools and techniques; address missing values, apply feature engineering methods, and perform comprehensive exploratory data analysis to generate meaningful insights while preventing data leakage in production-ready pipelines.
+2.  **Prepare, Process, and Explore Data Effectively:** Demonstrate the ability to clean, organize, and preprocess data using appropriate tools and techniques; address missing values, apply feature engineering methods, and perform comprehensive exploratory data analysis to generate meaningful insights.
 
-3.  **Implement and Compare Diverse Predictive Modeling Techniques:** Specify, train, and evaluate a range of predictive models (linear and logistic regression, regularized linear models, decision trees, random forests, gradient boosting); apply systematic hyperparameter optimization to enhance performance; and diagnose model limitations through quantitative and visual diagnostics to guide model refinement and selection.
+3.  **Implement and Compare Diverse Predictive Modeling Techniques:** Specify, train, and evaluate a range of predictive models using appropriate algorithms; apply systematic hyperparameter optimization to enhance performance; and diagnose model limitations through quantitative and visual diagnostics to guide model refinement and selection.
 
-4.  **Evaluate, Interpret, and Communicate Model Performance:** Estimate out-of-sample performance using direct and indirect approaches (holdout sets, cross-validation, resampling); interpret metrics in the context of project objectives; and deliver clear, audience-appropriate recommendations that explicitly address uncertainty, risk trade-offs, and ethical implications.
+4.  **Evaluate, Interpret, and Communicate Model Performance:** Estimate out-of-sample performance using direct and indirect approaches (e.g., holdout sets, cross-validation, resampling); interpret metrics in the context of project objectives; and deliver clear, audience-appropriate recommendations that explicitly address uncertainty, risk trade-offs, and ethical implications.
 
 ## Course Materials
 
@@ -114,8 +110,6 @@ A course-long predictive analytics competition hosted on Kaggle. The **Summer 20
 
 In **groups of four randomly assigned members**, students complete a practical predictive analytics project culminating in a **final research poster**. Although presenting the poster at the Fall 2026 Purdue Undergraduate Research Conference is **not required**, it is **strongly encouraged**. All groups must still prepare and submit the final poster as part of the course requirements. Professor Moreira is happy to serve as faculty mentor for groups choosing to present at the conference.
 
-A comprehensive set of project guidelines (poster template + rubric + per-milestone instructions) is provided on Brightspace and in the [`_final_project/2026Summer/`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_final_project/2026Summer){target="_blank"} folder of the course repository. The single source of truth is `final_project_milestone_reference.md`.
-
 **Grading breakdown (of the final-project grade):**
 
 1.  **Milestone Deliverables — 40%.** Students submit incremental project components on specific due dates (the four Friday lecture days). These deliverables allow for early feedback and ensure steady progress. Grades reflect each milestone's clarity, completeness, and timely submission.
@@ -123,13 +117,6 @@ A comprehensive set of project guidelines (poster template + rubric + per-milest
 3.  **Instructor / TA Evaluation — 40%.** Each group must prepare and submit the final research poster by the due date indicated on Brightspace. A poster template and assessment rubric are shared. Award-winning prior posters: <https://davi-moreira.github.io/applied_projects.html>{target="_blank"}.
 
 **Optional conference presentation.** Presenting at the Fall 2026 Purdue Undergraduate Research Conference is optional and not required for your course grade. Students who plan to present are encouraged to communicate with the instructor early so he can provide mentorship, feedback, and guidance throughout the process. Additional information about Purdue undergraduate research conferences: <https://www.purdue.edu/undergrad-research/conferences/index.php>{target="_blank"}.
-
-**Milestones (one report per group, submitted via Brightspace by 11:59 PM on the Friday listed):**
-
-1.  **Week 1 (Day 5, Fri May 22):** Initial Project Proposal — prediction goal, motivation, data overview, preliminary methods, expected contributions (1–2 pages). Detail file: [`milestone_01_proposal.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_01_proposal.md){target="_blank"}.
-2.  **Week 2 (Day 10, Fri May 29):** Simple Model + Performance Evaluation — dataset exploration, feature engineering, missing-value handling, baseline pipeline with k-fold CV. Detail file: [`milestone_02_baseline_model.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_02_baseline_model.md){target="_blank"}.
-3.  **Week 3 (Day 15, Fri Jun 5):** More Complex Model + Hyperparameter Tuning + Draft Abstract (~250 words). Champion-model decision under the CI-overlap rule. Detail file: [`milestone_03_complex_model_and_abstract.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_03_complex_model_and_abstract.md){target="_blank"}.
-4.  **Week 4 (Day 20, Fri Jun 12):** Final Research Poster + intra-group Peer Evaluation. Single PDF named `<group-number>.pdf` (e.g., `01.pdf`). Detail file: [`milestone_04_final_poster.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_04_final_poster.md){target="_blank"}. Optional Fall 2026 conference presentation: <https://www.purdue.edu/undergrad-research/conferences/index.php>{target="_blank"}.
 
 ### Grade Challenges
 

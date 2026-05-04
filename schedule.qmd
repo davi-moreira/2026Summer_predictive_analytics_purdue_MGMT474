@@ -31,12 +31,7 @@ editor: visual
 </style>
 ```
 
-# 4-Week Intensive Course Schedule (Summer 2026)
-
-**Course Format:** 20 business days (Mon-Fri), May 18 - June 12, 2026
-**Daily Engagement:** 112.5 minutes (videos + Colab notebooks + exercises + quizzes + project work)
-**Instruction Style:** Micro-videos + Google Colab notebooks with Gemini AI assistance
-**Fridays (Days 5, 10, 15, 20):** Synchronous lecture, 10:30 am – 12:00 pm EST (recorded) — covers weekly topics, project milestones, Kaggle competition, and Q&A. Pre-recorded micro-videos remain available for review.
+# Course Schedule
 
 ::: overflow-table
 | Day | Date | Topic | Videos | Notebook | Assessment | Materials |
@@ -66,23 +61,6 @@ editor: visual
 :::
 
 ::: below-table
-
-**Note:** All notebooks are designed to run in Google Colab with Google Gemini AI assistance for guided "vibe coding" (draft → verify → document).
-
-## Project Milestones (groups of four randomly assigned members)
-
-The single source of truth — including the assessment structure (40% milestones / 20% peer evaluation / 40% poster), the per-milestone rubrics, and the optional Fall 2026 conference presentation — is [`_final_project/2026Summer/final_project_milestone_reference.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/final_project_milestone_reference.md){target="_blank"}.
-
-- **Week 1 (Day 5, Fri May 22) — Initial Project Proposal:** prediction goal + motivation + data overview + preliminary methods + expected contributions (1–2 pages). Detail: [`milestone_01_proposal.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_01_proposal.md){target="_blank"}.
-- **Week 2 (Day 10, Fri May 29) — Simple Model + Performance Evaluation:** dataset exploration + feature engineering + missing-value handling + baseline model with k-fold CV. Detail: [`milestone_02_baseline_model.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_02_baseline_model.md){target="_blank"}.
-- **Week 3 (Day 15, Fri Jun 5) — More Complex Model + Tuning + Draft Abstract:** complex-model implementation, hyperparameter tuning, draft abstract (~250 words). Detail: [`milestone_03_complex_model_and_abstract.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_03_complex_model_and_abstract.md){target="_blank"}.
-- **Week 4 (Day 20, Fri Jun 12) — Final Research Poster + Peer Evaluation:** single PDF named `<group-number>.pdf` plus each member's individual peer-evaluation form. Detail: [`milestone_04_final_poster.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_final_project/2026Summer/milestone_04_final_poster.md){target="_blank"}. Optional Fall 2026 conference presentation: <https://www.purdue.edu/undergrad-research/conferences/index.php>{target="_blank"}.
-
-## Kaggle Case Competition (individual or pairs)
-
-- **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn (predict customer churn probability, AUC-ROC)
-- **Deadline:** Fri June 12, 2026 at 11:59 PM (Kaggle + Brightspace code submission)
-- **Grading:** At least one submission (30% of competition grade) + leaderboard ranking (70% of competition grade)
 
 ## Core Course References
 
