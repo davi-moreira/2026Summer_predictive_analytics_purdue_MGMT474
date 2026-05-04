@@ -19,11 +19,11 @@ subtitle: "Mitch. Daniels School of Business, Purdue University (Summer 2026 - 4
 
 ## Course Description and Objectives
 
-This 4-week fully online intensive course enables students to navigate the entire predictive analytics pipeline skillfully—from data preparation and exploration to modeling, assessment, and interpretation. The course runs over **20 business days (May 18 - June 12, 2026)** with **112.5 minutes of daily engagement** combining short micro-videos (≤12 minutes each), hands-on Google Colab notebooks, exercises, quizzes, and project work. **Every Friday (Days 5, 10, 15, 20)**, the class meets for a **synchronous 112.5-minute lecture** (recorded) covering weekly topics, project milestones, the Kaggle case competition, and student Q&A.
+This 4-week fully online intensive course enables students to navigate the entire predictive analytics pipeline skillfully—from data preparation and exploration to modeling, assessment, and interpretation. The course runs over **20 business days (May 18 – June 12, 2026)** with **112.5 minutes of daily engagement** combining short micro-videos, hands-on Google Colab notebooks, exercises, quizzes, and project work. **Every Friday (Days 5, 10, 15, 20)**, the class meets for a **synchronous lecture, 10:30 am – 12:00 pm EST (recorded)**, covering weekly topics, project milestones, the Kaggle case competition, and student Q&A.
 
-Students engage with real-world examples through interactive Jupyter notebooks, all designed to run in **Google Colab with Google Gemini AI assistance**. The course emphasizes essential programming and analytical skills through a "vibe coding" approach (draft → verify → document). By exploring topics such as exploratory data analysis, train/validation/test splits, linear and logistic regression, classification metrics, resampling methods, regularization techniques, tree-based approaches, gradient boosting, model interpretation, and deployment thinking, participants gain both theoretical understanding and practical experience.
+Throughout the course, learners engage with real-world examples and hands-on labs emphasizing essential programming and analytical skills, all designed to run in **Google Colab with Google Gemini AI assistance** through a "vibe coding" approach (draft → verify → document). By exploring topics such as linear and logistic regression, classification, resampling methods, regularization techniques, tree-based approaches, model interpretation, and deployment thinking, participants gain both a robust theoretical understanding and practical experience.
 
-The course centers on **one comprehensive capstone project** (individual or pairs) that progresses through four weekly milestones, and a **Kaggle case competition** (individual or pairs) predicting bank customer churn. Project milestones: proposal (Day 5), baseline model (Day 10), improved model with interpretation (Day 15), and final executive-ready deliverable including slide narrative and 5-minute research presentation video (Day 20).
+The course centers on **one comprehensive capstone project** completed in **groups of four randomly assigned members**, progressing through four weekly milestones and culminating in a **final research poster**, plus a **Kaggle case competition** predicting bank customer churn. Project milestones: initial proposal (Day 5), simple model + performance evaluation (Day 10), more complex model + draft abstract (Day 15), and final research poster + intra-group peer evaluation (Day 20). Optional presentation at the Fall 2026 Purdue Undergraduate Research Conference is strongly encouraged but not required.
 
 Ultimately, students will leave the course equipped to apply predictive models to data-driven problems, communicate their findings to diverse audiences, and critically evaluate model performance to inform strategic decision-making across various business contexts.
 
@@ -31,30 +31,27 @@ Ultimately, students will leave the course equipped to apply predictive models t
 
 ### Instructor: [Professor Davi Moreira](https://davi-moreira.github.io)
 
--   Email: [dmoreira\@purdue.edu](mailto:dmoreira@purdue.edu)
--   Office: Young Hall 1007
--   Virtual Office hours: *Zoom link in your Course Brightspace Page*
--   Individual Appointments: *Book time with me through the link in the course syllabus on your Course Brightspace Page or by appointment.*
+-   Email: [dcordeir\@purdue.edu](mailto:dcordeir@purdue.edu)
+-   Office: Young Hall 1019
+-   Class meetings: Section Y01 — Monday–Friday online, with a **synchronous meeting Fridays 10:30 am – 12:00 pm EST** (Zoom link on Brightspace)
+-   Office Hours: **Tuesdays 11:00 am – 12:00 pm EST** (Zoom link on Brightspace)
+-   Individual Appointments: *Book time with me through the link in the course syllabus on your Course Brightspace Page, or by appointment.*
 
 ## Learning Outcomes
 
 By the conclusion of this **4-week intensive course**, students will be able to:
 
-1.  **Explain Core Predictive Analytics Concepts:** Articulate key principles of statistical learning and predictive analytics, including fundamental terminology, modeling strategies, the role of data-driven insights in business contexts, and deployment considerations—all within a compressed timeline requiring efficient learning and application.
+1.  **Explain Core Predictive Analytics Concepts:** Define, distinguish, and exemplify the key ideas of statistical/machine learning, including fundamental terminology, modeling strategies, and the role of data-driven insights in business contexts.
 
-2.  **Prepare and Explore Data Effectively:** Demonstrate proficiency in cleaning, organizing, and exploring datasets, applying tools and techniques for data preprocessing, feature engineering, exploratory analysis, and preventing data leakage in production-ready pipelines.
+2.  **Prepare, Process, and Explore Data Effectively:** Clean, organize, and preprocess data using appropriate tools and techniques; address missing values, apply feature engineering methods, and perform comprehensive exploratory data analysis to generate meaningful insights while preventing data leakage in production-ready pipelines.
 
-3.  **Implement Diverse Modeling Techniques:** Construct predictive models using linear and logistic regression, classification methods, resampling procedures, regularization techniques (Ridge/Lasso), decision trees, random forests, and gradient boosting.
+3.  **Implement and Compare Diverse Predictive Modeling Techniques:** Specify, train, and evaluate a range of predictive models (linear and logistic regression, regularized linear models, decision trees, random forests, gradient boosting); apply systematic hyperparameter optimization to enhance performance; and diagnose model limitations through quantitative and visual diagnostics to guide model refinement and selection.
 
-4.  **Assess and Interpret Model Performance:** Evaluate the accuracy, robustness, and interpretability of predictive models, critically examining issues such as overfitting, bias-variance trade-offs, cross-validation results, threshold selection, calibration, and fairness considerations.
-
-5.  **Communicate Analytical Findings:** Present analytical outcomes and model interpretations to technical and non-technical audiences, crafting clear, concise, and visually effective executive-ready deliverables including slide narratives and 5-minute research presentation videos.
-
-6.  **Integrate Predictive Analytics into Decision-Making:** Recommend actionable strategies based on model findings, demonstrating the ability to align analytical results with organizational objectives, business costs, and inform evidence-based decision processes with appropriate risk documentation.
+4.  **Evaluate, Interpret, and Communicate Model Performance:** Estimate out-of-sample performance using direct and indirect approaches (holdout sets, cross-validation, resampling); interpret metrics in the context of project objectives; and deliver clear, audience-appropriate recommendations that explicitly address uncertainty, risk trade-offs, and ethical implications.
 
 ## Course Materials
 
--   **Textbooks (Required): [ISLP](#)** James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). An Introduction to Statistical Learning with Applications in Python. Springer. https://doi.org/10.1007/978-1-0716-2926-2. Download here: [https://www.statlearning.com/](https://www.statlearning.com/){target="_blank"}
+-   **Textbook (Recommended): [ISLP]** James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). *An Introduction to Statistical Learning with Applications in Python.* Springer. <https://doi.org/10.1007/978-1-0716-2926-2>. Free download: [https://www.statlearning.com/](https://www.statlearning.com/){target="_blank"}
 
 -   **Computing (Required):** A laptop or desktop with internet access and the capability to run Python code through Google Colab: [https://colab.research.google.com/](https://colab.research.google.com/){target="_blank"}.
 
