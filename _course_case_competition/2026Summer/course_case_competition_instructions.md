@@ -122,40 +122,6 @@ If two or more teammates each independently submitted before forming the team, K
 
 ---
 
-## Deliverables and Deadlines
-
-| Item | Where | Deadline |
-|---|---|---|
-| At least one valid team submission to Kaggle (counts for **Team Participation — 20%**) | Kaggle | Anytime before the close, **Fri June 12, 2026 at 11:59 PM EST** |
-| Final Kaggle submission (counts for **Leaderboard Performance — 60%**) | Kaggle | **Fri June 12, 2026 at 11:59 PM EST** |
-| Replicable Python notebook for your best-performing model — `NN_kaggle_code.ipynb` | Brightspace | **Fri June 12, 2026 at 11:59 PM EST** |
-| Confidential peer evaluation (counts for **Peer Evaluation — 20%**) | Brightspace form | End of course (collected with the Final Project peer evaluation) |
-
-**Optional:** top teams may be invited to share their modeling decisions and results during the closing Friday synchronous session (Day 20, **Fri June 12, 2026**, 10:30 am – 12:00 pm EST).
-
----
-
-## Grading Rubric
-
-The competition is worth **20% of the overall course grade**, distributed as:
-
-| Component | Weight (of competition) | Weight (of course) | What it evaluates |
-|---|---:|---:|---|
-| **Team Participation** | 20% | 4.0% | At least one valid team submission to Kaggle by the deadline. |
-| **Leaderboard Performance** | 60% | 12.0% | Final position on the **private** Kaggle leaderboard, plus an evaluation of the submitted Brightspace code for replicability and methodological soundness. |
-| **Peer Evaluation** | 20% | 4.0% | Average of the three teammates' confidential ratings of you on commitment, technical contribution, communication, dependability, and fairness of work distribution. |
-| **Total** | **100%** | **20.0%** | |
-
-**Code-replicability check (part of the 60% Leaderboard Performance).** The instructor and TA will run your submitted notebook in Google Colab. To receive full credit your notebook must:
-
-- Run **top-to-bottom without manual edits** given the original Kaggle data files.
-- Reproduce the same predictions and AUC reported in your final Kaggle submission.
-- Include all steps: data loading, preprocessing, feature engineering, model training, hyperparameter tuning (if used), final fit, prediction generation, and writing the submission `.csv`.
-
-**Failure to submit a peer evaluation reduces the submitter's own peer-evaluation score** (not the teammates').
-
----
-
 ## Tips and Common Pitfalls
 
 - **Form the team early — and name it correctly.** The single most common participation-grade hit comes from a misnamed team that the gradebook can't auto-link. Set the name to `Group XX – Y01` (with the leading zero) **before** anyone submits.
