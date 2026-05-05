@@ -1,4 +1,4 @@
-# Milestone 02 — Simple Model and Performance Evaluation
+# Final Project Milestone 02 — Simple Model and Performance Evaluation
 
 ## About the Final Project
 
@@ -9,6 +9,19 @@ The Final Project is a **group capstone** (groups of four randomly assigned) cul
 - **Instructor / TA Evaluation — 40%** of the project grade. The final research poster, graded against the poster rubric (Milestone 04).
 
 Optional presentation at the **Fall 2026 Purdue Undergraduate Research Conference** is strongly encouraged but **not required**. Professor Moreira is happy to serve as faculty mentor for groups choosing to present. Award-winning prior posters from this course: <https://davi-moreira.github.io/applied_projects.html>. Additional information about Purdue undergraduate research conferences: <https://www.purdue.edu/undergrad-research/conferences/index.php>.
+
+---
+
+## What to Submit on Brightspace
+
+Submit **two files** per group on Brightspace by the posted deadline. One designated group member uploads on behalf of the whole group.
+
+| # | File | Description |
+|---|---|---|
+| 1 | **`NN_baseline.pdf`** *(e.g., for group 03, `03_baseline.pdf`)* | Structured PDF report covering all components below, with **all required EDA visualizations** (target distribution, feature distributions, correlation heatmap, bivariate plot) and **all required diagnostic visualizations** (CV-bar-with-CI plot plus regression or classification diagnostics) embedded and captioned. |
+| 2 | **`NN_baseline.ipynb`** *(e.g., for group 03, `03_baseline.ipynb`)* | Jupyter notebook with the runnable code. Must complete a fresh **"Runtime → Run All"** in Colab without errors. |
+
+Detailed format requirements (file types, exact Brightspace location) are in the **Submission Expectations** section near the bottom of this document.
 
 ---
 
@@ -105,26 +118,33 @@ Embed each of the following in the report with axis labels, units where applicab
 |---|---|
 | **Structured Report (PDF)** | Clearly labeled sections matching the components above; explanations and rationale in paragraph form; visualizations and tables embedded; key code snippets in the appendix or inline |
 | **Code Files** | Python script or Jupyter notebook submitted separately. Must run cleanly top-to-bottom on the dataset (a fresh Colab "Runtime → Run all" must succeed) |
-| **Submission location** | Brightspace — Module 2, Final Project Milestone 02 |
-| **Filename convention** | `group-<NN>_M02_baseline.pdf` and `group-<NN>_M02_baseline.ipynb` |
+| **Submission location** | Brightspace |
+| **Filename convention** | `NN_baseline.pdf` and `NN_baseline.ipynb` (e.g. group 03, `03_baseline.pdf` and `03_baseline.ipynb`) |
 
 ---
 
 ## Grading Rubric (100 points)
 
-| Criterion | Points |
-|---|---:|
-| **0. Prediction Goal(s)** — Clear, specific goals with rationale tied to dataset/problem context; regression vs. classification confirmed | **5** |
-| **1. Dataset Exploration** — Comprehensive overview, meaningful summary statistics, **all four required EDA visualizations present and properly labeled** (target distribution, 2–3 feature distributions, correlation heatmap, ≥1 bivariate plot), insightful discussion | **20** |
-| **2. Feature Engineering** — At least one new feature with convincing justification and clear method; implemented inside the Pipeline | **15** |
-| **3. Handling Missing Values** — Thorough identification, justified strategy, comparison with at least one alternative | **10** |
-| **4. Baseline Model Implementation** | **30** |
-| &nbsp;&nbsp;&nbsp;&nbsp;4a. Model Choice (5) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;4b. Implementation: feature selection + k-fold CV (12) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;4c. Interpretation & Next Steps (8) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;4d. Required Diagnostic Visualizations: CV-bar-with-CI plot + residual / predicted-vs-actual (regression) OR confusion matrix + ROC + PR curves (classification) (5) | |
-| **5. Report Quality & Clarity** — Well-structured PDF, properly labeled visualizations, logical flow, error-free code | **20** |
-| **Total** | **100** |
+The rubric uses four performance levels per criterion. The point range for each level is scaled to the criterion's maximum:
+
+- **Exemplary** ≥ 90% of the criterion's max
+- **Proficient** 70–89% of the criterion's max
+- **Developing** 50–69% of the criterion's max
+- **Beginning** 0–49% of the criterion's max
+
+| Criterion | Exemplary | Proficient | Developing | Beginning |
+|---|---|---|---|---|
+| **0. Prediction Goal(s)** (5 pts) | Goal clearly stated, specific, and measurable; explicit regression-vs-classification framing tied to the response variable. | Goal stated with minor lack of clarity; framing correct but rationale could be deeper. | Goal vague or only partially aligned with the dataset; framing present but inconsistent. | Goal missing, unclear, or framed incorrectly (e.g., a regression goal for a categorical target). |
+| **1. Dataset Exploration** (20 pts) | Comprehensive overview; meaningful summary statistics; **all four required EDA visualizations** present, properly labeled, and captioned; insightful discussion of patterns (skew, imbalance, missingness). | Most overview elements present; one required visualization missing or weakly captioned; discussion present but shallow. | Basic overview only; two or more required visualizations missing or unlabeled; discussion superficial. | Overview minimal; required visualizations missing or wrong type; no meaningful discussion. |
+| **2. Feature Engineering** (15 pts) | At least one new feature with strong domain or data-driven justification; implemented inside the Pipeline; clear explanation of expected impact on performance or interpretability. | New feature created with reasonable justification; Pipeline implementation present but rationale shallow. | New feature created but justification unclear, OR implemented outside the Pipeline (leakage risk). | No new feature OR a trivial feature (e.g., copy of an existing variable) with no justification. |
+| **3. Handling Missing Values** (10 pts) | Thorough identification of which features have missing data and the extent; chosen strategy clearly justified; at least one alternative compared with reasoning. | Strategy chosen with adequate rationale; alternative mentioned briefly. | Strategy applied without strong rationale; no alternative comparison. | Missing values not addressed OR addressed with no rationale. |
+| **4a. Model Choice** (5 pts) | Simplest reasonable model selected (Linear / Logistic Regression) with strong justification tied to the data and response-variable type. | Appropriate model chosen; justification adequate but generalized. | Model chosen but rationale weak or missing the response-type link. | Model inappropriate or unstated. |
+| **4b. Implementation: feature selection + k-fold CV** (12 pts) | Systematic feature selection inside k-fold CV (k=5 or 10) within `Pipeline` + `GridSearchCV`; StratifiedKFold for classification; results compared on the chosen metric; best baseline identified by CV score with the rationale documented. | Some feature selection + CV present; minor gaps in metric reporting or stratification choice. | Feature selection or CV incomplete; rationale for k value or stratification unstated. | No visible feature selection OR CV incorrectly applied OR no comparison across candidates. |
+| **4c. Interpretation & Next Steps** (8 pts) | CV score reported with **95% Student's *t* CI**; thoughtful reflection on strengths/limitations; realistic next steps grounded in observed performance. | Performance reported with CI; reflection present but minimal; next steps general. | Basic performance numbers only; reflection superficial; next steps vague. | No interpretation; raw numbers only; no future-steps discussion. |
+| **4d. Required Diagnostic Visualizations** (5 pts) | All required diagnostics present (CV-bar-with-CI plot **plus** regression diagnostics — predicted-vs-actual + residual — OR classification diagnostics — confusion matrix + ROC + PR curves); each labeled, captioned, and integrated into the interpretation. | One required diagnostic missing OR labeling/captioning gaps on one or two figures. | Two required diagnostics missing OR all present but unlabeled/uncaptioned. | Most or all diagnostic visualizations missing. |
+| **5. Report Quality & Clarity** (20 pts) | Well-structured PDF with clear headings; visualizations and tables properly embedded and labeled; logical flow; error-free code that runs cleanly on a fresh "Run All". | Generally clear; minor labeling, flow, or formatting issues; code runs with minor warnings. | Structure unclear; some figures unlabeled; code may require manual fixes. | Disorganized; missing labels; code fails to run; numerous formatting issues. |
+
+**Total: 100 points** (the §4 Baseline Model Implementation block — 4a + 4b + 4c + 4d — is worth **30 points** combined).
 
 This rubric grade contributes to the **Milestone Deliverables (40%)** component of the Final Project grade — the average across all four milestones (M1–M4).
 

@@ -1,4 +1,4 @@
-# Milestone 03 — More Complex Model + Hyperparameter Tuning + Draft Abstract
+# Final Project Milestone 03 — More Complex Model + Hyperparameter Tuning + Draft Abstract
 
 ## About the Final Project
 
@@ -9,6 +9,19 @@ The Final Project is a **group capstone** (groups of four randomly assigned) cul
 - **Instructor / TA Evaluation — 40%** of the project grade. The final research poster, graded against the poster rubric (Milestone 04).
 
 Optional presentation at the **Fall 2026 Purdue Undergraduate Research Conference** is strongly encouraged but **not required**. Professor Moreira is happy to serve as faculty mentor for groups choosing to present. Award-winning prior posters from this course: <https://davi-moreira.github.io/applied_projects.html>. Additional information about Purdue undergraduate research conferences: <https://www.purdue.edu/undergrad-research/conferences/index.php>.
+
+---
+
+## What to Submit on Brightspace
+
+Submit **two files** per group on Brightspace by the posted deadline. One designated group member uploads on behalf of the whole group.
+
+| # | File | Description |
+|---|---|---|
+| 1 | **`NN_complex_model.pdf`** *(e.g., for group 03, `03_complex_model.pdf`)* | Structured PDF report including the **draft abstract (~250 words)** as the opening section and **all required visualizations** — hyperparameter-search plot, model-comparison bar chart with 95% CI error bars, feature importance, plus regression diagnostics (predicted-vs-actual + residual) OR classification diagnostics (confusion matrix + ROC + PR curves) — embedded and captioned. |
+| 2 | **`NN_complex_model.ipynb`** *(e.g., for group 03, `03_complex_model.ipynb`)* | Jupyter notebook with the runnable code. The notebook must save the **`champion_pipeline.joblib`** and **`CONFIG.json`** artifacts during the final-training step — M4 will load these for the one-shot test-set evaluation. |
+
+Detailed format requirements (file types, exact Brightspace location) are in the **Submission Expectations** section near the bottom of this document.
 
 ---
 
@@ -81,26 +94,33 @@ The abstract is the lead paragraph of the M4 poster. Treat it like a press relea
 |---|---|
 | **Structured Report (PDF)** | Clearly labeled sections matching the components above; visualizations and tables embedded; key code snippets in the appendix or inline; the **draft abstract** as the report's opening section before the methodology |
 | **Code Files** | Python script or Jupyter notebook (must run cleanly top-to-bottom) |
-| **Submission location** | Brightspace — Module 3, Final Project Milestone 03 |
-| **Filename convention** | `group-<NN>_M03_complex_model.pdf` and `group-<NN>_M03_complex_model.ipynb` |
+| **Submission location** | Brightspace |
+| **Filename convention** | `NN_complex_model.pdf` and `NN_complex_model.ipynb` (e.g. group 03, `03_complex_model.pdf` and `03_complex_model.ipynb`) |
 
 ---
 
 ## Grading Rubric (100 points)
 
-| Criterion | Points |
-|---|---:|
-| **0. Prediction Goal(s)** — Clearly stated, connected to dataset context, regression vs. classification confirmed | **5** |
-| **1a. Baseline Model** — Model choice & justification; implementation with feature selection + k-fold CV; interpretation | **20** |
-| **1b. More Complex Model — Implementation & Tuning** | **35** |
-| &nbsp;&nbsp;&nbsp;&nbsp;Model Choice & justification (8) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;Hyperparameter Tuning & Cross-Validation (12) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;Model Selection (CI-overlap rule) + Final-Training step + saved `champion_pipeline.joblib` (10) | |
-| &nbsp;&nbsp;&nbsp;&nbsp;Comparison vs. baseline narrative (5) | |
-| **1c. Required Visualizations** — Hyperparameter-search plot, model-comparison bar chart with 95% CI error bars, feature importance plot, plus regression diagnostics (predicted-vs-actual + residual) OR classification diagnostics (confusion matrix + ROC + PR curves). All figures labeled and captioned. | **20** |
-| **2. Draft Abstract (~250 words)** — title, prediction question with "?", motivation, methodology, key findings, broader implications | **15** |
-| **3. Report Quality & Clarity** — Well-structured PDF, labeled visualizations, logical flow, error-free code | **5** |
-| **Total** | **100** |
+The rubric uses four performance levels per criterion. The point range for each level is scaled to the criterion's maximum:
+
+- **Exemplary** ≥ 90% of the criterion's max
+- **Proficient** 70–89% of the criterion's max
+- **Developing** 50–69% of the criterion's max
+- **Beginning** 0–49% of the criterion's max
+
+| Criterion | Exemplary | Proficient | Developing | Beginning |
+|---|---|---|---|---|
+| **0. Prediction Goal(s)** (5 pts) | Goal clearly restated; regression-vs-classification confirmed; rationale tied to dataset context. | Goal restated; framing correct; rationale brief. | Goal restated but vague; framing inconsistent. | Goal missing or framed incorrectly. |
+| **1a. Baseline Model** (20 pts) | M2 baseline replicated with model choice justified; feature selection + k-fold CV correctly implemented; CV score with **95% CI** reported; brief reflection on strengths/limits. | Baseline present with minor gaps in justification, implementation, or CI reporting. | Baseline implementation incomplete; CV details missing. | No baseline OR baseline incorrectly implemented. |
+| **1b. Model Choice & justification** (8 pts) | More complex family (Random Forest, Gradient Boosting, SVM, …) chosen with clear rationale for why it can capture patterns the baseline cannot (non-linearity, interactions). | Complex model chosen; justification adequate but generalized. | Complex model chosen but justification weak or missing the baseline-comparison framing. | Model inappropriate, unstated, or trivially identical to the baseline. |
+| **1b. Hyperparameter Tuning & Cross-Validation** (12 pts) | Defined grid (or randomized search distribution) of hyperparameter values; 5- or 10-fold CV inside `GridSearchCV` / `RandomizedSearchCV`; results shown as table or plot of CV metric across configurations; rationale for k value clear. | Tuning performed; minor gaps in grid documentation, plot, or k rationale. | Tuning incomplete; CV usage unclear; selection criteria undocumented. | No tuning OR test set used during the search (leakage). |
+| **1b. Model Selection + Final-Training + saved `champion_pipeline.joblib`** (10 pts) | CI-overlap rule applied correctly to choose the champion; champion **retrained on full training fold**; `champion_pipeline.joblib` and `CONFIG.json` saved and reproducible from a fresh "Run All". | Champion identified via CI-overlap; final-training and save steps partially documented. | Champion identified but final-training step missing OR saved artifact undocumented. | No model-selection rationale OR no saved artifact. |
+| **1b. Comparison vs. baseline narrative** (5 pts) | Clear narrative comparing the M3 complex model to the M2 baseline with both CIs visible; honest assessment of whether the complexity is worth it. | Comparison present; narrative brief. | Comparison limited; CIs not displayed side-by-side. | No comparison OR misleading interpretation. |
+| **1c. Required Visualizations** (20 pts) | All required figures present (hyperparameter-search plot, model-comparison bar chart with **95% CI error bars**, feature importance, **plus** regression diagnostics — predicted-vs-actual + residual — OR classification diagnostics — confusion matrix + ROC + PR curves); each labeled, captioned, and integrated into the narrative. | One required figure missing OR labeling/captioning gaps on one or two figures. | Two required figures missing OR multiple figures unlabeled/uncaptioned. | Three or more required figures missing OR all unlabeled. |
+| **2. Draft Abstract (~250 words)** (15 pts) | All six elements present (title, prediction question with "?", motivation, methodology, key findings, broader implications); polished and accessible to an academic-and-industry audience; word count ~250. | Most elements present; minor gaps in polish or length. | Two or more elements missing or weakly developed; word count off. | Abstract missing OR fundamentally incomplete. |
+| **3. Report Quality & Clarity** (5 pts) | Well-structured PDF; visualizations labeled; logical flow; error-free runnable code. | Generally clear with minor formatting issues. | Structure unclear; some labels missing. | Disorganized; code fails to run. |
+
+**Total: 100 points** (the §1b More Complex Model block — Model Choice + Tuning + Selection/Final-Training + Comparison narrative — is worth **35 points** combined).
 
 This rubric grade contributes to the **Milestone Deliverables (40%)** component of the Final Project grade — the average across all four milestones (M1–M4).
 

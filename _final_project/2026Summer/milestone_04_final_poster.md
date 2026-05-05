@@ -1,27 +1,35 @@
-# Milestone 04 — Final Research Poster + Peer Evaluation
+# Final Project Milestone 04 — Final Research Poster
 
 ## About the Final Project
 
 The Final Project is a **group capstone** (groups of four randomly assigned) culminating in a **research poster**. Across the term your group completes four milestone deliverables (M1 → M4); each member also submits a confidential intra-group peer evaluation at the end. The project is worth **35% of your overall course grade**, broken down as:
 
 - **Milestone Deliverables — 40%** of the project grade. Averaged across the four milestones (M1–M4). Graded for clarity, completeness, and timely submission.
-- **Peer Evaluation — 20%** of the project grade. Confidential intra-group ratings collected at the end of the course (see Track B below).
-- **Instructor / TA Evaluation — 40%** of the project grade. The final research poster, graded against the poster rubric (see Track A below).
+- **Peer Evaluation — 20%** of the project grade. Confidential intra-group ratings collected through a separate Brightspace assignment at the end of the course.
+- **Instructor / TA Evaluation — 40%** of the project grade. The final research poster, graded against the poster rubric.
 
-**Milestone 04 is the milestone that drives all three components of the project grade.** The poster is the **40% Instructor/TA Evaluation**; each member's peer-evaluation submission is the **20% Peer Evaluation**; and on-time, complete submission of M4's deliverables also contributes to the **40% Milestone Deliverables** average alongside M1–M3.
+Milestone 04 contributes to **two** components of the project grade: the poster is the **40% Instructor/TA Evaluation**, and on-time, complete submission of M4's deliverables also contributes to the **40% Milestone Deliverables** average alongside M1–M3.
 
 Optional presentation at the **Fall 2026 Purdue Undergraduate Research Conference** is strongly encouraged but **not required**. Professor Moreira is happy to serve as faculty mentor for groups choosing to present. Award-winning prior posters from this course: <https://davi-moreira.github.io/applied_projects.html>. Additional information about Purdue undergraduate research conferences: <https://www.purdue.edu/undergrad-research/conferences/index.php>.
 
 ---
 
+## What to Submit on Brightspace
+
+Submit **two files** per group on Brightspace by the posted deadline. One designated group member uploads on behalf of the whole group.
+
+| # | File | Description |
+|---|---|---|
+| 1 | **`NN.pdf`** *(e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`)* | Single PDF poster, Purdue Undergraduate Research Conference format. **Do not include the section number in the filename** — this convention is what allows the instructor to print the posters for free. |
+| 2 | **`NN_final.ipynb`** *(e.g., for group 03, `03_final.ipynb`)* | The final Jupyter notebook with the runnable code. Must complete a fresh **"Runtime → Run All"** in Colab without errors, and must include the saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from M3 plus the one-shot test-set evaluation. |
+
+Detailed format requirements (poster dimensions, attached template, attached rubric, notebook content, exact Brightspace location) are in the **Poster — Components → Format** sections below.
+
+---
+
 ## Purpose
 
-M4 is the capstone deliverable — the public-facing artifact that synthesizes the entire project arc into a single readable poster. It is also the milestone where:
-
-- The instructor/TA evaluates your group's poster against the rubric (this drives the **40%** Instructor/TA Evaluation component of the project grade).
-- Each member submits a confidential **peer evaluation** of teammates (this drives the **20%** Peer Evaluation component).
-
-There are therefore **two submission tracks** at M4: (1) the group poster and (2) each member's individual peer evaluation form.
+M4 is the capstone deliverable — the public-facing research poster that synthesizes the entire project arc into a single readable artifact, plus the final Jupyter notebook that backs every claim on the poster. The instructor/TA evaluates your group's poster against the attached rubric, which drives the **40% Instructor/TA Evaluation** component of the project grade; on-time, complete submission of both files also contributes to the **40% Milestone Deliverables** average across M1–M4.
 
 ## Poster — Components
 
@@ -45,7 +53,7 @@ A standout poster reads in roughly five minutes. Yours must include:
    - If the verdict is ABOVE the CV CI's upper bound (the model performs worse on test than CV predicted), include a one-sentence diagnosis and a "deploy / pause / re-train" recommendation. Do **not** open the test set a second time to "recover" the number — that would invalidate the lockbox discipline.
 8. **Interpretation and insights.** Feature importance or coefficient summary; what the model says about the business question.
 9. **Limitations + next steps.** Honest about what the data can and cannot support.
-10. **References.** Including a link to the supporting code repository or Colab notebook (so the rubric's reproducibility dimension can be checked).
+10. **References.** Citations for any datasets, papers, or external resources used in the analysis. (The submitted **`NN_final.ipynb`** is the canonical reproducibility artifact — no separate code-repository link is required on the poster.)
 
 ### Required Visualizations on the Poster
 
@@ -59,51 +67,27 @@ A great poster carries 4–6 high-information figures, not 12 mediocre ones. Eac
 
 If a figure tells the same story as one already on the poster, replace it — every figure should add information.
 
-### Format
+### Format — Poster (`NN.pdf`)
 
 | Item | Specification |
 |---|---|
 | **File type** | Single PDF |
 | **Dimensions** | Per the **poster template attached to this Brightspace assignment** (standard Purdue Undergraduate Research Conference format) |
-| **Filename convention** | `<NN>.pdf` where `NN` is your assigned group number — e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`. **Do not include the section number.** Following this convention is what allows the instructor to print the posters for free. |
+| **Filename convention** | `NN.pdf` where `NN` is your assigned group number — e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`. **Do not include the section number.** Following this convention is what allows the instructor to print the posters for free. |
 | **Template** | Attached to this Brightspace assignment by the instructor (download before you begin drafting) |
 | **Rubric** | Attached to this Brightspace assignment by the instructor (use it for self-check before submission) |
 | **Examples** | Award-winning prior posters: <https://davi-moreira.github.io/applied_projects.html> |
-| **Submission location** | Brightspace — Module 4, Final Project Milestone 04 — Poster |
 
-## Peer Evaluation — Components
+### Format — Final Notebook (`NN_final.ipynb`)
 
-Each group member submits **one peer-evaluation form** through Brightspace by the M4 deadline. The form rates the **other three teammates only** (no self-evaluation).
-
-### What's on the form
-
-For each of your three teammates:
-
-| Dimension | Scale |
+| Item | Specification |
 |---|---|
-| Commitment to the project | 1 (insufficient) – 5 (exemplary) |
-| Technical contribution | 1 – 5 |
-| Communication and responsiveness | 1 – 5 |
-| Dependability and follow-through | 1 – 5 |
-| Fairness of work distribution | 1 – 5 |
-| **One specific strength** | Free text |
-| **One specific area for improvement** | Free text |
+| **File type** | Jupyter notebook (`.ipynb`) |
+| **Filename convention** | `NN_final.ipynb` (e.g., for group 03, `03_final.ipynb`) |
+| **Required content** | Saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from the M3 final-training step; the **one-shot test-set evaluation** with the INSIDE / ABOVE / BELOW verdict; all code that produces the figures shown on the poster |
+| **Reproducibility** | Must complete a fresh **"Runtime → Run All"** in Colab without errors |
 
-Plus one overall comment about how the group functioned as a team.
-
-### Confidentiality
-
-Only the instructor (and TA) see individual evaluations. Aggregated, anonymized feedback may be returned to the team.
-
-### How the 20% is computed
-
-Each member's peer-evaluation score is the **average of the three ratings the member receives** (across the five dimensions × three raters), with light moderation by the instructor when ratings appear strategically inflated or deflated. Two members of the same group can therefore receive different peer-evaluation scores.
-
-**Submission location:** Brightspace — Module 4, Peer Evaluation form.
-
-> **Failure to submit a peer evaluation reduces the submitter's own peer-evaluation score (not the teammates').**
-
----
+**Submission location for both files:** Brightspace — Module 4, Final Project Milestone 04.
 
 ## Optional: Presenting at the Fall 2026 Conference
 
@@ -114,30 +98,30 @@ Groups choosing to present at the **Fall 2026 Purdue Undergraduate Research Conf
 
 ---
 
-## Grading — Poster Template and Rubric (Attached Separately)
+## Grading — Poster Rubric
 
-> **The instructor will attach two documents to this Brightspace assignment:**
->
-> 1. A **poster template** (the starting layout you must use, sized for the Purdue Undergraduate Research Conference poster format).
-> 2. A **detailed rubric document** specifying the criteria, weights, and scoring levels that will be used to grade your final poster submission.
->
-> Download both documents from Brightspace before you begin drafting. Use the template as the basis for your poster file and the rubric to self-check your draft *before* submission. The rubric is the authoritative grading document — the dimensions listed in the table below are indicative of the rubric's structure, but the attached rubric supersedes anything written here in case of any difference.
+### How Milestone 04 Appears in the Brightspace Gradebook
 
-The poster grade (100-point scale, mapped from the attached rubric) counts as the **40% Instructor/TA Evaluation** component of your Final Project grade.
+There are **two separate gradebook entries** for your final-project work at this milestone:
 
-**Indicative high-level dimensions** (the attached rubric document is authoritative):
+- **Milestone 04 (under "Milestone Deliverables")** — graded on **completion / submission**. You receive credit for this entry by submitting both required files (`NN.pdf` and `NN_final.ipynb`) on time and complete. This entry contributes to the **40% Milestone Deliverables** average alongside M1–M3.
+- **Final Submission (under "Instructor / TA Evaluation")** — your poster is graded against the **Predictive Analytics Poster Rubric** below (100-point scale). This grade is reflected in the **Instructor/TA Evaluation** category of the Brightspace gradebook and counts as the **40% Instructor/TA Evaluation** component of your Final Project grade.
 
-| Dimension | Indicative Weight |
-|---|---:|
-| **Prediction problem framing & significance** | 15% |
-| **Methodology** (preprocessing, feature engineering, modeling, CV, tuning) | 25% |
-| **Results & interpretation, including the one-shot test-set evaluation and INSIDE / ABOVE / BELOW verdict** | 25% |
-| **Required visualizations present and well-executed** (model-comparison bar chart with 95% CI, test-set verdict figure, feature importance, regression diagnostics or classification diagnostics) | 15% |
-| **Visual design & clarity** (information density, figure quality, readability at 5 ft) | 10% |
-| **Reproducibility** (link to code, runnable notebook, saved `champion_pipeline.joblib`, reproducible figures) | 10% |
-| **Total** | **100%** |
+> **The instructor will also attach the poster template and the rubric document to this Brightspace assignment.** Download both before you begin drafting; use the template as the starting layout for your poster and the rubric to self-check your draft before submission.
 
-The peer-evaluation portion (Track B above) is graded separately and counts as the **20% Peer Evaluation** component of the Final Project grade — computed per member from the average of the three teammate ratings each member receives, with light instructor moderation when ratings appear strategically inflated or deflated.
+### Predictive Analytics Poster Rubric (Poster-Only Assessment)
+
+| # | Criterion | Points | Exemplary (Full Points) | Competent (Partial Points) | Needs Improvement (Minimal Points) |
+|---|---|---:|---|---|---|
+| 1 | Prediction Goal(s) | 5 | **5 pts:** Clear, specific predictive objective(s); response type (regression/classification) explicitly identified and justified; strong business/research rationale. | **3–4 pts:** Goal stated; response type identified but weakly justified; limited link to context. | **0–2 pts:** Goal unclear/missing; response type unspecified; no rationale. |
+| 2 | Dataset Overview | 8 | **7–8 pts:** Reports #obs/#features; types for key features; response variable identified/typed; data provenance/window stated. | **4–6 pts:** Size and response identified; partial feature typing; minimal provenance. | **0–3 pts:** Missing size/response ID; little/no feature typing or context. |
+| 3 | Exploratory Data Analysis (EDA) | 12 | **10–12 pts:** Appropriate summaries (response + key predictors); ≥2 relevant plots; interprets skew/outliers/imbalance/seasonality; connects insights to modeling choices and metric selection. | **6–9 pts:** Basic stats and ≥1 plot; some interpretation but limited linkage to modeling. | **0–5 pts:** Incomplete stats; weak/irrelevant visuals; minimal/no interpretation. |
+| 4 | Data Preparation (Feature Engineering, Missing Data, etc.) | 20 | **17–20 pts:** ≥1 non-trivial new feature (interactions, lags/rolling stats, domain-driven ratios, text-derived signals) with clear rationale; quantifies missingness by feature; justified strategy (drop/impute/advanced) with leakage-safe implementation; demonstrates impact via ablation/CV deltas or sensitivity to imputation choices. | **10–16 pts:** New feature with partial rationale; identifies missingness and applies a reasonable method; limited evidence of impact or sensitivity analysis. | **0–9 pts:** No new/trivial feature; missingness unreported or mishandled; unjustified/inappropriate method; no evidence of value. |
+| 5 | Baseline Model (Choice, CV, Interpretation) | 20 | **17–20 pts:** Appropriate simple baseline (e.g., Linear/Logistic Regression); pipeline is leakage-safe; k=5/10 CV with correct metric (RMSE/MAE/Accuracy/F1/AUC); tracks mean/variance; summarizes implications and limitations; proposes concrete next steps. | **10–16 pts:** Reasonable model; CV present with partial integration/details; metric adequate; interpretation limited or generic. | **0–9 pts:** Inappropriate/unspecified baseline; no/incorrect CV; unclear metric; raw numbers only; no reflection. |
+| 6 | More Complex Model (Choice, Tuning, Comparison) | 25 | **22–25 pts:** Model aligned to data/goal (RF/GBM/XGBoost/SVM/regularized GLM/NN); hyperparameter search (grid/random/Bayesian) inside proper CV; leakage controls (scaling/encoding inside folds); comparative results (tables/plots) with variability and selection criterion; rigorous comparison to baseline with practical interpretation (effect sizes, trade-offs), plus error/confusion analysis where relevant. | **13–21 pts:** Plausible model; some tuning with partial documentation; CV present but thin; basic comparison to baseline; limited practical takeaways. | **0–12 pts:** Misaligned/unspecified model; superficial/absent tuning; incorrect CV; opaque selection; no clear comparison or interpretation. |
+| 7 | Report Quality & Visual Communication | 10 | **9–10 pts:** Clear, scannable poster; logical flow (Intro→Methods→Results→Conclusions); legible, labeled figures/tables (titles, axes, units, legends); consistent typography/layout; code refs/appendix where appropriate; minimal grammar issues. | **6–8 pts:** Generally readable; minor layout/labeling gaps; some figures under-explained or styling inconsistencies. | **0–5 pts:** Disorganized; illegible/unlabeled visuals; weak linkage between text and graphics; notable grammar/formatting issues. |
+
+**Total: 100 points**
 
 ---
 
@@ -148,10 +132,10 @@ The peer-evaluation portion (Track B above) is graded separately and counts as t
 - **Show the CV CI.** Replace point-estimate bar charts with bars that show the 95% confidence interval. The CI carries information; the point estimate alone does not.
 - **Open the test set ONCE.** The champion was selected on CV at M3. The test-set number is computed exactly once with the saved `champion_pipeline.joblib` and reported with the INSIDE / ABOVE / BELOW verdict. Multiple test-set evaluations would invalidate the lockbox discipline that has carried through M1 → M2 → M3 — and reviewers can usually tell from the code history.
 - **The abstract IS the lead paragraph.** Don't paraphrase your M3 abstract into something fluffier — use it.
-- **Reproducibility link is required.** A poster that does not link to runnable code loses the 10% reproducibility dimension. The link must reach a notebook that runs cleanly top-to-bottom and the saved `champion_pipeline.joblib` from M3.
+- **The submitted `NN_final.ipynb` must be reproducible.** A submission whose notebook fails on a fresh **"Runtime → Run All"** loses the 10% reproducibility dimension. The notebook must include the saved `champion_pipeline.joblib` and `CONFIG.json` from M3 and produce all the figures shown on the poster.
 - **Caption every figure.** A figure with axis labels but no caption forces the audience to guess the takeaway. One sentence per figure is the floor.
 - **Filename: `<group-number>.pdf` only.** No section number. No "final_v3_REAL_v2.pdf". The instructor's print pipeline depends on this convention.
-- **Submit BOTH the poster (group) AND your peer evaluation (individual).** Missing either one costs points.
+- **Submit BOTH files: the poster `NN.pdf` and the final notebook `NN_final.ipynb`.** Missing either costs points.
 
 ---
 

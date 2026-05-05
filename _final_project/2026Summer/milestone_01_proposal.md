@@ -12,6 +12,18 @@ Optional presentation at the **Fall 2026 Purdue Undergraduate Research Conferenc
 
 ---
 
+## What to Submit on Brightspace
+
+Submit **one file** per group on Brightspace by the posted deadline. One designated group member uploads on behalf of the whole group.
+
+| # | File | Description |
+|---|---|---|
+| 1 | **`NN_proposal.pdf`** *(e.g., for group 03, `03_proposal.pdf`)* | The 1–2 page Initial Project Proposal covering all five components below — Prediction Goal, Motivation & Significance, Data Overview, Preliminary Methods, Expected Contributions. |
+
+Detailed format requirements (length, style, exact Brightspace location) are in the **Submission Expectations** section near the bottom of this document.
+
+---
+
 ## Purpose
 
 This milestone is your group's opportunity to clearly articulate the core of your predictive analytics project. Rather than formulating a traditional research question, you will define a **prediction goal** that outlines the specific outcome you aim to forecast using your data. This proposal sets the foundation for every subsequent milestone — the baseline you'll build at M2, the more complex model and abstract at M3, and the final poster at M4.
@@ -70,8 +82,8 @@ Summarize what your group expects to achieve. What insights or benefits might yo
 | **Length** | 1–2 pages |
 | **Format** | PDF; clear headings and bullet points |
 | **Style** | Clear, academic, accessible; free of grammatical errors |
-| **Submission location** | Brightspace — Module 1, Final Project Milestone 01 |
-| **Filename convention** | `group-<NN>_M01_proposal.pdf` (e.g., `group-03_M01_proposal.pdf`) |
+| **Submission location** | Brightspace |
+| **Filename convention** | `NN_proposal.pdf` (e.g., for group 03 `03_proposal.pdf`) |
 
 ---
 
