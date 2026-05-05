@@ -2,21 +2,13 @@
 
 ## About the Course Case Competition
 
-The Course Case Competition is a **team competition** hosted on Kaggle. Across the term your group of four (the same Brightspace group as your Final Project team) builds predictive models for the **Summer 2026 MGMT 47400 Case Competition: Bank Churn** and submits to a private Kaggle leaderboard. The competition is worth **20% of your overall course grade**, broken down as:
-
-- **Team Participation — 20%** of the competition grade. At least one valid team submission to Kaggle.
-- **Leaderboard Performance — 60%** of the competition grade. Your team's final standing on the **private** Kaggle leaderboard at the close of the competition, plus an evaluation of the submitted code for replicability.
-- **Peer Evaluation — 20%** of the competition grade. Confidential intra-team rating of teammates' contributions, collected together with the Final Project peer evaluation.
-
-The competition runs for the full term: it **opens Monday, May 18, 2026** and **closes Friday, June 12, 2026 at 11:59 PM EST**.
-
-> **Reference (Brightspace):** the canonical reference for this competition — including detailed Kaggle team-formation steps and the resources list — is `_course_case_competition/2026Summer/course_case_competition_reference.md` in the course repository.
+The Course Case Competition is a **team competition** hosted on Kaggle. Across the term your group (the same Brightspace group as your Final Project team) builds predictive models for the **Case Competition: Bank Churn** and submits to a private Kaggle leaderboard. Check the course syllabus for grade details.
 
 ---
 
 ## What to Submit on Brightspace
 
-By **Friday, June 12, 2026 at 11:59 PM EST**, submit the following on Brightspace. **One designated team member uploads on behalf of the whole team.**
+Submit the following on Brightspace.
 
 | # | File | Description |
 |---|---|---|
@@ -73,7 +65,7 @@ The **peer evaluation** is collected via a separate Brightspace form, alongside 
 
 ### Step 2 — Form your team on Kaggle
 
-Form your team **before any teammate makes a submission** — it is much simpler that way. **Your team name on Kaggle must match your Brightspace group exactly, in the format `Group XX – Y01`** (e.g., `Group 03 – Y01`). Use a leading zero for single-digit group numbers; the section is `Y01` for Summer 2026.
+Form your team **before any teammate makes a submission** — it is much simpler that way. **Your team name on Kaggle must match your Brightspace group exactly, in the format `Group NN`** (e.g., `Group 03`).
 
 > **Why the naming convention matters.** The instructor and TA use the team name to map Kaggle leaderboard standings back to Brightspace groups for grading. **Misnamed teams cannot be linked to the gradebook automatically** and will be subject to a participation-grade deduction until corrected.
 
@@ -81,7 +73,7 @@ Form your team **before any teammate makes a submission** — it is much simpler
 
 1. Each teammate joins the competition individually (Step 1).
 2. **One designated member** (the "team captain") opens the competition page and clicks the **"Team"** tab.
-3. In the **"Team Name"** field, enter **`Group XX – Y01`** using the exact format and the leading zero (e.g., `Group 03 – Y01`). Click **Save**.
+3. In the **"Team Name"** field, enter **`Group NN`** using the exact format and the leading zero (e.g., `Group 03`). Click **Save**.
 4. In the **"Invite teammate"** field, enter each teammate's **Kaggle username** (or the email associated with their Kaggle account) and click **Invite**. Kaggle sends an invitation that the teammate must accept from their own account.
 5. Each invited teammate accepts by going to the same competition's **"Team"** tab and clicking **"Accept"** on the pending invitation.
 6. Once everyone has accepted, the team appears on the leaderboard with the chosen name.
@@ -92,7 +84,7 @@ If two or more teammates each independently submitted before forming the team, K
 
 1. The two team captains coordinate. From the **"Team"** tab, one team clicks **"Request Merge"** and enters the other team's name.
 2. The other team's captain accepts the merge request from the same tab.
-3. After the merge succeeds, **set the merged team's name to `Group XX – Y01`**.
+3. After the merge succeeds, **set the merged team's name to `Group NN`**.
 4. **Caution — merges share submissions.** When teams merge, the combined team's daily-submission count for that day equals the **sum of submissions already used by both teams**. If both teams submitted twice today, the merged team has used 4 of its 5 submissions for the day.
 
 #### Important rules and limits
@@ -100,17 +92,17 @@ If two or more teammates each independently submitted before forming the team, K
 - After teaming up, the **four members share 5 submissions per day** as a single team — not 5 each.
 - Once you accept a merge or invite, you **cannot leave the team without instructor approval**; a leaver still counts against the team's submission allowance for that day.
 - **Form your team well before the final submission deadline.** Kaggle disables team merges at a host-configured cutoff before competition close — verify the exact cutoff on the competition's **"Team"** tab and form teams as early as possible.
-- The team name must remain **`Group XX – Y01`** at the time of the deadline so the instructor can map standings to Brightspace groups for grading.
+- The team name must remain **`Group NN`** at the time of the deadline so the instructor can map standings to Brightspace groups for grading.
 
 ### Step 3 — Build your model
 
 - Explore `train.csv` to understand the features.
 - Preprocess the data inside a `Pipeline` — encode categorical variables, scale numeric features, and handle missing values without leaking information from the test set.
 - Train candidate models (logistic regression, decision trees, random forests, gradient boosting, neural networks).
-- Evaluate locally using **AUC-ROC under cross-validation** — the same CV-first protocol used in the course notebooks from `nb08` onward (k-fold + Student's *t* 95% CI).
+- Evaluate locally using **AUC-ROC under cross-validation**.
 - Select the model with the most defensible **cross-validated** AUC for your final submission, not the one that happens to score highest on the public leaderboard. **Public-leaderboard overfitting is real and will hurt you on the private leaderboard.**
 
-> **Worked starter pipeline:** `_course_case_competition/2026Summer/churn_exit_prediction_workflow_student.ipynb` walks through the full pipeline end-to-end on this dataset.
+> **Worked starter pipeline (attached):** `churn_exit_prediction_workflow_student.ipynb` is attached to this assignment and walks through the full pipeline end-to-end on this dataset.
 
 ### Step 4 — Prepare the submission file
 
