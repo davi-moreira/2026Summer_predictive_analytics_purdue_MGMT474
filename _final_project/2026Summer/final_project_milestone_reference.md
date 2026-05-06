@@ -77,7 +77,7 @@ Each milestone is supported by a course notebook that walks through the relevant
 | M1 | `nb05_regularization_project_proposal_student.ipynb` (proposal sprint) |
 | M2 | `nb09_tuning_feature_engineering_project_baseline_student.ipynb` (baseline + CV scaffold), `nb10_midterm_casebook_student.ipynb` (baseline submission day) |
 | M3 | `nb15_interpretation_error_analysis_project_student.ipynb` (champion model + interpretation + abstract scaffold) |
-| M4 | `nb19_project_narrative_video_studio_student.ipynb` (poster narrative drafting), `nb20_final_submission_peer_review_student.ipynb` (final-day peer review + submission audit) |
+| M4 | `nb19_data_communication_poster_student.ipynb` (six principles of data communication + poster outline + abstract drafting), `nb20_final_submission_peer_review_student.ipynb` (final-day peer review + submission audit) |
 
 ---
 

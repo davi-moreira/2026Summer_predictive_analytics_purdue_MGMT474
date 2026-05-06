@@ -53,7 +53,7 @@ Each notebook builds exactly one conceptual layer, assumes only what prior noteb
 | 16 | Probability Calibration for Decision Quality | calibration_curve, CalibratedClassifierCV (isotonic + sigmoid), brier_score_loss | 15 (champion + error segments) | 17 (calibration-aware thresholds needed for fairness) | Pivot from threshold re-tread (5-min recap of nb07) to calibration-first: reliability diagrams + Brier score + three-way overlay on a miscalibrated RF |
 | 17 | Fairness & Model Cards | — (slicing, no new sklearn) | 16 (calibrated thresholds) | 18 (fairness signals for monitoring) | Audit group-level impact; model card documentation |
 | 18 | Reproducibility & Monitoring + Kaggle Submission | joblib, json (serialization), pandas.to_csv | 17 (ethical layer) | 19 (artifacts/vocabulary for narrative) | Operational layer: save/load/verify/monitor; pre-deployment checklist; **Kaggle submission mechanics** (pipeline → CSV in/out → submission.csv with exact column names) for Day 20 deadline |
-| 19 | Executive Narrative & Video | — (markdown/narrative, no new libraries) | 18 (artifacts, monitoring plan) | 20 (deliverables ready for submission) | Translate technical work into Five-Act executive story |
+| 19 | Elements of Data Communication & Poster Design | — (markdown/narrative, no new libraries) | 18 (artifacts, headline numbers + CV-CI to communicate) | 20 (poster outline + abstract feed M4) | Six principles (context, viz, less-is-more, hierarchy, beauty, story) applied to the eleven-section research-poster architecture (URC template) |
 | 20 | Final Submission & Peer Review | — (audit/review, no new libraries) | 19 (deliverables developed) | — (last) | Self-audit, submit, peer review, postmortem; closes the course arc |
 
 ### Weekly Arc Pattern
@@ -98,37 +98,33 @@ Each week follows: introduce capability → build evaluation skills → practice
 - Section 7: Wrap-up (key takeaways, critical rules)
 - Bibliography (Chip Huyen, scikit-learn User Guide, Dataset Shift papers)
 
-#### 1.2 Day 19: `notebooks/nb19_project_narrative_video_studio.ipynb`
-**Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 859-899
+#### 1.2 Day 19: `notebooks/nb19_data_communication_poster.ipynb`
+**Source:** MGMT47400_Online4Week_Plan_2026Summer.md (Day 19 block); mirrors `lecture_slides/09_data_communication_poster/09_data_communication_poster.qmd`
 **Structure:**
 - Header with Colab badge
-- Learning objectives (5 items: executive narrative, slide structure, visuals, video script, deliverable finalization)
-- Section 1: Setup (imports: none needed - mostly markdown)
-- Section 2: Executive narrative structure
-  - Problem → Approach → Results → Recommendation → Risks
-  - 1-slide-per-idea principle
-- Section 3: Storyboard builder (10-slide target)
-  - Template with markdown cells for each slide
-  - Slide 1: Problem statement
-  - Slide 2: Data overview
-  - Slide 3: Approach summary
-  - Slides 4-6: Results (comparison table, key plots)
-  - Slide 7: Recommendation
-  - Slide 8: Risks & limitations
-  - Slide 9: Next steps
-  - Slide 10: Q&A preparation
-- Section 4: Required visuals checklist
-  - Model comparison table
-  - Best model performance plot
-  - Feature importance or PDP
-  - Error analysis segment
-  - Decision policy (if classification)
-- Section 5: Script template (time-coded for 2-3 minute video)
-- Section 6: PAUSE-AND-DO exercises (2 exercises)
-  - Exercise 1: Create 10-slide outline (titles + 2 bullets each) (10 min)
-  - Exercise 2: Write 2-3 minute script aligned to outline (10 min)
-- Section 7: Wrap-up
-- Bibliography (Cole Nussbaumer Knaflic, Barbara Minto, Provost & Fawcett)
+- Learning objectives (5 items: apply six principles, diagnose chart failures, raise data-ink ratio, plan poster layout, draft outline + abstract)
+- Why-This-Matters cell (named stakeholder: URC faculty mentor)
+- Section 1: The Forest and the Trees (`floresta.jpg`)
+- Section 2: Six Principles overview table
+- Section 3: Context Matters (`contexto-add.png`, `contexto-obs.png`)
+- Section 4: Visualization Derives From Data (table-vs-plot, scale fail, dual/triple axes, pie-chart abuse, graph galleries)
+- Section 5: Less Is More — eight-step data-ink-ratio cleanup walk-through (`limpeza-1` → `limpeza-8`)
+- Section 6: Hierarchy Among Data (count-the-3s, accent-color highlighting)
+- Section 7: Beauty Counts (emphasis with size + color)
+- Section 8: Telling Your Story — five-pass annotation walk-through (`final-1`→`final-5`) and nine-pass time-series walk-through (`hist-1`→`hist-9`)
+- **PAUSE-AND-DO Exercise 1 (8 min):** Audit one project figure against the six principles; produce a three-bullet rebuild plan
+- Section 9: Why a Poster Presentation? (`project-history.jpg`)
+- Section 10: Designing Objectives (`paper-abstract.jpg`)
+- Section 11: Template & Rubric (URC poster template + course rubric pointer)
+- Sections 12–15: Visual hierarchy, layout & design, content organization (eleven sections), predictive-analytics-specific design
+- Section 16: Crafting a Clear Narrative (`how-to-write-good-02.png`, `thesis_word_count_02.gif`)
+- Section 17: Research Design Flow (`research_design_flow.jpg`)
+- Sections 18–22: Effective figures and tables, results & interpretation, conclusion & future work, final touches, presenting at URC
+- **PAUSE-AND-DO Exercise 2 (15 min):** Eleven-section poster outline + 120–150-word abstract draft
+- Section 23: Additional Material (Flowing Data, Information is Beautiful, The Functional Art, FT COVID coverage)
+- Section 24: Wrap-Up + bridge to nb20
+- Submission Instructions
+- Bibliography (Tufte, Healy, Knaflic, Kastellec & Leoni, URC rubric)
 
 #### 1.3 Day 20: `notebooks/nb20_final_submission_peer_review.ipynb`
 **Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 902-947
@@ -452,7 +448,7 @@ Transform 2025F semester-based course into 2026 Summer 4-week intensive format (
 - **Days 1-17:** Already existed (created earlier in session)
 - **Days 18-20:** Created new notebooks:
   - `nb18_reproducibility_monitoring.ipynb` - Deployment thinking, packaging, monitoring
-  - `nb19_project_narrative_video_studio.ipynb` - Executive communication, slide narrative, video
+  - `nb19_data_communication_poster.ipynb` - Six principles of data communication + eleven-section poster architecture (URC template)
   - `nb20_final_submission_peer_review.ipynb` - Final deliverable, peer review, postmortem
 
 #### 2. Quarto Website Updated
@@ -507,7 +503,7 @@ Repository Root
 
 ### Files to Create (New)
 1. `notebooks/nb18_reproducibility_monitoring.ipynb`
-2. `notebooks/nb19_project_narrative_video_studio.ipynb`
+2. `notebooks/nb19_data_communication_poster.ipynb`
 3. `notebooks/nb20_final_submission_peer_review.ipynb`
 4. `CONVERSATION_LOG.md`
 5. `README.md`

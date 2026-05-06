@@ -102,7 +102,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 16 | Probability Calibration for Decision Quality | Pivots from nb07's threshold-tuning content (now a 5-minute refresh) to calibration as the main focus: reliability diagrams, Brier score, `CalibratedClassifierCV` with isotonic vs. sigmoid, and a concrete demonstration on a Random Forest (which is typically miscalibrated). Explains when calibration matters (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration). | nb15 reveals failure segments; nb16 asks whether the champion's probabilities are trustworthy enough to inform business decisions. nb17 needs calibration-aware thresholds to analyze fairness implications. |
 | 17 | Fairness & Model Cards | Teaches that excellent aggregate metrics can still harm specific groups. Introduces slice-based evaluation, fairness diagnostics, and model card documentation. | nb16 teaches threshold setting; nb17 asks whether that threshold is fair across groups. nb18 needs fairness signals for its monitoring plan. |
 | 18 | Reproducibility & Monitoring | Transitions from "works in a notebook" to "can be saved, loaded, verified, and monitored" through function refactoring, joblib serialization, monitoring plans, and a **Kaggle submission mechanics section** (load saved pipeline → predict on held-out CSV → produce `submission.csv` with exact column names). | nb17 establishes the ethical layer; nb18 adds the operational layer and the last-mile Kaggle glue needed for the Day 20 competition deadline. Together they form the pre-deployment checklist. nb19 needs artifacts and vocabulary for the executive narrative. |
-| 19 | Executive Narrative & Video Studio | Teaches translation of 18 notebooks of technical work into a compelling Five-Act executive narrative (Problem → Approach → Results → Recommendation → Risks). | nb18 provides reproducible artifacts and monitoring vocabulary; without them, the narrative would lack operational credibility. nb20 requires the deliverables developed here. |
+| 19 | Elements of Data Communication & Poster Design | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb18 provides reproducible artifacts and the headline numbers (CV-CI, locked-test verdict) that the poster has to communicate; without them, the design lecture would lack a payload. nb20 requires the poster outline + abstract drafted here. |
 | 20 | Final Submission & Peer Review | Capstone — self-audit, submit complete deliverable package, peer review using structured rubric, and postmortem reflection. | nb19 develops deliverables; nb20 audits and submits them. Closes the course arc from nb01's first data split to a fully reviewed and reflected-upon submission. |
 
 ### Weekly Arc Dependencies
@@ -1031,46 +1031,48 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 19 — Thu June 11  
-### Poster narrative + abstract studio: turning the storytelling toolkit (Knaflic + Minto) into the headline panel and supporting figures of the final research poster  
+### Elements of data communication and poster design: six principles applied to the eleven-section research-poster architecture  
 **Learning objectives**
-- Convert technical work into an executive-ready slide narrative.
-- Build a clear “problem → approach → results → recommendation → risks” flow.
-- Create credible visuals (comparison table, key plots, decision policy).
-- Draft / refine the ~250-word poster abstract from M3 and lay out the supporting figures for the M4 research poster (Purdue Undergraduate Research Conference format).
-- Finalize the project deliverable package.
+- Apply the **six principles of data communication** (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) to a project figure.
+- Diagnose common chart failures (misleading scales, dual axes, pie-chart abuse) and rebuild the same data into a clearer view.
+- Plan the **layout, typography, and visual hierarchy** of a research-conference poster aimed at a non-expert audience.
+- Draft the **eleven-section poster outline** and the **120–150-word abstract** for the M4 final-poster submission.
 
 **Micro-videos (42 min)**
-1. Concept+demo: Executive narrative structure (1-slide-per-idea) (7)  
-2. Guided practice: Storyboard your deck (10-slide target) (6)  
-3. Solution: Storyboard example + mistakes + extension: stakeholder tailoring (7)  
-4. Concept+demo: What visuals to include (and what to avoid) (7)  
-5. Guided practice: Draft speaker script + timing plan for 5-minute video (6)  
-6. Solution: Script tightening + extension: Q&A slide and limitations (9)
+1. Concept+demo: Forest-and-trees framing + the six-principles overview (6)  
+2. Concept+demo: Context, visualization-derives-from-data, common chart failures (8)  
+3. Concept+demo: Less-is-more — data-ink ratio + the eight-step cleanup walk-through (8)  
+4. Concept+demo: Hierarchy + beauty — accent colors, emphasis, "telling your story" sequence (7)  
+5. Guided practice: Eleven-section poster outline + visual-hierarchy planning on the URC template (7)  
+6. Solution: Poster-outline example + abstract-paragraph rewrite + extension: presenting at URC (6)
 
 **Notebook(s)**
-- File: `nb19_project_narrative_video_studio.ipynb`  
+- File: `nb19_data_communication_poster.ipynb`  
 - Sections:
-  - Slide outline template (markdown → slides)
-  - Required visuals checklist
-  - Script template (time-coded for 5 minutes)
-  - Video recording guidelines (Purdue Summer Research Symposium format: slide presentation with voice-over narration, uploaded as unlisted YouTube video; record using PowerPoint/Keynote narration, Zoom, or screen recording software; ensure clean audio with no background noise)
-  - Gemini prompts: tighten script; convert findings to executive bullets
+  - The six principles of data communication (worked examples + chart-failure gallery)
+  - Data-ink ratio cleanup walk-through (eight panels)
+  - Hierarchy + beauty + telling-your-story sequences (six-panel and nine-panel walk-throughs)
+  - Poster design: template, rubric, visual hierarchy, layout, eleven-section content map
+  - Crafting a clear narrative + research-design flow + presentation tips
+  - Gemini prompts: chart-audit; abstract-paragraph rewrite
 
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Create a 10-slide outline (titles + 2 bullets each).  
-- Pause-and-do (10): Write a 5-minute script aligned to the outline.
+**In-notebook exercises**
+- PAUSE-AND-DO 1 (8 min): Audit one project figure against the six principles; produce a three-bullet rebuild plan.  
+- PAUSE-AND-DO 2 (15 min): Draft the eleven-section poster outline + a 120–150-word abstract.
 
 **Assessments**
-- Concept quiz: executive communication and evidence discipline  
-- Project checkpoint: draft slide outline + script (links)
+- Concept quiz: data communication principles + poster section architecture  
+- Project checkpoint: draft poster outline + abstract paragraph (M4 input)
 
 **Time budget (112.5 min)**
 - Videos 42 + Notebook 45 + Quiz 7.5 + Project studio 18 = 112.5
 
 **Bibliography**
+- Edward Tufte: *The Visual Display of Quantitative Information* (data-ink ratio)  
+- Kieran Healy: *Data Visualization — A Practical Introduction*  
 - Cole Nussbaumer Knaflic: *Storytelling with Data*  
-- Barbara Minto: *The Pyramid Principle*  
-- Provost & Fawcett: communicating results to stakeholders (framing and impact)
+- Kastellec & Leoni: "Using Graphs Instead of Tables in Political Science"  
+- Purdue Undergraduate Research Conference poster rubric and template
 
 ---
 

@@ -91,7 +91,7 @@ All course materials are designed to run directly in Google Colab with no local 
 │   ├── 16_decision_thresholds_calibration.ipynb
 │   ├── 17_fairness_slicing_model_cards.ipynb
 │   ├── 18_reproducibility_monitoring.ipynb
-│   ├── 19_project_narrative_video_studio.ipynb
+│   ├── 19_data_communication_poster.ipynb
 │   └── 20_final_submission_peer_review.ipynb
 │
 ├── docs/                               # Quarto-generated course website (GitHub Pages)
@@ -134,7 +134,7 @@ All notebooks are designed to run in Google Colab with one-click access. Each no
 | 16 | Mon Jun 8 | Error analysis to decisions: thresholds, calibration, KPI alignment | [nb16_decision_thresholds_calibration.ipynb](notebooks/nb16_decision_thresholds_calibration.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb16_decision_thresholds_calibration.ipynb) |
 | 17 | Tue Jun 9 | Fairness and ethics: responsible predictive analytics | [nb17_fairness_slicing_model_cards.ipynb](notebooks/nb17_fairness_slicing_model_cards.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb17_fairness_slicing_model_cards.ipynb) |
 | 18 | Wed Jun 10 | Deployment thinking: reproducibility, monitoring, drift | [nb18_reproducibility_monitoring.ipynb](notebooks/nb18_reproducibility_monitoring.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb18_reproducibility_monitoring.ipynb) |
-| 19 | Thu Jun 11 | Executive narrative: slide-style story + 5-min research presentation video plan | [nb19_project_narrative_video_studio.ipynb](notebooks/nb19_project_narrative_video_studio.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb19_project_narrative_video_studio.ipynb) |
+| 19 | Thu Jun 11 | Elements of data communication and poster design: six principles applied to the eleven-section research-poster architecture | [nb19_data_communication_poster.ipynb](notebooks/nb19_data_communication_poster.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb19_data_communication_poster.ipynb) |
 | 20 | Fri Jun 12 | Final delivery: project package + peer review + closeout | [nb20_final_submission_peer_review.ipynb](notebooks/nb20_final_submission_peer_review.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb20_final_submission_peer_review.ipynb) |
 
 ## Textbooks and References
