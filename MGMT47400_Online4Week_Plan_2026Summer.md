@@ -98,12 +98,12 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. Opens with a **four-method feature-importance reconciliation table** (coefficient magnitude / impurity / permutation / PDP) that becomes the course-wide reference through nb15. | nb11 proves single trees overfit; nb12's motivation ("average many unstable trees") only makes sense after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
 | 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect on any leaked feature. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
 | 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
-| 15 | Interpretation & Error Analysis (Project Improved Model) | Answers "what is the champion learning and where does it fail?" via permutation importance, PDP/ICE, and segment-level error analysis. Opens with an explicit cross-reference to nb12's four-method importance table, positioning PDP/ICE as the "shape" complement to nb12's three "rank" methods. Hosts the improved model milestone. | nb14 selects the champion; interpretation is only meaningful after commitment to one model. nb16 uses error analysis to motivate threshold adjustments. |
-| 16 | Probability Calibration for Decision Quality | Pivots from nb07's threshold-tuning content (now a 5-minute refresh) to calibration as the main focus: reliability diagrams, Brier score, `CalibratedClassifierCV` with isotonic vs. sigmoid, and a concrete demonstration on a Random Forest (which is typically miscalibrated). Explains when calibration matters (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration). | nb15 reveals failure segments; nb16 asks whether the champion's probabilities are trustworthy enough to inform business decisions. nb17 needs calibration-aware thresholds to analyze fairness implications. |
-| 17 | Fairness & Model Cards | Teaches that excellent aggregate metrics can still harm specific groups. Introduces slice-based evaluation, fairness diagnostics, and model card documentation. | nb16 teaches threshold setting; nb17 asks whether that threshold is fair across groups. nb18 needs fairness signals for its monitoring plan. |
-| 18 | Reproducibility & Monitoring | Transitions from "works in a notebook" to "can be saved, loaded, verified, and monitored" through function refactoring, joblib serialization, monitoring plans, and a **Kaggle submission mechanics section** (load saved pipeline → predict on held-out CSV → produce `submission.csv` with exact column names). | nb17 establishes the ethical layer; nb18 adds the operational layer and the last-mile Kaggle glue needed for the Day 20 competition deadline. Together they form the pre-deployment checklist. nb19 needs artifacts and vocabulary for the executive narrative. |
-| 19 | Elements of Data Communication & Poster Design | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb18 provides reproducible artifacts and the headline numbers (CV-CI, locked-test verdict) that the poster has to communicate; without them, the design lecture would lack a payload. nb20 requires the poster outline + abstract drafted here. |
-| 20 | Final Submission & Peer Review | Capstone — self-audit, submit complete deliverable package, peer review using structured rubric, and postmortem reflection. | nb19 develops deliverables; nb20 audits and submits them. Closes the course arc from nb01's first data split to a fully reviewed and reflected-upon submission. |
+| 15 | Interpretation, Calibration & Decision Quality (Project Improved Model) | Merges the prior nb15 (interpretation + segment errors) with nb16 (calibration + threshold/cost + FN-cost sensitivity) into a single classification-stakeholder narrative. Opens with the four-method importance reference to nb12, threads through PDP and segment-error analysis, then bridges to threshold/cost (nb07 refresh kept), reliability diagrams + Brier, `CalibratedClassifierCV(isotonic)`, and a slide-ready decision-policy paragraph stress-tested by an FN-cost sensitivity sweep. Hosts the improved model milestone. | nb14 selects the champion; interpretation, calibration, and a defensible decision policy are only meaningful after commitment to one model. nb16 (time series) needs an unobstructed Day-16 slot, which the merge frees. |
+| 16 | Time-Series Forecasting | Introduces forecasting as a structurally distinct supervised problem — never shuffle, walk-forward CV via `TimeSeriesSplit`, lag features (`lag1` / `lag12`), and three baselines (naive, seasonal-naive, lag-feature linear regression) compared on identical CV folds. Closes with a one-shot opening of the locked test window mirroring nb14's protocol. | nb15 closes the static-classification arc; nb16 widens the lens to temporal data the operations team will see in real business series. nb17 needs the cross-validated forecast as a candidate poster figure. |
+| 17 | Data Communication & Poster Design (formerly nb19) | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb15 + nb16 supply the headline numbers (CV-CI, calibration, locked-test verdict, forecast comparison) that the poster has to communicate; without them, the design lecture would lack a payload. nb18 takes the poster outline into competition-pipeline mode. |
+| 18 | Competition Workflow & Kaggle Submission | End-to-end production pipeline for the Bank Churn case competition: load → EDA snapshot → `ColumnTransformer` preprocessor → baseline + improved model on identical CV folds → refactor into `train_pipeline` / `predict_pipeline` → `joblib` save/load → generate `submission.csv` with exact column names. The Kaggle-submission demo is the only authorized non-nb14 use of the locked Kaggle test file (no labels = production prediction, not model evaluation). | nb15-nb17 supply the champion model and the poster narrative; nb18 packages them into a leaderboard submission and a portable artifact. nb19 widens the lens to deep learning as a horizon topic. |
+| 19 | Special Topic: Deep Learning | Awareness module replicating the core narrative of `lecture_slides/10_deep_learning/10_deep_learning.qmd`: the historical arc from 1980s rebrand to 2010 resurgence, PyTorch vs. TensorFlow, single neuron → MLP, CNN structural prior for images, RNN/Transformer for sequences, a four-question rubric for "is deep learning the right tool?", and one honest `MLPClassifier` vs. gradient-boosting comparison on tabular data. Designed for business undergrads — not a PyTorch deep-dive. | nb18 ships the gradient-boosted tabular champion; nb19 widens the lens so analysts can answer the "what about AI?" question with evidence and rubric, not vibes. |
+| 20 | Course End and Reflection | Capstone — self-audit, M4 poster + Kaggle final-submission delivery, peer review using structured rubric, postmortem reflection, and the course-end **reflection survey** (10–15 min, required for completion). | nb19 closes the awareness arc; nb20 closes the course. Reflection survey output seeds the next-summer redesign. |
 
 ### Weekly Arc Dependencies
 
@@ -124,9 +124,9 @@ Week 3 — ENSEMBLES ARC
   11 Trees → 12 Random Forests → 13 Gradient Boosting → 14 Selection + Test Set Ceremony → 15 Interpretation
   (Non-linear + class_weight) (Bagging + Importance Table) (Boosting + Leakage Callout) (Fair protocol + open the test set)  (Explain + Improved Model)
 
-Week 4 — PRODUCTION ARC
-  16 Calibration → 17 Fairness → 18 Deployment + Kaggle Submission → 19 Narrative → 20 Final Submission
-  (Trustworthy probabilities) (Ethics) (Operations + last-mile submission) (Communication) (Audit + Review + Reflection)
+Week 4 — DELIVERY ARC
+  15 Interpretation+Calibration → 16 Time Series → 17 Communication → 18 Competition Workflow → 19 Deep Learning → 20 Course End + Reflection
+  (Trust + decision policy) (Walk-forward CV) (Poster design) (Kaggle submission pipeline) (Awareness + when-to-use) (Submit + Peer Review + Reflection Survey)
 ```
 
 Each week follows the same pattern: introduce a new capability, build evaluation skills, practice integration, then deliver a milestone. The dependency arrows within each week are strict — no notebook can be skipped without breaking the next one's assumptions.
@@ -834,206 +834,109 @@ Pre-recorded micro-videos are available for students to watch before or after th
 
 ---
 
-## Day 15 — Fri June 5  
-### Interpretation: feature importance + partial dependence + project improved model delivery  
+## Day 15 — Fri June 5
+### Interpretation, calibration, and decision quality (project improved model delivery)
 **Learning objectives**
-- Generate model interpretation artifacts (permutation importance, PDP/ICE).
-- Conduct error analysis to find systematic failure segments.
-- Communicate model behavior honestly (limits, caveats, instability).
-- Deliver a project improved model with interpretation and error analysis.
-- Use Gemini to draft explanation text, then tighten it to evidence.
+- Explain what a champion classifier learned via permutation importance and partial dependence (PDP).
+- Diagnose where the model fails using segment-level error analysis on classification metrics.
+- Translate model probabilities into a business decision using the nb07 threshold + cost framework.
+- Diagnose calibration with reliability diagrams and the Brier score, and fix miscalibration with `CalibratedClassifierCV(isotonic)`.
+- Draft a slide-ready decision-policy paragraph and stress-test it with an FN-cost sensitivity sweep.
+- Deliver Project Milestone 3 (improved model + draft abstract).
 
-**Micro-videos (48 min)**
-1. Concept+demo: Interpretation toolkit overview (importance vs PDP) (8)  
-2. Guided practice: Compute permutation importance for your champion (7)  
-3. Solution: Interpretation pitfalls + extension: correlated features (8)  
-4. Concept+demo: Partial dependence + what it can mislead (8)  
-5. Guided practice: Create PDP/ICE + do segment error analysis (7)  
-6. Solution: Error analysis patterns + extension: calibration check (10)
+**Micro-videos (50 min)**
+1. Concept+demo: Interpretation toolkit overview + permutation importance walkthrough (8)
+2. Concept+demo: PDP + interpretation pitfalls (8)
+3. Guided practice: Segment error analysis with classification metrics (7)
+4. Concept+demo: Discrimination vs. calibration + nb07 threshold/cost refresh (9)
+5. Guided practice: Reliability diagram + `CalibratedClassifierCV(isotonic)` (9)
+6. Solution: Decision policy + FN-cost sensitivity + bridge to Day 16 / time series (9)
 
 **Notebook(s)**
-- File: `nb15_interpretation_error_analysis_project.ipynb`  
+- File: `nb15_interpretation_calibration_project_student.ipynb`
 - Sections:
-  - Importance + PDP/ICE
-  - Segment-level error table (by key categorical / quantile bins)
-  - Interpretation narrative template (evidence-based)
+  - Permutation importance + PDP (cross-reference to nb12's four-method table)
+  - Segment error analysis (precision/recall by feature quartile on out-of-fold predictions)
+  - Threshold + cost refresh from nb07 (kept compact, 5 min)
+  - Reliability diagram + `CalibratedClassifierCV(isotonic)` overlay on validation
+  - Decision-policy paragraph (slide-ready)
+  - FN-cost sensitivity sweep
   - Project Milestone 3 scaffold
 
 **In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Create permutation importance and write 3 evidence-based bullets.  
-- Pause-and-do (10): Run segment error analysis and identify one failure segment.
+- PAUSE-AND-DO 1: Combine importance + PDP + segment errors into 3 evidence-based bullets and one named failure segment.
+- PAUSE-AND-DO 2: Draft the 6-line decision-policy paragraph; assess whether the FN-cost sweep makes the policy robust or fragile.
 
 **Assessments**
-- Concept quiz: interpretation + PDP caveats  
-- **Project Milestone 3 (due): More Complex Model + Hyperparameter Tuning + Draft Abstract**
-  - complex-model implementation, GridSearch/RandomSearch CV, CI-overlap comparison vs. M2 baseline, importance + PDP/ICE, error segment findings, ~250-word draft abstract
-  - Detail: [`_final_project/2026Summer/milestone_03_complex_model_and_abstract.md`](_final_project/2026Summer/milestone_03_complex_model_and_abstract.md)
+- Concept quiz: interpretation + calibration + decision policy
+- **Project Milestone 3 (due): More Complex Model + Hyperparameter Tuning + Draft Abstract** — see [`milestone_03_complex_model_and_abstract.md`](_final_project/2026Summer/milestone_03_complex_model_and_abstract.md).
 
 **Time budget (async: 112.5 min)**
-- Videos 48 + Notebook 47 + Quiz 7.5 + Project work 10 = 112.5
-
-**Synchronous session plan (112.5 min, recorded)**
-Pre-recorded micro-videos are available for students to watch before or after the session.
-
-| Block | Duration | Content |
-|-------|----------|---------|
-| Week 3 Recap | 10 min | Review Days 11-14 (trees, forests, boosting, model selection) |
-| Live Recap & Demo: Interpretation | 15 min | Condensed highlights + live Colab demo of importance & PDP on a real model |
-| PAUSE-AND-DO (live) | 20 min | Students interpret their champion model with instructor guidance |
-| Break | 5 min | |
-| Project Discussion | 25 min | Milestone 3 review (improved model + draft abstract due today), Milestone 4 preview (final research-poster requirements + intra-group peer-evaluation form, Purdue Undergraduate Research Conference poster format) |
-| Competition Strategy | 10 min | Advanced tips: ensembles, feature engineering, leaderboard update |
-| Course Q&A + Quiz | 17.5 min | Week 3 review, Week 4 preview, video recording guidance, concept quiz |
+- Videos 50 + Notebook 45 + Quiz 7.5 + M3 work 10 = 112.5
 
 **Bibliography**
-- scikit-learn User Guide: inspection tools (permutation importance, partial dependence)  
-- Molnar (optional): *Interpretable Machine Learning* (global/local methods and caveats)  
-- ISLP: interpretation discussions across linear and tree-based methods
+- scikit-learn User Guide: inspection tools (permutation importance, partial dependence) and probability calibration.
+- Provost & Fawcett: cost-aware decision making with predictions.
+- Niculescu-Mizil & Caruana; Zadrozny & Elkan: foundational calibration references.
 
 ---
 
-# Week 4 (Days 16–20): Error Analysis, Fairness/Ethics, Deployment Thinking, Executive Narrative, Final Project  
-**Project milestone:** Week 4 final deliverable due **Day 20**  
+# Week 4 (Days 16–20): Time Series, Communication, Competition Workflow, Deep Learning, Course End
+**Project milestone:** Week 4 final deliverable (M4 Poster + Peer Evaluation) due **Day 20**
 **Kaggle Case Competition:** Final submission deadline **Day 20 (Fri June 12, 11:59 PM)**
+**Reflection survey:** Required for course completion, due **Day 20 (Fri June 12, 11:59 PM)**
+
+> **Restructure note (April 2026):** Week 4 was redesigned to add Time Series (Day 16) and Deep Learning (Day 19) as core topics for business analytics careers. Calibration was merged into Day 15. Standalone fairness and reproducibility days were retired; the load-bearing pieces (model card limitations, joblib persistence, monitoring vocabulary) were folded into nb15 (decision-policy + limitations) and nb18 (competition workflow + pipeline persistence) respectively.
 
 ---
 
-## Day 16 — Mon June 8  
-### Probability calibration for decision quality  
+## Day 16 — Mon June 8
+### Time-series forecasting: walk-forward CV, lag features, and baseline models
 **Learning objectives**
-- Diagnose whether a classifier's probabilities are trustworthy using reliability diagrams and the Brier score.
-- Apply post-hoc calibration with `CalibratedClassifierCV` (isotonic vs. sigmoid/Platt) and measure the improvement.
-- Explain why tree-based ensembles are often miscalibrated and why well-regularized linear models usually are not.
-- Recognize when calibration matters for a decision (action decisions) and when it does not (ranking decisions — AUC is invariant under calibration).
-- Run a short cost-based threshold refresh from nb07, applied on top of calibrated probabilities.
+- Distinguish a forecasting problem from a generic supervised-learning problem and choose the right evaluation protocol.
+- Build a time-respecting train/test split where the test window is the most recent slice of history.
+- Run **walk-forward cross-validation** with `TimeSeriesSplit` instead of k-fold.
+- Engineer **lag features** (`lag1`, `lag12`) and fit a linear regression that respects temporal order.
+- Compare three baselines (naive, seasonal-naive, linear-with-lags) using identical CV folds.
+- Open the locked test window in a one-shot evaluation ceremony, mirroring nb14's protocol.
 
-**Micro-videos (54 min)**
-1. Concept+demo: Discrimination vs. calibration — when a "70% probability" actually means 70% (10)  
-2. Guided practice: nb07 threshold-tuning 5-minute refresh on the screening cost matrix (8)  
-3. Concept+demo: Reliability diagrams + Brier score as the calibration metric (10)  
-4. Guided practice: `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay (8)  
-5. Concept+demo: Why tree ensembles need calibration and linear models usually don't (9)  
-6. Solution: Picking the calibrator + bridge to decision policy and Kaggle probabilistic scoring (9)
+**Micro-videos (50 min)**
+1. Concept+demo: Forecasting vs. generic supervised — why row order changes everything (9)
+2. Guided practice: Time plot + STL intuition on a monthly demand series (8)
+3. Concept+demo: Walk-forward CV with `TimeSeriesSplit` (9)
+4. Guided practice: Build `lag1` / `lag12` features and CV a linear baseline (8)
+5. Solution: Three-baseline comparison (naive, seasonal-naive, linear) on identical folds (8)
+6. Solution: Open the locked test window — one-shot evaluation ceremony + bridge to nb17 (8)
 
 **Notebook(s)**
-- File: `nb16_decision_thresholds_calibration_student.ipynb`  
+- File: `nb16_time_series_forecasting_student.ipynb`
 - Sections:
-  - **nb07 threshold + cost refresh** (compact 5-minute section, references nb07 for deep context)
-  - **Calibration diagnostics** — reliability diagram + Brier score on a Random Forest from nb12
-  - **Calibration fixes** — `CalibratedClassifierCV` with isotonic vs. sigmoid, three-way reliability overlay + Brier winner
-  - Decision policy summary block (ready for slides)
-  - Sensitivity analysis on the FN cost
+  - Synthetic 60-month DemandCo series (trend + annual seasonality + noise)
+  - Time-respecting train/test split (last 12 months held out)
+  - `TimeSeriesSplit(5)` walk-forward CV visualization
+  - Lag features (`lag1`, `lag12`) construction and discussion of dropped early rows
+  - Three-baseline comparison with Student's *t* 95% CIs
+  - Locked-test-window opening ceremony with INSIDE / ABOVE / BELOW verdict
 
 **In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Select a threshold that minimizes expected cost and justify it.  
-- Pause-and-do (10): Check calibration and decide whether calibration is needed.
+- PAUSE-AND-DO 1: Cross-validate a linear regression on `[lag1, lag12]` using `TimeSeriesSplit(5)` and report the mean MAE.
+- PAUSE-AND-DO 2: Add a `month_of_year` calendar feature and rerun the comparison; decide whether it beats the 2-lag baseline.
 
 **Assessments**
-- Concept quiz: thresholds, calibration, decision impact  
-- Short deliverable: decision policy paragraph (for project slides)
+- Concept quiz: forecasting vocabulary, walk-forward CV, lag-feature engineering
 
 **Time budget (112.5 min)**
-- Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
+- Videos 50 + Notebook 45 + Quiz 7.5 + Reflection 10 = 112.5
 
 **Bibliography**
-- Provost & Fawcett: decision-making with predictions and cost alignment  
-- scikit-learn User Guide: thresholding and calibration tooling  
-- Optional calibration: Niculescu-Mizil & Caruana; Zadrozny & Elkan
+- Hyndman & Athanasopoulos: *Forecasting: Principles and Practice* — [otexts.com/fpp3](https://otexts.com/fpp3/).
+- scikit-learn User Guide: `TimeSeriesSplit` and time-series cross-validation.
+- Course slides: `lecture_slides/08_time_series/`.
 
 ---
 
-## Day 17 — Tue June 9  
-### Fairness and ethics basics: responsible predictive analytics (minimum viable rigor)  
-**Learning objectives**
-- Identify fairness risks and ethical failure modes in predictive systems.
-- Compute basic group fairness diagnostics (when sensitive attributes exist).
-- Use slicing to detect performance disparities across segments.
-- Write a model card-style limitations and responsible-use section.
-- Apply responsible AI framing to the course project deliverable.
-
-**Micro-videos (54 min)**
-1. Concept+demo: Fairness vocabulary (disparity, harm, proxies, feedback loops) (10)  
-2. Guided practice: Set up group slicing evaluation (8)  
-3. Solution: Slicing report + mistakes + extension: intersectional slices (9)  
-4. Concept+demo: Fairness metrics (selection rate, TPR/FPR gaps) + caution (10)  
-5. Guided practice: Compute basic fairness diagnostics (8)  
-6. Solution: Interpretation + what not to claim + extension: mitigation options (9)
-
-**Notebook(s)**
-- File: `nb17_fairness_slicing_model_cards.ipynb`  
-- Sections:
-  - Slice-based performance table
-  - Optional fairness metrics (dataset permitting)
-  - Model card template: intended use, limitations, risks, monitoring
-  - Gemini prompts for drafting text + evidence-tightening checklist
-
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Create slice performance table and highlight one disparity (if any).  
-- Pause-and-do (10): Draft a model card limitations section (6–8 lines).
-
-**Assessments**
-- Concept quiz: fairness basics, responsible communication  
-- Upload model card draft text (project-ready)
-
-**Time budget (112.5 min)**
-- Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
-
-**Bibliography**
-- Barocas, Hardt, Narayanan: *Fairness and Machine Learning*  
-- Hardt, Price, Srebro: Equality of Opportunity  
-- Mitchell et al.: Model Cards for Model Reporting  
-- Optional: Chouldechova (fair prediction with disparate impact)
-
----
-
-## Day 18 — Wed June 10  
-### Deployment thinking: reproducibility, monitoring, drift, and “don’t ship a notebook”  
-**Learning objectives**
-- Package a model pipeline reproducibly (single function, fixed preprocessing).
-- Save/load model artifacts and ensure consistent inference.
-- Define monitoring signals (data drift, performance drift, calibration drift).
-- Create a minimal production checklist and risk log.
-- Prepare the project notebook for executive-facing reproducibility.
-
-**Micro-videos (54 min)**
-1. Concept+demo: Reproducible pipelines (fit once, run anywhere) (10)  
-2. Guided practice: Refactor notebook into functions + config block (8)  
-3. Solution: Refactor review + extension: experiment config (9)  
-4. Concept+demo: Monitoring + drift (what to watch and why) (10)  
-5. Guided practice: Create monitoring checklist + drift proxies (8)  
-6. Solution: Monitoring plan + mistakes + extension: governance (9)
-
-**Notebook(s)**
-- File: `nb18_reproducibility_monitoring_student.ipynb`  
-- Sections:
-  - Refactor into `train()` / `predict()` / `evaluate()`
-  - Save/load via joblib
-  - Monitoring plan template (tables)
-  - **From trained pipeline to Kaggle submission** (load the saved pipeline → read a held-out CSV → produce `submission.csv` with correct column names; the last-mile mechanics for the Bank Churn competition on Day 20)
-  - “Ready-to-share” notebook hygiene checklist
-
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Implement `train_model(config)` returning pipeline + metrics.  
-- Pause-and-do (10): Draft a monitoring plan with 5–8 signals and owners.
-
-**Assessments**
-- Concept quiz: reproducibility + drift  
-- Participation: notebook submission with completed exercises
-
-**Time budget (112.5 min)**
-- Videos 54 + Notebook 46 + Quiz 7.5 + Reflection 5 = 112.5
-
-**Bibliography**
-- Chip Huyen: *Designing Machine Learning Systems*  
-- Optional: *Machine Learning Design Patterns* (Lakshmanan et al.)  
-- Optional: *Dataset Shift in Machine Learning* (Quionero-Candela et al.)  
-- Rabanser, Günnemann, Lipton: dataset shift detection (Failing Loudly)  
-- scikit-learn User Guide: model persistence and reproducible pipelines
-
----
-
-## Day 19 — Thu June 11  
-### Elements of data communication and poster design: six principles applied to the eleven-section research-poster architecture  
+## Day 17 — Tue June 9
+### Data communication and poster design: six principles applied to the eleven-section research-poster architecture
 **Learning objectives**
 - Apply the **six principles of data communication** (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) to a project figure.
 - Diagnose common chart failures (misleading scales, dual axes, pie-chart abuse) and rebuild the same data into a clearer view.
@@ -1041,15 +944,15 @@ Pre-recorded micro-videos are available for students to watch before or after th
 - Draft the **eleven-section poster outline** and the **120–150-word abstract** for the M4 final-poster submission.
 
 **Micro-videos (42 min)**
-1. Concept+demo: Forest-and-trees framing + the six-principles overview (6)  
-2. Concept+demo: Context, visualization-derives-from-data, common chart failures (8)  
-3. Concept+demo: Less-is-more — data-ink ratio + the eight-step cleanup walk-through (8)  
-4. Concept+demo: Hierarchy + beauty — accent colors, emphasis, "telling your story" sequence (7)  
-5. Guided practice: Eleven-section poster outline + visual-hierarchy planning on the URC template (7)  
+1. Concept+demo: Forest-and-trees framing + the six-principles overview (6)
+2. Concept+demo: Context, visualization-derives-from-data, common chart failures (8)
+3. Concept+demo: Less-is-more — data-ink ratio + the eight-step cleanup walk-through (8)
+4. Concept+demo: Hierarchy + beauty — accent colors, emphasis, "telling your story" sequence (7)
+5. Guided practice: Eleven-section poster outline + visual-hierarchy planning on the URC template (7)
 6. Solution: Poster-outline example + abstract-paragraph rewrite + extension: presenting at URC (6)
 
 **Notebook(s)**
-- File: `nb19_data_communication_poster.ipynb`  
+- File: `nb17_data_communication_poster_student.ipynb`
 - Sections:
   - The six principles of data communication (worked examples + chart-failure gallery)
   - Data-ink ratio cleanup walk-through (eight panels)
@@ -1059,85 +962,162 @@ Pre-recorded micro-videos are available for students to watch before or after th
   - Gemini prompts: chart-audit; abstract-paragraph rewrite
 
 **In-notebook exercises**
-- PAUSE-AND-DO 1 (8 min): Audit one project figure against the six principles; produce a three-bullet rebuild plan.  
+- PAUSE-AND-DO 1 (8 min): Audit one project figure against the six principles; produce a three-bullet rebuild plan.
 - PAUSE-AND-DO 2 (15 min): Draft the eleven-section poster outline + a 120–150-word abstract.
 
 **Assessments**
-- Concept quiz: data communication principles + poster section architecture  
+- Concept quiz: data communication principles + poster section architecture
 - Project checkpoint: draft poster outline + abstract paragraph (M4 input)
 
 **Time budget (112.5 min)**
 - Videos 42 + Notebook 45 + Quiz 7.5 + Project studio 18 = 112.5
 
 **Bibliography**
-- Edward Tufte: *The Visual Display of Quantitative Information* (data-ink ratio)  
-- Kieran Healy: *Data Visualization — A Practical Introduction*  
-- Cole Nussbaumer Knaflic: *Storytelling with Data*  
-- Kastellec & Leoni: "Using Graphs Instead of Tables in Political Science"  
-- Purdue Undergraduate Research Conference poster rubric and template
+- Edward Tufte: *The Visual Display of Quantitative Information* (data-ink ratio).
+- Cole Nussbaumer Knaflic: *Storytelling with Data*.
+- Kieran Healy: *Data Visualization — A Practical Introduction*.
+- Purdue Undergraduate Research Conference poster rubric and template.
 
 ---
 
-## Day 20 — Fri June 12  
-### Final delivery: project package submission + peer review + course closeout  
+## Day 18 — Wed June 10
+### Competition workflow: end-to-end pipeline from notebook to Kaggle submission
 **Learning objectives**
-- Deliver a complete end-to-end predictive analytics package.
-- Produce a final research poster (single PDF named `<group-number>.pdf`) following the Purdue Undergraduate Research Conference template, plus the supporting run-all notebook.
-- Demonstrate reproducibility (run-all notebook, documented choices).
-- Evaluate peers’ work using a structured rubric and provide actionable feedback.
-- Write a concise postmortem: what worked, what didn’t, what you’d do next.
+- Walk the Bank Churn case competition end-to-end through the eight workflow steps the rubric expects.
+- Refactor modeling code into reusable functions (`build_pipeline`, `train_pipeline`, `predict_pipeline`).
+- Save and reload the trained pipeline with `joblib`.
+- Generate a `submission.csv` file in the exact column format the Kaggle leaderboard requires.
+- Run the full pipeline on the locked Kaggle test set once at the end (the Day 20 final-submission ceremony).
 
-**Micro-videos (30 min; 6×5 min)**
-1. Final submission checklist (what graders check first) (5)  
-2. Guided practice: Run-all reproducibility audit (5)  
-3. Solution: Common submission failures + prevention (5)  
-4. Peer review rubric (how to be useful, not nice) (5)  
-5. Guided practice: High-signal feedback in 5 minutes (5)  
-6. Solution: Example peer review + extension: next-iteration roadmap (5)
+**Micro-videos (50 min)**
+1. Concept+demo: End-to-end workflow overview — the eight rubric steps (8)
+2. Guided practice: `ColumnTransformer` preprocessor + baseline logistic regression (9)
+3. Guided practice: Improved model (gradient boosting) + CV CI comparison (9)
+4. Concept+demo: Refactor to `train_pipeline` / `predict_pipeline` functions (8)
+5. Concept+demo: `joblib.dump` / `joblib.load` for portable artifacts (8)
+6. Solution: Generate `submission.csv` with exact column names + leaderboard checklist (8)
 
 **Notebook(s)**
-- File: `nb20_final_submission_peer_review.ipynb`  
+- File: `nb18_competition_workflow_student.ipynb`
 - Sections:
-  - Final self-audit checklist (run-all, outputs, links)
-  - Submission links + artifact manifest (notebook, deck, video)
-  - Peer review form (rubric + comment prompts)
-  - Postmortem prompts (8–10 lines)
+  - Load competition data (`train.csv` + unlabeled `test.csv`) and sanity checks
+  - EDA snapshot (class balance, missingness, correlations)
+  - `ColumnTransformer` preprocessor (numeric + categorical)
+  - Baseline logistic regression + CV
+  - Improved gradient-boosting model + CI-overlap rule
+  - Refactor into `train_pipeline` / `predict_pipeline`
+  - `joblib` save and reload
+  - Generate `submission.csv` with exact Kaggle column names
 
 **In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Run-all audit and fix one reproducibility issue (real or simulated).  
-- Pause-and-do (10): Complete one peer review with rubric scores + 3 actionable edits.
+- PAUSE-AND-DO 1: Pick the competition champion based on CV CIs and justify in three sentences.
+- PAUSE-AND-DO 2: Generate `submission.csv` and confirm the five-item leaderboard checklist passes.
+
+**Assessments**
+- Concept quiz: pipeline persistence, column-name contracts, covariate-shift diagnostics
+- Participation: notebook submission with completed exercises + Kaggle leaderboard upload
+
+**Time budget (112.5 min)**
+- Videos 50 + Notebook 45 + Quiz 7.5 + Submission staging 10 = 112.5
+
+**Bibliography**
+- Chip Huyen: *Designing Machine Learning Systems* (chapters on serving and pipelines).
+- scikit-learn User Guide: model persistence with `joblib`.
+- Course case-competition starter pack: `_course_case_competition/2026Summer/`.
+
+---
+
+## Day 19 — Thu June 11
+### Special topic: Deep learning (awareness, when-to-use, and one tabular demo)
+**Learning objectives**
+- Explain the historical arc that took neural networks from the 1980s rebrand into deep learning's 2010 resurgence and the three drivers (compute, data, frameworks).
+- Describe what a single neuron, a single hidden layer, and a multi-layer perceptron compute, in plain language.
+- Distinguish three deep-learning structural inventions — fully-connected MLPs, CNNs, and RNNs/Transformers — and name one problem class each is designed for.
+- Decide whether deep learning is the right tool for a given business problem using a four-question rubric.
+- Run a single MLP classifier on a familiar tabular dataset and compare it honestly to gradient boosting from nb13.
+
+**Micro-videos (45 min)**
+1. Concept+demo: Historical arc — 1980s rebrand to 2010 resurgence (8)
+2. Concept+demo: PyTorch vs. TensorFlow — what the frameworks add over `numpy` (7)
+3. Concept+demo: Single neuron → single layer → MLP (8)
+4. Concept+demo: CNNs for images + RNNs/Transformers for sequences (8)
+5. Guided practice: `MLPClassifier` vs. gradient boosting on tabular data (7)
+6. Solution: Four-question rubric for "is deep learning right for this problem?" (7)
+
+**Notebook(s)**
+- File: `nb19_deep_learning_student.ipynb`
+- Sections (replicates `lecture_slides/10_deep_learning/10_deep_learning.qmd` structure):
+  - Historical arc + the three drivers
+  - PyTorch vs. TensorFlow
+  - Single neuron → single layer → MLP (figures from `notebooks/figures/dl_*.png`)
+  - CNN structural prior for images
+  - RNN / Transformer for sequences
+  - Four-question rubric for tool selection
+  - `MLPClassifier` vs. gradient-boosting comparison on familiar tabular data
+
+**In-notebook exercises (10-minute scope)**
+- PAUSE-AND-DO 1: Apply the four-question rubric to the Bank Churn case competition and the DemandCo time-series forecast; produce one verdict each.
+- PAUSE-AND-DO 2: Add a deeper MLP (`hidden_layer_sizes=(128,64,32)`) to the comparison; write three sentences answering "should we be using deep learning?" for the VP of Strategy.
+
+**Assessments**
+- Concept quiz: deep-learning vocabulary, structural inventions, when-to-use rubric
+
+**Time budget (112.5 min)**
+- Videos 45 + Notebook 50 + Quiz 7.5 + Reflection 10 = 112.5
+
+**Bibliography**
+- ISLP, Chapter 10: Deep Learning.
+- PyTorch tutorials: <https://pytorch.org/tutorials/beginner/basics/intro.html>.
+- Goodfellow, Bengio, Courville: *Deep Learning* — <https://www.deeplearningbook.org/>.
+- 3Blue1Brown's neural-network video series.
+
+---
+
+## Day 20 — Fri June 12
+### Course end and reflection: project package submission + peer review + reflection survey
+**Learning objectives**
+- Deliver a complete end-to-end predictive analytics package (M4 poster + Kaggle submission).
+- Demonstrate reproducibility (run-all notebook, documented choices).
+- Evaluate peers' work using a structured rubric and provide actionable feedback.
+- Write a concise postmortem: what worked, what did not, what to do next.
+- Submit the **course-end reflection survey** seeding next-summer's redesign.
+
+**Micro-videos (30 min; 6×5 min)**
+1. Final submission checklist (what graders check first) (5)
+2. Guided practice: Run-all reproducibility audit (5)
+3. Solution: Common submission failures + prevention (5)
+4. Peer review rubric (how to be useful, not nice) (5)
+5. Guided practice: High-signal feedback in 5 minutes (5)
+6. Solution: Reflection survey walk-through + course-end Q&A (5)
+
+**Notebook(s)**
+- File: `nb20_final_submission_peer_review_student.ipynb`
+- Sections:
+  - Final self-audit checklist (run-all, outputs, links)
+  - Submission links + artifact manifest (notebook, poster, joblib)
+  - Peer review form (rubric + comment prompts)
+  - Postmortem prompts (8–10 lines)
+  - **Reflection survey** intro + pre-survey reflection seeds (10–15 min on Brightspace)
+
+**In-notebook exercises (10-minute scope)**
+- PAUSE-AND-DO: Run-all audit and fix one reproducibility issue (real or simulated).
+- PAUSE-AND-DO: Complete one peer review with rubric scores + 3 actionable edits.
+- PAUSE-AND-DO (5 min): Pre-survey reflection seeds before opening the survey link.
 
 **Assessments**
 - **Project Milestone 4 (due): Final Research Poster + intra-group Peer Evaluation**
-  - Single PDF poster named `<group-number>.pdf` (e.g., `01.pdf`, `17.pdf`) following the Brightspace template (Purdue Undergraduate Research Conference poster format)
-  - Each group member submits an individual confidential peer-evaluation form rating the other three teammates
-  - Optional Fall 2026 conference presentation strongly encouraged (faculty mentorship available — email Prof. Moreira before M3)
-  - Detail: [`_final_project/2026Summer/milestone_04_final_poster.md`](_final_project/2026Summer/milestone_04_final_poster.md)
-- **Kaggle Case Competition deadline (11:59 PM):** Final Kaggle submission + Brightspace code submission (complete, replicable code for best-performing model)
+  - Single PDF poster named `<group-number>.pdf` (e.g., `01.pdf`, `17.pdf`) — Brightspace template (Purdue URC poster format).
+  - Each group member submits an individual confidential peer-evaluation form rating the other three teammates.
+- **Kaggle Case Competition: Final submission** — leaderboard locks 11:59 PM.
+- **Course-end Reflection Survey (required for completion)** — Brightspace link.
+- Optional Fall 2026 conference presentation strongly encouraged (faculty mentorship available).
 
-**Time budget (async: 112.5 min)**
-- Videos 30 + Final submission notebook work 55 + Competition code packaging 20 + Postmortem 7.5 = 112.5
-
-**Synchronous session plan (112.5 min, recorded)**
-Pre-recorded micro-videos are available for students to watch before or after the session.
-
-| Block | Duration | Content |
-|-------|----------|---------|
-| Final Submission Workshop | 25 min | Live run-all audit demo, reproducibility checklist, Brightspace submission walkthrough |
-| Break | 5 min | |
-| Student Presentations | 40 min | Selected teams/individuals present projects (~5 min each, 6-8 presentations) |
-| Competition Leaderboard Reveal | 15 min | Final rankings, top performers share their approaches |
-| Course Wrap-up | 20 min | Key takeaways, career applications, postmortem discussion, course evaluations |
-| Final Q&A | 7.5 min | Last questions |
-
-**Note:** Milestone 4 + Kaggle competition deadline at 11:59 PM (after the lecture).
+**Time budget (112.5 min)**
+- Videos 30 + Notebook 45 + Quiz 7.5 + Submission/Survey 30 = 112.5
 
 **Bibliography**
-- Mitchell et al.: Model Cards (responsible reporting alignment)  
-- Chip Huyen: deployment checklists and monitoring as product handoff  
-- Storytelling with Data / Pyramid Principle: narrative polish and reviewer-friendly structure
-
----
+- Course rubric for M4 final poster.
+- Purdue Undergraduate Research Conference: poster guidelines and dress code.
 
 # Project bibliography (applies across all milestones)
 - Provost & Fawcett: *Data Science for Business* (problem framing, value, evaluation)

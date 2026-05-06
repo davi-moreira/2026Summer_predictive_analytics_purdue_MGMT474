@@ -10,7 +10,7 @@ violate the CV-first rule (see claude.md → "CRITICAL RULE - CV-First Evaluatio
 The only acceptable hits are:
   * notebooks/nb14_model_selection_protocol_student.ipynb cell 33 (the one
     authorized test-set opening ceremony)
-  * notebooks/nb18_reproducibility_monitoring_student.ipynb (Kaggle-submission
+  * notebooks/nb18_competition_workflow_student.ipynb (Kaggle-submission
     demo — production pipeline, not model evaluation)
 
 Anything else is a regression and must be fixed before commit.
@@ -85,7 +85,7 @@ def main() -> int:
         return 0
 
     print()
-    print("Acceptable: nb14 cell 33; nb18 Kaggle-submission demo.")
+    print("Acceptable: nb14 cell 33 (test-set ceremony); nb18 (Kaggle-submission demo).")
     print("Anything else is a regression — fix before commit.")
     return 1
 
