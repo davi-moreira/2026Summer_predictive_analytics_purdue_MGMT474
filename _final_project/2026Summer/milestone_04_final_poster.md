@@ -1,4 +1,4 @@
-# Final Project Milestone 04 — Final Research Poster
+# Final Project Milestone 04 — Final Poster
 
 ## About the Final Project
 
@@ -23,13 +23,13 @@ Submit **two files** per group on Brightspace by the posted deadline. One design
 | 1 | **`NN.pdf`** *(e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`)* | Single PDF poster, Purdue Undergraduate Research Conference format. **Do not include the section number in the filename** — this convention is what allows the instructor to print the posters for free. |
 | 2 | **`NN_final.ipynb`** *(e.g., for group 03, `03_final.ipynb`)* | The final Jupyter notebook with the runnable code. Must complete a fresh **"Runtime → Run All"** in Colab without errors, and must include the saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from M3 plus the one-shot test-set evaluation. |
 
-Detailed format requirements (poster dimensions, attached template, attached rubric, notebook content, exact Brightspace location) are in the **Poster — Components → Format** sections below.
+Detailed format requirements (poster dimensions, attached template, notebook content, exact Brightspace location) are in the **Poster — Components → Format** sections below. The poster rubric is embedded in the **Grading — Poster Rubric** section of this document.
 
 ---
 
 ## Purpose
 
-M4 is the capstone deliverable — the public-facing research poster that synthesizes the entire project arc into a single readable artifact, plus the final Jupyter notebook that backs every claim on the poster. The instructor/TA evaluates your group's poster against the attached rubric, which drives the **40% Instructor/TA Evaluation** component of the project grade; on-time, complete submission of both files also contributes to the **40% Milestone Deliverables** average across M1–M4.
+M4 is the capstone deliverable — the public-facing research poster that synthesizes the entire project arc into a single readable artifact, plus the final Jupyter notebook that backs every claim on the poster. The instructor/TA evaluates your group's poster against the rubric in the **Grading — Poster Rubric** section of this document, which drives the **40% Instructor/TA Evaluation** component of the project grade; on-time, complete submission of both files also contributes to the **40% Milestone Deliverables** average across M1–M4.
 
 ## Poster — Components
 
@@ -75,7 +75,7 @@ If a figure tells the same story as one already on the poster, replace it — ev
 | **Dimensions** | Per the **poster template attached to this Brightspace assignment** (standard Purdue Undergraduate Research Conference format) |
 | **Filename convention** | `NN.pdf` where `NN` is your assigned group number — e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`. **Do not include the section number.** Following this convention is what allows the instructor to print the posters for free. |
 | **Template** | Attached to this Brightspace assignment by the instructor (download before you begin drafting) |
-| **Rubric** | Attached to this Brightspace assignment by the instructor (use it for self-check before submission) |
+| **Rubric** | Embedded in this document — see the **Grading — Poster Rubric** section below. Use it for self-check before submission. |
 | **Examples** | Award-winning prior posters: <https://davi-moreira.github.io/applied_projects.html> |
 
 ### Format — Final Notebook (`NN_final.ipynb`)
@@ -87,11 +87,11 @@ If a figure tells the same story as one already on the poster, replace it — ev
 | **Required content** | Saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from the M3 final-training step; the **one-shot test-set evaluation** with the INSIDE / ABOVE / BELOW verdict; all code that produces the figures shown on the poster |
 | **Reproducibility** | Must complete a fresh **"Runtime → Run All"** in Colab without errors |
 
-**Submission location for both files:** Brightspace — Module 4, Final Project Milestone 04.
+**Submission location for both files:** Brightspace.
 
 ## Optional: Presenting at the Fall 2026 Conference
 
-Groups choosing to present at the **Fall 2026 Purdue Undergraduate Research Conference** are encouraged to email Professor Moreira early (ideally before M3) so mentorship and conference-specific guidance can be arranged.
+Groups choosing to present at the **Fall 2026 Purdue Undergraduate Research Conference** are encouraged to email Professor Moreira early so mentorship and conference-specific guidance can be arranged.
 
 - Conference details: <https://www.purdue.edu/undergrad-research/conferences/index.php>
 - Presenting is **optional** and has no impact on the course grade.
@@ -107,7 +107,7 @@ There are **two separate gradebook entries** for your final-project work at this
 - **Milestone 04 (under "Milestone Deliverables")** — graded on **completion / submission**. You receive credit for this entry by submitting both required files (`NN.pdf` and `NN_final.ipynb`) on time and complete. This entry contributes to the **40% Milestone Deliverables** average alongside M1–M3.
 - **Final Submission (under "Instructor / TA Evaluation")** — your poster is graded against the **Predictive Analytics Poster Rubric** below (100-point scale). This grade is reflected in the **Instructor/TA Evaluation** category of the Brightspace gradebook and counts as the **40% Instructor/TA Evaluation** component of your Final Project grade.
 
-> **The instructor will also attach the poster template and the rubric document to this Brightspace assignment.** Download both before you begin drafting; use the template as the starting layout for your poster and the rubric to self-check your draft before submission.
+> **The instructor will attach the poster template to this Brightspace assignment.** Download it before you begin drafting and use it as the starting layout for your poster. The poster rubric itself is embedded directly in this assignment document (see the table immediately below) — use it to self-check your draft before submission.
 
 ### Predictive Analytics Poster Rubric (Poster-Only Assessment)
 
