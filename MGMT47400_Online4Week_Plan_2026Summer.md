@@ -94,7 +94,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 08 | Cross-Validation & Model Comparison | Teaches reliable, low-variance performance estimation through k-fold CV, replacing the fragile single train/val split with a systematic evaluation framework. | nb07 provides the metrics nb08 passes as `scoring`. nb09 embeds CV inside grid search; students must understand standalone CV first. |
 | 09 | Hyperparameter Tuning + Feature Engineering + Leakage Detection | Single-file three-section notebook with an opening **toolkit-closer banner** (cell 1, before the Learning Objectives). Section A turns nb08's CV ritual into `GridSearchCV` / `RandomizedSearchCV`, reading `cv_results_` through the CI-overlap rule (includes a one-paragraph `C`-parameter primer in Section 1.4). Section B introduces `ColumnTransformer` on a synthetic TechCorp Talent Analytics case (first dataset in the course with real categorical columns, including a high-cardinality `manager_id`), adds `FunctionTransformer` for domain features, and stages two leakage case studies (target-encoding in the main demo, `SelectKBest`-outside-pipeline in the pause-and-do). **Section C — Toolkit Recap** consolidates the full mid-course toolkit (concepts, workflow, sklearn primitives, decision rules) into a one-page reference. | nb08 teaches standalone CV; nb09 embeds it inside grid search. nb10 (midterm) requires the full pipeline template from nb09 — Section C's recap is the natural reference for the casebook's strategic-reasoning prompts. The leakage case studies become the prerequisite for nb13's "leaky features dominate boosting" callout. |
 | 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. Includes a **one-page cheat-sheet appendix** with decision tables for metric/scaler/stratify choice, Ridge vs Lasso tie-breakers, CI-overlap rule, and leakage checklist. | nb09 completes the toolkit; nb10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
-| 11 | Decision Trees | Introduces the first non-linear model family (CART), teaching the bias-variance tradeoff concretely through depth sweeps and overfitting demonstrations. Includes a class-imbalance section with `class_weight='balanced'` on artificially down-sampled data and an explicit anti-SMOTE warning. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem. |
+| 11 | Decision Trees (paired clf + reg) | Introduces the first non-linear model family (CART), running **both** Wisconsin breast cancer classification and California Housing regression in parallel under the `_clf` / `_reg` namespace convention. Teaches the bias-variance tradeoff concretely through paired depth sweeps and overfitting demonstrations on both spines, plus tree-vs-linear comparisons (LogReg + Ridge). Two PAUSE-AND-DO exercises — one per spine — apply the one-standard-error rule for depth selection. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem and inherits the dual-spine pattern. |
 | 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. Opens with a **four-method feature-importance reconciliation table** (coefficient magnitude / impurity / permutation / PDP) that becomes the course-wide reference through nb15. | nb11 proves single trees overfit; nb12's motivation ("average many unstable trees") only makes sense after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
 | 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect on any leaked feature. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
 | 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
@@ -656,35 +656,37 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 11 — Mon June 1  
-### Decision trees: interpretable models with sharp edges  
+### Decision trees: interpretable models with sharp edges (paired clf + reg)  
 **Learning objectives**
-- Fit decision trees for regression/classification.
-- Control complexity (depth, min samples) to manage overfitting.
-- Interpret tree structure and failure modes.
-- Compare tree vs linear/logistic baselines under CV.
-- Handle class imbalance with `class_weight='balanced'` as the first-resort tool; understand why SMOTE is not the default.
-- Document “when a tree is the right tool.”
+- Fit `DecisionTreeClassifier` (Wisconsin breast cancer) and `DecisionTreeRegressor` (California Housing) using the `_clf` / `_reg` namespace convention.
+- Visualize each tree with `plot_tree` and interpret the splits in stakeholder language (clinician-readable for clf, defensible-in-court for reg).
+- Diagnose overfitting via paired train-vs-CV curves (5-fold CV) — same pattern, different scales — on both spines.
+- Compare each tree to its linear analogue (LogReg for clf, Ridge for reg) under identical CV folds.
+- Choose `max_depth` using the one-standard-error rule on both spines.
 
 **Micro-videos (54 min)**
-1. Concept+demo: Trees intuition + key hyperparameters (10)  
-2. Guided practice: Fit a tree + visualize + baseline compare (8)  
-3. Solution: Overfitting patterns + mistakes + extension: cost-complexity pruning (9)  
-4. Concept+demo: Tree evaluation under CV + stability concerns (10)  
-5. Guided practice: Imbalanced classes — `class_weight='balanced'` on a down-sampled screening task, anti-SMOTE warning (8)  
-6. Solution: Tuning result + extension: sensitivity analysis (9)
+1. Concept+demo: Tree intuition — axis-aligned splits visualized step-by-step on synthetic 2D data (10)  
+2. Guided practice: Fit + visualize a classification tree on breast cancer; same pattern for a regression tree on California housing (8)  
+3. Solution: Predicted-vs-actual + step-function visuals for the regression tree; why trees can't extrapolate (9)  
+4. Concept+demo: Paired overfitting curves — same shape on both spines (10)  
+5. Guided practice: Tree vs linear analogue (LogReg / Ridge) under identical CV folds (8)  
+6. Solution: Depth selection by the one-standard-error rule + when to use trees (9)
 
 **Notebook(s)**
 - File: `nb11_decision_trees_student.ipynb`  
 - Sections:
-  - Tree fit + visualization
-  - Hyperparameter effects (depth sweep)
-  - CV comparison table
-  - Imbalanced classes — `class_weight='balanced'` as the first-resort tool (artificially imbalanced Breast Cancer demo, anti-SMOTE warning)
-  - Gemini prompts: “generate a clean depth sweep block”
+  - Decision tree intuition (synthetic 2D dataset showing axis-aligned splits at depths 1, 2, 3, 6)
+  - Load both datasets — locked test sets, paired CV splitters
+  - Classification tree on breast cancer — `plot_tree` + train-vs-CV scores
+  - Regression tree on California Housing — `plot_tree` + predicted-vs-actual + step-function visualization
+  - Paired overfitting problem (depth sweep on both, side-by-side panels with the `plot_train_val_curve` helper)
+  - Tree vs linear analogue — paired CV-bar comparison (Tree vs LogReg, Tree vs Ridge)
+  - When to use decision trees — visual decision matrix
+  - Gemini prompts: depth sweep + one-SE rule selector
 
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Run a depth sweep and choose depth based on CV.  
-- Pause-and-do (10): Write 3 observed tree failure modes (with evidence).
+**In-notebook exercises**
+- PAUSE-AND-DO Exercise 1 (clf, 5 min): Tune classification tree depth via 5-fold CV ROC-AUC; apply the one-SE rule.
+- PAUSE-AND-DO Exercise 2 (reg, 5 min): Tune regression tree depth via 5-fold CV R²; convert best CV-RMSE to USD; apply the one-SE rule.
 
 **Assessments**
 - Concept quiz: tree mechanics + overfitting  
