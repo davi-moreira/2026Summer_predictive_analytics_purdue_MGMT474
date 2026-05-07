@@ -97,7 +97,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 11 | Decision Trees (paired clf + reg) | Introduces the first non-linear model family (CART), running **both** Wisconsin breast cancer classification and California Housing regression in parallel under the `_clf` / `_reg` namespace convention. Teaches the bias-variance tradeoff concretely through paired depth sweeps and overfitting demonstrations on both spines, plus tree-vs-linear comparisons (LogReg + Ridge). Two PAUSE-AND-DO exercises — one per spine — apply the one-standard-error rule for depth selection. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem and inherits the dual-spine pattern. |
 | 12 | Random Forests & Importance (paired clf + reg) | Solves the single tree's instability through bagging + random feature subsets, on **both** spines. Paired sections throughout: single-tree vs forest, n_estimators + max_features tuning, OOB vs CV diagnostic, **four-method feature-importance reconciliation heatmap** (linear coefficient / impurity / permutation / drop-column) — the course-wide reference table that nb15 lifts forward. Closes with a comprehensive comparison plot showing single tree, forest, and the **Week-2 reference** (LogReg / OLS) on a CV-CI dot plot per spine. | nb11 proves single trees overfit on both cases; nb12's variance-reduction motivation lands only after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
 | 13 | Gradient Boosting (paired clf + reg) | Completes the ensemble trilogy on **both** spines — sequential error correction with `learning_rate × n_estimators` joint tuning, `staged_predict` early-stopping diagnostic, and a five-candidate comparison plot (Reference, Tree, RF, default GBM, tuned GBM) per spine. Default GBM with shallow trees does not automatically beat RF; tuned GBM with `max_depth=5` typically pulls ahead by a CI-clear margin on regression. Closes with the **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
-| 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
+| 14 | Model Selection Protocol + TWO Ceremonies (paired clf + reg) | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol on **both** spines — identical CV folds, declared primary metric, 5 candidates per spine (Reference, Sparse Linear, Single Tree, RF, tuned GBM). Champion selection memo template + Student's *t* 95% CI. **Two parallel test-set ceremonies** — one for `X_test_clf`, one for `X_test_reg`, each opened exactly ONCE — with INSIDE / ABOVE / BELOW money plot per spine. **Singleness rule callout** explicitly clarifies: two ceremonies in this notebook is a pedagogical demo; your project gets ONE ceremony. | nb13 completes the candidate pool on both spines; nb15 interprets the committed champion. |
 | 15 | Interpretation, Calibration & Decision Quality (Project Improved Model) | Merges the prior nb15 (interpretation + segment errors) with nb16 (calibration + threshold/cost + FN-cost sensitivity) into a single classification-stakeholder narrative. Opens with the four-method importance reference to nb12, threads through PDP and segment-error analysis, then bridges to threshold/cost (nb07 refresh kept), reliability diagrams + Brier, `CalibratedClassifierCV(isotonic)`, and a slide-ready decision-policy paragraph stress-tested by an FN-cost sensitivity sweep. Hosts the improved model milestone. | nb14 selects the champion; interpretation, calibration, and a defensible decision policy are only meaningful after commitment to one model. nb16 (time series) needs an unobstructed Day-16 slot, which the merge frees. |
 | 16 | Time-Series Forecasting | Introduces forecasting as a structurally distinct supervised problem — never shuffle, walk-forward CV via `TimeSeriesSplit`, lag features (`lag1` / `lag12`), and three baselines (naive, seasonal-naive, lag-feature linear regression) compared on identical CV folds. Closes with a one-shot opening of the locked test window mirroring nb14's protocol. | nb15 closes the static-classification arc; nb16 widens the lens to temporal data the operations team will see in real business series. nb17 needs the cross-validated forecast as a candidate poster figure. |
 | 17 | Data Communication & Poster Design (formerly nb19) | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb15 + nb16 supply the headline numbers (CV-CI, calibration, locked-test verdict, forecast comparison) that the poster has to communicate; without them, the design lecture would lack a payload. nb18 takes the poster outline into competition-pipeline mode. |
@@ -802,34 +802,40 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 14 — Thu June 4  
-### Model selection and comparison: making the call like a professional  
+### Model selection and the test-set ceremony — paired clf + reg  
 **Learning objectives**
-- Build a standardized model comparison workflow (same CV, same metric).
-- Use multiple metrics without “metric shopping.”
-- Select a champion model and justify it (performance, stability, interpretability, cost).
-- Create a reproducible experiment log table.
-- Prepare project improved-model plan for submission.
+- Build a standardized model comparison workflow (same CV, same metric, same fold splits) on both spines.
+- Use multiple metrics (primary + 2 supporting) without "metric shopping."
+- Apply the **CI-overlap rule** — the top model earns displacement of the runner-up only if its 95% CI is clearly above.
+- Write a 5-part **champion selection memo** in stakeholder language for each spine.
+- Open the locked test set **exactly once per spine** and pronounce an INSIDE / ABOVE / BELOW verdict against the champion's CV CI.
+- Internalize the **singleness rule**: two demo cases × one ceremony each = one ceremony per project.
 
 **Micro-videos (54 min)**
-1. Concept+demo: Comparison protocol (what must be held constant) (10)  
-2. Guided practice: Build a comparison harness (3 models, 1 function) (8)  
-3. Solution: Harness review + mistakes + extension: runtime tracking (9)  
-4. Concept+demo: Selecting a champion (beyond top score) (10)  
-5. Guided practice: Write a decision memo from results (8)  
-6. Solution: Decision memo example + extension: robustness checks (9)
+1. Concept+demo: Selection protocol — what must be held constant; CI-overlap rule (10)  
+2. Guided practice: 5-candidate comparison harness on both spines + CV-CI dot plot (8)  
+3. Solution: Champion selection memo template + CI-overlap edge cases (9)  
+4. Concept+demo: The test-set ceremony — protocol, money plot, INSIDE/ABOVE/BELOW (10)  
+5. Guided practice: Walk both ceremonies (clf + reg) and read the verdicts (8)  
+6. Solution: Singleness rule + experiment log + bridge to nb15 (9)
 
 **Notebook(s)**
 - File: `nb14_model_selection_protocol_student.ipynb`  
 - Sections:
-  - Comparison harness (pipelines list → CV scores table)
-  - Multi-metric reporting (primary + supporting metrics)
-  - Champion selection memo scaffold
-  - **Opening the locked test set — the ceremony** (nb08-style Student's t 95% CI on champion CV scores, INSIDE / ABOVE / BELOW verdict for the single test score, payoff for the whole course's locking discipline)
-  - Gemini prompts: “generate experiment log table”
+  - Setup with comparison harness + verdict helper
+  - The model selection problem (concept)
+  - Load both datasets — locked test sets
+  - Define 5-candidate roster per spine (Reference, Sparse Linear, Single Tree, RF, tuned GBM)
+  - Multi-metric reporting — paired CV-CI dot plot with primary + supporting metrics
+  - Champion selection memo — auto-generated template per spine
+  - **§7.1 Classification Ceremony** — `X_test_clf` opens once; money plot with INSIDE/ABOVE/BELOW
+  - **§7.2 Regression Ceremony** — `X_test_reg` opens once; money plot in USD-RMSE units
+  - **§7.3 Singleness Rule callout** — two demos but ONE ceremony per project
+  - Experiment log template (one row per ceremony)
 
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Implement the comparison harness for 3 candidate models.  
-- Pause-and-do (10): Write a champion selection memo (5 bullets + 1 risk).
+**In-notebook exercises**
+- PAUSE-AND-DO Exercise 1 (clf, 5 min): Write the classification champion memo in State Health Department language, with an operational revisit trigger.
+- PAUSE-AND-DO Exercise 2 (reg, 5 min): Write the regression champion memo in HomeValue Analytics language, converting R² to USD-RMSE.
 
 **Assessments**
 - Concept quiz: selection protocol + robustness  
