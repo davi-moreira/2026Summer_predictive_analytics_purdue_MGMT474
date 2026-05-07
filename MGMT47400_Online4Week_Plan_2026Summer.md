@@ -98,7 +98,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 12 | Random Forests & Importance (paired clf + reg) | Solves the single tree's instability through bagging + random feature subsets, on **both** spines. Paired sections throughout: single-tree vs forest, n_estimators + max_features tuning, OOB vs CV diagnostic, **four-method feature-importance reconciliation heatmap** (linear coefficient / impurity / permutation / drop-column) — the course-wide reference table that nb15 lifts forward. Closes with a comprehensive comparison plot showing single tree, forest, and the **Week-2 reference** (LogReg / OLS) on a CV-CI dot plot per spine. | nb11 proves single trees overfit on both cases; nb12's variance-reduction motivation lands only after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
 | 13 | Gradient Boosting (paired clf + reg) | Completes the ensemble trilogy on **both** spines — sequential error correction with `learning_rate × n_estimators` joint tuning, `staged_predict` early-stopping diagnostic, and a five-candidate comparison plot (Reference, Tree, RF, default GBM, tuned GBM) per spine. Default GBM with shallow trees does not automatically beat RF; tuned GBM with `max_depth=5` typically pulls ahead by a CI-clear margin on regression. Closes with the **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
 | 14 | Model Selection Protocol + TWO Ceremonies (paired clf + reg) | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol on **both** spines — identical CV folds, declared primary metric, 5 candidates per spine (Reference, Sparse Linear, Single Tree, RF, tuned GBM). Champion selection memo template + Student's *t* 95% CI. **Two parallel test-set ceremonies** — one for `X_test_clf`, one for `X_test_reg`, each opened exactly ONCE — with INSIDE / ABOVE / BELOW money plot per spine. **Singleness rule callout** explicitly clarifies: two ceremonies in this notebook is a pedagogical demo; your project gets ONE ceremony. | nb13 completes the candidate pool on both spines; nb15 interprets the committed champion. |
-| 15 | Interpretation, Calibration & Decision Quality (Project Improved Model) | Merges the prior nb15 (interpretation + segment errors) with nb16 (calibration + threshold/cost + FN-cost sensitivity) into a single classification-stakeholder narrative. Opens with the four-method importance reference to nb12, threads through PDP and segment-error analysis, then bridges to threshold/cost (nb07 refresh kept), reliability diagrams + Brier, `CalibratedClassifierCV(isotonic)`, and a slide-ready decision-policy paragraph stress-tested by an FN-cost sensitivity sweep. Hosts the improved model milestone. | nb14 selects the champion; interpretation, calibration, and a defensible decision policy are only meaningful after commitment to one model. nb16 (time series) needs an unobstructed Day-16 slot, which the merge frees. |
+| 15 | Interpretation, Calibration & Decision Quality (paired clf + reg, Project Improved Model) | Sections 1–6 are paired across **both** spines: refit the committed champions (LogReg for clf, tuned GBM for reg), permutation importance + PDP for both, error analysis differentiated per spine (confusion + per-segment heatmap for clf; residual + RMSE-by-quintile for reg). Section 7 (calibration + threshold + cost + FN-sensitivity) is **classification-only** with explicit framing for regression projects (their decision-quality artifact is the Section 5.2 residual diagnostic + escalation-threshold recommendation). Hosts the improved model milestone. | nb14 commits both champions on both spines; interpretation, calibration, and decision policy are only meaningful after commitment. nb16 (time series) needs an unobstructed Day-16 slot. |
 | 16 | Time-Series Forecasting | Introduces forecasting as a structurally distinct supervised problem — never shuffle, walk-forward CV via `TimeSeriesSplit`, lag features (`lag1` / `lag12`), and three baselines (naive, seasonal-naive, lag-feature linear regression) compared on identical CV folds. Closes with a one-shot opening of the locked test window mirroring nb14's protocol. | nb15 closes the static-classification arc; nb16 widens the lens to temporal data the operations team will see in real business series. nb17 needs the cross-validated forecast as a candidate poster figure. |
 | 17 | Data Communication & Poster Design (formerly nb19) | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb15 + nb16 supply the headline numbers (CV-CI, calibration, locked-test verdict, forecast comparison) that the poster has to communicate; without them, the design lecture would lack a payload. nb18 takes the poster outline into competition-pipeline mode. |
 | 18 | Competition Workflow & Kaggle Submission | End-to-end production pipeline for the Bank Churn case competition: load → EDA snapshot → `ColumnTransformer` preprocessor → baseline + improved model on identical CV folds → refactor into `train_pipeline` / `predict_pipeline` → `joblib` save/load → generate `submission.csv` with exact column names. The Kaggle-submission demo is the only authorized non-nb14 use of the locked Kaggle test file (no labels = production prediction, not model evaluation). | nb15-nb17 supply the champion model and the poster narrative; nb18 packages them into a leaderboard submission and a portable artifact. nb19 widens the lens to deep learning as a horizon topic. |
@@ -852,37 +852,38 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 15 — Fri June 5
-### Interpretation, calibration, and decision quality (project improved model delivery)
+### Interpretation, calibration, and decision quality (paired clf + reg, project improved model delivery)
 **Learning objectives**
-- Explain what a champion classifier learned via permutation importance and partial dependence (PDP).
-- Diagnose where the model fails using segment-level error analysis on classification metrics.
-- Translate model probabilities into a business decision using the nb07 threshold + cost framework.
-- Diagnose calibration with reliability diagrams and the Brier score, and fix miscalibration with `CalibratedClassifierCV(isotonic)`.
-- Draft a slide-ready decision-policy paragraph and stress-test it with an FN-cost sensitivity sweep.
-- Deliver Project Milestone 3 (improved model + draft abstract).
+- Refit the committed champions from nb14 on both spines (LogReg for clf, tuned GBM for reg) and explain via permutation importance + PDP.
+- Run error analysis on each spine: confusion matrix + per-segment metrics for clf; residual plot + RMSE-by-quintile for reg.
+- (Classification track only) Diagnose calibration with reliability diagrams + Brier score; fix miscalibration with `CalibratedClassifierCV`.
+- (Classification track only) Tune a decision threshold under an explicit cost matrix; run an FN-cost sensitivity sweep.
+- Write the M3 milestone scaffold (problem-type-agnostic) — interpretation findings + error analysis + decision quality.
 
 **Micro-videos (50 min)**
-1. Concept+demo: Interpretation toolkit overview + permutation importance walkthrough (8)
-2. Concept+demo: PDP + interpretation pitfalls (8)
-3. Guided practice: Segment error analysis with classification metrics (7)
-4. Concept+demo: Discrimination vs. calibration + nb07 threshold/cost refresh (9)
-5. Guided practice: Reliability diagram + `CalibratedClassifierCV(isotonic)` (9)
-6. Solution: Decision policy + FN-cost sensitivity + bridge to Day 16 / time series (9)
+1. Concept+demo: Interpretation toolkit overview — permutation importance + PDP on both spines (8)
+2. Concept+demo: Error analysis differentiated per spine (confusion vs residual; heatmap vs quintile bars) (8)
+3. Guided practice: Refit champions + paired permutation + paired PDP (7)
+4. Concept+demo: Calibration + threshold + cost (clf-only) + parallel framing for reg (residual diagnostic) (9)
+5. Guided practice: Reliability diagram + threshold sweep under FN:FP cost matrix (9)
+6. Solution: M3 scaffold filled in for one clf and one reg case + bridge to Day 16 (9)
 
 **Notebook(s)**
 - File: `nb15_interpretation_calibration_project_student.ipynb`
 - Sections:
-  - Permutation importance + PDP (cross-reference to nb12's four-method table)
-  - Segment error analysis (precision/recall by feature quartile on out-of-fold predictions)
-  - Threshold + cost refresh from nb07 (kept compact, 5 min)
-  - Reliability diagram + `CalibratedClassifierCV(isotonic)` overlay on validation
-  - Decision-policy paragraph (slide-ready)
-  - FN-cost sensitivity sweep
-  - Project Milestone 3 scaffold
+  - Setup with helpers + Week-2 references
+  - Load both datasets + refit committed champions (LogReg + tuned GBM)
+  - Permutation importance — paired
+  - PDP — paired (top-3 features per spine)
+  - Error analysis — clf (confusion + per-segment heatmap), reg (residual + RMSE-by-quintile)
+  - Decision quality (clf only): reliability diagram + Brier + threshold/cost + FN-cost sensitivity sweep
+  - PAUSE-AND-DO 1 (clf): segment analysis findings
+  - PAUSE-AND-DO 2 (reg): residual diagnosis findings
+  - M3 scaffold (problem-type-agnostic)
 
-**In-notebook exercises (10-minute scope)**
-- PAUSE-AND-DO 1: Combine importance + PDP + segment errors into 3 evidence-based bullets and one named failure segment.
-- PAUSE-AND-DO 2: Draft the 6-line decision-policy paragraph; assess whether the FN-cost sweep makes the policy robust or fragile.
+**In-notebook exercises**
+- PAUSE-AND-DO Exercise 1 (clf, 5 min): Three findings on the per-segment heatmap and confusion matrix for the State Health Department's screening tool.
+- PAUSE-AND-DO Exercise 2 (reg, 5 min): Three findings on the residual plot and RMSE-by-quintile for HomeValue Analytics' price-prediction model, including an escalation-threshold recommendation.
 
 **Assessments**
 - Concept quiz: interpretation + calibration + decision policy
