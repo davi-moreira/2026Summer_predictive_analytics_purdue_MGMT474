@@ -35,6 +35,8 @@ Two threads come together at M3.
 
 By the end of M3 the group should have: a champion model with a defensible CV CI, a clear interpretation of why it improves (or doesn't improve) on the baseline, and a polished draft abstract.
 
+> **Supporting notebooks (nb11–nb15) cover both project tracks symmetrically.** Every algorithm taught in Week 3 is paired across classification (Wisconsin breast cancer / State Health Department example) and regression (California Housing / HomeValue Analytics example) under the `_clf` / `_reg` namespace convention. Each notebook benchmarks new models against the **Week-2 reference** floor (`LogReg(C=1.0)` for clf; `OLS` for reg) using the CI-overlap rule. Bring whichever spine matches your project type into your M3 work; the supporting notebooks demonstrate both.
+
 ## Components
 
 ### 0. Prediction Goal(s)
@@ -67,9 +69,11 @@ Embed each of the following in the report with axis labels, units where applicab
 - **For regression** problems:
   - **Predicted-vs-actual scatter plot** with a 45° reference line (`y = x`)
   - **Residual plot** (residuals vs. predicted) with a horizontal `y = 0` reference line
+  - **RMSE-by-quintile bar chart** (in stakeholder units, e.g. USD) — the *decision-quality* artifact for regression projects, supporting an escalation-threshold recommendation (see nb15 §5.2)
 - **For classification** problems:
   - **Confusion matrix** at the chosen operating threshold (`ConfusionMatrixDisplay`)
   - **ROC curve with AUC annotation** and **Precision–Recall curve with PR-AUC annotation**
+  - **Reliability diagram + Brier score** (the *decision-quality* artifact for classification projects, see nb15 §6.1) — optional but recommended if the model's probabilities feed a downstream decision threshold
 
 ### 2. Draft Abstract (~250 words)
 
