@@ -96,7 +96,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. Includes a **one-page cheat-sheet appendix** with decision tables for metric/scaler/stratify choice, Ridge vs Lasso tie-breakers, CI-overlap rule, and leakage checklist. | nb09 completes the toolkit; nb10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
 | 11 | Decision Trees (paired clf + reg) | Introduces the first non-linear model family (CART), running **both** Wisconsin breast cancer classification and California Housing regression in parallel under the `_clf` / `_reg` namespace convention. Teaches the bias-variance tradeoff concretely through paired depth sweeps and overfitting demonstrations on both spines, plus tree-vs-linear comparisons (LogReg + Ridge). Two PAUSE-AND-DO exercises — one per spine — apply the one-standard-error rule for depth selection. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem and inherits the dual-spine pattern. |
 | 12 | Random Forests & Importance (paired clf + reg) | Solves the single tree's instability through bagging + random feature subsets, on **both** spines. Paired sections throughout: single-tree vs forest, n_estimators + max_features tuning, OOB vs CV diagnostic, **four-method feature-importance reconciliation heatmap** (linear coefficient / impurity / permutation / drop-column) — the course-wide reference table that nb15 lifts forward. Closes with a comprehensive comparison plot showing single tree, forest, and the **Week-2 reference** (LogReg / OLS) on a CV-CI dot plot per spine. | nb11 proves single trees overfit on both cases; nb12's variance-reduction motivation lands only after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
-| 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect on any leaked feature. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
+| 13 | Gradient Boosting (paired clf + reg) | Completes the ensemble trilogy on **both** spines — sequential error correction with `learning_rate × n_estimators` joint tuning, `staged_predict` early-stopping diagnostic, and a five-candidate comparison plot (Reference, Tree, RF, default GBM, tuned GBM) per spine. Default GBM with shallow trees does not automatically beat RF; tuned GBM with `max_depth=5` typically pulls ahead by a CI-clear margin on regression. Closes with the **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
 | 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
 | 15 | Interpretation, Calibration & Decision Quality (Project Improved Model) | Merges the prior nb15 (interpretation + segment errors) with nb16 (calibration + threshold/cost + FN-cost sensitivity) into a single classification-stakeholder narrative. Opens with the four-method importance reference to nb12, threads through PDP and segment-error analysis, then bridges to threshold/cost (nb07 refresh kept), reliability diagrams + Brier, `CalibratedClassifierCV(isotonic)`, and a slide-ready decision-policy paragraph stress-tested by an FN-cost sensitivity sweep. Hosts the improved model milestone. | nb14 selects the champion; interpretation, calibration, and a defensible decision policy are only meaningful after commitment to one model. nb16 (time series) needs an unobstructed Day-16 slot, which the merge frees. |
 | 16 | Time-Series Forecasting | Introduces forecasting as a structurally distinct supervised problem — never shuffle, walk-forward CV via `TimeSeriesSplit`, lag features (`lag1` / `lag12`), and three baselines (naive, seasonal-naive, lag-feature linear regression) compared on identical CV folds. Closes with a one-shot opening of the locked test window mirroring nb14's protocol. | nb15 closes the static-classification arc; nb16 widens the lens to temporal data the operations team will see in real business series. nb17 needs the cross-validated forecast as a candidate poster figure. |
@@ -752,34 +752,40 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 13 — Wed June 3  
-### Gradient boosting: performance with discipline (and leakage avoidance)  
+### Gradient boosting: performance with discipline (paired clf + reg)  
 **Learning objectives**
-- Explain boosting vs bagging at a high level.
-- Train a gradient boosting model with sensible defaults.
-- Tune learning rate / depth / estimators with runtime controls.
-- Compare boosted model vs forest under consistent CV.
-- Identify and control overfitting in boosting.
+- Explain bias-reducing sequential boosting vs variance-reducing parallel bagging on both spines.
+- Fit `GradientBoostingClassifier` and `GradientBoostingRegressor`; benchmark against the nb12 random forest and the Week-2 reference.
+- Tune `learning_rate × n_estimators` jointly via a 3×3 heatmap; demonstrate that the diagonal is the sweet spot.
+- Use `staged_predict` to diagnose overfitting and identify the early-stopping point.
+- Recognize that **default GBM with shallow trees does not always beat RF** — `max_depth=5` is what unlocks GBM's regression edge.
+- Apply the leakage callout: GBM amplifies leaky features more aggressively than any other course algorithm.
 
 **Micro-videos (54 min)**
-1. Concept+demo: Boosting intuition + bias/variance lens (10)  
-2. Guided practice: Fit a baseline boosting model (8)  
-3. Solution: Common pitfalls + extension: learning rate tradeoff (9)  
-4. Concept+demo: Tuning boosting (small, smart grids) (10)  
-5. Guided practice: Run a constrained randomized search (8)  
-6. Solution: Result interpretation + extension: stability notes (9)
+1. Concept+demo: Boosting vs bagging — sequential vs parallel schematic + bias/variance contrast (10)  
+2. Guided practice: Default GBM on both spines + comparison vs RF + Week-2 reference (8)  
+3. Solution: Learning rate trade-off + extension: why slow learning + many trees beats fast learning (9)  
+4. Concept+demo: Joint tuning heatmap + staged_predict early-stopping diagnostic (10)  
+5. Guided practice: Tune GBM 3×3 grid on both spines (8)  
+6. Solution: Final comparison + leaky-features-dominate-boosting warning (9)
 
 **Notebook(s)**
 - File: `nb13_gradient_boosting_student.ipynb`  
 - Sections:
-  - Baseline GBM fit
-  - Constrained tuning template
-  - Comparison report (forest vs GBM)
-  - **A warning for boosting — leaky features dominate the top** (callout section tying nb09's leakage case study to GBM's sequential fitting + three red flags + debugging recipe)
-  - Gemini prompts: constrained RandomizedSearchCV with guardrails
+  - Setup with helpers + Week-2 references
+  - Boosting-vs-bagging schematic
+  - Load both datasets
+  - Baseline GBM on both spines (paired CV-CI)
+  - Learning rate trade-off (paired log-scale curves)
+  - n_estimators × learning_rate joint heatmap (paired)
+  - Overfitting + `staged_predict` early-stopping curves (paired)
+  - Final comparison: 5 candidates per spine — Reference, Tree, RF, default GBM, tuned GBM (max_depth=5)
+  - **Leaky-features warning** with debugging recipe
+  - Gemini prompts: joint tuning + staged loss
 
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Train baseline GBM and compare against RF under CV.  
-- Pause-and-do (10): Run constrained tuning and report best params + score.
+**In-notebook exercises**
+- PAUSE-AND-DO Exercise 1 (clf, 5 min): Tune `GradientBoostingClassifier` over a 3×3 (n_estimators, learning_rate) grid; apply the one-SE rule.
+- PAUSE-AND-DO Exercise 2 (reg, 5 min): Tune `GradientBoostingRegressor` over a 3×3 grid; convert best CV-RMSE to USD; apply the one-SE rule.
 
 **Assessments**
 - Concept quiz: boosting, tuning tradeoffs  
