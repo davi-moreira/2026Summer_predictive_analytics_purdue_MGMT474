@@ -95,7 +95,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 09 | Hyperparameter Tuning + Feature Engineering + Leakage Detection | Single-file three-section notebook with an opening **toolkit-closer banner** (cell 1, before the Learning Objectives). Section A turns nb08's CV ritual into `GridSearchCV` / `RandomizedSearchCV`, reading `cv_results_` through the CI-overlap rule (includes a one-paragraph `C`-parameter primer in Section 1.4). Section B introduces `ColumnTransformer` on a synthetic TechCorp Talent Analytics case (first dataset in the course with real categorical columns, including a high-cardinality `manager_id`), adds `FunctionTransformer` for domain features, and stages two leakage case studies (target-encoding in the main demo, `SelectKBest`-outside-pipeline in the pause-and-do). **Section C — Toolkit Recap** consolidates the full mid-course toolkit (concepts, workflow, sklearn primitives, decision rules) into a one-page reference. | nb08 teaches standalone CV; nb09 embeds it inside grid search. nb10 (midterm) requires the full pipeline template from nb09 — Section C's recap is the natural reference for the casebook's strategic-reasoning prompts. The leakage case studies become the prerequisite for nb13's "leaky features dominate boosting" callout. |
 | 10 | Midterm Casebook | Week 2 capstone — tests strategic reasoning (target, metric, split, leakage risks) across business cases. Hosts the project baseline milestone. Includes a **one-page cheat-sheet appendix** with decision tables for metric/scaler/stratify choice, Ridge vs Lasso tie-breakers, CI-overlap rule, and leakage checklist. | nb09 completes the toolkit; nb10 tests whether students can wield it strategically. Creates a natural pause before the Week 3 tree-based methods arc. |
 | 11 | Decision Trees (paired clf + reg) | Introduces the first non-linear model family (CART), running **both** Wisconsin breast cancer classification and California Housing regression in parallel under the `_clf` / `_reg` namespace convention. Teaches the bias-variance tradeoff concretely through paired depth sweeps and overfitting demonstrations on both spines, plus tree-vs-linear comparisons (LogReg + Ridge). Two PAUSE-AND-DO exercises — one per spine — apply the one-standard-error rule for depth selection. | nb10 consolidates Weeks 1–2; students enter nb11 with solid evaluation skills and can focus on tree mechanics. nb12 solves the single tree's high-variance problem and inherits the dual-spine pattern. |
-| 12 | Random Forests & Importance | Solves the single tree's instability through bagging + random feature subsets. Introduces permutation importance and OOB scores. Opens with a **four-method feature-importance reconciliation table** (coefficient magnitude / impurity / permutation / PDP) that becomes the course-wide reference through nb15. | nb11 proves single trees overfit; nb12's motivation ("average many unstable trees") only makes sense after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
+| 12 | Random Forests & Importance (paired clf + reg) | Solves the single tree's instability through bagging + random feature subsets, on **both** spines. Paired sections throughout: single-tree vs forest, n_estimators + max_features tuning, OOB vs CV diagnostic, **four-method feature-importance reconciliation heatmap** (linear coefficient / impurity / permutation / drop-column) — the course-wide reference table that nb15 lifts forward. Closes with a comprehensive comparison plot showing single tree, forest, and the **Week-2 reference** (LogReg / OLS) on a CV-CI dot plot per spine. | nb11 proves single trees overfit on both cases; nb12's variance-reduction motivation lands only after experiencing that instability. nb13 needs bagging as a contrast for boosting. |
 | 13 | Gradient Boosting | Completes the ensemble trilogy — sequential error correction that often achieves the highest tabular accuracy but requires careful tuning discipline. Closes with a **"leaky features dominate the top" callout** connecting nb09's leakage case studies to boosting's amplification effect on any leaked feature. | nb12 establishes the parallel ensemble baseline (bagging reduces variance); nb13 contrasts with sequential approach (boosting reduces bias). nb14 needs the full candidate roster. |
 | 14 | Model Selection Protocol + Test Set Opening Ceremony | Replaces informal "pick the highest number" comparison with a structured, fair, reproducible protocol — identical CV folds, primary metric. Explicitly opens the locked test set exactly once, computes Student's *t* 95% CI on the champion's CV scores, and delivers an INSIDE / ABOVE / BELOW verdict using nb08's vocabulary — the payoff for eight notebooks of locking discipline. | nb13 completes the candidate pool (logistic, tree, RF, GBM); a formal protocol would be premature without all candidates. nb15 interprets the selected champion. |
 | 15 | Interpretation, Calibration & Decision Quality (Project Improved Model) | Merges the prior nb15 (interpretation + segment errors) with nb16 (calibration + threshold/cost + FN-cost sensitivity) into a single classification-stakeholder narrative. Opens with the four-method importance reference to nb12, threads through PDP and segment-error analysis, then bridges to threshold/cost (nb07 refresh kept), reliability diagrams + Brier, `CalibratedClassifierCV(isotonic)`, and a slide-ready decision-policy paragraph stress-tested by an FN-cost sensitivity sweep. Hosts the improved model milestone. | nb14 selects the champion; interpretation, calibration, and a defensible decision policy are only meaningful after commitment to one model. nb16 (time series) needs an unobstructed Day-16 slot, which the merge frees. |
@@ -703,34 +703,39 @@ Pre-recorded micro-videos are available for students to watch before or after th
 ---
 
 ## Day 12 — Tue June 2  
-### Random forests: bagging, OOB intuition, and feature importance  
+### Random forests: bagging, OOB intuition, and feature importance (paired clf + reg)  
 **Learning objectives**
-- Explain bagging and why forests reduce variance.
-- Train a random forest and tune the most impactful knobs.
-- Use permutation importance responsibly.
-- Compare forest vs tree vs linear/logistic baselines.
-- Produce project-ready model comparison tables.
+- Explain bagging + random feature subsets on both spines (Wisconsin breast cancer and California Housing) and quantify the variance-reduction payoff under identical CV folds.
+- Fit `RandomForestClassifier` and `RandomForestRegressor`; demonstrate CV-score lift over the nb11 single tree and the Week-2 reference (LogReg / OLS).
+- Tune `n_estimators` and `max_features` under the one-standard-error rule on both spines.
+- Read the OOB score as a free, non-redundant validation signal; know when to trust it vs CV.
+- Build the four-method feature-importance reconciliation heatmap (linear coef / MDI / permutation / drop-column) that nb15 uses for interpretation.
 
 **Micro-videos (54 min)**
-1. Concept+demo: Bagging → random forests (why it works) (10)  
-2. Guided practice: Fit a forest + baseline compare (8)  
-3. Solution: Mistakes + extension: OOB vs CV discussion (9)  
-4. Concept+demo: Permutation importance (what it means / doesn’t) (10)  
-5. Guided practice: Compute importance + sanity checks (8)  
-6. Solution: Interpretation pitfalls + extension: grouped features (9)
+1. Concept+demo: Bagging intuition — bootstrap KDE plot, why forests reduce variance (10)  
+2. Guided practice: Single tree vs forest on both spines, paired CV-CI dot plot (8)  
+3. Solution: n_estimators + max_features tuning + extension: OOB vs CV diagnostic (9)  
+4. Concept+demo: Four importance methods explained — what each one measures (10)  
+5. Guided practice: Build the four-method reconciliation heatmap on both spines (8)  
+6. Solution: Interpretation pitfalls + comprehensive Tree-vs-Forest-vs-Week-2-reference comparison (9)
 
 **Notebook(s)**
 - File: `nb12_random_forests_importance_student.ipynb`  
 - Sections:
-  - **Prelude — Four things we call "feature importance"** (coefficient magnitude / impurity / permutation / PDP) with a reconciliation table that is referenced for the rest of the course
-  - Forest training + CV comparison
-  - Permutation importance + plot
-  - Reporting template (model table + narrative bullets)
-  - Gemini prompts: “importance + report block”
+  - Setup with five plot helpers (`plot_train_val_curve`, `plot_predicted_vs_actual`, `plot_cv_ci`, `plot_importance_bars`, `plot_importance_heatmap`) and the two Week-2 reference pipelines
+  - Bagging intuition (bootstrap KDE plot)
+  - Load both datasets — locked test sets, paired CV splitters
+  - Single tree vs forest — paired CV-CI dot plot
+  - Tuning `n_estimators` + `max_features` — paired sweeps with side-by-side overfitting curves and bar plots
+  - OOB vs CV — paired diagnostic curves
+  - **Four-method feature-importance reconciliation heatmap** — paired across both spines
+  - Permutation importance with error bars — paired horizontal bars
+  - Comprehensive comparison: Single Tree vs Forest vs Week-2 reference on a CV-CI dot plot
+  - Gemini prompts: tuning grid + importance heatmap
 
-**In-notebook exercises (10-minute scope)**
-- Pause-and-do (10): Tune `n_estimators` and `max_features` minimally and report effects.  
-- Pause-and-do (10): Compute permutation importance and write 3 interpretation bullets.
+**In-notebook exercises**
+- PAUSE-AND-DO Exercise 1 (clf, 5 min): Tune `RandomForestClassifier` over a 3×3 (n_estimators, max_features) grid; apply the one-SE rule.
+- PAUSE-AND-DO Exercise 2 (reg, 5 min): Tune `RandomForestRegressor` over a 3×3 grid; convert best CV-RMSE to USD; apply the one-SE rule.
 
 **Assessments**
 - Concept quiz: bagging/forests + importance  
