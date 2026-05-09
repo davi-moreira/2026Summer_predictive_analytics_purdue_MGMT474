@@ -119,7 +119,7 @@ E[(Y - \hat{f}(X))^2 | X = x] = [f(x) - \hat{f}(x)]^2 + \text{Var}(\varepsilon)
 ```markdown
 # Day 1: Launchpad - Welcome, Predictive Analytics Fundamentals, and Data Workflow
 
-**MGMT 47400 - Predictive Analytics**
+**QM47400 - Predictive Analytics**
 **4-Week Online Course**
 **Day 1**
 

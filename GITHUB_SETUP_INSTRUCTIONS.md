@@ -49,7 +49,7 @@ cd "/Users/dcordeir/Dropbox/academic/cursos/cursos-davi/predictive_analytics/202
 
 gh repo create davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474 \
   --public \
-  --description "MGMT 47400 - Predictive Analytics | 4-Week Summer Intensive | Purdue Daniels School of Business" \
+  --description "QM47400 - Predictive Analytics | 4-Week Summer Intensive | Purdue Daniels School of Business" \
   --source=. \
   --remote=origin \
   --push
@@ -58,7 +58,7 @@ gh repo create davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474 \
 Option B: Using GitHub Web Interface
 1. Go to https://github.com/new
 2. **Repository name:** `2026Summer_predictive_analytics_purdue_MGMT474`
-3. **Description:** "MGMT 47400 - Predictive Analytics | 4-Week Summer Intensive | Purdue Daniels School of Business"
+3. **Description:** "QM47400 - Predictive Analytics | 4-Week Summer Intensive | Purdue Daniels School of Business"
 4. **Visibility:** Public
 5. **Do NOT** initialize with README, .gitignore, or license (we already have these)
 6. Click "Create repository"

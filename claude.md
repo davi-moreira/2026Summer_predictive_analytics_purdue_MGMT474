@@ -4,7 +4,7 @@ This file documents the rules and workflows that change Claude's behavior in thi
 
 ## Project Mission
 
-**MGMT 47400 — Predictive Analytics**, a 4-week intensive online summer course (20 business days, May 18 – June 12, 2026) for Purdue's Daniels School of Business. Daily engagement: ~112.5 minutes via micro-videos (≤12 min) and Google Colab notebooks. Pedagogy: Concept → Demo → PAUSE-AND-DO Practice → Solution → Repeat.
+**QM47400 — Predictive Analytics**, a 4-week intensive online summer course (20 business days, May 18 – June 12, 2026) for Purdue's Daniels School of Business. Daily engagement: ~112.5 minutes via micro-videos (≤12 min) and Google Colab notebooks. Pedagogy: Concept → Demo → PAUSE-AND-DO Practice → Solution → Repeat.
 
 - **Instructor:** Professor Davi Moreira
 - **Repository:** https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474

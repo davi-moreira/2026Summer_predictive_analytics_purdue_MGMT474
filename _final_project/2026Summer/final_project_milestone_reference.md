@@ -1,6 +1,6 @@
 # Final Project — Milestone Reference (Single Source of Truth)
 
-**Course:** MGMT 47400 — Predictive Analytics
+**Course:** QM47400 — Predictive Analytics
 **Term:** Summer 2026 (4-week intensive, May 18 – June 12, 2026)
 **Instructor:** Professor Davi Moreira
 

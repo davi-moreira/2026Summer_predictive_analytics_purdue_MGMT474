@@ -88,9 +88,9 @@ The midterm exam wraps up the foundational concepts of the course in a comprehen
 
 ### Course Case Competition — Kaggle (20%)
 
-A course-long predictive analytics competition hosted on Kaggle. The **Summer 2026 MGMT47400 Case Competition: Bank Churn** is adapted from the 2024 Kaggle Playground Series, which uses AI-generated synthetic data designed for educational purposes. Your task is to build models that predict whether a customer continues with their account or closes it (churn). **Students are randomly assigned to teams (up to four members)** and have a limit of **five Kaggle submissions per day**. The competition **opens May 18, 2026, and the final submission deadline is June 12, 2026**. Kaggle automatically evaluates submissions and maintains the leaderboard throughout the competition period.
+A course-long predictive analytics competition hosted on Kaggle. The **Summer 2026 QM47400 Case Competition: Bank Churn** is adapted from the 2024 Kaggle Playground Series, which uses AI-generated synthetic data designed for educational purposes. Your task is to build models that predict whether a customer continues with their account or closes it (churn). **Students are randomly assigned to teams (up to four members)** and have a limit of **five Kaggle submissions per day**. The competition **opens May 18, 2026, and the final submission deadline is June 12, 2026**. Kaggle automatically evaluates submissions and maintains the leaderboard throughout the competition period.
 
--   **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn
+-   **Competition:** Summer 2026 QM47400 Case Competition: Bank Churn
 -   **Competition link:** [https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn](https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn){target="_blank"}
 -   **Task:** Predict the probability that a customer will churn (`Exited` = 1)
 -   **Metric:** AUC-ROC

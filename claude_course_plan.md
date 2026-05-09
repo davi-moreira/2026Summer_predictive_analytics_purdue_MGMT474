@@ -183,7 +183,7 @@ All three notebooks follow the established template:
 **File:** `_quarto.yml`
 **Changes:**
 - Keep existing structure (website, docs output)
-- Update title to: "MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
+- Update title to: "QM47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
 - Update GitHub link to new repo name (TBD)
 - Keep sidebar structure (Home, Syllabus, Schedule and Material)
 
@@ -234,7 +234,7 @@ All three notebooks follow the established template:
 ### 2.4 Update `syllabus.qmd`
 **File:** `syllabus.qmd`
 **Changes:**
-- Update course title: "MGMT 47400 - Predictive Analytics (Summer 2026, 4-Week Online Intensive)"
+- Update course title: "QM47400 - Predictive Analytics (Summer 2026, 4-Week Online Intensive)"
 - Update dates: May 18 - June 12, 2026
 - Update course description:
   - 20 business days
@@ -370,12 +370,12 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 **Method:** Use `gh` CLI (GitHub CLI)
 **Steps:**
 1. Check if `gh` is authenticated: `gh auth status`
-2. Create new repo: `gh repo create 2026Summer_predictive_analytics_purdue_MGMT474 --public --description "MGMT 47400 Predictive Analytics - 4-Week Summer Intensive (2026)" --source=. --remote=origin`
+2. Create new repo: `gh repo create 2026Summer_predictive_analytics_purdue_MGMT474 --public --description "QM47400 Predictive Analytics - 4-Week Summer Intensive (2026)" --source=. --remote=origin`
 3. Verify remote: `git remote -v`
 
 **Repository settings:**
 - **Visibility:** Public
-- **Description:** "MGMT 47400 - Predictive Analytics | 4-Week Online Intensive | Purdue Daniels School of Business | Python/scikit-learn | Colab notebooks"
+- **Description:** "QM47400 - Predictive Analytics | 4-Week Online Intensive | Purdue Daniels School of Business | Python/scikit-learn | Colab notebooks"
 - **Topics:** `predictive-analytics`, `machine-learning`, `python`, `jupyter-notebook`, `scikit-learn`, `data-science`, `mba-course`, `colab`
 - **Homepage:** (Will be set after GitHub Pages is configured)
 
@@ -437,7 +437,7 @@ Transform 2025F semester-based course into 2026 Summer 4-week intensive format (
 
 ### Context
 - **User:** Professor Davi Moreira
-- **Course:** MGMT 47400 - Predictive Analytics
+- **Course:** QM47400 - Predictive Analytics
 - **Institution:** Purdue Daniels School of Business
 - **Old format:** 16-week semester (2025 Fall)
 - **New format:** 4-week intensive (May 18 - June 12, 2026, 20 business days)

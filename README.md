@@ -1,4 +1,4 @@
-# MGMT 47400: Predictive Analytics
+# QM47400: Predictive Analytics
 
 [![Course Website](https://img.shields.io/badge/Website-Course%20Page-blue)](https://davi-moreira.github.io/2026Summer_predictive_analytics_purdue_MGMT474/)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/)
@@ -177,7 +177,7 @@ The course assessment is based on multiple components designed to ensure continu
 4. **Week 4 (Day 20):** Final Research Poster (single PDF named `<group-number>.pdf`) + intra-group Peer Evaluation form. Optional Fall 2026 Purdue Undergraduate Research Conference presentation. Detail files: [`_final_project/2026Summer/`](_final_project/2026Summer/).
 
 ### Kaggle Case Competition (individual or pairs)
-- **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn
+- **Competition:** Summer 2026 QM47400 Case Competition: Bank Churn
 - **Task:** Predict bank customer churn probability (AUC-ROC)
 - **Deadline:** Fri June 12, 2026 at 11:59 PM (Kaggle + Brightspace code submission)
 

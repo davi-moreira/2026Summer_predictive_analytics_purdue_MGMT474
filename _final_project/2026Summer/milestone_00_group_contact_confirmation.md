@@ -44,7 +44,7 @@ One designated group member sends the **kickoff email** with:
 
 - **To:** the other three group members (their Purdue email addresses)
 - **Cc:** Professor Davi Moreira (`dcordeir@purdue.edu`)
-- **Subject:** *MGMT 47400 — Final Project Group NN — Contact Confirmation* (replace `NN` with your assigned group number)
+- **Subject:** *QM47400 — Final Project Group NN — Contact Confirmation* (replace `NN` with your assigned group number)
 - **Body:**
   - The sender's name + Purdue email
   - A 1-line note about preferred weekly availability windows or time-zone
@@ -82,7 +82,7 @@ Once all four members have contributed to the thread (1 kickoff email + 3 replie
 - **Send the kickoff email today, not on the deadline.** Replies take time — sending early gives your three teammates a window to respond before the deadline arrives.
 - **CC Professor Moreira on every message in the thread**, not just the kickoff. The PDF needs to show Professor Moreira on the CC line throughout the thread.
 - **Use Purdue email**, not personal Gmail. External addresses are more likely to be flagged as spam.
-- **Check the subject line.** *"MGMT 47400 — Final Project Group NN — Contact Confirmation"* — fill in your group number; this convention helps the instructor sort the threads quickly.
+- **Check the subject line.** *"QM47400 — Final Project Group NN — Contact Confirmation"* — fill in your group number; this convention helps the instructor sort the threads quickly.
 - **Reply-all, not Reply.** A plain "Reply" only goes back to the sender; the rest of the group + Professor Moreira will not see it.
 - **Export the whole thread as one PDF, not screenshots.** Most email clients (Gmail, Outlook, Apple Mail) have a "Print" or "Save as PDF" option that captures the full thread on one page.
 - **One designated uploader.** Decide who that is in the kickoff email so there is no confusion at submission time.

@@ -3,7 +3,7 @@
 ## Session 1: January 27, 2026
 
 ### Objective
-Transform the 2025 Fall semester-long Predictive Analytics course (MGMT 47400) into a 2026 Summer 4-week fully online intensive format, creating all necessary notebooks, updating the Quarto website, and setting up Git/GitHub infrastructure.
+Transform the 2025 Fall semester-long Predictive Analytics course (QM47400) into a 2026 Summer 4-week fully online intensive format, creating all necessary notebooks, updating the Quarto website, and setting up Git/GitHub infrastructure.
 
 ---
 
@@ -17,7 +17,7 @@ Transform the 2025 Fall semester-long Predictive Analytics course (MGMT 47400) i
 - **Personal Website:** https://davi-moreira.github.io
 
 ### Course Details
-- **Course Number:** MGMT 47400
+- **Course Number:** QM47400
 - **Course Title:** Predictive Analytics
 - **Credits:** 3 credit hours
 - **Level:** Undergraduate (Daniels School of Business)
@@ -87,7 +87,7 @@ All 20 daily Jupyter notebooks were created in `/notebooks/` directory with the 
 - **`_quarto.yml`** - Updated configuration for 2026 Summer format
   - Project type: website
   - Output directory: `docs` (GitHub Pages compatible)
-  - Title: "MGMT 47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
+  - Title: "QM47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)"
   - Sidebar with GitHub link
   - Navigation: Home, Syllabus, Schedule
 
@@ -285,7 +285,7 @@ c08c2e6 docs: Add course plan for 2026 Summer intensive
 When resuming work on this course in future sessions:
 
 1. **Remind the assistant of context:**
-   - "We're working on the MGMT 47400 Predictive Analytics course (Summer 2026)"
+   - "We're working on the QM47400 Predictive Analytics course (Summer 2026)"
    - "This is a 4-week intensive online course for Purdue University"
    - "All notebooks are in `/notebooks/`, website is Quarto-based"
 
@@ -1113,7 +1113,7 @@ Standardize all 20 notebooks to the canonical format established by notebook 01,
 ### Work Completed
 
 **Notebook standardization (all 20 notebooks):**
-- **Header format (02-20):** Replaced old "Day X:" headers with canonical format: course logo, centered HTML titles (MGMT47400, Professor name), Colab badge
+- **Header format (02-20):** Replaced old "Day X:" headers with canonical format: course logo, centered HTML titles (QM47400, Professor name), Colab badge
 - **Learning objectives (02-20):** Split combined header+objectives cells into separate header and objectives cells
 - **RANDOM_SEED (02-20):** Changed from 42 to 474 in all code cells
 - **Day references (01-20):** Removed all "Day X" references across all notebooks with contextual replacements:
@@ -1137,7 +1137,7 @@ Standardize all 20 notebooks to the canonical format established by notebook 01,
 ### Decisions Made
 - **No Day prefixes:** Notebooks are self-paced and should not reference specific days; the schedule page maps notebooks to dates
 - **Canonical reference:** Notebook 01 is the authoritative template for structure and formatting
-- **RANDOM_SEED = 474:** Matches course number (MGMT 474) for all notebooks consistently
+- **RANDOM_SEED = 474:** Matches course number (QM47400) for all notebooks consistently
 - **Centered "Thank you!":** Professional, consistent closing for all notebooks
 
 ### Verification Results

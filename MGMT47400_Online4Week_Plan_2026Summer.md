@@ -1,4 +1,4 @@
-# MGMT 47400 – Predictive Analytics (3 credits)  
+# QM47400 – Predictive Analytics (3 credits)  
 ## 4-Week Fully Online Course Plan (Daniels School of Business)  
 **Run dates (business days):** Mon **May 18, 2026** → Fri **June 12, 2026** (20 business days)  
 **Daily engagement target:** **112.5 minutes per business day** (videos + Colab notebooks + exercises + quizzes + project work)  
@@ -38,7 +38,7 @@ For each topic/day, content follows a repeating loop:
 # Weekly structure, project milestones, and case competition
 
 ## Kaggle Case Competition (individual or pairs)
-- **Competition:** Summer 2026 MGMT47400 Case Competition: Bank Churn
+- **Competition:** Summer 2026 QM47400 Case Competition: Bank Churn
 - **Task:** Predict the probability that a bank customer will churn (`Exited` = 1)
 - **Metric:** AUC-ROC
 - **Platform:** Kaggle (private class competition, max 5 submissions per day)

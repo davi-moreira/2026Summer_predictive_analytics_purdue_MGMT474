@@ -20,7 +20,7 @@ Every student notebook MUST include these sections in order.
 </center>
 
 # <center><a class="tocSkip"></center>
-# <center>MGMT47400 Predictive Analytics</center>
+# <center>QM47400 Predictive Analytics</center>
 # <center>Professor: Davi Moreira </center>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/XX_topic_student.ipynb)

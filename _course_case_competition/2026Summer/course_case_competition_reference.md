@@ -1,10 +1,10 @@
 # Course Case Competition — Reference (Single Source of Truth)
 
-**Course:** MGMT 47400 — Predictive Analytics
+**Course:** QM47400 — Predictive Analytics
 **Term:** Summer 2026
 **Section:** Y01 (online)
 **Instructor:** Professor Davi Moreira
-**Competition title:** Summer 2026 MGMT 47400 Case Competition — Bank Churn
+**Competition title:** Summer 2026 QM47400 Case Competition — Bank Churn
 
 > **This file is the canonical reference for everything related to the Course Case Competition.** The syllabus, schedule, planning documents, the Brightspace assignment instructions, and the supporting workflow notebook (`churn_exit_prediction_workflow_student.ipynb`) must be kept consistent with what is written here. Update this file first whenever competition rules change.
 
@@ -12,12 +12,12 @@
 
 ## 1. Overview
 
-Welcome to the **Summer 2026 MGMT 47400 Case Competition: Bank Churn**. This challenge is adapted from Kaggle's *Playground Series (Season 4, Episode 1)* using AI-generated synthetic data and is integrated into the coursework this term.
+Welcome to the **Summer 2026 QM47400 Case Competition: Bank Churn**. This challenge is adapted from Kaggle's *Playground Series (Season 4, Episode 1)* using AI-generated synthetic data and is integrated into the coursework this term.
 
 Your objective is to build predictive models that determine whether a bank customer will close their account (**churn**) or remain.
 
 - **Reference (public Kaggle Playground):** <https://www.kaggle.com/competitions/playground-series-s4e1/overview>
-- **MGMT 47400 (Summer 2026) competition page:** <https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn>
+- **QM47400 (Summer 2026) competition page:** <https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn>
 - **Invitation link** (private competition; required to access training/test data and the leaderboard): provided on the course **Brightspace** page.
 
 ---
@@ -237,7 +237,7 @@ The 20% peer-evaluation component is calculated **per member** from the average 
   - `reference/Course Case Competition Guidelines.docx` (legacy long-form reference; superseded by this .md but retained for archive)
   - `reference/quick_check_list.docx` (legacy quick-check list; superseded by Section 10 above)
 - **Public Kaggle Playground (origin of the data):** <https://www.kaggle.com/competitions/playground-series-s4e1/overview>
-- **MGMT 47400 (Summer 2026) competition:** <https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn>
+- **QM47400 (Summer 2026) competition:** <https://www.kaggle.com/competitions/summer-2026-mgmt-47400-case-competition-bank-churn>
 - **Final Project canonical reference:** [`_final_project/2026Summer/final_project_milestone_reference.md`](../../_final_project/2026Summer/final_project_milestone_reference.md)
 - **Course syllabus + schedule:** `syllabus.qmd`, `schedule.qmd` (rendered to the course website's `docs/`)
 

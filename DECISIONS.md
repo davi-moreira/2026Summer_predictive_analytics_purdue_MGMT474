@@ -30,7 +30,7 @@ This document records design decisions made during course development and the re
 
 ## Decision 3: `RANDOM_SEED = 474` Everywhere
 
-**Decision:** All random operations use seed 474 (the course number, MGMT 474).
+**Decision:** All random operations use seed 474 (the course number, QM47400).
 
 **Rationale:**
 - Complete reproducibility — students get identical outputs.

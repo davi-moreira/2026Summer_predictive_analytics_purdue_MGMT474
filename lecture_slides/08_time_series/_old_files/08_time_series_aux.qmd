@@ -1,6 +1,6 @@
 ---
 title: "Time Series for Predictive Analytics: An End-to-End Workflow"
-subtitle: "MGMT 47400 – Daniels School of Business"
+subtitle: "QM47400 – Daniels School of Business"
 author: "Dr. Davi Moreira"
 institute: "Purdue University – Daniels School of Business"
 date: "Updated: 2025-10-11"
@@ -14,7 +14,7 @@ format:
     code-fold: false
     code-line-numbers: true
     incremental: true
-    footer: 'MGMT 47400 • Time Series for Prediction'
+    footer: 'QM47400 • Time Series for Prediction'
 editor: visual
 ---
 

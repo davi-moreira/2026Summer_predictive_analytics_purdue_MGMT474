@@ -1,4 +1,4 @@
-# Course Case Competition — Bank Churn (Student Instructions)
+# Course Case Competition — Bank Churn
 
 ## About the Course Case Competition
 
@@ -124,7 +124,7 @@ If two or more teammates each independently submitted before forming the team, K
 
 ## Tips and Common Pitfalls
 
-- **Form the team early — and name it correctly.** The single most common participation-grade hit comes from a misnamed team that the gradebook can't auto-link. Set the name to `Group XX – Y01` (with the leading zero) **before** anyone submits.
+- **Form the team early — and name it correctly.** The single most common participation-grade hit comes from a misnamed team that the gradebook can't auto-link. Set the name to `Group NN` (with the leading zero) **before** anyone submits.
 - **Don't chase the public leaderboard.** The private leaderboard scores the held-out remainder of the test set. Models that overfit the public split routinely drop 10+ ranks on the private leaderboard. **Trust your cross-validated AUC.**
 - **Plan your daily submissions.** A team of four shares **5 submissions per day**, not 5 each. Pick the experiments that will actually *teach you something* — don't burn all 5 on small variations of the same model.
 - **Build a `Pipeline`, not a script of steps.** Preprocessing must live inside the `Pipeline` so it gets refit fold-by-fold during CV and can be re-applied at submission time. Manual `.fit_transform` on the full data leaks information from the test split.

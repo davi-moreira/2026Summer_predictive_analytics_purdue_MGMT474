@@ -15,7 +15,7 @@ Create a comprehensive `claude.md` file that serves as the "operating manual" fo
 # 2026 Summer Predictive Analytics Course - AI Assistant Guide
 
 ## Project Mission
-This repository contains MGMT 47400 - Predictive Analytics, a 4-week intensive summer course (20 business days) for Purdue University's Daniels School of Business. The course runs May 18 - June 14, 2027, with 112.5 minutes of daily engagement through micro-videos (≤12 min) and Google Colab notebooks.
+This repository contains QM47400 - Predictive Analytics, a 4-week intensive summer course (20 business days) for Purdue University's Daniels School of Business. The course runs May 18 - June 14, 2027, with 112.5 minutes of daily engagement through micro-videos (≤12 min) and Google Colab notebooks.
 
 ## Key Context
 - **Instructor:** Professor Davi Moreira
@@ -104,7 +104,7 @@ This repository contains MGMT 47400 - Predictive Analytics, a 4-week intensive s
 Every notebook MUST include (in order):
 1. **Header cell** (markdown)
    - Title: "Day X: [Topic]"
-   - Course info: "MGMT 47400 - Predictive Analytics"
+   - Course info: "QM47400 - Predictive Analytics"
    - Date: "[Day of week] [Month Day], 2027"
    - Colab badge: `[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](...)`
    - Separator: "---"

@@ -1,5 +1,5 @@
 ---
-title: "MGMT 47400: Predictive Analytics"
+title: "QM47400: Predictive Analytics"
 subtitle: "Mitch. Daniels School of Business, Purdue University (Summer 2026 - 4-Week Online Intensive)"
 ---
 
