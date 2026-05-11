@@ -20,8 +20,8 @@ code {
   /* Other styles */
 }
 
-/* Bold the "For Instructors" entry in the left sidebar */
-#quarto-sidebar a[href$="workflow.html"],
-#quarto-sidebar a[href$="workflow.html"] .menu-text {
+/* Bold every entry in the left sidebar menu */
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .menu-text {
   font-weight: 700 !important;
 }
