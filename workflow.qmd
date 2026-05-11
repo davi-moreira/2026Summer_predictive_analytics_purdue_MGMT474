@@ -37,6 +37,25 @@ I did not begin this project from zero. The [**2025 Fall version of QM47400**](h
 
 If your course is in a similar shape, meaning files you can read in a text editor and organized in folders, the workflow below is directly transferable. If your course currently lives entirely in PowerPoint decks, Word documents, and the Brightspace or Canvas authoring UI, your **first** investment should be moving the source-of-truth artifacts into plain text. That is the precondition that makes an AI co-designer useful.
 
+::: {.callout-note appearance="default" collapse="true" icon="true"}
+## Old vs. new: course structure at a glance (click to expand)
+
+| Dimension | 2025 Fall (semester, in-person) | 2026 Summer (4-week intensive, online) |
+|---|---|---|
+| Duration | 15 weeks | 4 weeks (20 business days plus a Day 0 launchpad) |
+| Mode | In-person, on campus | Fully online |
+| Daily student engagement | Standard 3-credit class plus outside study | About 112.5 minutes per day |
+| Synchronous time | Regular class meetings | One Zoom session per week, Fridays 10:30am to 12:00pm EST |
+| Primary instruction medium | Live lectures and slides | Micro-videos (≤12 min each) plus Colab notebooks |
+| Pedagogy | Lecture, in-class examples, homework | Concept, Demo, PAUSE-AND-DO practice, Solution discussion |
+| AI assistance for students | Optional, ad hoc | Built into the workflow via Gemini in Colab ("vibe coding": draft, verify, document) |
+| Number of lessons | One per class meeting | 21 notebooks (one per business day plus a Day 0 launchpad) |
+| Assessment mix | Attendance, participation, quizzes, homework, Kaggle case competition, final project and poster | Quizzes, daily PAUSE-AND-DO, midterm casebook, project milestones, final case competition, peer review |
+| Capstone | Poster at the Undergraduate Research Conference | Executive narrative plus a project case video |
+| Topic coverage | Linear regression, classification, resampling, regularization, trees and ensembles, time series, deep learning, unsupervised learning | The same predictive arc compressed into 20 days; deep learning and unsupervised learning are trimmed to make room for explicit CV-first evaluation, calibration, fairness, and a deployment-and-monitoring notebook |
+| Source-of-truth files | Slides, syllabus, homework PDFs | Notebooks, video guides, brightspace pages, quizzes, exam, all as plain text |
+:::
+
 ::: {.callout-tip}
 ## You do not need to be a developer
 I am comfortable on the command line and with Git, and that lowered my activation cost. But everything I describe below can be done in **natural language**, which means telling Claude what you want, reviewing what it produced, and asking it to commit the change. You do not need to type a single Git command yourself.
@@ -53,6 +72,12 @@ Translating a 15-week course into a 4-week intensive looks, on paper, like compr
 ## Flexibility is a double-edged sword
 
 Claude Code is **extremely** flexible. It will adopt almost any convention you ask it to. That is wonderful, because the tool conforms to *your* course rather than the other way around. But it also means there is no obvious right way to use it, and the time-to-effectiveness is dominated by figuring out *your own* style. Expect to throw away your first two or three workflows before settling on one that fits.
+
+## Where the AI really shines: structured artifacts at scale
+
+The cautions above are real, but they are not the whole picture. There is a category of work where the assistant is unambiguously better than I am, and it is worth naming because it is the easiest first win for a colleague who has not yet tried this. Generating **structured, schema-compliant artifacts at scale** is exactly that kind of work, and the example I lean on most is **Brightspace-ready quiz CSVs**.
+
+Brightspace's Question Library accepts CSV uploads in a specific column format. Once I showed the assistant the format (one example file in the repo is enough), it can generate dozens of well-structured multiple-choice and short-answer questions from a short topic brief, all in the exact CSV shape Brightspace expects, with distractors that are pedagogically plausible rather than obviously wrong. I review and edit, I do not draft from scratch. What used to be an hour of formatting per quiz is now ten minutes of review. The same pattern works for grading rubrics, casebook scaffolds, peer-review forms, and any other artifact whose value lies in being uniform, complete, and machine-uploadable.
 
 ## Think of the AI assistant as a rotating TA/RA team
 
@@ -180,6 +205,12 @@ Git remembers *what* changed. It does not remember *why*. I keep three companion
 - `CONVERSATION_LOG.md` is a session-by-session journal, appended at the end of each working session. Sixteen-plus sessions in, this is where I look first when I have forgotten what we tried in a prior round.
 - `TROUBLESHOOTING.md` lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped `$` in money strings. Future-me reads this so future-me does not re-debug it.
 
+## Skills: a venue I have not explored yet (but you might)
+
+Claude Code supports user-defined **skills**, which are reusable, invocable workflows (often registered as slash commands) that bundle a prompt, a sequence of steps, and access to specific tools. I have not built any skills for this course yet, because the project's velocity has been dominated by writing notebooks and rendering the site rather than by automating my own meta-workflow. That said, every time I find myself typing the same opening instructions into a session for the third time, I am one step closer to needing a skill, and I plan to invest there in the next iteration.
+
+If you are starting a new project from scratch, skills are likely a high-leverage place to invest early. For a domain-specific catalog of how academics are using them, I recommend the [*Claude Code Skills for Academics*](https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf) PDF (listed in the references below), which collects concrete patterns by discipline and is the cleanest starting point I have found.
+
 # Examples from this repository {#sec-examples}
 
 Concrete is more useful than abstract. Three patterns from this course, named so a colleague can lift them.
@@ -257,11 +288,32 @@ A pragmatic on-ramp for a colleague whose course is already in plain-text form (
 
 Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool. It is real, it is shorter than you fear, and you only pay it once.
 
+# Using this course as a template for your own {#sec-template}
+
+If you would like to use this repository as a starting point rather than reinventing the workflow, there are two paths. **Replicate the design** if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. **Use it as a reference** if your domain is different, and lift only the patterns that transfer.
+
+In both cases, the steps below are the most direct on-ramp. Each step is something you can say to Claude Code in your terminal, in your own words. The bullet text is just the intent.
+
+1. **Clone the repository and open it in Claude Code.** This sounds trivial, but it is the move that unlocks everything else: the assistant can now read `CLAUDE.md`, `DECISIONS.md`, the notebook template, the audit scripts, and every brightspace source page in the repo, all at once.
+
+2. **Ask the assistant to summarize the project to you.** A useful opening prompt is something like: *"Read `CLAUDE.md` and `MGMT47400_Online4Week_Plan_2026Summer.md`, then describe back to me how this course is structured: pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious."* What comes back is your map of the territory and a quick sanity check on whether the assistant has the right context.
+
+3. **Translate the constitution to your domain.** Copy `CLAUDE.md` into your own repo and ask the assistant to adapt it: replace QM47400 with your course code, swap "predictive analytics" for your subject, and ask which of the critical rules and anti-patterns plausibly transfer. Keep the structural elements (project mission, "see also" table, critical rules, anti-patterns, session-end checklist) even if every concrete rule changes.
+
+4. **Adopt one pattern at a time.** I would start with the **render-and-commit ritual** and the **per-artifact source `.md` files**. They cost almost nothing to set up and they remove the two most common failure modes. After that, the **instructor-first notebook workflow** is the highest-leverage addition for any course that uses notebooks or lab worksheets.
+
+5. **Adapt the audit scripts to your invariants.** `scripts/audit_cv_first.py` and `scripts/voice_check_guides.py` are short. Ask the assistant to read both, then to write the analogous scripts for the invariants in *your* course. If you teach causal inference, your audit might enforce that no causal claim is made on observational data without a stated identifying assumption. If you teach writing, your audit might flag passive voice in graded examples. The mechanism is the same: write the rule down, then turn it into a check.
+
+6. **Reuse the bulk-CSV pattern for Brightspace.** Once you have a few quizzes in CSV form, the assistant can produce more in the same schema very quickly. The early hour you spend pinning down the column format pays back across the entire semester.
+
+7. **Send me what you build, and what fails.** I keep updating this page as I learn. If you adapt these patterns and discover a sharper version, I would like to hear about it.
+
 # References {#sec-references}
 
 ::: {#refs}
 - Anthropic. **Claude Code: an agentic command-line tool for software development.** Documentation. <https://www.anthropic.com/claude-code>.
 - Sant'Anna, Pedro H. C. (2026). **My Claude Code Setup: A Workflow Guide for Academic Research.** <https://psantanna.com/claude-code-my-workflow/workflow-guide.html>. Companion repository: <https://github.com/pedrohcgs/claude-code-my-workflow>. *(The page that nudged me to write this one.)*
+- Aspi (2026). **Claude Code Skills for Academics.** GitHub. <https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf>. *(A discipline-by-discipline catalog of Claude Code skills for academic work. The reference I would start with if I were building skills for a course or research project.)*
 - James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). **An Introduction to Statistical Learning with Applications in Python.** Springer. <https://www.statlearning.com/>. *(The course textbook, known as ISLP.)*
 - Allaire, J. J., et al. **Quarto: An open-source scientific and technical publishing system.** <https://quarto.org>. *(The static-site engine behind this website.)*
 - Google. **NotebookLM: AI-powered research and notetaking assistant.** <https://notebooklm.google.com/>. *(Used to generate podcast-style audio summaries of instructor notebooks, wired into this repo by the `sync_instructor_md.sh` hook.)*
