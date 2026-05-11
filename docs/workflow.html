@@ -208,7 +208,8 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#you-will-spend-more-time-than-you-expect" id="toc-you-will-spend-more-time-than-you-expect" class="nav-link" data-scroll-target="#you-will-spend-more-time-than-you-expect"><span class="header-section-number">3.1</span> You will spend more time than you expect</a></li>
   <li><a href="#flexibility-is-a-double-edged-sword" id="toc-flexibility-is-a-double-edged-sword" class="nav-link" data-scroll-target="#flexibility-is-a-double-edged-sword"><span class="header-section-number">3.2</span> Flexibility is a double-edged sword</a></li>
-  <li><a href="#think-of-the-ai-assistant-as-a-rotating-tara-team" id="toc-think-of-the-ai-assistant-as-a-rotating-tara-team" class="nav-link" data-scroll-target="#think-of-the-ai-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.3</span> Think of the AI assistant as a rotating TA/RA team</a></li>
+  <li><a href="#where-the-ai-really-shines-structured-artifacts-at-scale" id="toc-where-the-ai-really-shines-structured-artifacts-at-scale" class="nav-link" data-scroll-target="#where-the-ai-really-shines-structured-artifacts-at-scale"><span class="header-section-number">3.3</span> Where the AI really shines: structured artifacts at scale</a></li>
+  <li><a href="#think-of-the-ai-assistant-as-a-rotating-tara-team" id="toc-think-of-the-ai-assistant-as-a-rotating-tara-team" class="nav-link" data-scroll-target="#think-of-the-ai-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.4</span> Think of the AI assistant as a rotating TA/RA team</a></li>
   </ul></li>
   <li><a href="#sec-recommendations" id="toc-sec-recommendations" class="nav-link" data-scroll-target="#sec-recommendations"><span class="header-section-number">4</span> Recommendations</a>
   <ul class="collapse">
@@ -218,6 +219,7 @@ div.csl-indent {
   <li><a href="#encode-invariants-as-runnable-scripts" id="toc-encode-invariants-as-runnable-scripts" class="nav-link" data-scroll-target="#encode-invariants-as-runnable-scripts"><span class="header-section-number">4.4</span> Encode invariants as runnable scripts</a></li>
   <li><a href="#automate-the-boring-parts-with-hooks" id="toc-automate-the-boring-parts-with-hooks" class="nav-link" data-scroll-target="#automate-the-boring-parts-with-hooks"><span class="header-section-number">4.5</span> Automate the boring parts with hooks</a></li>
   <li><a href="#log-decisions-not-just-changes" id="toc-log-decisions-not-just-changes" class="nav-link" data-scroll-target="#log-decisions-not-just-changes"><span class="header-section-number">4.6</span> Log decisions, not just changes</a></li>
+  <li><a href="#skills-a-venue-i-have-not-explored-yet-but-you-might" id="toc-skills-a-venue-i-have-not-explored-yet-but-you-might" class="nav-link" data-scroll-target="#skills-a-venue-i-have-not-explored-yet-but-you-might"><span class="header-section-number">4.7</span> Skills: a venue I have not explored yet (but you might)</a></li>
   </ul></li>
   <li><a href="#sec-examples" id="toc-sec-examples" class="nav-link" data-scroll-target="#sec-examples"><span class="header-section-number">5</span> Examples from this repository</a>
   <ul class="collapse">
@@ -227,7 +229,8 @@ div.csl-indent {
   </ul></li>
   <li><a href="#sec-pitfalls" id="toc-sec-pitfalls" class="nav-link" data-scroll-target="#sec-pitfalls"><span class="header-section-number">6</span> Pitfalls I hit (so you don’t have to)</a></li>
   <li><a href="#sec-starter" id="toc-sec-starter" class="nav-link" data-scroll-target="#sec-starter"><span class="header-section-number">7</span> If you are just starting</a></li>
-  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">8</span> References</a></li>
+  <li><a href="#sec-template" id="toc-sec-template" class="nav-link" data-scroll-target="#sec-template"><span class="header-section-number">8</span> Using this course as a template for your own</a></li>
+  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">9</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -312,6 +315,97 @@ div.csl-indent {
 <li><strong>The repository was already on GitHub</strong> with a sensible structure (<code>notebooks/</code>, <code>_syllabus/</code>, <code>_quizzes/</code>, <code>_midterm_exam/</code>, <code>_lecture_notes/</code>, <code>lecture_slides/</code>, <code>brightspace/</code>, and so on).</li>
 </ol>
 <p>If your course is in a similar shape, meaning files you can read in a text editor and organized in folders, the workflow below is directly transferable. If your course currently lives entirely in PowerPoint decks, Word documents, and the Brightspace or Canvas authoring UI, your <strong>first</strong> investment should be moving the source-of-truth artifacts into plain text. That is the precondition that makes an AI co-designer useful.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Old vs.&nbsp;new: course structure at a glance (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>2025 Fall (semester, in-person)</th>
+<th>2026 Summer (4-week intensive, online)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Duration</td>
+<td>15 weeks</td>
+<td>4 weeks (20 business days plus a Day 0 launchpad)</td>
+</tr>
+<tr class="even">
+<td>Mode</td>
+<td>In-person, on campus</td>
+<td>Fully online</td>
+</tr>
+<tr class="odd">
+<td>Daily student engagement</td>
+<td>Standard 3-credit class plus outside study</td>
+<td>About 112.5 minutes per day</td>
+</tr>
+<tr class="even">
+<td>Synchronous time</td>
+<td>Regular class meetings</td>
+<td>One Zoom session per week, Fridays 10:30am to 12:00pm EST</td>
+</tr>
+<tr class="odd">
+<td>Primary instruction medium</td>
+<td>Live lectures and slides</td>
+<td>Micro-videos (≤12 min each) plus Colab notebooks</td>
+</tr>
+<tr class="even">
+<td>Pedagogy</td>
+<td>Lecture, in-class examples, homework</td>
+<td>Concept, Demo, PAUSE-AND-DO practice, Solution discussion</td>
+</tr>
+<tr class="odd">
+<td>AI assistance for students</td>
+<td>Optional, ad hoc</td>
+<td>Built into the workflow via Gemini in Colab (“vibe coding”: draft, verify, document)</td>
+</tr>
+<tr class="even">
+<td>Number of lessons</td>
+<td>One per class meeting</td>
+<td>21 notebooks (one per business day plus a Day 0 launchpad)</td>
+</tr>
+<tr class="odd">
+<td>Assessment mix</td>
+<td>Attendance, participation, quizzes, homework, Kaggle case competition, final project and poster</td>
+<td>Quizzes, daily PAUSE-AND-DO, midterm casebook, project milestones, final case competition, peer review</td>
+</tr>
+<tr class="even">
+<td>Capstone</td>
+<td>Poster at the Undergraduate Research Conference</td>
+<td>Executive narrative plus a project case video</td>
+</tr>
+<tr class="odd">
+<td>Topic coverage</td>
+<td>Linear regression, classification, resampling, regularization, trees and ensembles, time series, deep learning, unsupervised learning</td>
+<td>The same predictive arc compressed into 20 days; deep learning and unsupervised learning are trimmed to make room for explicit CV-first evaluation, calibration, fairness, and a deployment-and-monitoring notebook</td>
+</tr>
+<tr class="even">
+<td>Source-of-truth files</td>
+<td>Slides, syllabus, homework PDFs</td>
+<td>Notebooks, video guides, brightspace pages, quizzes, exam, all as plain text</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -337,8 +431,13 @@ div.csl-indent {
 <h2 data-number="3.2" class="anchored" data-anchor-id="flexibility-is-a-double-edged-sword"><span class="header-section-number">3.2</span> Flexibility is a double-edged sword</h2>
 <p>Claude Code is <strong>extremely</strong> flexible. It will adopt almost any convention you ask it to. That is wonderful, because the tool conforms to <em>your</em> course rather than the other way around. But it also means there is no obvious right way to use it, and the time-to-effectiveness is dominated by figuring out <em>your own</em> style. Expect to throw away your first two or three workflows before settling on one that fits.</p>
 </section>
-<section id="think-of-the-ai-assistant-as-a-rotating-tara-team" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="think-of-the-ai-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.3</span> Think of the AI assistant as a rotating TA/RA team</h2>
+<section id="where-the-ai-really-shines-structured-artifacts-at-scale" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="where-the-ai-really-shines-structured-artifacts-at-scale"><span class="header-section-number">3.3</span> Where the AI really shines: structured artifacts at scale</h2>
+<p>The cautions above are real, but they are not the whole picture. There is a category of work where the assistant is unambiguously better than I am, and it is worth naming because it is the easiest first win for a colleague who has not yet tried this. Generating <strong>structured, schema-compliant artifacts at scale</strong> is exactly that kind of work, and the example I lean on most is <strong>Brightspace-ready quiz CSVs</strong>.</p>
+<p>Brightspace’s Question Library accepts CSV uploads in a specific column format. Once I showed the assistant the format (one example file in the repo is enough), it can generate dozens of well-structured multiple-choice and short-answer questions from a short topic brief, all in the exact CSV shape Brightspace expects, with distractors that are pedagogically plausible rather than obviously wrong. I review and edit, I do not draft from scratch. What used to be an hour of formatting per quiz is now ten minutes of review. The same pattern works for grading rubrics, casebook scaffolds, peer-review forms, and any other artifact whose value lies in being uniform, complete, and machine-uploadable.</p>
+</section>
+<section id="think-of-the-ai-assistant-as-a-rotating-tara-team" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="think-of-the-ai-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.4</span> Think of the AI assistant as a rotating TA/RA team</h2>
 <p>This is the mental model that finally made the workflow click for me. Claude is the best teaching assistant I have ever had: fast, patient, indefatigable, and well-read. But <strong>it is not the same TA in every session</strong>. Tone drifts. Default formatting drifts. Last week’s good habit can quietly become next week’s regression. The implication is simple and load-bearing:</p>
 <blockquote class="blockquote">
 <p>If you would tell a new TA something on their first day, <strong>write it down where the next TA will see it</strong>.</p>
@@ -546,6 +645,11 @@ div.csl-indent {
 <li><code>TROUBLESHOOTING.md</code> lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped <code>$</code> in money strings. Future-me reads this so future-me does not re-debug it.</li>
 </ul>
 </section>
+<section id="skills-a-venue-i-have-not-explored-yet-but-you-might" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="skills-a-venue-i-have-not-explored-yet-but-you-might"><span class="header-section-number">4.7</span> Skills: a venue I have not explored yet (but you might)</h2>
+<p>Claude Code supports user-defined <strong>skills</strong>, which are reusable, invocable workflows (often registered as slash commands) that bundle a prompt, a sequence of steps, and access to specific tools. I have not built any skills for this course yet, because the project’s velocity has been dominated by writing notebooks and rendering the site rather than by automating my own meta-workflow. That said, every time I find myself typing the same opening instructions into a session for the third time, I am one step closer to needing a skill, and I plan to invest there in the next iteration.</p>
+<p>If you are starting a new project from scratch, skills are likely a high-leverage place to invest early. For a domain-specific catalog of how academics are using them, I recommend the <a href="https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf"><em>Claude Code Skills for Academics</em></a> PDF (listed in the references below), which collects concrete patterns by discipline and is the cleanest starting point I have found.</p>
+</section>
 </section>
 <section id="sec-examples" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Examples from this repository</h1>
@@ -617,12 +721,27 @@ div.csl-indent {
 </ol>
 <p>Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool. It is real, it is shorter than you fear, and you only pay it once.</p>
 </section>
-<section id="sec-references" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> References</h1>
+<section id="sec-template" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Using this course as a template for your own</h1>
+<p>If you would like to use this repository as a starting point rather than reinventing the workflow, there are two paths. <strong>Replicate the design</strong> if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. <strong>Use it as a reference</strong> if your domain is different, and lift only the patterns that transfer.</p>
+<p>In both cases, the steps below are the most direct on-ramp. Each step is something you can say to Claude Code in your terminal, in your own words. The bullet text is just the intent.</p>
+<ol type="1">
+<li><p><strong>Clone the repository and open it in Claude Code.</strong> This sounds trivial, but it is the move that unlocks everything else: the assistant can now read <code>CLAUDE.md</code>, <code>DECISIONS.md</code>, the notebook template, the audit scripts, and every brightspace source page in the repo, all at once.</p></li>
+<li><p><strong>Ask the assistant to summarize the project to you.</strong> A useful opening prompt is something like: <em>“Read <code>CLAUDE.md</code> and <code>MGMT47400_Online4Week_Plan_2026Summer.md</code>, then describe back to me how this course is structured: pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.”</em> What comes back is your map of the territory and a quick sanity check on whether the assistant has the right context.</p></li>
+<li><p><strong>Translate the constitution to your domain.</strong> Copy <code>CLAUDE.md</code> into your own repo and ask the assistant to adapt it: replace QM47400 with your course code, swap “predictive analytics” for your subject, and ask which of the critical rules and anti-patterns plausibly transfer. Keep the structural elements (project mission, “see also” table, critical rules, anti-patterns, session-end checklist) even if every concrete rule changes.</p></li>
+<li><p><strong>Adopt one pattern at a time.</strong> I would start with the <strong>render-and-commit ritual</strong> and the <strong>per-artifact source <code>.md</code> files</strong>. They cost almost nothing to set up and they remove the two most common failure modes. After that, the <strong>instructor-first notebook workflow</strong> is the highest-leverage addition for any course that uses notebooks or lab worksheets.</p></li>
+<li><p><strong>Adapt the audit scripts to your invariants.</strong> <code>scripts/audit_cv_first.py</code> and <code>scripts/voice_check_guides.py</code> are short. Ask the assistant to read both, then to write the analogous scripts for the invariants in <em>your</em> course. If you teach causal inference, your audit might enforce that no causal claim is made on observational data without a stated identifying assumption. If you teach writing, your audit might flag passive voice in graded examples. The mechanism is the same: write the rule down, then turn it into a check.</p></li>
+<li><p><strong>Reuse the bulk-CSV pattern for Brightspace.</strong> Once you have a few quizzes in CSV form, the assistant can produce more in the same schema very quickly. The early hour you spend pinning down the column format pays back across the entire semester.</p></li>
+<li><p><strong>Send me what you build, and what fails.</strong> I keep updating this page as I learn. If you adapt these patterns and discover a sharper version, I would like to hear about it.</p></li>
+</ol>
+</section>
+<section id="sec-references" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> References</h1>
 <div id="refs" role="list">
 <ul>
 <li>Anthropic. <strong>Claude Code: an agentic command-line tool for software development.</strong> Documentation. <a href="https://www.anthropic.com/claude-code" class="uri">https://www.anthropic.com/claude-code</a>.</li>
 <li>Sant’Anna, Pedro H. C. (2026). <strong>My Claude Code Setup: A Workflow Guide for Academic Research.</strong> <a href="https://psantanna.com/claude-code-my-workflow/workflow-guide.html" class="uri">https://psantanna.com/claude-code-my-workflow/workflow-guide.html</a>. Companion repository: <a href="https://github.com/pedrohcgs/claude-code-my-workflow" class="uri">https://github.com/pedrohcgs/claude-code-my-workflow</a>. <em>(The page that nudged me to write this one.)</em></li>
+<li>Aspi (2026). <strong>Claude Code Skills for Academics.</strong> GitHub. <a href="https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf" class="uri">https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf</a>. <em>(A discipline-by-discipline catalog of Claude Code skills for academic work. The reference I would start with if I were building skills for a course or research project.)</em></li>
 <li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2023). <strong>An Introduction to Statistical Learning with Applications in Python.</strong> Springer. <a href="https://www.statlearning.com/" class="uri">https://www.statlearning.com/</a>. <em>(The course textbook, known as ISLP.)</em></li>
 <li>Allaire, J. J., et al.&nbsp;<strong>Quarto: An open-source scientific and technical publishing system.</strong> <a href="https://quarto.org" class="uri">https://quarto.org</a>. <em>(The static-site engine behind this website.)</em></li>
 <li>Google. <strong>NotebookLM: AI-powered research and notetaking assistant.</strong> <a href="https://notebooklm.google.com/" class="uri">https://notebooklm.google.com/</a>. <em>(Used to generate podcast-style audio summaries of instructor notebooks, wired into this repo by the <code>sync_instructor_md.sh</code> hook.)</em></li>
