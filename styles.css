@@ -19,3 +19,9 @@ code {
   background-color: #CFB991; /* Change this to your desired color */
   /* Other styles */
 }
+
+/* Bold the "For Instructors" entry in the left sidebar */
+#quarto-sidebar a[href$="workflow.html"],
+#quarto-sidebar a[href$="workflow.html"] .menu-text {
+  font-weight: 700 !important;
+}

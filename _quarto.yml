@@ -28,7 +28,7 @@ website:
       - href: schedule.qmd
         text: Schedule and Material
       - href: workflow.qmd
-        text: For Instructors — AI Co-Designer Workflow
+        text: For Instructors
 
 format:
   html:
