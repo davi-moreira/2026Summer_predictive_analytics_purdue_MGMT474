@@ -27,9 +27,13 @@ code {
 }
 
 /* Standard "Open in Colab" badge in the Schedule Notebook column.
-   Bump from native ~20px to ~36px for a comfortable click target. */
+   Bump from native ~20px to ~36px for a comfortable click target.
+   max-width: none overrides the Bootstrap "img { max-width: 100% }"
+   rule, which would otherwise squeeze the width and distort the
+   badge's 117:20 aspect ratio. */
 img[src*="colab-badge"] {
-  height: 36px;
-  width: auto;
+  height: 36px !important;
+  width: auto !important;
+  max-width: none !important;
   vertical-align: middle;
 }
