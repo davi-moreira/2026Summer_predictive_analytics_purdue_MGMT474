@@ -1,0 +1,269 @@
+---
+title: "Designing a Course with an AI Co-Designer"
+subtitle: "How I Used Claude Code to Translate a 16-Week In-Person Course into a 4-Week Intensive Online Format"
+author: "Professor Davi Moreira — Mitch. Daniels School of Business, Purdue University"
+date: today
+toc: true
+toc-depth: 3
+number-sections: true
+---
+
+::: {.callout-warning appearance="default" icon="true"}
+## Work in progress — read it as a field journal, not a finished manual
+
+This page documents a course that is **not yet finalized**. The Summer 2026 offering of **QM47400 — Predictive Analytics** runs **May 18 – June 12, 2026**. As of the date stamped above, I am still iterating on notebooks, video guides, quizzes, and the midterm. Treat what follows as an honest, mid-stream account of working with [Claude Code](https://www.anthropic.com/claude-code) as an AI co-designer — what has worked for me, what cost me time, and what I would tell a colleague before they start.
+:::
+
+# Who this page is for {#sec-audience}
+
+This page is written for **faculty colleagues** — especially those building or revising a course — who are curious about whether AI coding assistants are useful for *teaching material*, not just for software engineering. If you have ever maintained a syllabus in plain text, edited slides as code (Beamer, Quarto, R Markdown), or even just kept course files in a Git repository, the workflow below will feel natural. If you have not, this page will give you a sense of what becomes possible if you take the small step of putting your course material under version control.
+
+I am sharing this in the same spirit as Pedro H. C. Sant'Anna's [*My Claude Code Setup*](https://psantanna.com/claude-code-my-workflow/workflow-guide.html) [@santanna2026claude] — which is, frankly, the page that nudged me to write my own. Where Pedro's guide is the polished playbook of a research economist building an end-to-end agent system, mine is a teaching-oriented field report: what an undergraduate business-analytics course actually looks like when an AI is sitting beside you while you build it.
+
+# The starting point {#sec-starting-point}
+
+I did not begin this project from zero. The **2025 Fall** version of QM47400 was already a full-semester course (15 weeks, in-person, with quizzes, Kaggle case competition, and a poster session). Three properties of that existing course mattered enormously when I brought Claude Code into the picture:
+
+1. **The course website was already a [Quarto](https://quarto.org) project.** `index.qmd`, `syllabus.qmd`, `schedule.qmd` — plain text files rendered to HTML. The whole site lives in `docs/` and is served by GitHub Pages.
+2. **All other artifacts were already plain-text-friendly.** Slides as Quarto/RevealJS source. Notebooks as `.ipynb` JSON. Quizzes, exam, project rubrics — Markdown.
+3. **The repository was already on GitHub** with a sensible structure (`notebooks/`, `_syllabus/`, `_quizzes/`, `_midterm_exam/`, `_lecture_notes/`, `lecture_slides/`, `brightspace/`, etc.).
+
+If your course is in a similar shape — files you can read in a text editor, organized in folders — the workflow below is directly transferable. If your course currently lives entirely in PowerPoint decks, Word documents, and the Brightspace/Canvas authoring UI, your **first** investment should be moving the source-of-truth artifacts into plain text. That is the precondition that makes an AI co-designer useful.
+
+::: {.callout-tip}
+## You do not need to be a developer
+I am comfortable on the command line and with Git, and that lowered my activation cost. But everything I describe below can be done in **natural language** — telling Claude what you want, reviewing what it produced, and asking it to commit the change. You do not need to type a single Git command yourself.
+:::
+
+# The honest tradeoffs {#sec-tradeoffs}
+
+Before the recommendations, three lessons I wish I had taken seriously earlier.
+
+## You will spend more time than you expect
+
+Translating a 15-week course into a 4-week intensive looks, on paper, like compression. In practice it is a **redesign**. Cognitive load, daily engagement (~112.5 min/day), notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in fourteen business days — none of that survives the move unchanged. The CONVERSATION_LOG.md in this repo has **16+ working sessions** logged across roughly four months. The AI sped up *production*, not *deliberation*. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant "just propose a plan," the plan was bland and had to be redone.
+
+## Flexibility is a double-edged sword
+
+Claude Code is **extremely** flexible. It will adopt almost any convention you ask it to. That is wonderful, because the tool conforms to *your* course rather than the other way around. But it also means there is no obvious "right way" to use it, and the time-to-effectiveness is dominated by figuring out *your own* style. Expect to throw away your first two or three workflows before settling on one that fits.
+
+## Think of the assistant as a rotating TA/RA team
+
+This is the mental model that finally made the workflow click for me. Claude is the best teaching assistant I have ever had — fast, patient, indefatigable, well-read. But **it is not the same TA in every session**. Tone drifts. Default formatting drifts. Last week's good habit can quietly become next week's regression. The implication is simple and load-bearing:
+
+> If you would tell a new TA something on their first day, **write it down where the next TA will see it**.
+
+Everything in [Recommendations](#sec-recommendations) below is a consequence of taking that one sentence seriously.
+
+# Recommendations {#sec-recommendations}
+
+## Treat `CLAUDE.md` as the project's constitution
+
+`CLAUDE.md` is the file Claude Code reads at the start of every session. Anything written there is in the assistant's context by default — like a standing handout you would give every new RA on day one. My `CLAUDE.md` has grown from a few paragraphs to a structured document with:
+
+- **Project mission** (course code, run dates, pedagogy)
+- **A small table of "see also" reference files** (so the constitution stays slim and detailed material lives elsewhere)
+- **Critical rules** with a 🚨 prefix — the regressions I have actually been bitten by
+- **Style guidelines as a table** (random seed `474`, train/val/test split `60/20/20`, figure size, money in markdown cells, emoji vocabulary)
+- **Anti-patterns** drawn from real prior mistakes, not hypotheticals
+- **A session-end checklist**
+
+The most valuable parts are the **critical rules** and **anti-patterns**, because they encode lessons the assistant cannot derive from the code. Two real examples from this repository:
+
+::: {.callout-note}
+## Example rule — Voice and Audience in student-facing content
+> The student notebook is read **by** students, not **by** instructors who then teach it. Every sentence in a student-facing cell — including Gemini prompts and "After running, verify" checklists — must be written **to** the student, never *about* the student and never *to* the instructor.
+
+This rule exists because in early sessions, the assistant drifted into instructor-voice phrasings like *"… so students see the per-class breakdown."* The student is the reader; the phrase is wrong. After the rule went into `CLAUDE.md`, the regression effectively stopped. I also wrote a small script (`scripts/voice_check_guides.py`) that grep-audits modified files — so the constitution is enforced, not just declared.
+:::
+
+::: {.callout-note}
+## Example rule — CV-first evaluation and test-set lock
+> From notebook 9 onward, all model-performance claims come from cross-validation. Before notebook 14, the test set is **locked** — no model evaluation touches it. Notebook 14's "Opening the Locked Test Set" ceremony is the one and only authorized test-set opening in the entire course.
+
+This is not a style preference; it is the **pedagogical spine** of the course. If the assistant generates an `accuracy_score(y_test, ...)` call in notebook 11 because it is the obvious thing to write, notebook 14's payoff disappears. Encoded as a `CLAUDE.md` rule **plus** a runnable audit (`scripts/audit_cv_first.py`), the rule is durable across sessions.
+:::
+
+The pattern is the same in both cases: *write the rule down, then encode it as a check the assistant can run on demand.*
+
+## Keep a source `.md` file for every artifact
+
+This is the recommendation I would give first if a colleague asked me for one thing only. Every kind of artifact in the course has a corresponding plain-text "source" file in the repo:
+
+| Artifact | Source-of-truth file(s) |
+|---|---|
+| Notebooks (student-facing) | `notebooks/nbNN_topic_student.ipynb` |
+| Notebooks (instructor, with solutions) | `notebooks/nbNN_topic_instructor.ipynb` *(gitignored, local-only)* |
+| Video lecture guide (script + timestamps) | `video_guides/NN_video_lecture_guide.md` *(gitignored)* |
+| Brightspace content pages | `brightspace/NN_topic.md` |
+| Quizzes | `_quizzes/2026Summer/` |
+| Midterm exam | `_midterm_exam/2026Summer/` |
+| Notebook → NotebookLM podcast transcript | `_notebook_lm/<basename>.md` *(auto-generated, gitignored)* |
+| Course map and rationale | `MGMT47400_Online4Week_Plan_2026Summer.md` |
+| Implementation plan | `claude_course_plan.md` |
+| Conventions and decisions | `DECISIONS.md` |
+| Troubleshooting playbook | `TROUBLESHOOTING.md` |
+| Session-by-session history | `CONVERSATION_LOG.md` |
+
+Two benefits compound here. First, the AI can **read and edit** any of these directly — no copy-paste from a web UI, no screenshots, no "look at this PDF." Second, when a quiz question changes, you can ask the assistant to **propagate that change** to the matching brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.
+
+::: {.callout-tip}
+## What goes into a source `.md` file
+Not just the artifact itself — also the **rationale** for it. Each brightspace page in this repo begins with *what the student is learning today*, *why this matters*, and *how this connects to yesterday and tomorrow*. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.
+:::
+
+## Adopt an instructor-first notebook workflow
+
+Notebooks are the workhorse of this course (21 of them, ~one per business day). The convention I settled on after a lot of failed alternatives:
+
+1. **Edit the instructor notebook first.** `nbNN_topic_instructor.ipynb` is the source of truth and contains all solutions inside cells marked with `INSTRUCTOR SOLUTION`. This file is **gitignored** — it never leaves my machine.
+2. **Generate the student notebook from it.** Copy the instructor file, strip every cell tagged with `INSTRUCTOR SOLUTION`, update the Colab badge URL, commit only the student file.
+3. **Update the matching video guide** in `video_guides/`, which is also gitignored — speaking prompts, cell references, and timestamps.
+4. **Render the Quarto site and commit `docs/`** so the website actually reflects the change.
+
+This sequencing matters because it gives the assistant a single, unambiguous answer to the question *where do I write the next edit?* Without it, the assistant has been known to edit the student file directly, lose the solution version, and force me to reconstruct it from memory. With it, the workflow is mechanical.
+
+## Encode invariants as runnable scripts
+
+The most reliable rules in this project are the ones I made the assistant **enforce on itself** before committing. Two examples, both real, both in `scripts/`:
+
+::: {.callout-note}
+## `scripts/audit_cv_first.py`
+Scans every `notebooks/*_student.ipynb` for model-evaluation uses of `X_test` / `y_test` that violate the CV-first rule. The only acceptable hits are the two authorized openings in notebook 14 (the test-set ceremony) and notebook 18 (Kaggle-submission demo). Anything else is flagged and must be fixed before commit.
+:::
+
+::: {.callout-note}
+## `scripts/voice_check_guides.py`
+Audits video-guide markdown for instructor-voice violations *inside blockquotes only* (the read-aloud sections), while leaving wrapper prose untouched. Flags `students` (as a third-party noun), `the instructor`, `on camera`, and `speaking prompt` — but whitelists `Student's t` because that one is the statistical test, not a regression.
+:::
+
+Why this matters: a rule that lives only in `CLAUDE.md` depends on the assistant remembering and applying it. A rule that exists as a script gets run **every commit**, regardless of which "TA" is on shift today. The conversation about voice does not have to happen again; the audit either passes or it does not.
+
+## Automate the boring parts with hooks
+
+Claude Code lets you configure shell commands to run automatically after certain tool calls. I use this for one thing right now, and it has paid for itself many times over. The project's `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // empty'); case \"$f\" in *_instructor.ipynb) bash \"$CLAUDE_PROJECT_DIR/scripts/sync_instructor_md.sh\" \"$f\" >&2 ;; esac"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Translation: every time the assistant edits an instructor notebook, a shell script regenerates the corresponding `_notebook_lm/<basename>.md` file so [NotebookLM](https://notebooklm.google.com/) (Google's research/podcast tool) can ingest the latest version automatically. I never have to remember to "export to markdown for NotebookLM" — the hook does it on every edit. This is the same idea Pedro Sant'Anna documents extensively in his guide [@santanna2026claude].
+
+## Log decisions, not just changes
+
+Git remembers *what* changed. It does not remember *why*. I keep three companions to the commit log:
+
+- `DECISIONS.md` — short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.
+- `CONVERSATION_LOG.md` — a session-by-session journal, appended at the end of each working session. Sixteen-plus sessions in, this is where I look first when I have forgotten what we tried in a prior round.
+- `TROUBLESHOOTING.md` — the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped `$` in money strings. Future-me reads this so future-me does not re-debug it.
+
+# Examples from this repository {#sec-examples}
+
+Concrete is more useful than abstract. Three patterns from this course, named so a colleague can lift them.
+
+## The Pause-and-Do block
+
+Every student notebook is organized around the rhythm **Concept → Demo → Pause-and-Do practice → Solution discussion**. The Pause-and-Do block has a fixed six-cell anatomy in the *instructor* notebook (cells 4–6 are stripped from the student copy):
+
+```
+1. ## 📝 PAUSE-AND-DO Exercise X       (markdown — prompt)
+2. > 💡 Gemini Prompt: …               (markdown — AI prompt + verify checklist)
+3. # YOUR SOLUTION CODE HERE          (code — student writes here)
+4. ### INSTRUCTOR SOLUTION — Exercise X  (markdown — removed for student)
+5. # INSTRUCTOR SOLUTION              (code — removed for student)
+6. <!-- INSTRUCTOR SOLUTION -->        (markdown — "reading the output", removed)
+```
+
+This is encoded in `NOTEBOOK_TEMPLATE.md` so any session — mine or the assistant's — can produce a new exercise in the canonical shape without me re-explaining it.
+
+## The narrative polish pattern
+
+Every markdown cell in a student notebook follows five structural elements borrowed from `notebooks/nb08_cross_validation_model_comparison_student.ipynb`, which I treat as the canonical voice for the course:
+
+1. A business-case "Why This Matters" cell with a **named stakeholder** (the HomeValue CFO, the MedScreen chief medical officer, the TechCorp People Analytics lead).
+2. Narrative prose, not bullet lists, in "Reading the output" cells.
+3. Inline Q&A blocks introduced by the grep-findable phrase **"A question that often comes up here"**.
+4. Explicit section bridges (*"Section 2 landed the regression estimate with a tight CI. Now apply the identical four steps to the classification problem."*).
+5. Warm wrap-ups with a one-paragraph bridge to the next notebook.
+
+Because the pattern is documented and the trigger phrases are grep-findable, the assistant can polish a batch of notebooks consistently, and I can spot-check by running `grep "A question that often comes up"` across all student notebooks.
+
+## The render-and-commit ritual
+
+The most common project-wide mistake I made in the first two months was pushing a content change without rendering Quarto, so the website would silently go stale. I fixed this by writing the ritual into the constitution, in plain steps the assistant can follow:
+
+```bash
+# 1. Commit content changes
+git add notebooks/nbNN_topic_student.ipynb
+git commit -m "feat: Update notebook NN"
+
+# 2. Render the Quarto site
+/Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto render
+
+# 3. Commit rendered docs/
+git add docs/
+git commit -m "build: Render Quarto site"
+
+# 4. Push everything
+git push origin main
+```
+
+Tiny ritual, large payoff: as long as the assistant follows the four-step sequence, the website never drifts from the notebooks.
+
+# Pitfalls I hit (so you don't have to) {#sec-pitfalls}
+
+A short list, in rough chronological order:
+
+- **Trusting "looks done" without rendering.** Content pushed, website stale. Fixed by promoting render-and-commit to a critical workflow in `CLAUDE.md`.
+- **Letting solutions leak into the student notebook.** Fixed by the instructor-first workflow plus an unambiguous `INSTRUCTOR SOLUTION` marker convention.
+- **Drift in voice between sessions.** The student-versus-instructor voice problem. Fixed by the `voice_check_guides.py` audit plus an explicit rule with examples in `CLAUDE.md`.
+- **Test-set leakage in early-week notebooks.** Fixed by the CV-first rule plus the `audit_cv_first.py` script.
+- **Overwriting `CONVERSATION_LOG.md` instead of appending.** Lose the history once, lose it forever. Now an explicit anti-pattern in the constitution.
+- **`git add .` accidentally staging temp files, large CSVs, or local-only video drafts.** Always `git add <specific files>`. Reviewing `git status` before staging is now part of the routine.
+
+# If you are just starting {#sec-starter}
+
+A pragmatic on-ramp for a colleague whose course is already in plain-text form (or close to it):
+
+1. **Initialize a Git repo for your course** and put one artifact in it — even just the syllabus. Commit it.
+2. **Install [Claude Code](https://www.anthropic.com/claude-code)** (or any comparable AI coding assistant). Open the repo. Ask it, in natural language, to describe the structure back to you. This is the cheapest way to learn whether the tool sees your project the way you do.
+3. **Write a one-page `CLAUDE.md`** with: course mission, three style rules you care most about, and a list of "see also" files. Do not over-engineer it; it will grow.
+4. **Convert one artifact to a source `.md` file** — say, one quiz, or one brightspace page. Ask the assistant to edit it. Notice what it gets right and what it gets wrong. Capture the corrections in `CLAUDE.md`.
+5. **Adopt the four-step render-commit-push ritual** as soon as you have a website. Drift is the single most common failure.
+6. **Keep a `CONVERSATION_LOG.md`** from session one. Even three sentences per session is enough. You will thank yourself in month three.
+
+Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool; it is real, it is shorter than you fear, and you only pay it once.
+
+# References {#sec-references}
+
+::: {#refs}
+- Anthropic. **Claude Code: an agentic command-line tool for software development.** Documentation. <https://www.anthropic.com/claude-code>.
+- Sant'Anna, Pedro H. C. (2026). **My Claude Code Setup — A Workflow Guide for Academic Research.** <https://psantanna.com/claude-code-my-workflow/workflow-guide.html>. Companion repository: <https://github.com/pedrohcgs/claude-code-my-workflow>. *[The page that nudged me to write this one.]* [@santanna2026claude]
+- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). **An Introduction to Statistical Learning with Applications in Python.** Springer. <https://www.statlearning.com/>. *[The course textbook — ISLP.]*
+- Allaire, J. J., et al. **Quarto: An open-source scientific and technical publishing system.** <https://quarto.org>. *[The static-site engine behind this website.]*
+- Google. **NotebookLM — AI-powered research and notetaking assistant.** <https://notebooklm.google.com/>. *[Used to generate podcast-style audio summaries of instructor notebooks; wired into this repo by the `sync_instructor_md.sh` hook.]*
+- Google Research. **Gemini in Colab.** <https://colab.research.google.com/>. *[The in-notebook AI assistant students use in QM47400; framed as "vibe coding" — draft → verify → document.]*
+- Cunningham, S. **Causal Inference: The Mixtape.** <https://mixtape.scunning.com/>. *[Cited in Pedro Sant'Anna's guide for the "Rhetoric of Decks" framework; relevant if you also teach with slide decks-as-code.]*
+- Xu, Y., & Yang, L. Y. (2026). **Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.** Working paper. *[A complementary view on template-executor architectures for AI-assisted reproducible research.]*
+- Moreira, D. (2026). **QM47400 Predictive Analytics — Course Repository.** GitHub: <https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474>. *[The repository this page describes. Everything cited above — `CLAUDE.md`, `scripts/audit_cv_first.py`, `scripts/voice_check_guides.py`, the brightspace source pages, the notebook template, the conversation log — is open for inspection.]*
+:::
+
+---
+
+::: {.callout-note appearance="minimal"}
+**Feedback welcome.** If you are a Daniels School colleague (or anyone else) adopting parts of this workflow for your own course, I would genuinely like to hear what worked and what did not. Email me at [dcordeir@purdue.edu](mailto:dcordeir@purdue.edu). I will update this page as the Summer 2026 offering proceeds and as my own practice changes.
+:::
