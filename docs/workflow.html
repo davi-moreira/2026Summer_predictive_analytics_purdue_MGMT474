@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Professor Davi Moreira — Mitch. Daniels School of Business, Purdue University">
+<meta name="dcterms.date" content="2026-05-11">
+
+<title>Designing a Course with an AI Co-Designer – QM47400: Predictive Analytics (Summer 2026 - 4-Week Intensive)</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-af82d7f591780a2244ae675016860d00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflow.html">For Instructors — AI Co-Designer Workflow</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/mgmt_474_ai_logo_02-modified.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule and Material</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">For Instructors — AI Co-Designer Workflow</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-audience" id="toc-sec-audience" class="nav-link active" data-scroll-target="#sec-audience"><span class="header-section-number">1</span> Who this page is for</a></li>
+  <li><a href="#sec-starting-point" id="toc-sec-starting-point" class="nav-link" data-scroll-target="#sec-starting-point"><span class="header-section-number">2</span> The starting point</a></li>
+  <li><a href="#sec-tradeoffs" id="toc-sec-tradeoffs" class="nav-link" data-scroll-target="#sec-tradeoffs"><span class="header-section-number">3</span> The honest tradeoffs</a>
+  <ul class="collapse">
+  <li><a href="#you-will-spend-more-time-than-you-expect" id="toc-you-will-spend-more-time-than-you-expect" class="nav-link" data-scroll-target="#you-will-spend-more-time-than-you-expect"><span class="header-section-number">3.1</span> You will spend more time than you expect</a></li>
+  <li><a href="#flexibility-is-a-double-edged-sword" id="toc-flexibility-is-a-double-edged-sword" class="nav-link" data-scroll-target="#flexibility-is-a-double-edged-sword"><span class="header-section-number">3.2</span> Flexibility is a double-edged sword</a></li>
+  <li><a href="#think-of-the-assistant-as-a-rotating-tara-team" id="toc-think-of-the-assistant-as-a-rotating-tara-team" class="nav-link" data-scroll-target="#think-of-the-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.3</span> Think of the assistant as a rotating TA/RA team</a></li>
+  </ul></li>
+  <li><a href="#sec-recommendations" id="toc-sec-recommendations" class="nav-link" data-scroll-target="#sec-recommendations"><span class="header-section-number">4</span> Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#treat-claude.md-as-the-projects-constitution" id="toc-treat-claude.md-as-the-projects-constitution" class="nav-link" data-scroll-target="#treat-claude.md-as-the-projects-constitution"><span class="header-section-number">4.1</span> Treat <code>CLAUDE.md</code> as the project’s constitution</a></li>
+  <li><a href="#keep-a-source-.md-file-for-every-artifact" id="toc-keep-a-source-.md-file-for-every-artifact" class="nav-link" data-scroll-target="#keep-a-source-.md-file-for-every-artifact"><span class="header-section-number">4.2</span> Keep a source <code>.md</code> file for every artifact</a></li>
+  <li><a href="#adopt-an-instructor-first-notebook-workflow" id="toc-adopt-an-instructor-first-notebook-workflow" class="nav-link" data-scroll-target="#adopt-an-instructor-first-notebook-workflow"><span class="header-section-number">4.3</span> Adopt an instructor-first notebook workflow</a></li>
+  <li><a href="#encode-invariants-as-runnable-scripts" id="toc-encode-invariants-as-runnable-scripts" class="nav-link" data-scroll-target="#encode-invariants-as-runnable-scripts"><span class="header-section-number">4.4</span> Encode invariants as runnable scripts</a></li>
+  <li><a href="#automate-the-boring-parts-with-hooks" id="toc-automate-the-boring-parts-with-hooks" class="nav-link" data-scroll-target="#automate-the-boring-parts-with-hooks"><span class="header-section-number">4.5</span> Automate the boring parts with hooks</a></li>
+  <li><a href="#log-decisions-not-just-changes" id="toc-log-decisions-not-just-changes" class="nav-link" data-scroll-target="#log-decisions-not-just-changes"><span class="header-section-number">4.6</span> Log decisions, not just changes</a></li>
+  </ul></li>
+  <li><a href="#sec-examples" id="toc-sec-examples" class="nav-link" data-scroll-target="#sec-examples"><span class="header-section-number">5</span> Examples from this repository</a>
+  <ul class="collapse">
+  <li><a href="#the-pause-and-do-block" id="toc-the-pause-and-do-block" class="nav-link" data-scroll-target="#the-pause-and-do-block"><span class="header-section-number">5.1</span> The Pause-and-Do block</a></li>
+  <li><a href="#the-narrative-polish-pattern" id="toc-the-narrative-polish-pattern" class="nav-link" data-scroll-target="#the-narrative-polish-pattern"><span class="header-section-number">5.2</span> The narrative polish pattern</a></li>
+  <li><a href="#the-render-and-commit-ritual" id="toc-the-render-and-commit-ritual" class="nav-link" data-scroll-target="#the-render-and-commit-ritual"><span class="header-section-number">5.3</span> The render-and-commit ritual</a></li>
+  </ul></li>
+  <li><a href="#sec-pitfalls" id="toc-sec-pitfalls" class="nav-link" data-scroll-target="#sec-pitfalls"><span class="header-section-number">6</span> Pitfalls I hit (so you don’t have to)</a></li>
+  <li><a href="#sec-starter" id="toc-sec-starter" class="nav-link" data-scroll-target="#sec-starter"><span class="header-section-number">7</span> If you are just starting</a></li>
+  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">8</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Designing a Course with an AI Co-Designer</h1>
+<p class="subtitle lead">How I Used Claude Code to Translate a 16-Week In-Person Course into a 4-Week Intensive Online Format</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Professor Davi Moreira — Mitch. Daniels School of Business, Purdue University </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 11, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Work in progress — read it as a field journal, not a finished manual
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page documents a course that is <strong>not yet finalized</strong>. The Summer 2026 offering of <strong>QM47400 — Predictive Analytics</strong> runs <strong>May 18 – June 12, 2026</strong>. As of the date stamped above, I am still iterating on notebooks, video guides, quizzes, and the midterm. Treat what follows as an honest, mid-stream account of working with <a href="https://www.anthropic.com/claude-code">Claude Code</a> as an AI co-designer — what has worked for me, what cost me time, and what I would tell a colleague before they start.</p>
+</div>
+</div>
+<section id="sec-audience" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Who this page is for</h1>
+<p>This page is written for <strong>faculty colleagues</strong> — especially those building or revising a course — who are curious about whether AI coding assistants are useful for <em>teaching material</em>, not just for software engineering. If you have ever maintained a syllabus in plain text, edited slides as code (Beamer, Quarto, R Markdown), or even just kept course files in a Git repository, the workflow below will feel natural. If you have not, this page will give you a sense of what becomes possible if you take the small step of putting your course material under version control.</p>
+<p>I am sharing this in the same spirit as Pedro H. C. Sant’Anna’s <a href="https://psantanna.com/claude-code-my-workflow/workflow-guide.html"><em>My Claude Code Setup</em></a> <span class="citation" data-cites="santanna2026claude">[@santanna2026claude]</span> — which is, frankly, the page that nudged me to write my own. Where Pedro’s guide is the polished playbook of a research economist building an end-to-end agent system, mine is a teaching-oriented field report: what an undergraduate business-analytics course actually looks like when an AI is sitting beside you while you build it.</p>
+</section>
+<section id="sec-starting-point" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The starting point</h1>
+<p>I did not begin this project from zero. The <strong>2025 Fall</strong> version of QM47400 was already a full-semester course (15 weeks, in-person, with quizzes, Kaggle case competition, and a poster session). Three properties of that existing course mattered enormously when I brought Claude Code into the picture:</p>
+<ol type="1">
+<li><strong>The course website was already a <a href="https://quarto.org">Quarto</a> project.</strong> <code>index.qmd</code>, <code>syllabus.qmd</code>, <code>schedule.qmd</code> — plain text files rendered to HTML. The whole site lives in <code>docs/</code> and is served by GitHub Pages.</li>
+<li><strong>All other artifacts were already plain-text-friendly.</strong> Slides as Quarto/RevealJS source. Notebooks as <code>.ipynb</code> JSON. Quizzes, exam, project rubrics — Markdown.</li>
+<li><strong>The repository was already on GitHub</strong> with a sensible structure (<code>notebooks/</code>, <code>_syllabus/</code>, <code>_quizzes/</code>, <code>_midterm_exam/</code>, <code>_lecture_notes/</code>, <code>lecture_slides/</code>, <code>brightspace/</code>, etc.).</li>
+</ol>
+<p>If your course is in a similar shape — files you can read in a text editor, organized in folders — the workflow below is directly transferable. If your course currently lives entirely in PowerPoint decks, Word documents, and the Brightspace/Canvas authoring UI, your <strong>first</strong> investment should be moving the source-of-truth artifacts into plain text. That is the precondition that makes an AI co-designer useful.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>You do not need to be a developer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I am comfortable on the command line and with Git, and that lowered my activation cost. But everything I describe below can be done in <strong>natural language</strong> — telling Claude what you want, reviewing what it produced, and asking it to commit the change. You do not need to type a single Git command yourself.</p>
+</div>
+</div>
+</section>
+<section id="sec-tradeoffs" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> The honest tradeoffs</h1>
+<p>Before the recommendations, three lessons I wish I had taken seriously earlier.</p>
+<section id="you-will-spend-more-time-than-you-expect" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="you-will-spend-more-time-than-you-expect"><span class="header-section-number">3.1</span> You will spend more time than you expect</h2>
+<p>Translating a 15-week course into a 4-week intensive looks, on paper, like compression. In practice it is a <strong>redesign</strong>. Cognitive load, daily engagement (~112.5 min/day), notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in fourteen business days — none of that survives the move unchanged. The CONVERSATION_LOG.md in this repo has <strong>16+ working sessions</strong> logged across roughly four months. The AI sped up <em>production</em>, not <em>deliberation</em>. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant “just propose a plan,” the plan was bland and had to be redone.</p>
+</section>
+<section id="flexibility-is-a-double-edged-sword" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="flexibility-is-a-double-edged-sword"><span class="header-section-number">3.2</span> Flexibility is a double-edged sword</h2>
+<p>Claude Code is <strong>extremely</strong> flexible. It will adopt almost any convention you ask it to. That is wonderful, because the tool conforms to <em>your</em> course rather than the other way around. But it also means there is no obvious “right way” to use it, and the time-to-effectiveness is dominated by figuring out <em>your own</em> style. Expect to throw away your first two or three workflows before settling on one that fits.</p>
+</section>
+<section id="think-of-the-assistant-as-a-rotating-tara-team" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="think-of-the-assistant-as-a-rotating-tara-team"><span class="header-section-number">3.3</span> Think of the assistant as a rotating TA/RA team</h2>
+<p>This is the mental model that finally made the workflow click for me. Claude is the best teaching assistant I have ever had — fast, patient, indefatigable, well-read. But <strong>it is not the same TA in every session</strong>. Tone drifts. Default formatting drifts. Last week’s good habit can quietly become next week’s regression. The implication is simple and load-bearing:</p>
+<blockquote class="blockquote">
+<p>If you would tell a new TA something on their first day, <strong>write it down where the next TA will see it</strong>.</p>
+</blockquote>
+<p>Everything in <a href="#sec-recommendations">Recommendations</a> below is a consequence of taking that one sentence seriously.</p>
+</section>
+</section>
+<section id="sec-recommendations" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Recommendations</h1>
+<section id="treat-claude.md-as-the-projects-constitution" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="treat-claude.md-as-the-projects-constitution"><span class="header-section-number">4.1</span> Treat <code>CLAUDE.md</code> as the project’s constitution</h2>
+<p><code>CLAUDE.md</code> is the file Claude Code reads at the start of every session. Anything written there is in the assistant’s context by default — like a standing handout you would give every new RA on day one. My <code>CLAUDE.md</code> has grown from a few paragraphs to a structured document with:</p>
+<ul>
+<li><strong>Project mission</strong> (course code, run dates, pedagogy)</li>
+<li><strong>A small table of “see also” reference files</strong> (so the constitution stays slim and detailed material lives elsewhere)</li>
+<li><strong>Critical rules</strong> with a 🚨 prefix — the regressions I have actually been bitten by</li>
+<li><strong>Style guidelines as a table</strong> (random seed <code>474</code>, train/val/test split <code>60/20/20</code>, figure size, money in markdown cells, emoji vocabulary)</li>
+<li><strong>Anti-patterns</strong> drawn from real prior mistakes, not hypotheticals</li>
+<li><strong>A session-end checklist</strong></li>
+</ul>
+<p>The most valuable parts are the <strong>critical rules</strong> and <strong>anti-patterns</strong>, because they encode lessons the assistant cannot derive from the code. Two real examples from this repository:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example rule — Voice and Audience in student-facing content
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>The student notebook is read <strong>by</strong> students, not <strong>by</strong> instructors who then teach it. Every sentence in a student-facing cell — including Gemini prompts and “After running, verify” checklists — must be written <strong>to</strong> the student, never <em>about</em> the student and never <em>to</em> the instructor.</p>
+</blockquote>
+<p>This rule exists because in early sessions, the assistant drifted into instructor-voice phrasings like <em>“… so students see the per-class breakdown.”</em> The student is the reader; the phrase is wrong. After the rule went into <code>CLAUDE.md</code>, the regression effectively stopped. I also wrote a small script (<code>scripts/voice_check_guides.py</code>) that grep-audits modified files — so the constitution is enforced, not just declared.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example rule — CV-first evaluation and test-set lock
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>From notebook 9 onward, all model-performance claims come from cross-validation. Before notebook 14, the test set is <strong>locked</strong> — no model evaluation touches it. Notebook 14’s “Opening the Locked Test Set” ceremony is the one and only authorized test-set opening in the entire course.</p>
+</blockquote>
+<p>This is not a style preference; it is the <strong>pedagogical spine</strong> of the course. If the assistant generates an <code>accuracy_score(y_test, ...)</code> call in notebook 11 because it is the obvious thing to write, notebook 14’s payoff disappears. Encoded as a <code>CLAUDE.md</code> rule <strong>plus</strong> a runnable audit (<code>scripts/audit_cv_first.py</code>), the rule is durable across sessions.</p>
+</div>
+</div>
+<p>The pattern is the same in both cases: <em>write the rule down, then encode it as a check the assistant can run on demand.</em></p>
+</section>
+<section id="keep-a-source-.md-file-for-every-artifact" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="keep-a-source-.md-file-for-every-artifact"><span class="header-section-number">4.2</span> Keep a source <code>.md</code> file for every artifact</h2>
+<p>This is the recommendation I would give first if a colleague asked me for one thing only. Every kind of artifact in the course has a corresponding plain-text “source” file in the repo:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Artifact</th>
+<th>Source-of-truth file(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Notebooks (student-facing)</td>
+<td><code>notebooks/nbNN_topic_student.ipynb</code></td>
+</tr>
+<tr class="even">
+<td>Notebooks (instructor, with solutions)</td>
+<td><code>notebooks/nbNN_topic_instructor.ipynb</code> <em>(gitignored, local-only)</em></td>
+</tr>
+<tr class="odd">
+<td>Video lecture guide (script + timestamps)</td>
+<td><code>video_guides/NN_video_lecture_guide.md</code> <em>(gitignored)</em></td>
+</tr>
+<tr class="even">
+<td>Brightspace content pages</td>
+<td><code>brightspace/NN_topic.md</code></td>
+</tr>
+<tr class="odd">
+<td>Quizzes</td>
+<td><code>_quizzes/2026Summer/</code></td>
+</tr>
+<tr class="even">
+<td>Midterm exam</td>
+<td><code>_midterm_exam/2026Summer/</code></td>
+</tr>
+<tr class="odd">
+<td>Notebook → NotebookLM podcast transcript</td>
+<td><code>_notebook_lm/&lt;basename&gt;.md</code> <em>(auto-generated, gitignored)</em></td>
+</tr>
+<tr class="even">
+<td>Course map and rationale</td>
+<td><code>MGMT47400_Online4Week_Plan_2026Summer.md</code></td>
+</tr>
+<tr class="odd">
+<td>Implementation plan</td>
+<td><code>claude_course_plan.md</code></td>
+</tr>
+<tr class="even">
+<td>Conventions and decisions</td>
+<td><code>DECISIONS.md</code></td>
+</tr>
+<tr class="odd">
+<td>Troubleshooting playbook</td>
+<td><code>TROUBLESHOOTING.md</code></td>
+</tr>
+<tr class="even">
+<td>Session-by-session history</td>
+<td><code>CONVERSATION_LOG.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>Two benefits compound here. First, the AI can <strong>read and edit</strong> any of these directly — no copy-paste from a web UI, no screenshots, no “look at this PDF.” Second, when a quiz question changes, you can ask the assistant to <strong>propagate that change</strong> to the matching brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What goes into a source <code>.md</code> file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not just the artifact itself — also the <strong>rationale</strong> for it. Each brightspace page in this repo begins with <em>what the student is learning today</em>, <em>why this matters</em>, and <em>how this connects to yesterday and tomorrow</em>. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.</p>
+</div>
+</div>
+</section>
+<section id="adopt-an-instructor-first-notebook-workflow" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="adopt-an-instructor-first-notebook-workflow"><span class="header-section-number">4.3</span> Adopt an instructor-first notebook workflow</h2>
+<p>Notebooks are the workhorse of this course (21 of them, ~one per business day). The convention I settled on after a lot of failed alternatives:</p>
+<ol type="1">
+<li><strong>Edit the instructor notebook first.</strong> <code>nbNN_topic_instructor.ipynb</code> is the source of truth and contains all solutions inside cells marked with <code>INSTRUCTOR SOLUTION</code>. This file is <strong>gitignored</strong> — it never leaves my machine.</li>
+<li><strong>Generate the student notebook from it.</strong> Copy the instructor file, strip every cell tagged with <code>INSTRUCTOR SOLUTION</code>, update the Colab badge URL, commit only the student file.</li>
+<li><strong>Update the matching video guide</strong> in <code>video_guides/</code>, which is also gitignored — speaking prompts, cell references, and timestamps.</li>
+<li><strong>Render the Quarto site and commit <code>docs/</code></strong> so the website actually reflects the change.</li>
+</ol>
+<p>This sequencing matters because it gives the assistant a single, unambiguous answer to the question <em>where do I write the next edit?</em> Without it, the assistant has been known to edit the student file directly, lose the solution version, and force me to reconstruct it from memory. With it, the workflow is mechanical.</p>
+</section>
+<section id="encode-invariants-as-runnable-scripts" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="encode-invariants-as-runnable-scripts"><span class="header-section-number">4.4</span> Encode invariants as runnable scripts</h2>
+<p>The most reliable rules in this project are the ones I made the assistant <strong>enforce on itself</strong> before committing. Two examples, both real, both in <code>scripts/</code>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><code>scripts/audit_cv_first.py</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Scans every <code>notebooks/*_student.ipynb</code> for model-evaluation uses of <code>X_test</code> / <code>y_test</code> that violate the CV-first rule. The only acceptable hits are the two authorized openings in notebook 14 (the test-set ceremony) and notebook 18 (Kaggle-submission demo). Anything else is flagged and must be fixed before commit.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><code>scripts/voice_check_guides.py</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Audits video-guide markdown for instructor-voice violations <em>inside blockquotes only</em> (the read-aloud sections), while leaving wrapper prose untouched. Flags <code>students</code> (as a third-party noun), <code>the instructor</code>, <code>on camera</code>, and <code>speaking prompt</code> — but whitelists <code>Student's t</code> because that one is the statistical test, not a regression.</p>
+</div>
+</div>
+<p>Why this matters: a rule that lives only in <code>CLAUDE.md</code> depends on the assistant remembering and applying it. A rule that exists as a script gets run <strong>every commit</strong>, regardless of which “TA” is on shift today. The conversation about voice does not have to happen again; the audit either passes or it does not.</p>
+</section>
+<section id="automate-the-boring-parts-with-hooks" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="automate-the-boring-parts-with-hooks"><span class="header-section-number">4.5</span> Automate the boring parts with hooks</h2>
+<p>Claude Code lets you configure shell commands to run automatically after certain tool calls. I use this for one thing right now, and it has paid for itself many times over. The project’s <code>.claude/settings.json</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"hooks"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PostToolUse"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"matcher"</span><span class="fu">:</span> <span class="st">"Edit|Write|NotebookEdit"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"hooks"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"f=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // empty'); case </span><span class="ch">\"</span><span class="st">$f</span><span class="ch">\"</span><span class="st"> in *_instructor.ipynb) bash </span><span class="ch">\"</span><span class="st">$CLAUDE_PROJECT_DIR/scripts/sync_instructor_md.sh</span><span class="ch">\"</span><span class="st"> </span><span class="ch">\"</span><span class="st">$f</span><span class="ch">\"</span><span class="st"> &gt;&amp;2 ;; esac"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Translation: every time the assistant edits an instructor notebook, a shell script regenerates the corresponding <code>_notebook_lm/&lt;basename&gt;.md</code> file so <a href="https://notebooklm.google.com/">NotebookLM</a> (Google’s research/podcast tool) can ingest the latest version automatically. I never have to remember to “export to markdown for NotebookLM” — the hook does it on every edit. This is the same idea Pedro Sant’Anna documents extensively in his guide <span class="citation" data-cites="santanna2026claude">[@santanna2026claude]</span>.</p>
+</section>
+<section id="log-decisions-not-just-changes" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="log-decisions-not-just-changes"><span class="header-section-number">4.6</span> Log decisions, not just changes</h2>
+<p>Git remembers <em>what</em> changed. It does not remember <em>why</em>. I keep three companions to the commit log:</p>
+<ul>
+<li><code>DECISIONS.md</code> — short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.</li>
+<li><code>CONVERSATION_LOG.md</code> — a session-by-session journal, appended at the end of each working session. Sixteen-plus sessions in, this is where I look first when I have forgotten what we tried in a prior round.</li>
+<li><code>TROUBLESHOOTING.md</code> — the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped <code>$</code> in money strings. Future-me reads this so future-me does not re-debug it.</li>
+</ul>
+</section>
+</section>
+<section id="sec-examples" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Examples from this repository</h1>
+<p>Concrete is more useful than abstract. Three patterns from this course, named so a colleague can lift them.</p>
+<section id="the-pause-and-do-block" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-pause-and-do-block"><span class="header-section-number">5.1</span> The Pause-and-Do block</h2>
+<p>Every student notebook is organized around the rhythm <strong>Concept → Demo → Pause-and-Do practice → Solution discussion</strong>. The Pause-and-Do block has a fixed six-cell anatomy in the <em>instructor</em> notebook (cells 4–6 are stripped from the student copy):</p>
+<pre><code>1. ## 📝 PAUSE-AND-DO Exercise X       (markdown — prompt)
+2. &gt; 💡 Gemini Prompt: …               (markdown — AI prompt + verify checklist)
+3. # YOUR SOLUTION CODE HERE          (code — student writes here)
+4. ### INSTRUCTOR SOLUTION — Exercise X  (markdown — removed for student)
+5. # INSTRUCTOR SOLUTION              (code — removed for student)
+6. &lt;!-- INSTRUCTOR SOLUTION --&gt;        (markdown — "reading the output", removed)</code></pre>
+<p>This is encoded in <code>NOTEBOOK_TEMPLATE.md</code> so any session — mine or the assistant’s — can produce a new exercise in the canonical shape without me re-explaining it.</p>
+</section>
+<section id="the-narrative-polish-pattern" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-narrative-polish-pattern"><span class="header-section-number">5.2</span> The narrative polish pattern</h2>
+<p>Every markdown cell in a student notebook follows five structural elements borrowed from <code>notebooks/nb08_cross_validation_model_comparison_student.ipynb</code>, which I treat as the canonical voice for the course:</p>
+<ol type="1">
+<li>A business-case “Why This Matters” cell with a <strong>named stakeholder</strong> (the HomeValue CFO, the MedScreen chief medical officer, the TechCorp People Analytics lead).</li>
+<li>Narrative prose, not bullet lists, in “Reading the output” cells.</li>
+<li>Inline Q&amp;A blocks introduced by the grep-findable phrase <strong>“A question that often comes up here”</strong>.</li>
+<li>Explicit section bridges (<em>“Section 2 landed the regression estimate with a tight CI. Now apply the identical four steps to the classification problem.”</em>).</li>
+<li>Warm wrap-ups with a one-paragraph bridge to the next notebook.</li>
+</ol>
+<p>Because the pattern is documented and the trigger phrases are grep-findable, the assistant can polish a batch of notebooks consistently, and I can spot-check by running <code>grep "A question that often comes up"</code> across all student notebooks.</p>
+</section>
+<section id="the-render-and-commit-ritual" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="the-render-and-commit-ritual"><span class="header-section-number">5.3</span> The render-and-commit ritual</h2>
+<p>The most common project-wide mistake I made in the first two months was pushing a content change without rendering Quarto, so the website would silently go stale. I fixed this by writing the ritual into the constitution, in plain steps the assistant can follow:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Commit content changes</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add notebooks/nbNN_topic_student.ipynb</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: Update notebook NN"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Render the Quarto site</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto</span> render</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Commit rendered docs/</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add docs/</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"build: Render Quarto site"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Push everything</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tiny ritual, large payoff: as long as the assistant follows the four-step sequence, the website never drifts from the notebooks.</p>
+</section>
+</section>
+<section id="sec-pitfalls" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Pitfalls I hit (so you don’t have to)</h1>
+<p>A short list, in rough chronological order:</p>
+<ul>
+<li><strong>Trusting “looks done” without rendering.</strong> Content pushed, website stale. Fixed by promoting render-and-commit to a critical workflow in <code>CLAUDE.md</code>.</li>
+<li><strong>Letting solutions leak into the student notebook.</strong> Fixed by the instructor-first workflow plus an unambiguous <code>INSTRUCTOR SOLUTION</code> marker convention.</li>
+<li><strong>Drift in voice between sessions.</strong> The student-versus-instructor voice problem. Fixed by the <code>voice_check_guides.py</code> audit plus an explicit rule with examples in <code>CLAUDE.md</code>.</li>
+<li><strong>Test-set leakage in early-week notebooks.</strong> Fixed by the CV-first rule plus the <code>audit_cv_first.py</code> script.</li>
+<li><strong>Overwriting <code>CONVERSATION_LOG.md</code> instead of appending.</strong> Lose the history once, lose it forever. Now an explicit anti-pattern in the constitution.</li>
+<li><strong><code>git add .</code> accidentally staging temp files, large CSVs, or local-only video drafts.</strong> Always <code>git add &lt;specific files&gt;</code>. Reviewing <code>git status</code> before staging is now part of the routine.</li>
+</ul>
+</section>
+<section id="sec-starter" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> If you are just starting</h1>
+<p>A pragmatic on-ramp for a colleague whose course is already in plain-text form (or close to it):</p>
+<ol type="1">
+<li><strong>Initialize a Git repo for your course</strong> and put one artifact in it — even just the syllabus. Commit it.</li>
+<li><strong>Install <a href="https://www.anthropic.com/claude-code">Claude Code</a></strong> (or any comparable AI coding assistant). Open the repo. Ask it, in natural language, to describe the structure back to you. This is the cheapest way to learn whether the tool sees your project the way you do.</li>
+<li><strong>Write a one-page <code>CLAUDE.md</code></strong> with: course mission, three style rules you care most about, and a list of “see also” files. Do not over-engineer it; it will grow.</li>
+<li><strong>Convert one artifact to a source <code>.md</code> file</strong> — say, one quiz, or one brightspace page. Ask the assistant to edit it. Notice what it gets right and what it gets wrong. Capture the corrections in <code>CLAUDE.md</code>.</li>
+<li><strong>Adopt the four-step render-commit-push ritual</strong> as soon as you have a website. Drift is the single most common failure.</li>
+<li><strong>Keep a <code>CONVERSATION_LOG.md</code></strong> from session one. Even three sentences per session is enough. You will thank yourself in month three.</li>
+</ol>
+<p>Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool; it is real, it is shorter than you fear, and you only pay it once.</p>
+</section>
+<section id="sec-references" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> References</h1>
+<div id="refs" role="list">
+<ul>
+<li>Anthropic. <strong>Claude Code: an agentic command-line tool for software development.</strong> Documentation. <a href="https://www.anthropic.com/claude-code" class="uri">https://www.anthropic.com/claude-code</a>.</li>
+<li>Sant’Anna, Pedro H. C. (2026). <strong>My Claude Code Setup — A Workflow Guide for Academic Research.</strong> <a href="https://psantanna.com/claude-code-my-workflow/workflow-guide.html" class="uri">https://psantanna.com/claude-code-my-workflow/workflow-guide.html</a>. Companion repository: <a href="https://github.com/pedrohcgs/claude-code-my-workflow" class="uri">https://github.com/pedrohcgs/claude-code-my-workflow</a>. <em>[The page that nudged me to write this one.]</em> <span class="citation" data-cites="santanna2026claude">[@santanna2026claude]</span></li>
+<li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2023). <strong>An Introduction to Statistical Learning with Applications in Python.</strong> Springer. <a href="https://www.statlearning.com/" class="uri">https://www.statlearning.com/</a>. <em>[The course textbook — ISLP.]</em></li>
+<li>Allaire, J. J., et al.&nbsp;<strong>Quarto: An open-source scientific and technical publishing system.</strong> <a href="https://quarto.org" class="uri">https://quarto.org</a>. <em>[The static-site engine behind this website.]</em></li>
+<li>Google. <strong>NotebookLM — AI-powered research and notetaking assistant.</strong> <a href="https://notebooklm.google.com/" class="uri">https://notebooklm.google.com/</a>. <em>[Used to generate podcast-style audio summaries of instructor notebooks; wired into this repo by the <code>sync_instructor_md.sh</code> hook.]</em></li>
+<li>Google Research. <strong>Gemini in Colab.</strong> <a href="https://colab.research.google.com/" class="uri">https://colab.research.google.com/</a>. <em>[The in-notebook AI assistant students use in QM47400; framed as “vibe coding” — draft → verify → document.]</em></li>
+<li>Cunningham, S. <strong>Causal Inference: The Mixtape.</strong> <a href="https://mixtape.scunning.com/" class="uri">https://mixtape.scunning.com/</a>. <em>[Cited in Pedro Sant’Anna’s guide for the “Rhetoric of Decks” framework; relevant if you also teach with slide decks-as-code.]</em></li>
+<li>Xu, Y., &amp; Yang, L. Y. (2026). <strong>Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.</strong> Working paper. <em>[A complementary view on template-executor architectures for AI-assisted reproducible research.]</em></li>
+<li>Moreira, D. (2026). <strong>QM47400 Predictive Analytics — Course Repository.</strong> GitHub: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" class="uri">https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474</a>. <em>[The repository this page describes. Everything cited above — <code>CLAUDE.md</code>, <code>scripts/audit_cv_first.py</code>, <code>scripts/voice_check_guides.py</code>, the brightspace source pages, the notebook template, the conversation log — is open for inspection.]</em></li>
+</ul>
+</div>
+<hr>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Feedback welcome.</strong> If you are a Daniels School colleague (or anyone else) adopting parts of this workflow for your own course, I would genuinely like to hear what worked and what did not. Email me at <a href="mailto:dcordeir@purdue.edu">dcordeir@purdue.edu</a>. I will update this page as the Summer 2026 offering proceeds and as my own practice changes.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
