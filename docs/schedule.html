@@ -205,6 +205,12 @@ ul.task-list li input[type="checkbox"] {
     line-height: 1.2; /* Match line height */
     margin-top: 1rem; /* Add spacing above the text */
   }
+  /* Enlarge the "Open In Colab" badge in the Notebook column for easier clicks */
+  .overflow-table img[src*="colab-badge"] {
+    height: 32px;       /* native is ~20px; bumped ~1.6x */
+    width: auto;        /* preserve aspect ratio */
+    vertical-align: middle;
+  }
 </style>
 <section id="course-schedule" class="level1">
 <h1>Course Schedule</h1>
