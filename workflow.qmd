@@ -290,23 +290,90 @@ Then iterate. Expect month one to feel like overhead and month three to feel lik
 
 # Using this course as a template for your own {#sec-template}
 
-If you would like to use this repository as a starting point rather than reinventing the workflow, there are two paths. **Replicate the design** if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. **Use it as a reference** if your domain is different, and lift only the patterns that transfer.
+If you would like to use this [repository](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474) as a starting point rather than reinventing the workflow, there are two paths. **Replicate the design** if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. **Use it as a reference** if your domain is different, and lift only the patterns that transfer.
 
-In both cases, the steps below are the most direct on-ramp. Each step is something you can say to Claude Code in your terminal, in your own words. The bullet text is just the intent.
+The seven steps below are the most direct on-ramp. Each step lists **what to do**, the **prompt** you can paste into Claude Code (shown in blockquotes), and the **files in this repository** to point the assistant at (shown as hyperlinks).
 
-1. **Clone the repository and open it in Claude Code.** This sounds trivial, but it is the move that unlocks everything else: the assistant can now read `CLAUDE.md`, `DECISIONS.md`, the notebook template, the audit scripts, and every brightspace source page in the repo, all at once.
+## Step 1. Get the repository onto your machine
 
-2. **Ask the assistant to summarize the project to you.** A useful opening prompt is something like: *"Read `CLAUDE.md` and `MGMT47400_Online4Week_Plan_2026Summer.md`, then describe back to me how this course is structured: pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious."* What comes back is your map of the territory and a quick sanity check on whether the assistant has the right context.
+a. Clone the repo into a sensible working directory:
 
-3. **Translate the constitution to your domain.** Copy `CLAUDE.md` into your own repo and ask the assistant to adapt it: replace QM47400 with your course code, swap "predictive analytics" for your subject, and ask which of the critical rules and anti-patterns plausibly transfer. Keep the structural elements (project mission, "see also" table, critical rules, anti-patterns, session-end checklist) even if every concrete rule changes.
+```bash
+git clone https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474.git
+cd 2026Summer_predictive_analytics_purdue_MGMT474
+```
 
-4. **Adopt one pattern at a time.** I would start with the **render-and-commit ritual** and the **per-artifact source `.md` files**. They cost almost nothing to set up and they remove the two most common failure modes. After that, the **instructor-first notebook workflow** is the highest-leverage addition for any course that uses notebooks or lab worksheets.
+b. Install [Claude Code](https://www.anthropic.com/claude-code) if you have not yet, then launch it from inside the cloned repo so the working directory is set correctly.
 
-5. **Adapt the audit scripts to your invariants.** `scripts/audit_cv_first.py` and `scripts/voice_check_guides.py` are short. Ask the assistant to read both, then to write the analogous scripts for the invariants in *your* course. If you teach causal inference, your audit might enforce that no causal claim is made on observational data without a stated identifying assumption. If you teach writing, your audit might flag passive voice in graded examples. The mechanism is the same: write the rule down, then turn it into a check.
+c. (Optional but recommended.) Open the same directory in your preferred editor or IDE so you can read along while the assistant works.
 
-6. **Reuse the bulk-CSV pattern for Brightspace.** Once you have a few quizzes in CSV form, the assistant can produce more in the same schema very quickly. The early hour you spend pinning down the column format pays back across the entire semester.
+## Step 2. Get oriented before you change anything
 
-7. **Send me what you build, and what fails.** I keep updating this page as I learn. If you adapt these patterns and discover a sharper version, I would like to hear about it.
+a. Ask the assistant to read the constitution and the course plan, then describe the project back to you:
+
+> Read [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) and [`MGMT47400_Online4Week_Plan_2026Summer.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/MGMT47400_Online4Week_Plan_2026Summer.md). Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.
+
+b. Ask for the file map:
+
+> List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).
+
+c. Spot-check by opening one notebook the assistant cites, for example [`notebooks/nb08_cross_validation_model_comparison_student.ipynb`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb08_cross_validation_model_comparison_student.ipynb), so you can see what "canonical voice" actually looks like.
+
+## Step 3. Translate the constitution to your domain
+
+a. Copy [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) into your own repo (rename to `CLAUDE.md` or keep it lowercase, either works), then ask the assistant to adapt it:
+
+> This is the constitution from another course's repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap "predictive analytics" for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.
+
+b. Keep the **structural elements** even if every concrete rule changes: project mission, the "see also" reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.
+
+c. Also copy and adapt the companion files: [`DECISIONS.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/DECISIONS.md), [`TROUBLESHOOTING.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/TROUBLESHOOTING.md), and [`NOTEBOOK_TEMPLATE.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/NOTEBOOK_TEMPLATE.md). They start small and grow alongside the project.
+
+## Step 4. Adopt one pattern at a time, not all at once
+
+Start with the two patterns that cost almost nothing and remove the two most common failure modes.
+
+a. **The render-and-commit ritual.** Copy the four-step ritual from [§5.3](#sec-examples) into your own `CLAUDE.md` as a critical workflow, adjusted to your renderer (Quarto, Jekyll, Hugo, MkDocs).
+
+b. **Per-artifact source `.md` files.** Pick one artifact (a syllabus, one quiz, one Brightspace content page). Convert it to plain-text Markdown. Edit it with the assistant. Notice what the assistant gets right and where it drifts. Capture the corrections in `CLAUDE.md`.
+
+c. After those two are stable, add the **instructor-first notebook workflow** from [§4.3](#sec-recommendations) if your course uses notebooks or lab worksheets. This is the highest-leverage addition for any course built around hands-on practice.
+
+## Step 5. Adapt the audit scripts to your invariants
+
+a. Read both audit scripts in this repo:
+
+- [`scripts/audit_cv_first.py`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/audit_cv_first.py)
+- [`scripts/voice_check_guides.py`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/voice_check_guides.py)
+
+b. Identify two or three invariants in *your* course that you keep correcting by hand. Then ask the assistant:
+
+> Read both audit scripts in `scripts/`. The invariants in my course are: [list them]. Write the equivalent audit scripts and explain how to wire them into the commit workflow.
+
+c. A few domain-specific invariants worth automating:
+
+- *Causal inference course:* no causal claim on observational data without a stated identifying assumption.
+- *Writing-intensive course:* passive voice flagged in graded examples and rubrics.
+- *Lab course:* every method section cites the protocol it follows.
+- *Any course with student-facing materials:* a voice check like [`voice_check_guides.py`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/voice_check_guides.py).
+
+## Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes
+
+a. Either export one existing quiz from Brightspace as CSV, or build one by hand in the format Brightspace's Question Library expects.
+
+b. Save that file inside [`_quizzes/`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes) in your repo. This becomes your **schema example**.
+
+c. Generate the next quiz by pointing the assistant at the schema example:
+
+> Use [`_quizzes/<term>/<example-quiz>.csv`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes) as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.
+
+d. Review, edit, upload. The hour you invest in step (a) pays back across the entire semester.
+
+## Step 7. Share what you build (and what failed)
+
+a. Open an issue on the [course repository](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/issues) describing what you adapted, what worked, and what failed.
+
+b. Or just [email me](mailto:dcordeir@purdue.edu) directly. I keep updating this page as I learn, and a sharper version of any of these patterns from a different discipline is genuinely useful to me.
 
 # References {#sec-references}
 
