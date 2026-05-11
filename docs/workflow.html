@@ -229,7 +229,16 @@ div.csl-indent {
   </ul></li>
   <li><a href="#sec-pitfalls" id="toc-sec-pitfalls" class="nav-link" data-scroll-target="#sec-pitfalls"><span class="header-section-number">6</span> Pitfalls I hit (so you don’t have to)</a></li>
   <li><a href="#sec-starter" id="toc-sec-starter" class="nav-link" data-scroll-target="#sec-starter"><span class="header-section-number">7</span> If you are just starting</a></li>
-  <li><a href="#sec-template" id="toc-sec-template" class="nav-link" data-scroll-target="#sec-template"><span class="header-section-number">8</span> Using this course as a template for your own</a></li>
+  <li><a href="#sec-template" id="toc-sec-template" class="nav-link" data-scroll-target="#sec-template"><span class="header-section-number">8</span> Using this course as a template for your own</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-get-the-repository-onto-your-machine" id="toc-step-1.-get-the-repository-onto-your-machine" class="nav-link" data-scroll-target="#step-1.-get-the-repository-onto-your-machine"><span class="header-section-number">8.1</span> Step 1. Get the repository onto your machine</a></li>
+  <li><a href="#step-2.-get-oriented-before-you-change-anything" id="toc-step-2.-get-oriented-before-you-change-anything" class="nav-link" data-scroll-target="#step-2.-get-oriented-before-you-change-anything"><span class="header-section-number">8.2</span> Step 2. Get oriented before you change anything</a></li>
+  <li><a href="#step-3.-translate-the-constitution-to-your-domain" id="toc-step-3.-translate-the-constitution-to-your-domain" class="nav-link" data-scroll-target="#step-3.-translate-the-constitution-to-your-domain"><span class="header-section-number">8.3</span> Step 3. Translate the constitution to your domain</a></li>
+  <li><a href="#step-4.-adopt-one-pattern-at-a-time-not-all-at-once" id="toc-step-4.-adopt-one-pattern-at-a-time-not-all-at-once" class="nav-link" data-scroll-target="#step-4.-adopt-one-pattern-at-a-time-not-all-at-once"><span class="header-section-number">8.4</span> Step 4. Adopt one pattern at a time, not all at once</a></li>
+  <li><a href="#step-5.-adapt-the-audit-scripts-to-your-invariants" id="toc-step-5.-adapt-the-audit-scripts-to-your-invariants" class="nav-link" data-scroll-target="#step-5.-adapt-the-audit-scripts-to-your-invariants"><span class="header-section-number">8.5</span> Step 5. Adapt the audit scripts to your invariants</a></li>
+  <li><a href="#step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes" id="toc-step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes" class="nav-link" data-scroll-target="#step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes"><span class="header-section-number">8.6</span> Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes</a></li>
+  <li><a href="#step-7.-share-what-you-build-and-what-failed" id="toc-step-7.-share-what-you-build-and-what-failed" class="nav-link" data-scroll-target="#step-7.-share-what-you-build-and-what-failed"><span class="header-section-number">8.7</span> Step 7. Share what you build (and what failed)</a></li>
+  </ul></li>
   <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">9</span> References</a></li>
   </ul>
 </nav>
@@ -723,17 +732,106 @@ div.csl-indent {
 </section>
 <section id="sec-template" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Using this course as a template for your own</h1>
-<p>If you would like to use this repository as a starting point rather than reinventing the workflow, there are two paths. <strong>Replicate the design</strong> if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. <strong>Use it as a reference</strong> if your domain is different, and lift only the patterns that transfer.</p>
-<p>In both cases, the steps below are the most direct on-ramp. Each step is something you can say to Claude Code in your terminal, in your own words. The bullet text is just the intent.</p>
-<ol type="1">
-<li><p><strong>Clone the repository and open it in Claude Code.</strong> This sounds trivial, but it is the move that unlocks everything else: the assistant can now read <code>CLAUDE.md</code>, <code>DECISIONS.md</code>, the notebook template, the audit scripts, and every brightspace source page in the repo, all at once.</p></li>
-<li><p><strong>Ask the assistant to summarize the project to you.</strong> A useful opening prompt is something like: <em>“Read <code>CLAUDE.md</code> and <code>MGMT47400_Online4Week_Plan_2026Summer.md</code>, then describe back to me how this course is structured: pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.”</em> What comes back is your map of the territory and a quick sanity check on whether the assistant has the right context.</p></li>
-<li><p><strong>Translate the constitution to your domain.</strong> Copy <code>CLAUDE.md</code> into your own repo and ask the assistant to adapt it: replace QM47400 with your course code, swap “predictive analytics” for your subject, and ask which of the critical rules and anti-patterns plausibly transfer. Keep the structural elements (project mission, “see also” table, critical rules, anti-patterns, session-end checklist) even if every concrete rule changes.</p></li>
-<li><p><strong>Adopt one pattern at a time.</strong> I would start with the <strong>render-and-commit ritual</strong> and the <strong>per-artifact source <code>.md</code> files</strong>. They cost almost nothing to set up and they remove the two most common failure modes. After that, the <strong>instructor-first notebook workflow</strong> is the highest-leverage addition for any course that uses notebooks or lab worksheets.</p></li>
-<li><p><strong>Adapt the audit scripts to your invariants.</strong> <code>scripts/audit_cv_first.py</code> and <code>scripts/voice_check_guides.py</code> are short. Ask the assistant to read both, then to write the analogous scripts for the invariants in <em>your</em> course. If you teach causal inference, your audit might enforce that no causal claim is made on observational data without a stated identifying assumption. If you teach writing, your audit might flag passive voice in graded examples. The mechanism is the same: write the rule down, then turn it into a check.</p></li>
-<li><p><strong>Reuse the bulk-CSV pattern for Brightspace.</strong> Once you have a few quizzes in CSV form, the assistant can produce more in the same schema very quickly. The early hour you spend pinning down the column format pays back across the entire semester.</p></li>
-<li><p><strong>Send me what you build, and what fails.</strong> I keep updating this page as I learn. If you adapt these patterns and discover a sharper version, I would like to hear about it.</p></li>
+<p>If you would like to use this <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474">repository</a> as a starting point rather than reinventing the workflow, there are two paths. <strong>Replicate the design</strong> if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. <strong>Use it as a reference</strong> if your domain is different, and lift only the patterns that transfer.</p>
+<p>The seven steps below are the most direct on-ramp. Each step lists <strong>what to do</strong>, the <strong>prompt</strong> you can paste into Claude Code (shown in blockquotes), and the <strong>files in this repository</strong> to point the assistant at (shown as hyperlinks).</p>
+<section id="step-1.-get-the-repository-onto-your-machine" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="step-1.-get-the-repository-onto-your-machine"><span class="header-section-number">8.1</span> Step 1. Get the repository onto your machine</h2>
+<ol type="a">
+<li>Clone the repo into a sensible working directory:</li>
 </ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 2026Summer_predictive_analytics_purdue_MGMT474</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="a">
+<li><p>Install <a href="https://www.anthropic.com/claude-code">Claude Code</a> if you have not yet, then launch it from inside the cloned repo so the working directory is set correctly.</p></li>
+<li><p>(Optional but recommended.) Open the same directory in your preferred editor or IDE so you can read along while the assistant works.</p></li>
+</ol>
+</section>
+<section id="step-2.-get-oriented-before-you-change-anything" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="step-2.-get-oriented-before-you-change-anything"><span class="header-section-number">8.2</span> Step 2. Get oriented before you change anything</h2>
+<ol type="a">
+<li>Ask the assistant to read the constitution and the course plan, then describe the project back to you:</li>
+</ol>
+<blockquote class="blockquote">
+<p>Read <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md"><code>claude.md</code></a> and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/MGMT47400_Online4Week_Plan_2026Summer.md"><code>MGMT47400_Online4Week_Plan_2026Summer.md</code></a>. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.</p>
+</blockquote>
+<ol start="2" type="a">
+<li>Ask for the file map:</li>
+</ol>
+<blockquote class="blockquote">
+<p>List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).</p>
+</blockquote>
+<ol start="3" type="a">
+<li>Spot-check by opening one notebook the assistant cites, for example <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb08_cross_validation_model_comparison_student.ipynb"><code>notebooks/nb08_cross_validation_model_comparison_student.ipynb</code></a>, so you can see what “canonical voice” actually looks like.</li>
+</ol>
+</section>
+<section id="step-3.-translate-the-constitution-to-your-domain" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="step-3.-translate-the-constitution-to-your-domain"><span class="header-section-number">8.3</span> Step 3. Translate the constitution to your domain</h2>
+<ol type="a">
+<li>Copy <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md"><code>claude.md</code></a> into your own repo (rename to <code>CLAUDE.md</code> or keep it lowercase, either works), then ask the assistant to adapt it:</li>
+</ol>
+<blockquote class="blockquote">
+<p>This is the constitution from another course’s repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap “predictive analytics” for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.</p>
+</blockquote>
+<ol start="2" type="a">
+<li><p>Keep the <strong>structural elements</strong> even if every concrete rule changes: project mission, the “see also” reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.</p></li>
+<li><p>Also copy and adapt the companion files: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/DECISIONS.md"><code>DECISIONS.md</code></a>, <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/TROUBLESHOOTING.md"><code>TROUBLESHOOTING.md</code></a>, and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/NOTEBOOK_TEMPLATE.md"><code>NOTEBOOK_TEMPLATE.md</code></a>. They start small and grow alongside the project.</p></li>
+</ol>
+</section>
+<section id="step-4.-adopt-one-pattern-at-a-time-not-all-at-once" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="step-4.-adopt-one-pattern-at-a-time-not-all-at-once"><span class="header-section-number">8.4</span> Step 4. Adopt one pattern at a time, not all at once</h2>
+<p>Start with the two patterns that cost almost nothing and remove the two most common failure modes.</p>
+<ol type="a">
+<li><p><strong>The render-and-commit ritual.</strong> Copy the four-step ritual from <a href="#sec-examples">§5.3</a> into your own <code>CLAUDE.md</code> as a critical workflow, adjusted to your renderer (Quarto, Jekyll, Hugo, MkDocs).</p></li>
+<li><p><strong>Per-artifact source <code>.md</code> files.</strong> Pick one artifact (a syllabus, one quiz, one Brightspace content page). Convert it to plain-text Markdown. Edit it with the assistant. Notice what the assistant gets right and where it drifts. Capture the corrections in <code>CLAUDE.md</code>.</p></li>
+<li><p>After those two are stable, add the <strong>instructor-first notebook workflow</strong> from <a href="#sec-recommendations">§4.3</a> if your course uses notebooks or lab worksheets. This is the highest-leverage addition for any course built around hands-on practice.</p></li>
+</ol>
+</section>
+<section id="step-5.-adapt-the-audit-scripts-to-your-invariants" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="step-5.-adapt-the-audit-scripts-to-your-invariants"><span class="header-section-number">8.5</span> Step 5. Adapt the audit scripts to your invariants</h2>
+<ol type="a">
+<li>Read both audit scripts in this repo:</li>
+</ol>
+<ul>
+<li><a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/audit_cv_first.py"><code>scripts/audit_cv_first.py</code></a></li>
+<li><a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/voice_check_guides.py"><code>scripts/voice_check_guides.py</code></a></li>
+</ul>
+<ol start="2" type="a">
+<li>Identify two or three invariants in <em>your</em> course that you keep correcting by hand. Then ask the assistant:</li>
+</ol>
+<blockquote class="blockquote">
+<p>Read both audit scripts in <code>scripts/</code>. The invariants in my course are: [list them]. Write the equivalent audit scripts and explain how to wire them into the commit workflow.</p>
+</blockquote>
+<ol start="3" type="a">
+<li>A few domain-specific invariants worth automating:</li>
+</ol>
+<ul>
+<li><em>Causal inference course:</em> no causal claim on observational data without a stated identifying assumption.</li>
+<li><em>Writing-intensive course:</em> passive voice flagged in graded examples and rubrics.</li>
+<li><em>Lab course:</em> every method section cites the protocol it follows.</li>
+<li><em>Any course with student-facing materials:</em> a voice check like <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/voice_check_guides.py"><code>voice_check_guides.py</code></a>.</li>
+</ul>
+</section>
+<section id="step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes"><span class="header-section-number">8.6</span> Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes</h2>
+<ol type="a">
+<li><p>Either export one existing quiz from Brightspace as CSV, or build one by hand in the format Brightspace’s Question Library expects.</p></li>
+<li><p>Save that file inside <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes"><code>_quizzes/</code></a> in your repo. This becomes your <strong>schema example</strong>.</p></li>
+<li><p>Generate the next quiz by pointing the assistant at the schema example:</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>Use <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes"><code>_quizzes/&lt;term&gt;/&lt;example-quiz&gt;.csv</code></a> as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.</p>
+</blockquote>
+<ol start="4" type="a">
+<li>Review, edit, upload. The hour you invest in step (a) pays back across the entire semester.</li>
+</ol>
+</section>
+<section id="step-7.-share-what-you-build-and-what-failed" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="step-7.-share-what-you-build-and-what-failed"><span class="header-section-number">8.7</span> Step 7. Share what you build (and what failed)</h2>
+<ol type="a">
+<li><p>Open an issue on the <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/issues">course repository</a> describing what you adapted, what worked, and what failed.</p></li>
+<li><p>Or just <a href="mailto:dcordeir@purdue.edu">email me</a> directly. I keep updating this page as I learn, and a sharper version of any of these patterns from a different discipline is genuinely useful to me.</p></li>
+</ol>
+</section>
 </section>
 <section id="sec-references" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> References</h1>

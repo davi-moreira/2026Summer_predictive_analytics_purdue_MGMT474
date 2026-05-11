@@ -150,6 +150,76 @@
     ]
   },
   {
+    "objectID": "workflow.html#step-1.-get-the-repository-onto-your-machine",
+    "href": "workflow.html#step-1.-get-the-repository-onto-your-machine",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.1 Step 1. Get the repository onto your machine",
+    "text": "8.1 Step 1. Get the repository onto your machine\n\nClone the repo into a sensible working directory:\n\ngit clone https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474.git\ncd 2026Summer_predictive_analytics_purdue_MGMT474\n\nInstall Claude Code if you have not yet, then launch it from inside the cloned repo so the working directory is set correctly.\n(Optional but recommended.) Open the same directory in your preferred editor or IDE so you can read along while the assistant works.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-2.-get-oriented-before-you-change-anything",
+    "href": "workflow.html#step-2.-get-oriented-before-you-change-anything",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.2 Step 2. Get oriented before you change anything",
+    "text": "8.2 Step 2. Get oriented before you change anything\n\nAsk the assistant to read the constitution and the course plan, then describe the project back to you:\n\n\nRead claude.md and MGMT47400_Online4Week_Plan_2026Summer.md. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.\n\n\nAsk for the file map:\n\n\nList every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).\n\n\nSpot-check by opening one notebook the assistant cites, for example notebooks/nb08_cross_validation_model_comparison_student.ipynb, so you can see what “canonical voice” actually looks like.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-3.-translate-the-constitution-to-your-domain",
+    "href": "workflow.html#step-3.-translate-the-constitution-to-your-domain",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.3 Step 3. Translate the constitution to your domain",
+    "text": "8.3 Step 3. Translate the constitution to your domain\n\nCopy claude.md into your own repo (rename to CLAUDE.md or keep it lowercase, either works), then ask the assistant to adapt it:\n\n\nThis is the constitution from another course’s repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap “predictive analytics” for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.\n\n\nKeep the structural elements even if every concrete rule changes: project mission, the “see also” reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.\nAlso copy and adapt the companion files: DECISIONS.md, TROUBLESHOOTING.md, and NOTEBOOK_TEMPLATE.md. They start small and grow alongside the project.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-4.-adopt-one-pattern-at-a-time-not-all-at-once",
+    "href": "workflow.html#step-4.-adopt-one-pattern-at-a-time-not-all-at-once",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.4 Step 4. Adopt one pattern at a time, not all at once",
+    "text": "8.4 Step 4. Adopt one pattern at a time, not all at once\nStart with the two patterns that cost almost nothing and remove the two most common failure modes.\n\nThe render-and-commit ritual. Copy the four-step ritual from §5.3 into your own CLAUDE.md as a critical workflow, adjusted to your renderer (Quarto, Jekyll, Hugo, MkDocs).\nPer-artifact source .md files. Pick one artifact (a syllabus, one quiz, one Brightspace content page). Convert it to plain-text Markdown. Edit it with the assistant. Notice what the assistant gets right and where it drifts. Capture the corrections in CLAUDE.md.\nAfter those two are stable, add the instructor-first notebook workflow from §4.3 if your course uses notebooks or lab worksheets. This is the highest-leverage addition for any course built around hands-on practice.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-5.-adapt-the-audit-scripts-to-your-invariants",
+    "href": "workflow.html#step-5.-adapt-the-audit-scripts-to-your-invariants",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.5 Step 5. Adapt the audit scripts to your invariants",
+    "text": "8.5 Step 5. Adapt the audit scripts to your invariants\n\nRead both audit scripts in this repo:\n\n\nscripts/audit_cv_first.py\nscripts/voice_check_guides.py\n\n\nIdentify two or three invariants in your course that you keep correcting by hand. Then ask the assistant:\n\n\nRead both audit scripts in scripts/. The invariants in my course are: [list them]. Write the equivalent audit scripts and explain how to wire them into the commit workflow.\n\n\nA few domain-specific invariants worth automating:\n\n\nCausal inference course: no causal claim on observational data without a stated identifying assumption.\nWriting-intensive course: passive voice flagged in graded examples and rubrics.\nLab course: every method section cites the protocol it follows.\nAny course with student-facing materials: a voice check like voice_check_guides.py.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes",
+    "href": "workflow.html#step-6.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.6 Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes",
+    "text": "8.6 Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes\n\nEither export one existing quiz from Brightspace as CSV, or build one by hand in the format Brightspace’s Question Library expects.\nSave that file inside _quizzes/ in your repo. This becomes your schema example.\nGenerate the next quiz by pointing the assistant at the schema example:\n\n\nUse _quizzes/&lt;term&gt;/&lt;example-quiz&gt;.csv as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.\n\n\nReview, edit, upload. The hour you invest in step (a) pays back across the entire semester.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-7.-share-what-you-build-and-what-failed",
+    "href": "workflow.html#step-7.-share-what-you-build-and-what-failed",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "8.7 Step 7. Share what you build (and what failed)",
+    "text": "8.7 Step 7. Share what you build (and what failed)\n\nOpen an issue on the course repository describing what you adapted, what worked, and what failed.\nOr just email me directly. I keep updating this page as I learn, and a sharper version of any of these patterns from a different discipline is genuinely useful to me.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
