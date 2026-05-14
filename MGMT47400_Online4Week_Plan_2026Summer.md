@@ -670,7 +670,7 @@ Pre-recorded micro-videos are available for students to watch before or after th
 3. Solution: Predicted-vs-actual + step-function visuals for the regression tree; why trees can't extrapolate (9)  
 4. Concept+demo: Paired overfitting curves — same shape on both spines (10)  
 5. Guided practice: Tree vs linear analogue (LogReg / Ridge) under identical CV folds (8)  
-6. Solution: Depth selection by the one-standard-error rule + when to use trees (9)
+6. Solution: Depth selection by the one-standard-error rule + bridge to ensemble methods (nb12, nb13) (9)
 
 **Notebook(s)**
 - File: `nb11_decision_trees_student.ipynb`  
@@ -681,7 +681,6 @@ Pre-recorded micro-videos are available for students to watch before or after th
   - Regression tree on California Housing — `plot_tree` + predicted-vs-actual + step-function visualization
   - Paired overfitting problem (depth sweep on both, side-by-side panels with the `plot_train_val_curve` helper)
   - Tree vs linear analogue — paired CV-bar comparison (Tree vs LogReg, Tree vs Ridge)
-  - When to use decision trees — visual decision matrix
   - Gemini prompts: depth sweep + one-SE rule selector
 
 **In-notebook exercises**
