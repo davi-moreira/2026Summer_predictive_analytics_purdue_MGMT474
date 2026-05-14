@@ -66,7 +66,13 @@ Every student-notebook markdown cell follows the nb08 narrative style. This is t
 
 1. **Business-case "Why This Matters" cell** with a named stakeholder (HomeValue CFO, MedScreen chief medical officer, TechCorp People Analytics lead). The stakeholder's concern is phrased as a direct quote. This cell opens the analytical work and motivates every section below.
 2. **Narrative prose over bullet lists** — "Reading the output" cells are paragraphs, not terse enumerations. A bullet list is a fallback when the structure is genuinely list-like (a rubric, a checklist); flowing prose is the default.
-3. **Inline Q&A blocks** with the exact phrase **"A question that often comes up here"** (or "A question that often comes up"). Placement: after each dense explanation, anticipate one specific student confusion and answer it in one paragraph. The phrase is grep-findable for tooling.
+3. **Inline Q&A blocks** with the exact phrase **"A question that often comes up here"** (or "A question that often comes up at this point"). Placement: after each dense explanation, anticipate one specific student confusion and answer it in one paragraph. The phrase is grep-findable for tooling. **Format (nb09 convention — load-bearing, do not deviate):**
+
+   ```markdown
+   > **A question that often comes up here:** *"<student question in double quotes>"* <single paragraph of flowing prose — concrete examples, decision rules, named stakeholders where relevant; no bullets, no nested lists, no headers>.
+   ```
+
+   Four required elements: (1) `>` blockquote prefix; (2) `**A question that often comes up here:**` (or `at this point:`) as a bolded opener ending in a colon; (3) italicized question in double quotes: `*"..."*`; (4) answer body as one flowing paragraph in the same blockquote. If the answer needs to enumerate options, fold them inline as `(1) ..., (2) ..., or (3) ...` rather than breaking out a numbered list — the single-paragraph shape is part of the convention. To retrofit older inline-paragraph Q&As to this format, run `python scripts/qa_format_to_nb09.py <notebook>` — it is idempotent.
 4. **Section bridges** that explicitly name the transition: *"Section 2 landed the regression estimate with a tight CI. Now apply the identical four steps to the classification problem."* Never jump between sections without a one-sentence bridge.
 5. **Warm wrap-ups with next-notebook bridges** — the "Wrap-Up" cell ends with a paragraph naming the next notebook and what it builds on today's work. Often carries one closing Q&A.
 
