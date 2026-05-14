@@ -38,8 +38,9 @@ VIOLATION_PATTERNS = [
     re.compile(r"\bspeaking prompt\b", re.IGNORECASE),
 ]
 
-# False positive — Student's t (the statistical test) is allowed.
-WHITELIST = re.compile(r"Student'?s t", re.IGNORECASE)
+# False positive — Student's t (the statistical test) is allowed, including
+# markdown italics around the t (e.g., "Student's *t*").
+WHITELIST = re.compile(r"Student'?s \*?t\*?", re.IGNORECASE)
 
 
 def audit_file(path: Path) -> list[tuple[int, str]]:
