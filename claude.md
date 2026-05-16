@@ -230,6 +230,7 @@ These values are referenced by tooling and student expectations — do not chang
 | Figure size | `plt.rcParams['figure.figsize'] = (10, 6)` |
 | Display precision | `pd.set_option('display.precision', 3)` |
 | Money in markdown cells | Always escape: `\$50,000` (unescaped `$` triggers LaTeX in Colab) |
+| Tildes in markdown cells | Always escape: `\~341 patients`, `(\~0.52)` (unescaped `~` is interpreted as strikethrough or as a non-breaking space by Pandoc/Quarto and rots the rendered output) |
 | Emoji vocabulary | `✓` success, `⚠️` warning, `📝` exercise, `💡` insight |
 
 ## Naming and Commit Conventions
@@ -254,6 +255,7 @@ These are the failures that have actually happened in this project. The positive
 - **Don't leave instructor-solution cells unmarked.** Every excluded cell needs `INSTRUCTOR SOLUTION` somewhere in its source. Unmarked cells leak to students.
 - **Don't mix student placeholder and instructor solution in one cell.** Student cell = `# YOUR SOLUTION CODE HERE` only. Solution = SEPARATE cell with `# INSTRUCTOR SOLUTION`.
 - **Don't use unescaped `$` for money in markdown cells.** Use `\$50,000`. Colab's MathJax breaks the cell otherwise.
+- **Don't use unescaped `~` for "approximately" in markdown cells.** Always escape: `\~341 patients`, `(\~0.52)`. Pandoc/Quarto interpret `~` as a strikethrough delimiter or non-breaking space depending on context, which silently mangles the rendered output. Same rule applies to all markdown content the course renders — student notebooks (markdown cells in `.ipynb`), instructor notebooks, video guides (`video_guides/*.md`), and `.qmd` pages.
 - **Don't add complexity that wasn't requested.** No extra features, refactoring, or "improvements" unless asked. Over-engineering confuses students and adds maintenance burden.
 - **Don't append to `CONVERSATION_LOG.md` by overwriting** — always append, never replace. Lose history once and you lose it forever.
 
