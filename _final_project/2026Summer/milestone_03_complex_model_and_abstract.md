@@ -69,11 +69,11 @@ Embed each of the following in the report with axis labels, units where applicab
 - **For regression** problems:
   - **Predicted-vs-actual scatter plot** with a 45° reference line (`y = x`)
   - **Residual plot** (residuals vs. predicted) with a horizontal `y = 0` reference line
-  - **RMSE-by-quintile bar chart** (in stakeholder units, e.g. USD) — the *decision-quality* artifact for regression projects, supporting an escalation-threshold recommendation (see nb15 §5.2)
+  - **RMSE-by-quintile bar chart** (in stakeholder units, e.g. USD) — the *decision-quality* artifact for regression projects, supporting an escalation-threshold recommendation (see nb15 §6.4)
 - **For classification** problems:
   - **Confusion matrix** at the chosen operating threshold (`ConfusionMatrixDisplay`)
   - **ROC curve with AUC annotation** and **Precision–Recall curve with PR-AUC annotation**
-  - **Reliability diagram + Brier score** (the *decision-quality* artifact for classification projects, see nb15 §6.1) — optional but recommended if the model's probabilities feed a downstream decision threshold
+  - **Reliability diagram + Brier score** (the *decision-quality* artifact for classification projects, see nb15 §6.5) — optional but recommended if the model's probabilities feed a downstream decision threshold
 
 ### 2. Draft Abstract (~250 words)
 

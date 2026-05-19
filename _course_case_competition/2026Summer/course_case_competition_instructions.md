@@ -122,6 +122,25 @@ If two or more teammates each independently submitted before forming the team, K
 
 ---
 
+## Aligning with Final Project Milestone 03
+
+The Kaggle Bank-Churn competition is **parallel work to the Final Project**, but it leverages the same workflow you build for **Milestone 03 — More Complex Model + Hyperparameter Tuning + Draft Abstract**. Treat this competition as a live application of the M3 discipline:
+
+| M3 component | What it looks like in the Kaggle competition |
+|---|---|
+| §1a Baseline | Fit a simple, interpretable baseline (LogReg / OLS-style) on `train.csv` first. Record its CV ROC-AUC with a 95% CI. |
+| §1b Complex model + tuning | Tune a more flexible family (RandomForest, GBM, XGBoost, LightGBM, …) using `GridSearchCV` or `RandomizedSearchCV` on the training fold. **Do not tune against the public leaderboard** — that is selection on the test set. |
+| §1b CI-overlap rule | Compare the tuned complex model's CV CI to the baseline's CV CI. Ship the complex model only when its CI is **CI-clear above** the baseline. If the CIs overlap, the baseline is a defensible Kaggle submission and protects you from public-leaderboard overfitting. |
+| §1b Final training | Refit the chosen pipeline on the **full training fold** before generating predictions for `test.csv`. The notebook you submit (`NN_kaggle_code.ipynb`) must include this refit step. |
+| §1c Visualizations | At minimum, embed a **hyperparameter-search plot** and a **CV-CI comparison bar chart** (baseline vs. competition champion) in your notebook so the grader can see the search was systematic. |
+| §2 Brief description | Add a short markdown cell at the top of `NN_kaggle_code.ipynb` describing the model, key hyperparameters, CV-CI, and one-sentence rationale — the same six-element thinking that goes into M3's draft abstract, compressed into half a page. |
+
+The worked starter pipeline (`churn_exit_prediction_workflow_student.ipynb`) walks through this end-to-end on the competition data. Read it side-by-side with [`milestone_03_complex_model_and_abstract.md`](../../_final_project/2026Summer/milestone_03_complex_model_and_abstract.md) and **nb15 — Final Project Milestone 03 Walkthrough** for the full pattern.
+
+> **Why this alignment matters.** The single most common failure mode on Kaggle-style competitions is **public-leaderboard chasing** — picking the submission with the highest *public* score, only to drop ranks when the *private* test set is revealed. The CI-overlap rule from M3 is the antidote: trust your cross-validated CI, ship the model whose CV evidence is most defensible, and only use public-leaderboard feedback as a sanity check (not as a selection criterion).
+
+---
+
 ## Tips and Common Pitfalls
 
 - **Form the team early — and name it correctly.** The single most common participation-grade hit comes from a misnamed team that the gradebook can't auto-link. Set the name to `Group NN` (with the leading zero) **before** anyone submits.
