@@ -8,8 +8,8 @@ violate the CV-first rule (see claude.md → "CRITICAL RULE - CV-First Evaluatio
 + Test-Set Lock").
 
 The only acceptable hits are:
-  * notebooks/nb14_model_selection_protocol_student.ipynb cells 27 (clf
-    ceremony) and 30 (reg ceremony) — the two authorized test-set openings,
+  * notebooks/nb14_model_selection_protocol_student.ipynb cells 30 (clf
+    ceremony) and 34 (reg ceremony) — the two authorized test-set openings,
     one per spine. Each test set still opens exactly ONCE per case; the
     singleness rule is preserved per project, not diluted across spines.
   * notebooks/nb18_reproducibility_monitoring_student.ipynb (Kaggle-submission
@@ -87,7 +87,7 @@ def main() -> int:
         return 0
 
     print()
-    print("Acceptable: nb14 cells 27 + 30 (clf + reg ceremonies, one per spine);")
+    print("Acceptable: nb14 cells 30 + 34 (clf + reg ceremonies, one per spine);")
     print("            nb18 (Kaggle-submission demo).")
     print("Anything else is a regression — fix before commit.")
     return 1
