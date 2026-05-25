@@ -19,7 +19,7 @@ Submit **two files** per group on Brightspace by the posted deadline. One design
 | # | File | Description |
 |---|---|---|
 | 1 | **`NN_complex_model.pdf`** *(e.g., for group 03, `03_complex_model.pdf`)* | Structured PDF report including the **draft abstract (~250 words)** as the opening section and **all required visualizations** — hyperparameter-search plot, model-comparison bar chart with 95% CI error bars, feature importance, plus regression diagnostics (predicted-vs-actual + residual) OR classification diagnostics (confusion matrix + ROC + PR curves) — embedded and captioned. |
-| 2 | **`NN_complex_model.ipynb`** *(e.g., for group 03, `03_complex_model.ipynb`)* | Jupyter notebook with the runnable code. The notebook must save the **`champion_pipeline.joblib`** and **`CONFIG.json`** artifacts during the final-training step — M4 will load these for the one-shot test-set evaluation. |
+| 2 | **`NN_complex_model.ipynb`** *(e.g., for group 03, `03_complex_model.ipynb`)* | Jupyter notebook with the runnable code. The notebook must execute top-to-bottom from a fresh `Runtime → Run all` with `random_state` locked everywhere, so M4 can re-execute the same modeling cell to reproduce the exact fitted Pipeline before opening the locked test set. |
 
 Detailed format requirements (file types, exact Brightspace location) are in the **Submission Expectations** section near the bottom of this document.
 
@@ -57,7 +57,7 @@ Restate the prediction goal(s). Explain why they matter in the context of your d
 - **Model selection & final comparison.** Identify the best hyperparameter combination by CV performance. Compare the tuned complex model against the M2 baseline with both CV CIs displayed. Apply the **CI-overlap rule**:
   - If CIs are **disjoint**, the complex model's gain is statistically distinguishable — adopt it as the champion.
   - If CIs **overlap**, prefer the simpler baseline (interpretability tiebreaker) unless an operational argument justifies the complex model.
-- **Final-training step.** After selecting the champion via the CI-overlap rule, **retrain the chosen Pipeline on the full training fold (train + validation rows together)** and save the fitted pipeline as `champion_pipeline.joblib` plus a `CONFIG.json` recording features, hyperparameters, and the selection date. The saved artifacts must be reproducible from a fresh "Run All".
+- **Final-training step.** After selecting the champion via the CI-overlap rule, **retrain the chosen Pipeline on the full training fold (train + validation rows together)**. Lock `random_state` everywhere so the fitted Pipeline reproduces cleanly from a fresh `Runtime → Run all` — M4 will re-execute your modeling cell to recover the same Pipeline before opening the locked test set, so the model that scored the M3 CV CI is the one that touches the test set.
 
 #### 1c. Required Visualizations
 
@@ -118,13 +118,19 @@ The rubric uses four performance levels per criterion. The point range for each 
 | **1a. Baseline Model** (20 pts) | M2 baseline replicated with model choice justified; feature selection + k-fold CV correctly implemented; CV score with **95% CI** reported; brief reflection on strengths/limits. | Baseline present with minor gaps in justification, implementation, or CI reporting. | Baseline implementation incomplete; CV details missing. | No baseline OR baseline incorrectly implemented. |
 | **1b. Model Choice & justification** (8 pts) | More complex family (Random Forest, Gradient Boosting, SVM, …) chosen with clear rationale for why it can capture patterns the baseline cannot (non-linearity, interactions). | Complex model chosen; justification adequate but generalized. | Complex model chosen but justification weak or missing the baseline-comparison framing. | Model inappropriate, unstated, or trivially identical to the baseline. |
 | **1b. Hyperparameter Tuning & Cross-Validation** (12 pts) | Defined grid (or randomized search distribution) of hyperparameter values; 5- or 10-fold CV inside `GridSearchCV` / `RandomizedSearchCV`; results shown as table or plot of CV metric across configurations; rationale for k value clear. | Tuning performed; minor gaps in grid documentation, plot, or k rationale. | Tuning incomplete; CV usage unclear; selection criteria undocumented. | No tuning OR test set used during the search (leakage). |
-| **1b. Model Selection + Final-Training + saved `champion_pipeline.joblib`** (10 pts) | CI-overlap rule applied correctly to choose the champion; champion **retrained on full training fold**; `champion_pipeline.joblib` and `CONFIG.json` saved and reproducible from a fresh "Run All". | Champion identified via CI-overlap; final-training and save steps partially documented. | Champion identified but final-training step missing OR saved artifact undocumented. | No model-selection rationale OR no saved artifact. |
+| **1b. Model Selection + Final-Training step** (10 pts) | CI-overlap rule applied correctly to choose the champion; champion **retrained on the full training fold**; `random_state` locked and the modeling cell reproduces the same fitted Pipeline from a fresh `Runtime → Run all` (so M4 recovers the same model). | Champion identified via CI-overlap; final-training step partially documented. | Champion identified but final-training step missing OR reproducibility not demonstrated. | No model-selection rationale OR no final-training step. |
 | **1b. Comparison vs. baseline narrative** (5 pts) | Clear narrative comparing the M3 complex model to the M2 baseline with both CIs visible; honest assessment of whether the complexity is worth it. | Comparison present; narrative brief. | Comparison limited; CIs not displayed side-by-side. | No comparison OR misleading interpretation. |
 | **1c. Required Visualizations** (20 pts) | All required figures present (hyperparameter-search plot, model-comparison bar chart with **95% CI error bars**, feature importance, **plus** regression diagnostics — predicted-vs-actual + residual — OR classification diagnostics — confusion matrix + ROC + PR curves); each labeled, captioned, and integrated into the narrative. | One required figure missing OR labeling/captioning gaps on one or two figures. | Two required figures missing OR multiple figures unlabeled/uncaptioned. | Three or more required figures missing OR all unlabeled. |
 | **2. Draft Abstract (~250 words)** (15 pts) | All six elements present (title, prediction question with "?", motivation, methodology, key findings, broader implications); polished and accessible to an academic-and-industry audience; word count ~250. | Most elements present; minor gaps in polish or length. | Two or more elements missing or weakly developed; word count off. | Abstract missing OR fundamentally incomplete. |
 | **3. Report Quality & Clarity** (5 pts) | Well-structured PDF; visualizations labeled; logical flow; error-free runnable code. | Generally clear with minor formatting issues. | Structure unclear; some labels missing. | Disorganized; code fails to run. |
 
 **Total: 100 points** (the §1b More Complex Model block — Model Choice + Tuning + Selection/Final-Training + Comparison narrative — is worth **35 points** combined).
+
+### Penalties
+
+| Issue | Deduction |
+|---|---|
+| Filename does not follow the `NN_complex_model.pdf` / `NN_complex_model.ipynb` convention (e.g., for group 03, `03_complex_model.pdf` and `03_complex_model.ipynb`) | **−10 points** |
 
 This rubric grade contributes to the **Milestone Deliverables (40%)** component of the Final Project grade — the average across all four milestones (M1–M4).
 
@@ -138,7 +144,7 @@ This rubric grade contributes to the **Milestone Deliverables (40%)** component 
 - **Honor the CI-overlap rule.** If the complex model's CI overlaps the baseline's CI, the simpler model wins — that's not a failure, that's a finding ("more complexity didn't help here, and we have evidence of that").
 - **Write the abstract last.** Draft modeling section first; abstract synthesizes after the numbers settle.
 - **The abstract IS the poster lead.** Polish it. Read it aloud. Three rounds of revision is the floor, not the ceiling.
-- **Save the `champion_pipeline.joblib` AT M3.** M4's test-set ceremony loads this exact saved artifact and evaluates it once. Don't refit silently between M3 and M4 — the model that scored the M3 CV CI must be the model that touches the test set.
+- **Lock `random_state` everywhere so M3 → M4 reproduces cleanly.** M4's test-set ceremony will re-execute your M3 notebook's modeling cell to recover the fitted Pipeline, then open the locked test set ONCE. The model that scored the M3 CV CI must be the model that touches the test set — locking the seed is what makes that contract work without storing a binary artifact.
 - **Required visualizations are part of the rubric.** The hyperparameter-search plot, the model-comparison bar chart with 95% CI error bars, the feature-importance plot, and the regression / classification diagnostic figures are graded under §1c (20 points). Drafting them while the modeling section is still open catches issues early.
 
 ---
