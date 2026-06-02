@@ -43,13 +43,17 @@ def img(fname, width, alt="", caption=None):
 
 
 def yt_thumb(vid, title, watch_url, w=480):
-    """A clickable YouTube thumbnail that renders in a markdown cell WITHOUT
-    running any code (Colab strips <iframe> from markdown, but allows <img>/<a>).
-    Clicking the thumbnail opens the video on YouTube."""
+    """A centered, clickable YouTube thumbnail that renders in a markdown cell
+    WITHOUT running any code (Colab strips <iframe> from markdown, but renders
+    <div align>/<img>/<a>). Clicking the thumbnail opens the video on YouTube."""
     thumb = f"https://img.youtube.com/vi/{vid}/hqdefault.jpg"
-    return (f'<a href="{watch_url}" target="_blank">'
-            f'<img src="{thumb}" alt="{title}" width="{w}"></a>\n\n'
-            f'▶️ **[{title}]({watch_url})** *(click the image or this link to watch)*')
+    return (f'<div align="center">\n'
+            f'<a href="{watch_url}" target="_blank">'
+            f'<img src="{thumb}" alt="{title}" width="{w}"></a>\n'
+            f'<br>\n'
+            f'▶️ <b><a href="{watch_url}" target="_blank">{title}</a></b> '
+            f'<i>(click the image or link to watch)</i>\n'
+            f'</div>')
 
 
 def pt_link(url, title):
@@ -145,7 +149,7 @@ Much of the credit goes to three pioneers and their research teams — **Yann Le
 md("## Hear it from the pioneers\n\n"
    "Three short interviews — worth watching once to put faces and voices to the names. "
    "**Click any thumbnail** to watch on YouTube.\n\n"
-   "<table><tr>\n"
+   '<table align="center"><tr>\n'
    '<td width="33%" valign="top" align="center">\n'
    '<a href="https://www.youtube.com/watch?v=Ah6nR8YAYF4" target="_blank">'
    '<img src="https://img.youtube.com/vi/Ah6nR8YAYF4/hqdefault.jpg" alt="Yann LeCun" width="100%"></a><br>\n'
