@@ -2140,3 +2140,14 @@ Three instructor-requested refinements:
 
 - Builder `scripts/build_nb19.py` rewritten; student regenerated (3 INSTRUCTOR SOLUTION cells stripped). Updated schedule.qmd (no longer "full lecture replication"), master-plan rationale + sections block, and the video guide. Rendered schedule.qmd, committed docs/, pushed.
 - Checks: 81/78 cells, nbformat valid, all code syntax-valid, voice grep clean, escaping clean (no unescaped money/tilde), CV-first clean, sklearn demo executes and prints the "statistical tie" matching the narrative. The unused DL figures remain in notebooks/figures/ (harmless). Torch not installed locally — §4 lab is faithful to the known-good Quickstart; recommend a Colab "Run all" before recording.
+
+---
+
+## 2026-06-02 (4) — nb19: videos & PyTorch pages as markdown iframes (no run needed)
+
+Per instructor request, reverted all embeds from `IPython.display` code cells to **markdown `<iframe>`** (matching the lecture slides), so they render in the page without running anything.
+
+- **YouTube videos** (3 visionary interviews in §1, the four 3Blue1Brown chapters in §3, the four LLM videos in §6) → centered markdown `<iframe>` with the full `allow=` attributes (autoplay, fullscreen) + a clickable text-link fallback under each. Visionaries use a 3-column `<table>`; chapters/LLM stack centered.
+- **PyTorch tutorial pages** in §4 (Datasets, Build Model, Optimization) → markdown `<iframe src=... sandbox=...>` with a linked "📖 Reference" header above each.
+- Removed the 9 embed helper code cells and the `youtube`/`youtube_multi`/`iframe` code-generating helpers; added `yt`/`yt_cell`/`pt` markdown-iframe helpers. Updated the objectives "About the videos" note, the §3 intro note, and the submission instructions to say the videos need no running. Notebook 81→72 cells (69 student); now 17 code cells, all genuinely runnable lab/demo code.
+- Checks: nbformat valid, all code syntax-valid, voice clean, escaping clean, CV-first clean, no `IPython.display` left in code cells, 11 YouTube embeds + 3 PyTorch-page iframes confirmed in markdown. Updated video guide. No `.qmd`/figure change this turn, so `docs/` stays in sync (no render). Committed + pushed.
