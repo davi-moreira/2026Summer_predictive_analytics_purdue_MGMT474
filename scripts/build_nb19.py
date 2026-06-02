@@ -10,9 +10,11 @@ Focused, business-undergrad-friendly deep-learning notebook:
   6. Large Language Models (videos)
   7. Wrap-Up
 
-All YouTube videos and PyTorch tutorial pages are embedded as markdown <iframe>
-HTML (same as the lecture slides), so they render in the page without needing to
-run any code cell.
+Colab strips <iframe> from markdown cells, so inline-playing videos / embedded
+pages don't render there without running code. To keep everything in markdown
+(no code to run), YouTube videos are shown as clickable thumbnail images
+(<img> inside <a>, which Colab does render) that open the video on YouTube, and
+the PyTorch tutorial pages are clear reference links.
 
 Run: python scripts/build_nb19.py   (student copy strips INSTRUCTOR SOLUTION cells)
 """
@@ -40,27 +42,21 @@ def img(fname, width, alt="", caption=None):
     return (f'<center>\n<img src="{IMG}{fname}"{a} width="{width}"/>{cap}\n</center>')
 
 
-_YT_ALLOW = ('allow="accelerometer; autoplay; clipboard-write; encrypted-media; '
-             'gyroscope; picture-in-picture"')
+def yt_thumb(vid, title, watch_url, w=480):
+    """A clickable YouTube thumbnail that renders in a markdown cell WITHOUT
+    running any code (Colab strips <iframe> from markdown, but allows <img>/<a>).
+    Clicking the thumbnail opens the video on YouTube."""
+    thumb = f"https://img.youtube.com/vi/{vid}/hqdefault.jpg"
+    return (f'<a href="{watch_url}" target="_blank">'
+            f'<img src="{thumb}" alt="{title}" width="{w}"></a>\n\n'
+            f'▶️ **[{title}]({watch_url})** *(click the image or this link to watch)*')
 
 
-def yt(vid, title, w=800, h=450):
-    """A centered YouTube iframe (markdown) — renders without running anything."""
-    return (f'<center>\n<iframe width="{w}" height="{h}" '
-            f'src="https://www.youtube.com/embed/{vid}" title="{title}" '
-            f'frameborder="0" {_YT_ALLOW} allowfullscreen></iframe>\n</center>')
-
-
-def yt_cell(vid, title, watch_url, w=800, h=450):
-    """A standalone video block: iframe + a clickable text link below it."""
-    return (f'{yt(vid, title, w, h)}\n\n'
-            f'<center>🔗 <a href="{watch_url}" target="_blank">{title}</a></center>')
-
-
-def pt(url, height=600):
-    """An embedded PyTorch tutorial page (markdown iframe)."""
-    return (f'<iframe src="{url}" width="100%" height="{height}" allowfullscreen '
-            f'sandbox="allow-same-origin allow-scripts allow-popups"></iframe>')
+def pt_link(url, title):
+    """A clear reference link to a PyTorch tutorial page. (Colab strips <iframe>
+    from markdown, so we link out rather than embed a dead frame.)"""
+    return (f'> 📖 **Official PyTorch reference:** [{title}]({url}) — '
+            f'opens the full tutorial in a new browser tab.')
 
 
 # ============================================================= HEADER
@@ -95,7 +91,7 @@ By the end of this notebook, you will be able to:
 
 > **📋 Participation Reminder:** This notebook contains **2 PAUSE-AND-DO exercises**. Complete both to receive participation credit.
 
-> ▶️ **About the videos:** several sections embed short videos directly in the page — you do **not** need to run anything; just press play to watch right here in the notebook. Each video also has a text link if you would rather open it on YouTube.""")
+> ▶️ **About the videos:** several sections show a short video as a **thumbnail image** — nothing to run; just **click the thumbnail** (or the link beside it) to open the video on YouTube in a new tab. (Colab cannot play a video inside a text cell, so we link out — your place in the notebook is kept.)""")
 
 # ============================================================= WHY THIS MATTERS
 md(r"""## 💼 Why This Matters: The "What About AI?" Question Every Analyst Will Hear
@@ -148,23 +144,23 @@ Much of the credit goes to three pioneers and their research teams — **Yann Le
 
 md("## Hear it from the pioneers\n\n"
    "Three short interviews — worth watching once to put faces and voices to the names. "
-   "Press play on any of them right here.\n\n"
+   "**Click any thumbnail** to watch on YouTube.\n\n"
    "<table><tr>\n"
-   '<td width="33%" valign="top"><center>\n'
-   '<iframe width="100%" height="220" src="https://www.youtube.com/embed/Ah6nR8YAYF4" '
-   f'title="Yann LeCun" frameborder="0" {_YT_ALLOW} allowfullscreen></iframe>\n'
-   '<a href="https://www.youtube.com/watch?v=Ah6nR8YAYF4" target="_blank"><b>Yann LeCun</b><br>The Future of AI</a>\n'
-   '</center></td>\n'
-   '<td width="33%" valign="top"><center>\n'
-   '<iframe width="100%" height="220" src="https://www.youtube.com/embed/qrvK_KuIeJk" '
-   f'title="Geoffrey Hinton" frameborder="0" {_YT_ALLOW} allowfullscreen></iframe>\n'
-   '<a href="https://www.youtube.com/watch?v=qrvK_KuIeJk" target="_blank"><b>Geoffrey Hinton</b><br>60 Minutes Interview</a>\n'
-   '</center></td>\n'
-   '<td width="33%" valign="top"><center>\n'
-   '<iframe width="100%" height="220" src="https://www.youtube.com/embed/5LgDUqCbBwo" '
-   f'title="Yoshua Bengio" frameborder="0" {_YT_ALLOW} allowfullscreen></iframe>\n'
-   '<a href="https://www.youtube.com/watch?v=5LgDUqCbBwo" target="_blank"><b>Yoshua Bengio</b><br>Path to Human-Level AI</a>\n'
-   '</center></td>\n'
+   '<td width="33%" valign="top" align="center">\n'
+   '<a href="https://www.youtube.com/watch?v=Ah6nR8YAYF4" target="_blank">'
+   '<img src="https://img.youtube.com/vi/Ah6nR8YAYF4/hqdefault.jpg" alt="Yann LeCun" width="100%"></a><br>\n'
+   '▶️ <a href="https://www.youtube.com/watch?v=Ah6nR8YAYF4" target="_blank"><b>Yann LeCun</b> — The Future of AI</a>\n'
+   '</td>\n'
+   '<td width="33%" valign="top" align="center">\n'
+   '<a href="https://www.youtube.com/watch?v=qrvK_KuIeJk" target="_blank">'
+   '<img src="https://img.youtube.com/vi/qrvK_KuIeJk/hqdefault.jpg" alt="Geoffrey Hinton" width="100%"></a><br>\n'
+   '▶️ <a href="https://www.youtube.com/watch?v=qrvK_KuIeJk" target="_blank"><b>Geoffrey Hinton</b> — 60 Minutes Interview</a>\n'
+   '</td>\n'
+   '<td width="33%" valign="top" align="center">\n'
+   '<a href="https://www.youtube.com/watch?v=5LgDUqCbBwo" target="_blank">'
+   '<img src="https://img.youtube.com/vi/5LgDUqCbBwo/hqdefault.jpg" alt="Yoshua Bengio" width="100%"></a><br>\n'
+   '▶️ <a href="https://www.youtube.com/watch?v=5LgDUqCbBwo" target="_blank"><b>Yoshua Bengio</b> — Path to Human-Level AI</a>\n'
+   '</td>\n'
    "</tr></table>")
 
 # ============================================================= 2. PYTORCH vs TF
@@ -209,34 +205,34 @@ Before you write code, build a clear mental picture. Here is the whole idea in t
 
 That's it. Everything else is detail. The four videos below — 3Blue1Brown's beloved *Deep Learning* series — make this **visual and intuitive**, and they map directly onto the code you'll write in Section 4. Watch them in order (about an hour total; even just Chapters 1–2 are enough to follow the lab).
 
-> ▶️ Each video is embedded right here — just press play, no need to run anything. A text link is provided too.""")
+> ▶️ Each chapter below shows a clickable thumbnail — click it to watch on YouTube (nothing to run).""")
 
 md(r"""### Chapter 1 — But what is a neural network?
 
 Start here. It builds the whole picture — neurons, layers, weights — on the problem of recognizing handwritten digits (the cousin of the clothing-recognition problem you'll solve in Section 4). This is the single best 20 minutes for *getting* what a neural network is.
 
-""" + yt_cell("aircAruvnKk", "But what is a neural network? | Deep Learning Chapter 1",
+""" + yt_thumb("aircAruvnKk", "But what is a neural network? | Deep Learning Chapter 1",
               "https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=1"))
 
 md(r"""### Chapter 2 — Gradient descent, how neural networks learn
 
 This is the "learning" part. It shows how a network turns wrong answers into better weights by taking small downhill steps on a "cost" surface. When you see `optimizer.step()` in Section 4, *this* is what it's doing.
 
-""" + yt_cell("IHZwWFHWa-w", "Gradient descent, how neural networks learn | Deep Learning Chapter 2",
+""" + yt_thumb("IHZwWFHWa-w", "Gradient descent, how neural networks learn | Deep Learning Chapter 2",
               "https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2"))
 
 md(r"""### Chapter 3 — Backpropagation, intuitively
 
 Backpropagation is the clever bookkeeping that figures out how to nudge each weight. This chapter gives the intuition without heavy math — how each training example "votes" to push weights up or down.
 
-""" + yt_cell("Ilg3gGewQ5U", "Backpropagation, intuitively | Deep Learning Chapter 3",
+""" + yt_thumb("Ilg3gGewQ5U", "Backpropagation, intuitively | Deep Learning Chapter 3",
               "https://www.youtube.com/watch?v=Ilg3gGewQ5U&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=3"))
 
 md(r"""### Chapter 4 — Backpropagation calculus
 
 The math behind the magic. This one is **optional** for the lab — PyTorch does this calculus for you — but it's here if you want to see exactly what `loss.backward()` computes under the hood.
 
-""" + yt_cell("tIeHLnjs5U8", "Backpropagation calculus | Deep Learning Chapter 4",
+""" + yt_thumb("tIeHLnjs5U8", "Backpropagation calculus | Deep Learning Chapter 4",
               "https://www.youtube.com/watch?v=tIeHLnjs5U8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=4"))
 
 md(r"""> **A question that often comes up here:** *"Do I have to understand the calculus to do the lab?"* No. The whole point of a framework like PyTorch is that it handles the calculus automatically. Chapters 1 and 2 give you everything you need to follow Section 4 with real understanding; Chapters 3 and 4 are there for when you're curious about *exactly* how the machine computes its adjustments.""")
@@ -319,9 +315,8 @@ plt.show()""")
 
 md(r"""> **A question that often comes up here:** *"Why split into training and test sets again?"* Same reason as every model all course: the **test set is the honest exam.** The model learns from the training photos; we judge it on the test photos it never trained on. If we graded it on photos it had already memorized, the score would be a lie. This is the exact discipline you've practiced since nb01 — it doesn't change just because the model is a neural network.
 
-📖 **Reference — the official [Datasets & DataLoaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html) page**, embedded below:
-
-""" + pt("https://pytorch.org/tutorials/beginner/basics/data_tutorial.html"))
+""" + pt_link("https://pytorch.org/tutorials/beginner/basics/data_tutorial.html",
+              "Datasets & DataLoaders — official PyTorch tutorial"))
 
 # ---- 4.2 build the model ----
 md(r"""## 4.2 Build the model
@@ -386,9 +381,8 @@ with torch.no_grad():                          # we're not training, so skip gra
     guess = probabilities.argmax(1).item()     # index of the highest probability
 print(f"Untrained guess: {labels_map[guess]}   |   Correct answer: {labels_map[y0]}")""")
 
-md(r"""📖 **Reference — the official [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html) page**, embedded below:
-
-""" + pt("https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html"))
+md(pt_link("https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html",
+           "Build the Neural Network — official PyTorch tutorial"))
 
 # ---- 4.3 train ----
 md(r"""## 4.3 Train the model
@@ -456,9 +450,8 @@ print("Done!")""")
 
 md(r"""> **A question that often comes up here:** *"My accuracy is only around 65–70% — is something broken?"* Not at all — that's exactly what five passes of plain SGD give this simple network, and it's the official Quickstart's result too. Remember the floor: random guessing among 10 categories is 10%, so the model has clearly *learned*. Want better? The usual levers are: train for **more epochs**, switch the optimizer to **`Adam`** (often faster), or use a **convolutional network (CNN)** — a model designed for images, which routinely tops 90% here. We meet CNNs by name in Section 5.
 
-📖 **Reference — the official [Optimizing Model Parameters](https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html) page**, embedded below:
-
-""" + pt("https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html"))
+""" + pt_link("https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+              "Optimizing Model Parameters — official PyTorch tutorial"))
 
 # ---- 4.4 save ----
 md(r"""## 4.4 Save the model
@@ -683,15 +676,15 @@ md(r"""### YOUR ANSWER TO THE VP HERE:
 # ============================================================= 6. LLM
 md(r"""# 6. Special Topic: Large Language Models (LLMs)
 
-The AI you've used all course — Gemini, ChatGPT, Claude — is built on **transformers**, the sequence-handling network mentioned in Section 5. You don't need to build one (that takes thousands of GPUs and months), but it helps to know what's under the hood. These four short, friendly videos take you from "what is an LLM?" to how its attention and memory work — press play on any of them right here.
+The AI you've used all course — Gemini, ChatGPT, Claude — is built on **transformers**, the sequence-handling network mentioned in Section 5. You don't need to build one (that takes thousands of GPUs and months), but it helps to know what's under the hood. These four short, friendly videos take you from "what is an LLM?" to how its attention and memory work — **click any thumbnail** to watch.
 
-""" + yt_cell("LPZh9BOjkQs", "Large Language Models explained briefly",
+""" + yt_thumb("LPZh9BOjkQs", "Large Language Models explained briefly",
               "https://www.youtube.com/watch?v=LPZh9BOjkQs") + "\n\n"
-   + yt_cell("wjZofJX0v4M", "Transformers, the tech behind LLMs",
+   + yt_thumb("wjZofJX0v4M", "Transformers, the tech behind LLMs",
              "https://www.youtube.com/watch?v=wjZofJX0v4M") + "\n\n"
-   + yt_cell("eMlx5fFNoYc", "Attention in transformers, step-by-step",
+   + yt_thumb("eMlx5fFNoYc", "Attention in transformers, step-by-step",
              "https://www.youtube.com/watch?v=eMlx5fFNoYc") + "\n\n"
-   + yt_cell("9-Jl0dxWQs8", "How might LLMs store facts",
+   + yt_thumb("9-Jl0dxWQs8", "How might LLMs store facts",
              "https://www.youtube.com/watch?v=9-Jl0dxWQs8"))
 
 md(r"""> **A question that often comes up here:** *"Will I ever train one of these?"* Almost certainly not — and you don't need to. As a business analyst you'll **use** LLMs through an API (exactly what you've done all course with Gemini prompts), not train them from scratch. But notice: the LLM learns the *same way* the network you built in Section 4 did — data in, a loss measuring wrongness, gradient descent nudging weights — just at an astronomically larger scale. You already understand the core loop.""")
