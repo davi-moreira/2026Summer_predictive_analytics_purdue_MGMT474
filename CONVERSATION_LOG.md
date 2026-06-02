@@ -2151,3 +2151,16 @@ Per instructor request, reverted all embeds from `IPython.display` code cells to
 - **PyTorch tutorial pages** in §4 (Datasets, Build Model, Optimization) → markdown `<iframe src=... sandbox=...>` with a linked "📖 Reference" header above each.
 - Removed the 9 embed helper code cells and the `youtube`/`youtube_multi`/`iframe` code-generating helpers; added `yt`/`yt_cell`/`pt` markdown-iframe helpers. Updated the objectives "About the videos" note, the §3 intro note, and the submission instructions to say the videos need no running. Notebook 81→72 cells (69 student); now 17 code cells, all genuinely runnable lab/demo code.
 - Checks: nbformat valid, all code syntax-valid, voice clean, escaping clean, CV-first clean, no `IPython.display` left in code cells, 11 YouTube embeds + 3 PyTorch-page iframes confirmed in markdown. Updated video guide. No `.qmd`/figure change this turn, so `docs/` stays in sync (no render). Committed + pushed.
+
+---
+
+## 2026-06-02 (5) — nb19: videos as clickable thumbnails (Colab strips md iframes)
+
+Instructor screenshot confirmed Colab's markdown sanitizer **strips `<iframe>`** — the embedded players showed blank in the Colab text-cell preview (only text + `<a>` link survived). So markdown iframes can't render videos in Colab.
+
+Fix (still 100% markdown, nothing to run):
+- **YouTube videos** (3 visionary interviews §1, four 3Blue1Brown chapters §3, four LLM videos §6) → **clickable thumbnail images**: `<a href=watch_url><img src="https://img.youtube.com/vi/ID/hqdefault.jpg" width=480></a>` + a bold text link. Colab renders `<img>`/`<a>` (proven by the screenshot), so the thumbnail shows and clicking opens the video on YouTube.
+- **PyTorch tutorial pages** (§4 Datasets, Build Model, Optimization) → clear blockquote reference **links** (full-page iframes are likewise stripped).
+- Helpers: replaced `yt`/`yt_cell`/`pt` (iframe generators) with `yt_thumb` and `pt_link`. Updated the "About the videos" note, §3 intro, and the video guide to explain the click-to-watch behavior.
+- **Trade-off documented:** Colab can't play a video *inside* a text cell without running code; clicking a thumbnail opens YouTube in a new tab (notebook position preserved). True inline playback would require an `IPython.display.YouTubeVideo` code cell (must be run) — available if ever wanted.
+- Checks: 72/69 cells, nbformat valid, code syntax-valid, 0 iframes, 11 thumbnails + 3 reference links, voice/escaping/CV-first clean. Committed + pushed; no `.qmd`/figure change so no render.
