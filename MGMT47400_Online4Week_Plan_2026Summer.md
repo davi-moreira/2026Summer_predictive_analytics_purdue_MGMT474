@@ -102,7 +102,7 @@ The 20 notebooks follow a deliberate pedagogical progression: each notebook buil
 | 16 | Time-Series Forecasting | Introduces forecasting as a structurally distinct supervised problem — never shuffle, walk-forward CV via `TimeSeriesSplit`, lag features (`lag1` / `lag12`), and three baselines (naive, seasonal-naive, lag-feature linear regression) compared on identical CV folds. Closes with a one-shot opening of the locked test window mirroring nb14's protocol. | nb15 closes the static-classification arc; nb16 widens the lens to temporal data the operations team will see in real business series. nb17 needs the cross-validated forecast as a candidate poster figure. |
 | 17 | Data Communication & Poster Design (formerly nb19) | Walks the **six principles** of data communication (context, visualization, less-is-more / data-ink ratio, hierarchy, beauty, story) and applies them to the **eleven-section research-poster architecture** of the Purdue Undergraduate Research Conference template. Includes a chart-audit exercise on a project figure and an outline-plus-abstract drafting exercise for the M4 poster. | nb15 + nb16 supply the headline numbers (CV-CI, calibration, locked-test verdict, forecast comparison) that the poster has to communicate; without them, the design lecture would lack a payload. nb18 takes the poster outline into competition-pipeline mode. |
 | 18 | Competition Workflow & Kaggle Submission | End-to-end production pipeline for the Bank Churn case competition: load → EDA snapshot → `ColumnTransformer` preprocessor → baseline + improved model on identical CV folds → refactor into `train_pipeline` / `predict_pipeline` → `joblib` save/load → generate `submission.csv` with exact column names. The Kaggle-submission demo is the only authorized non-nb14 use of the locked Kaggle test file (no labels = production prediction, not model evaluation). | nb15-nb17 supply the champion model and the poster narrative; nb18 packages them into a leaderboard submission and a portable artifact. nb19 widens the lens to deep learning as a horizon topic. |
-| 19 | Special Topic: Deep Learning | Awareness module replicating the core narrative of `lecture_slides/10_deep_learning/10_deep_learning.qmd`: the historical arc from 1980s rebrand to 2010 resurgence, PyTorch vs. TensorFlow, single neuron → MLP, CNN structural prior for images, RNN/Transformer for sequences, a four-question rubric for "is deep learning the right tool?", and one honest `MLPClassifier` vs. gradient-boosting comparison on tabular data. Designed for business undergrads — not a PyTorch deep-dive. | nb18 ships the gradient-boosted tabular champion; nb19 widens the lens so analysts can answer the "what about AI?" question with evidence and rubric, not vibes. |
+| 19 | Special Topic: Deep Learning | Full replication of `lecture_slides/10_deep_learning/10_deep_learning.qmd` (all 26 figures copied into `notebooks/figures/`): historical arc, PyTorch vs. TensorFlow, single layer → fitting (gradient descent, backprop, dropout, augmentation, double descent), CNN, document classification, RNN, time-series forecasting, when-to-use, and LLMs. Adds a **runnable PyTorch lab** — the tutorial sequence embedded via `IFrame`, the official `buildmodel_tutorial.ipynb` replicated cell-by-cell, and a random-photo FashionMNIST prediction — plus a four-question rubric and one honest `MLPClassifier` vs. gradient-boosting comparison on tabular data. | nb18 ships the gradient-boosted tabular champion; nb19 widens the lens so analysts can answer the "what about AI?" question with evidence and rubric, and gives hands-on first contact with PyTorch. |
 | 20 | Course End and Reflection | Capstone — self-audit, M4 poster + Kaggle final-submission delivery, peer review using structured rubric, postmortem reflection, and the course-end **reflection survey** (10–15 min, required for completion). | nb19 closes the awareness arc; nb20 closes the course. Reflection survey output seeds the next-summer redesign. |
 
 ### Weekly Arc Dependencies
@@ -1067,14 +1067,18 @@ Pre-recorded micro-videos are available for students to watch before or after th
 
 **Notebook(s)**
 - File: `nb19_deep_learning_student.ipynb`
-- Sections (replicates `lecture_slides/10_deep_learning/10_deep_learning.qmd` structure):
-  - Historical arc + the three drivers
+- Sections (full replication of `lecture_slides/10_deep_learning/10_deep_learning.qmd`; all 26 referenced figures copied into `notebooks/figures/` with original names — `10_*.png`, `cifar100.png`, `pytorch_vs_tensorflow.png`, …):
+  - Historical arc + the three drivers + pioneers
   - PyTorch vs. TensorFlow
-  - Single neuron → single layer → MLP (figures from `notebooks/figures/dl_*.png`)
-  - CNN structural prior for images
-  - RNN / Transformer for sequences
-  - Four-question rubric for tool selection
+  - **PyTorch hands-on lab** — tutorial pages embedded via `IFrame` (Tensors, Datasets, Transforms, Build Model, Autograd, Optimization, Save/Load, Intro YouTube); `buildmodel_tutorial.ipynb` replicated cell-by-cell as runnable code; random-photo FashionMNIST prediction
+  - Single layer neural network (math + network diagram)
+  - Fitting neural networks (gradient descent, backpropagation, dropout, data augmentation, double descent)
+  - CNN structural prior for images (CIFAR-100, convolution, pooling, architecture, pretrained)
+  - Document classification (IMDB, bag-of-words, lasso vs. NN)
+  - RNN / Transformer for sequences (architecture, word embeddings, NYSE time-series forecasting, AR comparison)
+  - When-to-use + four-question rubric for tool selection
   - `MLPClassifier` vs. gradient-boosting comparison on familiar tabular data
+  - LLMs as transformers (video set)
 
 **In-notebook exercises (10-minute scope)**
 - PAUSE-AND-DO 1: Apply the four-question rubric to the Bank Churn case competition and the DemandCo time-series forecast; produce one verdict each.
