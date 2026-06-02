@@ -2102,3 +2102,16 @@ Split NB01 (77 cells, largest notebook) into two focused notebooks:
 - [ ] Update CLAUDE.md canonical reference (currently references old 01_launchpad filename)
 
 ---
+
+---
+
+## 2026-06-02 — nb19 Deep Learning: full lecture replication + PyTorch lab
+
+Rebuilt `nb19_deep_learning` to entirely replicate the lecture deck and add a runnable PyTorch lab.
+
+- **Slide replication.** Replicated `lecture_slides/10_deep_learning/10_deep_learning.qmd` end to end (history, frameworks, single layer, fitting, CNN, document classification, RNN, time-series forecasting, when-to-use, LLMs). Copied all 26 referenced figures from `figs/` into `notebooks/figures/` under original names and embedded them via raw-GitHub URLs. The 96-page handout PDF is the rendered deck, so this covers it too.
+- **PyTorch sequence embedded.** Each PyTorch tutorial page from the slides is embedded in-notebook via `IPython.display.IFrame` (Tensors, Datasets, Transforms, Build Model, Autograd, Optimization, Save/Load, Intro YouTube).
+- **buildmodel_tutorial replicated.** All cells of `_lab/_pytorch_tutorial/buildmodel_tutorial.ipynb` reproduced as runnable code (define `NeuralNetwork`, instance, forward pass, layer-by-layer breakdown, parameters) + a **random-photo FashionMNIST prediction** cell (draws a random test image, predicts its label).
+- **Honest tabular demo fixed.** Retuned `make_classification` (flip_y=0.10, class_sep=0.7, 6 informative) so the MLP-vs-GBM CV 95% CIs genuinely overlap, matching the narrative. Added INSTRUCTOR SOLUTION for PAUSE-AND-DO 2.
+- Builder: `scripts/build_nb19.py` (instructor source of truth → student via INSTRUCTOR-SOLUTION strip). Updated video guide, master plan rationale, schedule.qmd; rendered + committed docs; pushed.
+- Checks: voice grep clean, CV-first audit clean (no nb19 hits), all 26 figures tracked and resolving, all code cells syntax-valid, sklearn demo executes.
