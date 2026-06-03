@@ -2164,3 +2164,13 @@ Fix (still 100% markdown, nothing to run):
 - Helpers: replaced `yt`/`yt_cell`/`pt` (iframe generators) with `yt_thumb` and `pt_link`. Updated the "About the videos" note, §3 intro, and the video guide to explain the click-to-watch behavior.
 - **Trade-off documented:** Colab can't play a video *inside* a text cell without running code; clicking a thumbnail opens YouTube in a new tab (notebook position preserved). True inline playback would require an `IPython.display.YouTubeVideo` code cell (must be run) — available if ever wanted.
 - Checks: 72/69 cells, nbformat valid, code syntax-valid, 0 iframes, 11 thumbnails + 3 reference links, voice/escaping/CV-first clean. Committed + pushed; no `.qmd`/figure change so no render.
+
+## 2026-06-03 — nb19 Section 6: LLM concept + hands-on Hugging Face lab
+
+- **Request:** Improve/expand Section 6 (LLMs) for business undergrads, and add hands-on code using a free LLM (company / Hugging Face / Purdue GenAI Studio).
+- **Concept expansion (instructor-first):** Reworked §6 from a four-video survey into 6.1 *what an LLM is* (next-token prediction; token/context window/temperature/hallucination defined in plain language), 6.2 *how analysts use LLMs* (chat UI / API-from-code / embedded + three prompt rules). Kept the four 3Blue1Brown thumbnails and improved the intro.
+- **Hands-on lab (6.3):** Hugging Face `transformers` pipelines, runnable on free Colab CPU with **no API key** — a sentiment classifier (~270 MB) and zero-shot support-ticket routing (`facebook/bart-large-mnli`, ~1.6 GB, no labeled data). Each has a "Reading the output" + Q&A.
+- **Exercise 3:** build a review-intelligence table (sentiment + theme + confidence) and explain the lowest-confidence (mixed-theme) prediction; instructor solution + a `### YOUR ONE-SENTENCE EXPLANATION HERE:` student placeholder.
+- **6.4 (optional scale-up):** OpenAI-compatible call to **Purdue GenAI Studio** (endpoint `https://genai.rcac.purdue.edu/api/chat/completions`, key via avatar→Settings→Account; verified against rcac.purdue.edu/knowledge/genaistudio), gated on an API key so Run-all never errors. Gemini + HF Inference API noted as alternatives.
+- **Synced:** objectives (now 5; "3 PAUSE-AND-DO"), §7 wrap-up (6 takeaways), submission instructions + bibliography, video guide (gitignored), schedule.qmd, and both planning docs (transformers/requests deps, new lab).
+- **Checks:** instructor 89 / student 83 cells; both JSON-valid; no INSTRUCTOR SOLUTION leak; voice-check grep clean (only "Student's t"); `voice_check_guides.py` clean; `audit_cv_first.py` clean (no test-set use); all code cells parse; `$`/`~` escaping clean. Rendered schedule.qmd; committed content + docs; pushed (80e4721).
