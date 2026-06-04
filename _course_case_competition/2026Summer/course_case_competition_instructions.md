@@ -14,6 +14,15 @@ Submit the following on Brightspace.
 |---|---|---|
 | 1 | **`NN_kaggle_code.ipynb`** *(e.g., for group 03, `03_kaggle_code.ipynb`)* | The fully replicable Colab notebook for your **best-performing model** — data loading, preprocessing, feature engineering, model training, hyperparameter tuning, final fit, prediction generation, and writing the submission `.csv`. Must run top-to-bottom in Google Colab without manual edits given the original Kaggle data files. |
 
+### Penalties
+
+| Issue | Deduction |
+|---|---|
+| Filename does not follow the `NN_kaggle_code.ipynb` convention (e.g., for group 03, `03_kaggle_code.ipynb`) | **−10 points** |
+
+---
+
+
 The **final Kaggle submission** itself is uploaded directly to Kaggle (not Brightspace) — see Section "How to Participate" below.
 
 The **peer evaluation** is collected via a separate Brightspace form, alongside the Final Project peer evaluation, in the last Brightspace module of the course.
@@ -102,7 +111,7 @@ If two or more teammates each independently submitted before forming the team, K
 - Evaluate locally using **AUC-ROC under cross-validation**.
 - Select the model with the most defensible **cross-validated** AUC for your final submission, not the one that happens to score highest on the public leaderboard. **Public-leaderboard overfitting is real and will hurt you on the private leaderboard.**
 
-> **Worked starter pipeline (attached):** `churn_exit_prediction_workflow_student.ipynb` is attached to this assignment and walks through the full pipeline end-to-end on this dataset.
+> **Worked starter pipeline:** `nb18` walks through the full pipeline end-to-end on this dataset.
 
 ### Step 4 — Prepare the submission file
 
@@ -154,7 +163,7 @@ The worked starter pipeline (`churn_exit_prediction_workflow_student.ipynb`) wal
 
 ---
 
-*Good luck — may the best churn predictor win!*
+*Good luck! May the best churn predictor win!*
 
 — *Prof. Moreira*
 
