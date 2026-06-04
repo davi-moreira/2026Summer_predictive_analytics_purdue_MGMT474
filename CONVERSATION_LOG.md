@@ -2174,3 +2174,22 @@ Fix (still 100% markdown, nothing to run):
 - **6.4 (optional scale-up):** OpenAI-compatible call to **Purdue GenAI Studio** (endpoint `https://genai.rcac.purdue.edu/api/chat/completions`, key via avatar→Settings→Account; verified against rcac.purdue.edu/knowledge/genaistudio), gated on an API key so Run-all never errors. Gemini + HF Inference API noted as alternatives.
 - **Synced:** objectives (now 5; "3 PAUSE-AND-DO"), §7 wrap-up (6 takeaways), submission instructions + bibliography, video guide (gitignored), schedule.qmd, and both planning docs (transformers/requests deps, new lab).
 - **Checks:** instructor 89 / student 83 cells; both JSON-valid; no INSTRUCTOR SOLUTION leak; voice-check grep clean (only "Student's t"); `voice_check_guides.py` clean; `audit_cv_first.py` clean (no test-set use); all code cells parse; `$`/`~` escaping clean. Rendered schedule.qmd; committed content + docs; pushed (80e4721).
+
+---
+
+## Session — 2026-06-04: Root declutter + new-course seed kit
+
+**Goal 1 — organize root (current course vs. reference material):**
+- Verified references first (nothing deleted; site not broken). Relocated via `git mv` (history preserved):
+  - `_project_docs/` ← DECISIONS, NOTEBOOK_TEMPLATE, TROUBLESHOOTING, claude_course_plan, MGMT47400_Online4Week_Plan
+  - `_archive/` ← CLAUDE_MD_PLAN, DAY1_NOTEBOOK_UPDATE_PLAN (+empty _files/), GITHUB_SETUP_INSTRUCTIONS, TUTORIAL_VS_CODE_NOTEBOOK_GIT
+  - `_production_kit/` ← 11 poster/video/competition templates (now gitignored)
+- Updated every reference so the site still builds: `claude.md` See-Also + inline paths, `workflow.qmd` table/prose/GitHub blob links, `README.md` tree + prose, `_quarto.yml` stale excludes removed. Gitignored `_production_kit/` and `notebooks/data/`.
+- `quarto render` clean; confirmed `_project_docs/` links resolve in `docs/workflow.html` and underscore dirs are NOT published.
+
+**Goal 2 — seed kit for the new full-semester course:**
+- `scripts/make_seed.sh` — rsync wrapper; copies the portable core (604 files) into a new dir, excludes 173 GB video + slides + NotebookLM + rendered docs + grades + datasets + .git. Dry-run by default; `--go` to copy.
+- `NEW_COURSE_SETUP.md` — hand-off doc (keep/rewrite/regenerate inventory + git/remote/Pages steps + bootstrap prompt). Travels with the seed.
+- Target: `2026F_predictive_analytics__QM474` in the `predictive_analytics` root.
+
+All committed + pushed. Left untouched: user's in-progress `_final_project/2026Summer/milestone_01/02` edits and case-competition untracked files.
