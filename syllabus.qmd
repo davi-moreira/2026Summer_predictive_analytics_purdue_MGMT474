@@ -28,7 +28,7 @@ The course enables students to navigate the entire predictive analytics pipeline
 
 -   Email: [dcordeir\@purdue.edu](mailto:dcordeir@purdue.edu)
 -   Office: Young Hall 1019
--   Class meetings: Section Y01 -- Monday--Friday online, with a **synchronous meeting Fridays 10:30 am -- 12:00 pm EST** (Zoom link on Brightspace)
+-   Class meetings: Section Y01 -- Monday--Friday online, with a **synchronous meeting Fridays 11 am -- 12:00 pm EST** (Zoom link on Brightspace)
 -   Office Hours: **Tuesdays 11:00 am -- 12:00 pm EST** (Zoom link on Brightspace)
 -   Individual Appointments: *Book time with me through the link in the course syllabus on your Course Brightspace Page, or by appointment.*
 
