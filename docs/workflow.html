@@ -547,19 +547,19 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td>Course map and rationale</td>
-<td><code>MGMT47400_Online4Week_Plan_2026Summer.md</code></td>
+<td><code>_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md</code></td>
 </tr>
 <tr class="odd">
 <td>Implementation plan</td>
-<td><code>claude_course_plan.md</code></td>
+<td><code>_project_docs/claude_course_plan.md</code></td>
 </tr>
 <tr class="even">
 <td>Conventions and decisions</td>
-<td><code>DECISIONS.md</code></td>
+<td><code>_project_docs/DECISIONS.md</code></td>
 </tr>
 <tr class="odd">
 <td>Troubleshooting playbook</td>
-<td><code>TROUBLESHOOTING.md</code></td>
+<td><code>_project_docs/TROUBLESHOOTING.md</code></td>
 </tr>
 <tr class="even">
 <td>Session-by-session history</td>
@@ -649,9 +649,9 @@ div.csl-indent {
 <h2 data-number="4.6" class="anchored" data-anchor-id="log-decisions-not-just-changes"><span class="header-section-number">4.6</span> Log decisions, not just changes</h2>
 <p>Git remembers <em>what</em> changed. It does not remember <em>why</em>. I keep three companions to the commit log:</p>
 <ul>
-<li><code>DECISIONS.md</code> collects short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.</li>
+<li><code>_project_docs/DECISIONS.md</code> collects short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.</li>
 <li><code>CONVERSATION_LOG.md</code> is a session-by-session journal, appended at the end of each working session. Sixteen-plus sessions in, this is where I look first when I have forgotten what we tried in a prior round.</li>
-<li><code>TROUBLESHOOTING.md</code> lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped <code>$</code> in money strings. Future-me reads this so future-me does not re-debug it.</li>
+<li><code>_project_docs/TROUBLESHOOTING.md</code> lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped <code>$</code> in money strings. Future-me reads this so future-me does not re-debug it.</li>
 </ul>
 </section>
 <section id="skills-a-venue-i-have-not-explored-yet-but-you-might" class="level2" data-number="4.7">
@@ -672,7 +672,7 @@ div.csl-indent {
 4. ### INSTRUCTOR SOLUTION             (markdown, removed for student)
 5. # INSTRUCTOR SOLUTION               (code, removed for student)
 6. &lt;!-- INSTRUCTOR SOLUTION --&gt;        (markdown, "reading the output", removed)</code></pre>
-<p>This is encoded in <code>NOTEBOOK_TEMPLATE.md</code> so any session, mine or the assistant’s, can produce a new exercise in the canonical shape without me re-explaining it.</p>
+<p>This is encoded in <code>_project_docs/NOTEBOOK_TEMPLATE.md</code> so any session, mine or the assistant’s, can produce a new exercise in the canonical shape without me re-explaining it.</p>
 </section>
 <section id="the-narrative-polish-pattern" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="the-narrative-polish-pattern"><span class="header-section-number">5.2</span> The narrative polish pattern</h2>
@@ -752,7 +752,7 @@ div.csl-indent {
 <li>Ask the assistant to read the constitution and the course plan, then describe the project back to you:</li>
 </ol>
 <blockquote class="blockquote">
-<p>Read <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md"><code>claude.md</code></a> and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/MGMT47400_Online4Week_Plan_2026Summer.md"><code>MGMT47400_Online4Week_Plan_2026Summer.md</code></a>. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.</p>
+<p>Read <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md"><code>claude.md</code></a> and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md"><code>_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md</code></a>. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.</p>
 </blockquote>
 <ol start="2" type="a">
 <li>Ask for the file map:</li>
@@ -774,7 +774,7 @@ div.csl-indent {
 </blockquote>
 <ol start="2" type="a">
 <li><p>Keep the <strong>structural elements</strong> even if every concrete rule changes: project mission, the “see also” reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.</p></li>
-<li><p>Also copy and adapt the companion files: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/DECISIONS.md"><code>DECISIONS.md</code></a>, <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/TROUBLESHOOTING.md"><code>TROUBLESHOOTING.md</code></a>, and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/NOTEBOOK_TEMPLATE.md"><code>NOTEBOOK_TEMPLATE.md</code></a>. They start small and grow alongside the project.</p></li>
+<li><p>Also copy and adapt the companion files: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/DECISIONS.md"><code>DECISIONS.md</code></a>, <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/TROUBLESHOOTING.md"><code>TROUBLESHOOTING.md</code></a>, and <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/NOTEBOOK_TEMPLATE.md"><code>NOTEBOOK_TEMPLATE.md</code></a>. They start small and grow alongside the project.</p></li>
 </ol>
 </section>
 <section id="step-4.-adopt-one-pattern-at-a-time-not-all-at-once" class="level2" data-number="8.4">
