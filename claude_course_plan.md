@@ -127,50 +127,29 @@ Each week follows: introduce capability → build evaluation skills → practice
 - Bibliography (Tufte, Healy, Knaflic, Kastellec & Leoni, URC rubric)
 
 #### 1.3 Day 20: `notebooks/nb20_final_submission_peer_review.ipynb`
-**Source:** MGMT47400_Online4Week_Plan_2026Summer.md lines 902-947
-**Structure:**
+**Source:** `_final_project/2026Summer/milestone_04_final_poster.md` + `_course_case_competition/2026Summer/course_case_competition_instructions.md`
+**Structure (markdown-only milestone walkthrough, nb15 style — no code cells; instructor == student):**
 - Header with Colab badge
-- Learning objectives (5 items: complete package, executive deck, video, peer review, postmortem)
-- Section 1: Setup (imports: none needed)
-- Section 2: Final self-audit checklist
-  - Run-all check (all cells execute without errors)
-  - Outputs present for all code cells
-  - Links working (Colab, GitHub, data sources)
-  - Test set lockbox maintained
-  - Model card complete
-  - Monitoring plan included
-- Section 3: Submission links + artifact manifest
-  - Final notebook link
-  - Slide deck link (Google Slides or PDF)
-  - Video link (Loom, YouTube, Google Drive)
-  - GitHub repo link (if applicable)
-- Section 4: Peer review rubric
-  - Reproducibility (run-all works?) - 20 points
-  - Methodology (split/CV/metrics sound?) - 25 points
-  - Results (comparison fair? interpretation honest?) - 25 points
-  - Communication (narrative clear? visuals effective?) - 20 points
-  - Responsible AI (limitations? fairness? risks?) - 10 points
-- Section 5: Peer review form template
-  - Rubric scores (checkboxes)
-  - 3 actionable edits (text boxes)
-  - 1 strength to highlight
-- Section 6: PAUSE-AND-DO exercises (2 exercises)
-  - Exercise 1: Run-all audit and fix one reproducibility issue (10 min)
-  - Exercise 2: Complete one peer review with rubric + 3 actionable edits (10 min)
-- Section 7: Postmortem prompts (8-10 lines)
-  - What worked well?
-  - What didn't work?
-  - What would you do differently?
-  - What's the next iteration?
-- Section 8: Wrap-up (course completion, next steps for learning)
-- Bibliography (Mitchell et al., Chip Huyen, Storytelling with Data)
+- Learning objectives (5 items: M4 poster + final notebook, the one-shot test ceremony, the 100-pt rubric, the Kaggle final submission, the two individual closeouts)
+- Why This Matters (delivery day; the one authorized opening of the locked test set)
+- Section 1: About the Final Project (35% of course grade — 40% milestones / 20% peer eval / 40% instructor-TA poster; optional PURC)
+- Section 2: What to Submit at M4 (`NN.pdf` poster + `NN_final.ipynb`; -10 filename penalty)
+- Section 3: The Poster — Required Components (10 components, Intro→Methods→Results→Conclusions)
+- Section 4: Required Visualizations (model-comparison-with-CI, test-set verdict, feature importance, regression/classification diagnostics)
+- Section 5: The One-Shot Test-Set Evaluation (reload M3 `champion_pipeline.joblib` → open test once → INSIDE/ABOVE/BELOW verdict → report)
+- Section 6: The M4 Poster Rubric (100 pts across 7 criteria + -10 filename penalty)
+- Section 7: Course Case Competition — Final Kaggle Submission (ROC-AUC, `Group NN` naming, 5 submissions/day, trust the CV CI not the public leaderboard)
+- Section 8: Course Closeout — confidential peer evaluation (20%) + required reflection survey (4 areas)
+- Section 9: Tips and Common Pitfalls
+- Participation Assignment Submission Instructions (+ closeout checklist; terminal — no Next Step notebook)
+- Bibliography (Provost & Fawcett; ISLP; scikit-learn common pitfalls)
 
 **Pattern Consistency:**
-All three notebooks follow the established template:
+Follows the milestone-walkthrough template established by nb05/nb10/nb15:
 - Colab badge in header
-- 112.5 minute time budget (videos + notebook work + quiz/submission)
-- 2 PAUSE-AND-DO exercises (10 min each)
-- Setup → Content sections → Exercises → Wrap-up → Bibliography
+- Markdown only (no code cells, no PAUSE-AND-DO exercises); instructor and student files are identical
+- Walks the milestone rubric in grading order, with point values surfaced
+- Why-This-Matters → numbered rubric sections → Tips → Submission Instructions → Bibliography → Thank you
 - Docstrings for any functions
 - Blockquotes for critical rules
 - ✓ Checkmarks for confirmations
@@ -449,7 +428,7 @@ Transform 2025F semester-based course into 2026 Summer 4-week intensive format (
 - **Days 18-20:** Created new notebooks:
   - `nb18_reproducibility_monitoring.ipynb` - Deployment thinking, packaging, monitoring
   - `nb19_data_communication_poster.ipynb` - Six principles of data communication + eleven-section poster architecture (URC template)
-  - `nb20_final_submission_peer_review.ipynb` - Final deliverable, peer review, postmortem
+  - `nb20_final_submission_peer_review.ipynb` - M4 poster + one-shot test ceremony, Kaggle final submission, peer evaluation, reflection survey
 
 #### 2. Quarto Website Updated
 - `_quarto.yml` - Updated title and configuration
