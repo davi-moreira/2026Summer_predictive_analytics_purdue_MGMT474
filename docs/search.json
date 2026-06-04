@@ -4,7 +4,7 @@
     "href": "workflow.html",
     "title": "Designing a Course with an AI Co-Designer",
     "section": "",
-    "text": "WarningWork in progress: read it as a field journal, not a finished manual\n\n\n\nThis page documents a course that is not yet finalized. The Summer 2026 offering of QM47400 (Predictive Analytics) runs from May 18 to June 12, 2026, and I am still iterating on notebooks, video guides, quizzes, and the midterm. Treat what follows as an honest, mid-stream account of working with Claude Code as an AI co-designer: what has worked for me, what cost me time, and what I would tell a colleague before they start.",
+    "text": "WarningWork in progress: read it as a field journal, not a finished manual\n\n\n\nThis page documents a course while it is still being delivered. The Summer 2026 offering of QM47400 (Predictive Analytics) runs from May 18 to June 12, 2026, with students wrapping up their final activities by June 14. As I write this the course is in its closing stretch: the notebooks, video guides, quizzes, and midterm are built, and my attention has shifted from authoring material to delivering it and grading the project milestones and the final case competition. Treat what follows as an honest, mid-stream account of working with Claude Code as an AI co-designer: what has worked for me, what cost me time, and what I would tell a colleague before they start.",
     "crumbs": [
       "For Instructors"
     ]
@@ -14,7 +14,7 @@
     "href": "workflow.html#you-will-spend-more-time-than-you-expect",
     "title": "Designing a Course with an AI Co-Designer",
     "section": "3.1 You will spend more time than you expect",
-    "text": "3.1 You will spend more time than you expect\nTranslating a 15-week course into a 4-week intensive looks, on paper, like compression. In practice it is a redesign. Cognitive load, daily engagement of roughly 112.5 minutes per day, notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in fourteen business days: none of that survives the move unchanged. The CONVERSATION_LOG.md in this repo has 16+ working sessions logged across roughly four months. The AI sped up production, not deliberation. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant just propose a plan, the plan was bland and had to be redone.",
+    "text": "3.1 You will spend more time than you expect\nTranslating a 15-week course into a 4-week intensive looks, on paper, like compression. In practice it is a redesign. Cognitive load, daily engagement of roughly 112.5 minutes per day, notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in fourteen business days: none of that survives the move unchanged. The CONVERSATION_LOG.md in this repo has 16+ working sessions logged during the intensive design phase alone, before delivery even began. The AI sped up production, not deliberation. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant just propose a plan, the plan was bland and had to be redone.",
     "crumbs": [
       "For Instructors"
     ]
