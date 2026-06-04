@@ -32,6 +32,7 @@ Thumbs.db
 
 # Admin (keep out of public repo)
 _adm_stuff/
+_announcements/
 _grades/
 _grade/
 grades/
@@ -53,6 +54,7 @@ _handouts/
 _homework/
 _lecture_notes/
 _quizzes/
+_midterm_exam/
 _supplemental_material/
 _in_class_participation/
 _notebook/
@@ -67,6 +69,9 @@ notebooks/*_instructor*.ipynb
 
 # Video lecture guides (local only, not for students)
 video_guides/
+
+# Brightspace LMS content (local only, instructor-facing)
+brightspace/
 
 # Large files (exclude from repo, link instead)
 *.zip
