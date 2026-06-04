@@ -21,7 +21,7 @@ Submit **two files** per group on Brightspace by the posted deadline. One design
 | # | File | Description |
 |---|---|---|
 | 1 | **`NN.pdf`** *(e.g., Group 01 submits `01.pdf`; Group 17 submits `17.pdf`)* | Single PDF poster, Purdue Undergraduate Research Conference format. **Do not include the section number in the filename** — this convention is what allows the instructor to print the posters for free. |
-| 2 | **`NN_final.ipynb`** *(e.g., for group 03, `03_final.ipynb`)* | The final Jupyter notebook with the runnable code. Must complete a fresh **"Runtime → Run All"** in Colab without errors, and must include the saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from M3 plus the one-shot test-set evaluation. |
+| 2 | **`NN_final.ipynb`** *(e.g., for group 03, `03_final.ipynb`)* | The final Jupyter notebook with the runnable code. Must complete a fresh **"Runtime → Run All"** in Colab without errors. |
 
 Detailed format requirements (poster dimensions, attached template, notebook content, exact Brightspace location) are in the **Poster — Components → Format** sections below. The poster rubric is embedded in the **Grading — Poster Rubric** section of this document.
 
@@ -84,14 +84,14 @@ If a figure tells the same story as one already on the poster, replace it — ev
 |---|---|
 | **File type** | Jupyter notebook (`.ipynb`) |
 | **Filename convention** | `NN_final.ipynb` (e.g., for group 03, `03_final.ipynb`) |
-| **Required content** | Saved **`champion_pipeline.joblib`** and **`CONFIG.json`** from the M3 final-training step; the **one-shot test-set evaluation** with the INSIDE / ABOVE / BELOW verdict; all code that produces the figures shown on the poster |
+| **Required content** | The **one-shot test-set evaluation** with the INSIDE / ABOVE / BELOW verdict; all code that produces the figures shown on the poster |
 | **Reproducibility** | Must complete a fresh **"Runtime → Run All"** in Colab without errors |
 
 **Submission location for both files:** Brightspace.
 
-## Optional: Presenting at the Fall 2026 Conference
+## Optional: Presenting at the Summer/Fall Conference
 
-Groups choosing to present at the **Fall 2026 Purdue Undergraduate Research Conference** are encouraged to email Professor Moreira early so mentorship and conference-specific guidance can be arranged.
+Groups choosing to present at the **Summer/Fall Purdue Undergraduate Research Conference** are encouraged to email Professor Moreira early so mentorship and conference-specific guidance can be arranged.
 
 - Conference details: <https://www.purdue.edu/undergrad-research/conferences/index.php>
 - Presenting is **optional** and has no impact on the course grade.
@@ -123,6 +123,12 @@ There are **two separate gradebook entries** for your final-project work at this
 
 **Total: 100 points**
 
+### Penalties
+
+| Issue | Deduction |
+|---|---|
+| Filename does not follow the `NN.pdf` (poster) / `NN_final.ipynb` (notebook) convention (e.g., for group 03, `03.pdf` and `03_final.ipynb`) | **−10 points** |
+
 ---
 
 ## Tips and Common Pitfalls
@@ -132,7 +138,7 @@ There are **two separate gradebook entries** for your final-project work at this
 - **Show the CV CI.** Replace point-estimate bar charts with bars that show the 95% confidence interval. The CI carries information; the point estimate alone does not.
 - **Open the test set ONCE.** The champion was selected on CV at M3. The test-set number is computed exactly once with the saved `champion_pipeline.joblib` and reported with the INSIDE / ABOVE / BELOW verdict. Multiple test-set evaluations would invalidate the lockbox discipline that has carried through M1 → M2 → M3 — and reviewers can usually tell from the code history.
 - **The abstract IS the lead paragraph.** Don't paraphrase your M3 abstract into something fluffier — use it.
-- **The submitted `NN_final.ipynb` must be reproducible.** A submission whose notebook fails on a fresh **"Runtime → Run All"** loses the 10% reproducibility dimension. The notebook must include the saved `champion_pipeline.joblib` and `CONFIG.json` from M3 and produce all the figures shown on the poster.
+- **The submitted `NN_final.ipynb` must be reproducible.** A submission whose notebook fails on a fresh **"Runtime → Run All"** loses the 10% reproducibility dimension. The notebook must produce all the figures shown on the poster.
 - **Caption every figure.** A figure with axis labels but no caption forces the audience to guess the takeaway. One sentence per figure is the floor.
 - **Filename: `<group-number>.pdf` only.** No section number. No "final_v3_REAL_v2.pdf". The instructor's print pipeline depends on this convention.
 - **Submit BOTH files: the poster `NN.pdf` and the final notebook `NN_final.ipynb`.** Missing either costs points.
