@@ -133,11 +133,11 @@ If two or more teammates each independently submitted before forming the team, K
 
 ## Grading — How Your Competition Grade Is Computed
 
-Your competition grade (before any course curve) is built from two parts, and then the penalties above are subtracted:
+Your competition grade (before any course curve) is built from three parts, and then the penalties above are subtracted:
 
-> **Competition grade = Leaderboard performance (60 points) + Notebook & process (40 points) − penalties**
+> **Competition grade = Leaderboard Performance (60%) + Team Participation (20%) + Peer Evaluation (20%) − penalties**
 
-### Leaderboard performance — 60 points
+### Leaderboard Performance — 60%
 
 This rewards where your team lands on the **private** leaderboard at the close — not the public leaderboard, and not your raw score down to the last decimal.
 
@@ -149,18 +149,24 @@ Because strong models on this dataset cluster very tightly, the gap between adja
 
 > *How the points are computed (for the curious):* with `N` teams and your `rank` (1 = best), let `f = 2 × (the lowest AUC in the class − 0.5)`. Your leaderboard points are `60 × [ f + (1 − f) × (N − rank) / (N − 1) ]`. The last-place team earns `60 × f` — their skill above random — and every team steps up evenly to 60 at rank 1. Tied scores share the average rank.
 
-### Notebook & process — 40 points
+### Team Participation — 20%
 
-Two teams can post the same AUC and earn very different scores here — this is where careful method is rewarded. Your `NN_kaggle_code.ipynb` is graded on:
+This is an evaluation of your submitted, reproducible `NN_kaggle_code.ipynb`. Two teams can post the same AUC and earn very different scores here — this is where careful method is rewarded.
+
+> **To earn any Team-Participation credit, your team must make at least one valid Kaggle submission *and* submit the notebook on Brightspace.** This is **not conditioned on your leaderboard rank** — a team that submits but finishes last still earns its full participation score.
 
 | Criterion | Points | What earns full marks |
 |---|---:|---|
-| **Reproducible notebook** | 8 | A fresh **"Run All"** in Colab completes top-to-bottom on the original Kaggle files and writes your submission `.csv`. |
-| **Leakage-safe pipeline** | 8 | All preprocessing lives inside a `Pipeline` / `ColumnTransformer` so it refits within each CV fold. |
-| **Cross-validated evaluation** | 8 | A baseline **and** a complex model, each reported as CV ROC-AUC with a **95% confidence interval**. |
-| **Systematic tuning & selection** | 8 | Hyperparameter search **inside** CV, with your final model chosen by the CI-overlap rule — not by the public leaderboard. |
-| **Required visualizations** | 4 | A hyperparameter-search plot **and** a CV-CI comparison bar chart (baseline vs. champion). |
-| **Write-up & AI note** | 4 | A short top-of-notebook summary (model, key settings, CV-CI, one-sentence rationale) and your AI-use acknowledgment. |
+| **Reproducible notebook** | 4 | A fresh **"Run All"** in Colab completes top-to-bottom on the original Kaggle files and writes your submission `.csv`. |
+| **Leakage-safe pipeline** | 4 | All preprocessing lives inside a `Pipeline` / `ColumnTransformer` so it refits within each CV fold. |
+| **Cross-validated evaluation** | 4 | A baseline **and** a complex model, each reported as CV ROC-AUC with a **95% confidence interval**. |
+| **Systematic tuning & selection** | 4 | Hyperparameter search **inside** CV, with your final model chosen by the CI-overlap rule — not by the public leaderboard. |
+| **Required visualizations** | 2 | A hyperparameter-search plot **and** a CV-CI comparison bar chart (baseline vs. champion). |
+| **Write-up & AI note** | 2 | A short top-of-notebook summary (model, key settings, CV-CI, one-sentence rationale) and your AI-use acknowledgment. |
+
+### Peer Evaluation — 20%
+
+Each member confidentially evaluates their teammates' contributions through the separate **Peer Evaluation** assignment on Brightspace; this is the one part of the competition grade that is **individual** rather than shared by the whole team. Pull your fair share and you keep the full 20%; it is reduced only if the teammates who evaluated you report your contribution fell clearly below the group. (Full details are in that assignment's own instructions.)
 
 ### Penalties
 
@@ -168,7 +174,7 @@ The two penalties in the **Penalties** table (under **What to Submit on Brightsp
 
 ### The bottom line
 
-A genuinely competitive submission backed by a clean, reproducible, cross-validated notebook scores high regardless of where you land in the tight pack at the top. Rank matters, but it moves your grade gently — your method is what you most control, and it is worth the larger, steadier share of the points.
+A genuinely competitive submission backed by a clean, reproducible, cross-validated notebook scores high regardless of where you land in the tight pack at the top. Rank matters, but it moves your grade gently — the larger, steadier share of your grade comes from method and teamwork, which you fully control.
 
 ---
 

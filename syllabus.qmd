@@ -95,10 +95,13 @@ A course-long predictive analytics competition hosted on Kaggle. The **Summer 20
 -   **Metric:** AUC-ROC
 -   **Max submissions:** 5 per day on Kaggle
 
-**Grading breakdown (of the competition grade):** Review the course syllabus available on the Course Brightspace page for details.
+**Grading breakdown (of the competition grade):**
 
-1.  **Team Participation.**
-2.  **Final Ranking and Peer Evaluation.**
+1.  **Team Participation (20%):** An evaluation of your submitted, reproducible notebook — a clean Run-All in Colab, a leakage-safe pipeline, cross-validated ROC-AUC with 95% confidence intervals for a baseline and a more complex model, systematic hyperparameter tuning, the required visualizations, and a brief write-up. Earned with at least one valid Kaggle submission plus the notebook, and **not** conditioned on leaderboard rank.
+2.  **Leaderboard Performance (60%):** Your team's final standing on the **private** Kaggle leaderboard at the close, scored by **rank** on a scale anchored so that a model no better than random guessing (AUC = 0.5) earns zero credit.
+3.  **Peer Evaluation (20%):** A confidential intra-team evaluation of each member's contribution; this is the individual portion of the competition grade.
+
+Two **−10 point** penalties apply to the team total: a Kaggle team name that is not `Group NN` at the deadline, and a submitted notebook filename that is not `NN_kaggle_code.ipynb`.
 
 **Brightspace deliverable:** Submit the complete code for your best-performing model. The code must be fully replicable, allowing the instructor and TA to reproduce the same results and performance metrics. Include all necessary steps: data preprocessing, feature engineering, model training, evaluation, and generation of the submission file.
 
