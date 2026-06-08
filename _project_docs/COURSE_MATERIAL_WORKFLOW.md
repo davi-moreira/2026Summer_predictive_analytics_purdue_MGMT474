@@ -42,10 +42,10 @@ The instructor notebook is the spine of every downstream artifact: the videos fo
 
 **C2. Lock the video splits to the edited videos.** Set the page's video count and section ranges to match the **actual recorded/edited** videos (e.g., NB17 became 2 videos, not the planned 3). **This is the lock point** — every downstream artifact follows these ranges.
 
-**C3. Generate per-video titles + descriptions.** Run the notebook through an LLM (ChatGPT) once per video segment with the prompt below, and paste the result into the page's Video sections.
+**C3. Generate per-video titles + descriptions.** Paste the developed notebook into an LLM (ChatGPT) and run the prompt below over a section range (fill in the boundary), then paste the result into the page's Video sections.
 
-> **Prompt (run per video segment; fill in that segment's section range):**
-> *"Provide me a summary and description of `<section range — e.g. from the start to before Section 8>` as if it were a video: a very short 2–3 sentence summary, a paragraph for course documentation, and a short title for the video."*
+> **Prompt (verbatim — fill in the section boundary):**
+> *"provide me a summary and description from the start to before Section 8 as if it was a video: a very short 2-3 sentence summary, a paragraph for course documentation + provide me a short title for each of the videos."*
 
 Collect, per video: the **short title**, the **2–3 sentence summary**, and the **documentation paragraph**.
 
