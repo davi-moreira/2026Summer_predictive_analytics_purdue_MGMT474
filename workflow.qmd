@@ -131,10 +131,10 @@ This is the recommendation I would give first if a colleague asked me for one th
 | Quizzes | `_quizzes/2026Summer/` |
 | Midterm exam | `_midterm_exam/2026Summer/` |
 | Notebook to NotebookLM podcast transcript | `_notebook_lm/<basename>.md` *(auto-generated, gitignored)* |
-| Course map and rationale | `MGMT47400_Online4Week_Plan_2026Summer.md` |
-| Implementation plan | `claude_course_plan.md` |
-| Conventions and decisions | `DECISIONS.md` |
-| Troubleshooting playbook | `TROUBLESHOOTING.md` |
+| Course map and rationale | `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md` |
+| Implementation plan | `_project_docs/claude_course_plan.md` |
+| Conventions and decisions | `_project_docs/DECISIONS.md` |
+| Troubleshooting playbook | `_project_docs/TROUBLESHOOTING.md` |
 | Session-by-session history | `CONVERSATION_LOG.md` |
 
 Two benefits compound here. First, the AI can **read and edit** any of these directly. There is no copy-paste from a web UI, no screenshots, no "look at this PDF." Second, when a quiz question changes, you can ask the assistant to **propagate that change** to the matching brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.
@@ -201,9 +201,9 @@ Translation: every time the assistant edits an instructor notebook, a shell scri
 
 Git remembers *what* changed. It does not remember *why*. I keep three companions to the commit log:
 
-- `DECISIONS.md` collects short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.
+- `_project_docs/DECISIONS.md` collects short entries explaining load-bearing choices (random seed, split ratios, evaluation spine, narrative voice). When I or the assistant catch myself second-guessing a choice three weeks later, this file ends the debate.
 - `CONVERSATION_LOG.md` is a session-by-session journal, appended at the end of each working session. Sixteen-plus sessions in, this is where I look first when I have forgotten what we tried in a prior round.
-- `TROUBLESHOOTING.md` lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped `$` in money strings. Future-me reads this so future-me does not re-debug it.
+- `_project_docs/TROUBLESHOOTING.md` lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped `$` in money strings. Future-me reads this so future-me does not re-debug it.
 
 ## Skills: a venue I have not explored yet (but you might)
 
@@ -228,7 +228,7 @@ Every student notebook is organized around the rhythm **Concept, Demo, Pause-and
 6. <!-- INSTRUCTOR SOLUTION -->        (markdown, "reading the output", removed)
 ```
 
-This is encoded in `NOTEBOOK_TEMPLATE.md` so any session, mine or the assistant's, can produce a new exercise in the canonical shape without me re-explaining it.
+This is encoded in `_project_docs/NOTEBOOK_TEMPLATE.md` so any session, mine or the assistant's, can produce a new exercise in the canonical shape without me re-explaining it.
 
 ## The narrative polish pattern
 
@@ -311,7 +311,7 @@ c. (Optional but recommended.) Open the same directory in your preferred editor 
 
 a. Ask the assistant to read the constitution and the course plan, then describe the project back to you:
 
-> Read [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) and [`MGMT47400_Online4Week_Plan_2026Summer.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/MGMT47400_Online4Week_Plan_2026Summer.md). Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.
+> Read [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) and [`_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md). Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.
 
 b. Ask for the file map:
 
@@ -327,7 +327,7 @@ a. Copy [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_anal
 
 b. Keep the **structural elements** even if every concrete rule changes: project mission, the "see also" reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.
 
-c. Also copy and adapt the companion files: [`DECISIONS.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/DECISIONS.md), [`TROUBLESHOOTING.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/TROUBLESHOOTING.md), and [`NOTEBOOK_TEMPLATE.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/NOTEBOOK_TEMPLATE.md). They start small and grow alongside the project.
+c. Also copy and adapt the companion files: [`DECISIONS.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/DECISIONS.md), [`TROUBLESHOOTING.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/TROUBLESHOOTING.md), and [`NOTEBOOK_TEMPLATE.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/NOTEBOOK_TEMPLATE.md). They start small and grow alongside the project.
 
 ## Step 4. Adopt one pattern at a time, not all at once
 

@@ -146,6 +146,12 @@ The rubric uses four performance levels per criterion. The point range for each 
 
 **Total: 100 points** (the §4 Baseline Model Implementation block — 4a + 4b + 4c + 4d — is worth **30 points** combined).
 
+### Penalties
+
+| Issue | Deduction |
+|---|---|
+| Filename does not follow the `NN_baseline.pdf` / `NN_baseline.ipynb` convention (e.g., for group 03, `03_baseline.pdf` and `03_baseline.ipynb`) | **−10 points** |
+
 This rubric grade contributes to the **Milestone Deliverables (40%)** component of the Final Project grade — the average across all four milestones (M1–M4).
 
 ---

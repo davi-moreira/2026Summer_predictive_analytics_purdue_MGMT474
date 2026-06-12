@@ -48,6 +48,7 @@ Offer a high-level description of the dataset(s) you plan to use. Include:
 - The data source(s) (link or full citation)
 - Key variables of interest (target + main predictors)
 - A brief discussion of the data's suitability for predictive analytics (size, granularity, recency, ethical/privacy considerations)
+- **Whether the dataset is real-world or synthetic/generated.** Real-world datasets are strongly preferred. **Synthetic datasets are discouraged and incur a −10-point penalty**.
 
 #### Free Database Sources for Predictive Analytics
 
@@ -98,6 +99,13 @@ Summarize what your group expects to achieve. What insights or benefits might yo
 | **Expected Contributions & Organization** | Clear statement of anticipated contributions, strong relevance to business decision-making; document very well organized and error-free. | Adequate clarity and organization; minor errors do not detract significantly. | Vague contributions; document organization needs improvement. | Outcomes missing or poorly defined; document disorganized. |
 
 **Total: 50 points** (5 criteria × 10 points each).
+
+### Penalties
+
+| Issue | Deduction |
+|---|---|
+| Filename does not follow the `NN_proposal.pdf` convention (e.g., for group 03, `03_proposal.pdf`) | **−10 points** |
+| Project uses a **synthetic / generated dataset** instead of a real-world dataset (real-world data is strongly preferred — see §3 Data Overview) | **−10 points** |
 
 This rubric grade contributes to the **Milestone Deliverables (40%)** component of the Final Project grade — the average across all four milestones (M1–M4).
 

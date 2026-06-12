@@ -70,8 +70,17 @@ notebooks/*_instructor*.ipynb
 # Video lecture guides (local only, not for students)
 video_guides/
 
+# Instructor production templates (poster/video/competition aids, local only)
+_production_kit/
+
+# Notebook datasets (downloaded locally; link externally instead of committing)
+notebooks/data/
+
 # Brightspace LMS content (local only, instructor-facing)
 brightspace/
+
+# Local off-switch for the session auto-commit Stop hook (personal, not for the repo)
+.claude/.autocommit-off
 
 # Large files (exclude from repo, link instead)
 *.zip

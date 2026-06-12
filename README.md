@@ -103,7 +103,12 @@ All course materials are designed to run directly in Google Colab with no local 
 ├── schedule.qmd                        # Course schedule (Quarto)
 ├── styles.css                          # Website styling
 │
-├── MGMT47400_Online4Week_Plan_2026Summer.md  # Detailed course planning document
+├── _project_docs/                      # AI-assistant + planning reference docs
+│   ├── MGMT47400_Online4Week_Plan_2026Summer.md  # Detailed course planning document
+│   ├── claude_course_plan.md           # Implementation plan / content justification
+│   ├── DECISIONS.md                    # Load-bearing conventions and rationale
+│   ├── NOTEBOOK_TEMPLATE.md            # Canonical 8-section notebook structure
+│   └── TROUBLESHOOTING.md              # Failure-mode playbook
 ├── README.md                           # This file
 ├── CONVERSATION_LOG.md                 # Development tracking for future sessions
 ├── LICENSE                             # Repository license
@@ -209,7 +214,7 @@ The course assessment is based on multiple components designed to ensure continu
 
 3. **Customize Materials:** All notebooks and Quarto files can be edited to adapt to your specific context
 
-4. **Video Recording:** Each day requires 6 micro-videos (8-10 minutes each) following the concept-demo-practice-solution pattern detailed in `MGMT47400_Online4Week_Plan_2026Summer.md`
+4. **Video Recording:** Each day requires 6 micro-videos (8-10 minutes each) following the concept-demo-practice-solution pattern detailed in `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md`
 
 ## Contact Information
 
