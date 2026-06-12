@@ -2193,3 +2193,11 @@ Fix (still 100% markdown, nothing to run):
 - Target: `2026F_predictive_analytics__QM474` in the `predictive_analytics` root.
 
 All committed + pushed. Left untouched: user's in-progress `_final_project/2026Summer/milestone_01/02` edits and case-competition untracked files.
+
+## Session — 2026-06-12: Answer-length cue audit (student reports) + full distractor rewrite
+
+- **Trigger:** Two student extra-credit reports: (1) quizzes NB09–NB19 — correct MC answer is almost always the longest option; (2) midterm — correct options are visibly longer/more elaborated.
+- **Hypothesis tests (α = 0.05, `scripts/audit_answer_length.py`):** Both confirmed, overwhelmingly. Quizzes nb09–nb19: correct strictly longest in 240/250 questions (96% vs 25% chance; binomial p = 4e-129; correct 2.3× longer, paired t p = 7e-67). nb01–nb08 also affected (86%, p = 1e-84). Midterm (14 cases × 15 Q): 209/210 (99.5%, p = 2e-124; correct 4.7× longer); connector-word elaboration cue also significant (90.5%, p = 6e-90). Student-specific claims replicated (Quiz 19 longest-option strategy = 10/10 on v2–v4; Quiz 12 Q9 shortest = wrong).
+- **Remediation:** All 48 quiz CSVs (480 Q) + all 14 midterm banks (210 Q) rewritten — every distractor elaborated to the correct option's length band with its own distinct, plausible misconception; correct options unchanged (or tightened in wording only); correct option's length rank varied. Shared spec: `scripts/_distractor_rewrite_instructions.md`. Post-fix audit: longest-option strategy at chance (quizzes 26.8% p = 0.28; midterm 27.6% p = 0.21; connectors mean diff 0.0, p ≈ 1).
+- **New gate:** `python scripts/audit_answer_length.py --file <csv>` must PASS (correct strictly longest ≤ 40%; every option ≥ 60% of question's longest) before any quiz/exam bank ships.
+- **Reports + draft student replies:** `_quizzes/2026Summer/answer_length_audit_report.md` and `_midterm_exam/2026Summer/answer_length_audit_report.md` (gitignored dirs). Recommendation: grant the quiz student's 2% extra credit; no regrade for the administered midterm (cue affected everyone in the same direction).
