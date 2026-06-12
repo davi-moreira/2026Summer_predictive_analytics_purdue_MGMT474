@@ -59,6 +59,8 @@ Collect, per video: the **short title**, the **2–3 sentence summary**, and the
 
 **E1. Generate the quizzes.** Follow `_quizzes/2026Summer/quiz_generation_plan.md`: first the per-notebook **blueprint** (`quiz_blueprint_nbNN.md`) covering all video splits, then the per-video **CSVs** (`quiz_nbNN_vN.csv`), byte-compatible with `_quizzes/2026Summer/sample_quiz.csv`. The blueprint is sourced from the **split video md files** (Phase D), so **E follows D**. *(Done for NB19.)*
 
+**E2. Run the answer-length gate.** Before importing ANY quiz or exam CSV to Brightspace: `python scripts/audit_answer_length.py --file <csv>` must print PASS (no option-length cue to the correct answer — see the MC Option-Length Parity rule in `CLAUDE.md` and the spec in `scripts/_distractor_rewrite_instructions.md`). A bank that FAILs does not ship.
+
 ### Phase F — Sync the rest of the course
 
 Once the notebook's materials are final, propagate the change:

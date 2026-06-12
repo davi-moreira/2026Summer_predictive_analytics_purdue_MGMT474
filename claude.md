@@ -15,14 +15,17 @@ This file documents the rules and workflows that change Claude's behavior in thi
 
 | File | When to read |
 |---|---|
-| `NOTEBOOK_TEMPLATE.md` | Creating or restructuring a notebook — full 8-section templates |
-| `DECISIONS.md` | Before proposing changes to conventions (seeds, splits, format) |
-| `TROUBLESHOOTING.md` | Render fails, GitHub Pages stale, Colab errors, leaked solutions |
+| `_project_docs/COURSE_MATERIAL_WORKFLOW.md` | Producing a notebook's full material set end-to-end — notebook → videos → Brightspace page → NotebookLM splits → quizzes (the per-notebook production pipeline + dependency order) |
+| `_project_docs/NOTEBOOK_TEMPLATE.md` | Creating or restructuring a notebook — full 8-section templates |
+| `_project_docs/DECISIONS.md` | Before proposing changes to conventions (seeds, splits, format) |
+| `_project_docs/TROUBLESHOOTING.md` | Render fails, GitHub Pages stale, Colab errors, leaked solutions |
 | `CONVERSATION_LOG.md` | Project history and prior decisions |
-| `MGMT47400_Online4Week_Plan_2026Summer.md` | The master course plan (source of truth for sequencing) |
-| `claude_course_plan.md` | Implementation plan with notebook-content justification |
+| `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md` | The master course plan (source of truth for sequencing) |
+| `_project_docs/claude_course_plan.md` | Implementation plan with notebook-content justification |
 | `scripts/audit_cv_first.py` | Run before every commit in nb09–nb20 |
 | `scripts/voice_check_guides.py` | Run before every video-guide edit |
+| `scripts/audit_answer_length.py` | Run before importing ANY quiz/exam CSV to Brightspace (MC answer-length cue gate) |
+| `scripts/_distractor_rewrite_instructions.md` | Authoring/rewriting MC distractors — the full length-parity spec |
 
 **Canonical notebook reference:** `notebooks/nb01_eda_splits_student.ipynb`. Match its formatting exactly.
 
@@ -140,6 +143,25 @@ The only acceptable output is hits in `nb14` cell 33 plus `nb18`'s Kaggle-submis
 
 ---
 
+## 🚨 CRITICAL RULE — MC Option-Length Parity (Quizzes and Exams)
+
+**The correct answer must not be identifiable by its length or elaboration.** This actually happened: in 2026Summer, correct options were authored as full decisions-with-rationale while distractors stayed terse one-liners. Students discovered that "always pick the longest option" scored \~100% (correct-is-longest in 96% of quiz questions and 99.5% of midterm questions vs. 25% chance — hypothesis-tested at p < 10⁻¹²³; see `CONVERSATION_LOG.md` 2026-06-12). All banks were rewritten on 2026-06-12; this rule keeps it fixed.
+
+**Hard rules for every multiple-choice question (quizzes, midterm, any future exam):**
+
+1. **Every option ≥ 60% of the length of that question's longest option.** Distractors carry their own flawed-but-specific rationale at the same elaboration and connector-word density as the correct option — wrongness comes from a real misconception, never from brevity, vagueness, or "always/never" tells.
+2. **Per bank, the correct option is strictly longest in ≤ 40% of questions** (target \~25%, chance). Vary the correct option's length rank — it must land at longest, middle, and shortest across the bank, and the longest option's position must vary.
+3. **Full authoring spec:** `scripts/_distractor_rewrite_instructions.md` (also embedded in `_quizzes/2026Summer/quiz_generation_plan.md` §4.5 and `_midterm_exam/2026Summer/midterm_generation_plan.md` §5.6).
+
+**Before importing ANY quiz or exam CSV to Brightspace**, run the gate — PASS is mandatory:
+
+```bash
+python scripts/audit_answer_length.py --file <path-to-csv>   # per-bank gate (PASS/FAIL)
+python scripts/audit_answer_length.py                        # corpus-wide statistics
+```
+
+---
+
 ## 🚨 CRITICAL WORKFLOW — Instructor-First Notebook Editing
 
 **ALWAYS edit `notebooks/nbNN_*_instructor.ipynb` FIRST, then generate the student file.**
@@ -171,7 +193,7 @@ The only acceptable output is hits in `nb14` cell 33 plus `nb18`'s Kaggle-submis
 5. `# INSTRUCTOR SOLUTION` code cell (solution; removed from student)
 6. `<!-- INSTRUCTOR SOLUTION -->` "Reading the output" markdown (removed from student)
 
-See `NOTEBOOK_TEMPLATE.md` for the full notebook structure and `TROUBLESHOOTING.md` if a solution leaks into the student version.
+See `_project_docs/NOTEBOOK_TEMPLATE.md` for the full notebook structure and `_project_docs/TROUBLESHOOTING.md` if a solution leaks into the student version.
 
 **NotebookLM markdown sync (auto):** A `PostToolUse` hook in `.claude/settings.json` runs `scripts/sync_instructor_md.sh` after any `Edit`/`Write`/`NotebookEdit` whose path ends in `_instructor.ipynb`, regenerating `_notebook_lm/<basename>.md` for NotebookLM podcast ingestion. The directory is gitignored. For direct Jupyter edits (outside Claude), run `bash scripts/sync_instructor_md.sh` manually, or watch with `fswatch -o notebooks/*_instructor.ipynb | xargs -n1 -I{} bash scripts/sync_instructor_md.sh`.
 
@@ -179,13 +201,15 @@ See `NOTEBOOK_TEMPLATE.md` for the full notebook structure and `TROUBLESHOOTING.
 
 ## 🚨 CRITICAL WORKFLOW — Sync Video Guides and Planning Docs
 
+> Producing a **new** notebook's full material set (notebook → videos → Brightspace page → NotebookLM splits → quizzes)? Follow the end-to-end pipeline and dependency order in `_project_docs/COURSE_MATERIAL_WORKFLOW.md`. The rules below are the per-update sync gate within it.
+
 **Every time a notebook (`notebooks/nbNN_*_student.ipynb`) is updated, you MUST:**
 
 1. **Update its video guide** (`video_guides/NN_video_lecture_guide.md`).
    Guides are gitignored — no commit needed, but cell references, speaking prompts, and timestamps go stale fast. Guide structure: At a Glance, Purpose, 9 sections (Why exists, Why after N-1, Why before N+1, Libraries/Tools, Key Concepts, Student Takeaways, Common Questions, Course Arc, Suggested Video Structure with Options A & B). Template: `video_guides/02_video_lecture_guide.md`.
 2. **Update planning docs** if the change is significant (added/removed sections, new tools/libraries, reordered content, or shifted dependencies):
-   - `MGMT47400_Online4Week_Plan_2026Summer.md` — section "Notebook Sequence Rationale" and dependency diagram.
-   - `claude_course_plan.md` — section "Notebook Sequence and Content Justification".
+   - `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md` — section "Notebook Sequence Rationale" and dependency diagram.
+   - `_project_docs/claude_course_plan.md` — section "Notebook Sequence and Content Justification".
 
    Minor fixes (typos, wording) do not require planning-doc updates.
 
@@ -221,7 +245,7 @@ git push origin main
 
 ## Style Guidelines (Load-Bearing Values)
 
-These values are referenced by tooling and student expectations — do not change casually. See `DECISIONS.md` for rationale.
+These values are referenced by tooling and student expectations — do not change casually. See `_project_docs/DECISIONS.md` for rationale.
 
 | Setting | Value |
 |---|---|
@@ -256,6 +280,7 @@ These are the failures that have actually happened in this project. The positive
 - **Don't mix student placeholder and instructor solution in one cell.** Student cell = `# YOUR SOLUTION CODE HERE` only. Solution = SEPARATE cell with `# INSTRUCTOR SOLUTION`.
 - **Don't use unescaped `$` for money in markdown cells.** Use `\$50,000`. Colab's MathJax breaks the cell otherwise.
 - **Don't use unescaped `~` for "approximately" in markdown cells.** Always escape: `\~341 patients`, `(\~0.52)`. Pandoc/Quarto interpret `~` as a strikethrough delimiter or non-breaking space depending on context, which silently mangles the rendered output. Same rule applies to all markdown content the course renders — student notebooks (markdown cells in `.ipynb`), instructor notebooks, video guides (`video_guides/*.md`), and `.qmd` pages.
+- **Don't write fully-justified correct options against terse distractors.** Elaboration leaks correctness: students scored \~100% by always picking the longest option (caught by student reports, 2026-06-12). Every option in a question must sit in the same length band, and `scripts/audit_answer_length.py --file <csv>` must PASS before Brightspace import.
 - **Don't add complexity that wasn't requested.** No extra features, refactoring, or "improvements" unless asked. Over-engineering confuses students and adds maintenance burden.
 - **Don't append to `CONVERSATION_LOG.md` by overwriting** — always append, never replace. Lose history once and you lose it forever.
 
@@ -283,6 +308,7 @@ Before ending any session that touched course content:
 - [ ] All changes committed with clear `<type>: <subject>` messages and `Co-Authored-By:` line.
 - [ ] **Voice-check grep run** on any modified student notebook (`grep -iE '\bstudents?\b|\bthe instructor\b|on camera|speaking prompt' notebooks/nbNN_*_student.ipynb` returns zero non-`Student's t` hits). If video guides changed: `python scripts/voice_check_guides.py` is clean.
 - [ ] **CV-first audit run** if any nb09–nb20 evaluation code changed: `python scripts/audit_cv_first.py` returns only the nb14 cell 33 + nb18 Kaggle-submission exceptions.
+- [ ] **Answer-length audit run** if any quiz/exam CSV was created or edited: `python scripts/audit_answer_length.py --file <csv>` returns PASS for every touched bank.
 - [ ] **Narrative polish applied** if any new or rewritten student markdown cells landed: named stakeholder in Why-This-Matters, narrative prose over bullet lists in Reading-the-output, at least one `"A question that often comes up here"` Q&A, warm wrap-up with bridge to the next notebook.
 - [ ] **`quarto render` run** if ANY content changed (`.qmd`, notebooks, images), AND `docs/` committed.
 - [ ] `CONVERSATION_LOG.md` updated with session summary (appended, not overwritten).
@@ -294,6 +320,6 @@ Before ending any session that touched course content:
 
 ---
 
-**Last Updated:** 2026-04-28
-**Version:** 2.0 — slimmed from 977 lines by extracting reference material into `NOTEBOOK_TEMPLATE.md`, `DECISIONS.md`, `TROUBLESHOOTING.md`, and `scripts/`. Behavior-changing rules and workflows preserved verbatim.
+**Last Updated:** 2026-06-12
+**Version:** 2.1 — added the MC Option-Length Parity critical rule + `audit_answer_length.py` gate after student-reported answer-length cue. (2.0: slimmed from 977 lines by extracting reference material into `NOTEBOOK_TEMPLATE.md`, `DECISIONS.md`, `TROUBLESHOOTING.md`, and `scripts/`.)
 **Maintained by:** Professor Davi Moreira + AI Assistants
