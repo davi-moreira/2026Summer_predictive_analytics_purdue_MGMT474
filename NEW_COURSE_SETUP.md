@@ -26,7 +26,7 @@ next Claude session exactly what is reusable as-is versus what to rewrite.
 
 The single most important framing for the next session: **the 4-week intensive
 cadence (~112.5 min/day across 20 business days) is the part that does NOT
-transfer.** A full semester re-paces the same 21 notebooks across ~15 weeks with
+transfer.** A full semester re-paces the same 21 notebooks across ~16 weeks with
 different activity spacing. Everything that mentions "4-Week", "20 business days",
 "May 18 – June 12, 2026", or "112.5 minutes/day" is a rewrite target.
 
@@ -78,7 +78,7 @@ Open Claude Code in `2026F_predictive_analytics__QM474` and paste:
 > this `NEW_COURSE_SETUP.md`. This repo was seeded from a 4-week intensive
 > version of the same course. Your first job is to convert it to a **full-semester
 > QM474** offering. Do NOT touch notebook content yet. Instead: (1) produce a new
-> full-semester course plan that re-paces the same 21 notebooks across ~15 weeks taking into consideration some important dates: 1. the purdue official calendar for the fall semester (start, holidays, breaks, end). 2. Fall Undergraduate Research Conference Posters on Nov. 17. 3. I will teach Mondays, Wednesdays, and Fridays;
+> full-semester course plan that re-paces the same 21 notebooks across ~16 weeks taking into consideration some important dates: 1. the purdue official calendar for the fall semester (start, holidays, breaks, end). 2. Fall Undergraduate Research Conference Posters on Nov. 17. 3. I will teach Mondays, Wednesdays, and Fridays;
 > (2) list every file containing "4-Week", "20 business days", "112.5 minutes", or
 > the old dates so we can rewrite them; (3) update `CLAUDE.md`'s Project Mission,
 > `_quarto.yml` title, `syllabus.qmd`, `schedule.qmd`, and `README.md` to the new
