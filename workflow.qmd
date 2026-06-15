@@ -328,24 +328,11 @@ A short list, in rough chronological order:
 - **Overwriting `CONVERSATION_LOG.md` instead of appending.** Lose the history once, lose it forever. Now an explicit anti-pattern in the constitution.
 - **`git add .` accidentally staging temp files, large CSVs, or local-only video drafts.** Always `git add <specific files>`. Reviewing `git status` before staging is now part of the routine.
 
-# If you are just starting {#sec-starter}
-
-A pragmatic on-ramp for a colleague whose course is already in plain-text form (or close to it):
-
-1. **Initialize a Git repo for your course** and put one artifact in it, even just the syllabus. Commit it.
-2. **Install [Claude Code](https://www.anthropic.com/claude-code)** (or any comparable AI coding assistant). Open the repo and ask it, in natural language, to describe the structure back to you. This is the cheapest way to learn whether the tool sees your project the way you do.
-3. **Write a one-page `CLAUDE.md`** with the course mission, three style rules you care most about, and a list of "see also" files. Do not over-engineer it. It will grow.
-4. **Convert one artifact to a source `.md` file**, for example one quiz or one brightspace page. Ask the assistant to edit it. Notice what it gets right and what it gets wrong. Capture the corrections in `CLAUDE.md`.
-5. **Adopt the four-step render-commit-push ritual** as soon as you have a website. Drift is the single most common failure.
-6. **Keep a `CONVERSATION_LOG.md`** from session one. Even three sentences per session is enough. You will thank yourself in month three.
-
-Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool. It is real, it is shorter than you fear, and you only pay it once.
-
 # Using this course as a template for your own {#sec-template}
 
-If you would like to use this [repository](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474) as a starting point rather than reinventing the workflow, there are two paths. **Replicate the design** if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. **Use it as a reference** if your domain is different, and lift only the patterns that transfer.
+If you would like to use this [repository](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474) as a starting point rather than reinventing the workflow, there are two paths. **Replicate the design** if you teach a course that resembles QM47400 in spirit, meaning a data-skills course delivered online or in a compressed window. **Use it as a reference** if your domain is different, and lift only the patterns that transfer. And if you would rather build your own from a blank page than clone this one, the closing subsection, [starting from scratch](#sec-starter), gives the minimal sequence.
 
-The seven steps below are the most direct on-ramp. Each step lists **what to do**, the **prompt** you can paste into Claude Code (shown in blockquotes), and the **files in this repository** to point the assistant at (shown as hyperlinks).
+The eight steps below are the most direct on-ramp. Each step lists **what to do**, the **prompt** you can paste into Claude Code (shown in blockquotes), and the **files in this repository** to point the assistant at (shown as hyperlinks). Every linked file is public; the only things deliberately kept out of the repo are student-identifying material and answer keys.
 
 ## Step 1. Get the repository onto your machine
 
@@ -410,23 +397,42 @@ c. A few domain-specific invariants worth automating:
 - *Lab course:* every method section cites the protocol it follows.
 - *Any course with student-facing materials:* a voice check like [`voice_check_guides.py`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/scripts/voice_check_guides.py).
 
-## Step 6. Reuse the bulk-CSV pattern for Brightspace quizzes
+## Step 6. Automate the routine, and track the course itself
+
+a. **Move the rituals from discipline into tooling with hooks** ([§4.5](#sec-recommendations)). The single most useful one is a `Stop` hook that runs your render-and-commit ritual automatically when a session ends. Ask the assistant:
+
+> Write a `Stop` hook for Claude Code, wired in `.claude/settings.local.json`, that runs a script to commit and push whatever the session changed. Guardrails: no-op when no tracked file changed; stage tracked changes only (`git add -u`, never `git add .`); if a `.qmd` or `.ipynb` changed, render the site and stage the output first; tolerate a failed render or an offline push without aborting the session.
+
+b. **If you will *run* the course and not only build it, track it in a private companion repo** ([§4.7](#sec-skills)). Create a separate, private `<your-repo>-tasks` repository and keep announcements, grading windows, and content deadlines there as labeled issues, so nothing student-identifying ever lands in the public course repo.
+
+## Step 7. Reuse the bulk-CSV pattern for Brightspace quizzes
 
 a. Either export one existing quiz from Brightspace as CSV, or build one by hand in the format Brightspace's Question Library expects.
 
-b. Save that file inside [`_quizzes/`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes) in your repo. This becomes your **schema example**.
+b. Save that file inside a `_quizzes/` folder in your own repo. This becomes your **schema example**. (Mine is intentionally not in the public repo, because quiz banks carry answer keys.)
 
 c. Generate the next quiz by pointing the assistant at the schema example:
 
-> Use [`_quizzes/<term>/<example-quiz>.csv`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/tree/main/_quizzes) as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.
+> Use `_quizzes/<term>/<example-quiz>.csv` as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.
 
 d. Review, edit, upload. The hour you invest in step (a) pays back across the entire semester.
 
-## Step 7. Share what you build (and what failed)
+## Step 8. Share what you build (and what failed)
 
 a. Open an issue on the [course repository](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/issues) describing what you adapted, what worked, and what failed.
 
 b. Or just [email me](mailto:dcordeir@purdue.edu) directly. I keep updating this page as I learn, and a sharper version of any of these patterns from a different discipline is genuinely useful to me.
+
+## If you are starting from scratch {#sec-starter}
+
+Not everyone will want to clone this repo, and you do not have to. If you would rather build your own course workflow from a blank page, the moves are the same; you just bootstrap them yourself:
+
+1. **Create the repo and commit one artifact.** Run `git init`, drop in a single file (even just your syllabus), and commit. That one commit is enough to begin.
+2. **Write a one-page `CLAUDE.md`** with your course mission, the three style rules you care most about, and a short "see also" list. Do not over-engineer it; it will grow. Use the structure in [§4.1](#sec-recommendations) as the skeleton.
+3. **Convert one artifact to a source `.md` file**, a quiz or a content page, edit it with the assistant, and capture every correction back into `CLAUDE.md`. That single loop will teach you more about the tool than any amount of reading.
+4. **Adopt the render-and-commit ritual the moment you have a website, and keep a `CONVERSATION_LOG.md` from session one**, even three sentences per session. Drift is the most common failure and forgotten context is the next; these two habits remove both.
+
+Then iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool. It is real, it is shorter than you fear, and you only pay it once.
 
 # References {#sec-references}
 

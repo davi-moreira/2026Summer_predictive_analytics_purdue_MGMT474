@@ -153,8 +153,8 @@
     "objectID": "workflow.html#step-1.-get-the-repository-onto-your-machine",
     "href": "workflow.html#step-1.-get-the-repository-onto-your-machine",
     "title": "Designing a Course with an AI Co-Designer",
-    "section": "8.1 Step 1. Get the repository onto your machine",
-    "text": "8.1 Step 1. Get the repository onto your machine\n\nClone the repo into a sensible working directory:\n\ngit clone https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474.git\ncd 2026Summer_predictive_analytics_purdue_MGMT474\n\nInstall Claude Code if you have not yet, then launch it from inside the cloned repo so the working directory is set correctly.\n(Optional but recommended.) Open the same directory in your preferred editor or IDE so you can read along while the assistant works.",
+    "section": "7.1 Step 1. Get the repository onto your machine",
+    "text": "7.1 Step 1. Get the repository onto your machine\n\nClone the repo into a sensible working directory:\n\ngit clone https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474.git\ncd 2026Summer_predictive_analytics_purdue_MGMT474\n\nInstall Claude Code if you have not yet, then launch it from inside the cloned repo so the working directory is set correctly.\n(Optional but recommended.) Open the same directory in your preferred editor or IDE so you can read along while the assistant works.",
     "crumbs": [
       "For Instructors"
     ]
@@ -163,8 +163,8 @@
     "objectID": "workflow.html#step-2.-get-oriented-before-you-change-anything",
     "href": "workflow.html#step-2.-get-oriented-before-you-change-anything",
     "title": "Designing a Course with an AI Co-Designer",
-    "section": "8.2 Step 2. Get oriented before you change anything",
-    "text": "8.2 Step 2. Get oriented before you change anything\n\nAsk the assistant to read the constitution and the course plan, then describe the project back to you:\n\n\nRead claude.md and _project_docs/MGMT47400_Online4Week_Plan_2026Summer.md. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.\n\n\nAsk for the file map:\n\n\nList every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).\n\n\nSpot-check by opening one notebook the assistant cites, for example notebooks/nb08_cross_validation_model_comparison_student.ipynb, so you can see what “canonical voice” actually looks like.",
+    "section": "7.2 Step 2. Get oriented before you change anything",
+    "text": "7.2 Step 2. Get oriented before you change anything\n\nAsk the assistant to read the constitution and the course plan, then describe the project back to you:\n\n\nRead claude.md and _project_docs/MGMT47400_Online4Week_Plan_2026Summer.md. Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.\n\n\nAsk for the file map:\n\n\nList every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).\n\n\nSpot-check by opening one notebook the assistant cites, for example notebooks/nb08_cross_validation_model_comparison_student.ipynb, so you can see what “canonical voice” actually looks like.",
     "crumbs": [
       "For Instructors"
     ]
@@ -173,8 +173,8 @@
     "objectID": "workflow.html#step-3.-translate-the-constitution-to-your-domain",
     "href": "workflow.html#step-3.-translate-the-constitution-to-your-domain",
     "title": "Designing a Course with an AI Co-Designer",
-    "section": "8.3 Step 3. Translate the constitution to your domain",
-    "text": "8.3 Step 3. Translate the constitution to your domain\n\nCopy claude.md into your own repo (rename to CLAUDE.md or keep it lowercase, either works), then ask the assistant to adapt it:\n\n\nThis is the constitution from another course’s repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap “predictive analytics” for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.\n\n\nKeep the structural elements even if every concrete rule changes: project mission, the “see also” reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.\nAlso copy and adapt the companion files: DECISIONS.md, TROUBLESHOOTING.md, and NOTEBOOK_TEMPLATE.md. They start small and grow alongside the project.",
+    "section": "7.3 Step 3. Translate the constitution to your domain",
+    "text": "7.3 Step 3. Translate the constitution to your domain\n\nCopy claude.md into your own repo (rename to CLAUDE.md or keep it lowercase, either works), then ask the assistant to adapt it:\n\n\nThis is the constitution from another course’s repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap “predictive analytics” for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.\n\n\nKeep the structural elements even if every concrete rule changes: project mission, the “see also” reference table, critical rules with a 🚨 prefix, style guidelines as a table, anti-patterns, and a session-end checklist.\nAlso copy and adapt the companion files: DECISIONS.md, TROUBLESHOOTING.md, and NOTEBOOK_TEMPLATE.md. They start small and grow alongside the project.",
     "crumbs": [
       "For Instructors"
     ]
@@ -183,8 +183,8 @@
     "objectID": "workflow.html#step-4.-adopt-one-pattern-at-a-time-not-all-at-once",
     "href": "workflow.html#step-4.-adopt-one-pattern-at-a-time-not-all-at-once",
     "title": "Designing a Course with an AI Co-Designer",
-    "section": "8.4 Step 4. Adopt one pattern at a time, not all at once",
-    "text": "8.4 Step 4. Adopt one pattern at a time, not all at once\nStart with the two patterns that cost almost nothing and remove the two most common failure modes.\n\nThe render-and-commit ritual. Copy the four-step ritual from §5.3 into your own CLAUDE.md as a critical workflow, adjusted to your renderer (Quarto, Jekyll, Hugo, MkDocs).\nPer-artifact source .md files. Pick one artifact (a syllabus, one quiz, one Brightspace content page). Convert it to plain-text Markdown. Edit it with the assistant. Notice what the assistant gets right and where it drifts. Capture the corrections in CLAUDE.md.\nAfter those two are stable, add the instructor-first notebook workflow from §4.3 if your course uses notebooks or lab worksheets. This is the highest-leverage addition for any course built around hands-on practice.",
+    "section": "7.4 Step 4. Adopt one pattern at a time, not all at once",
+    "text": "7.4 Step 4. Adopt one pattern at a time, not all at once\nStart with the two patterns that cost almost nothing and remove the two most common failure modes.\n\nThe render-and-commit ritual. Copy the four-step ritual from §5.3 into your own CLAUDE.md as a critical workflow, adjusted to your renderer (Quarto, Jekyll, Hugo, MkDocs).\nPer-artifact source .md files. Pick one artifact (a syllabus, one quiz, one Brightspace content page). Convert it to plain-text Markdown. Edit it with the assistant. Notice what the assistant gets right and where it drifts. Capture the corrections in CLAUDE.md.\nAfter those two are stable, add the instructor-first notebook workflow from §4.3 if your course uses notebooks or lab worksheets. This is the highest-leverage addition for any course built around hands-on practice.",
     "crumbs": [
       "For Instructors"
     ]
@@ -193,8 +193,8 @@
     "objectID": "workflow.html#step-5.-adapt-the-audit-scripts-to-your-invariants",
     "href": "workflow.html#step-5.-adapt-the-audit-scripts-to-your-invariants",
     "title": "Designing a Course with an AI Co-Designer",
-    "section": "8.5 Step 5. Adapt the audit scripts to your invariants",
-    "text": "8.5 Step 5. Adapt the audit scripts to your invariants\n\nRead both audit scripts in this repo:\n\n\nscripts/audit_cv_first.py\nscripts/voice_check_guides.py\n\n\nIdentify two or three invariants in your course that you keep correcting by hand. Then ask the assistant:\n\n\nRead both audit scripts in scripts/. The invariants in my course are: [list them]. Write the equivalent audit scripts and explain how to wire them into the commit workflow.\n\n\nA few domain-specific invariants worth automating:\n\n\nCausal inference course: no causal claim on observational data without a stated identifying assumption.\nWriting-intensive course: passive voice flagged in graded examples and rubrics.\nLab course: every method section cites the protocol it follows.\nAny course with student-facing materials: a voice check like voice_check_guides.py.",
+    "section": "7.5 Step 5. Adapt the audit scripts to your invariants",
+    "text": "7.5 Step 5. Adapt the audit scripts to your invariants\n\nRead both audit scripts in this repo:\n\n\nscripts/audit_cv_first.py\nscripts/voice_check_guides.py\n\n\nIdentify two or three invariants in your course that you keep correcting by hand. Then ask the assistant:\n\n\nRead both audit scripts in scripts/. The invariants in my course are: [list them]. Write the equivalent audit scripts and explain how to wire them into the commit workflow.\n\n\nA few domain-specific invariants worth automating:\n\n\nCausal inference course: no causal claim on observational data without a stated identifying assumption.\nWriting-intensive course: passive voice flagged in graded examples and rubrics.\nLab course: every method section cites the protocol it follows.\nAny course with student-facing materials: a voice check like voice_check_guides.py.",
     "crumbs": [
       "For Instructors"
     ]
@@ -4021,6 +4021,46 @@
     "title": "Designing a Course with an AI Co-Designer",
     "section": "4.6 Keep a planning and memory layer, not just a commit log",
     "text": "4.6 Keep a planning and memory layer, not just a commit log\nGit remembers what changed. It does not remember why you changed it, where the course is headed, or what you tried last month that did not work. The biggest single reason this project stayed coherent across more than two dozen sessions and a rotating cast of “TAs” is a small set of plain-text documents that carry exactly that. They split into three jobs: plan forward, decide once, and remember backward.\nPlan forward. Two documents hold the design before any notebook exists. _project_docs/MGMT47400_Online4Week_Plan_2026Summer.md is the course map: the delivery constraints, the daily pedagogical pattern, the grading scheme, the notebook-sequence rationale, and a day-by-day plan for all twenty business days. _project_docs/claude_course_plan.md is the implementation plan: how the 16-week in-person course was migrated into the 4-week online format, phase by phase, with a content justification for every notebook in the new sequence. Pointing the assistant at these two files at the start of a session is what lets it act on the whole course rather than the one file in front of it. They are the reason a change to Day 9 does not quietly break the arc that Day 12 depends on.\nDecide once. _project_docs/DECISIONS.md is the rationale ledger: eleven short, numbered entries explaining the load-bearing choices, including the 60/20/20 split, RANDOM_SEED = 474, Colab-plus-Gemini over local Jupyter, the instructor-first workflow, CV-first evaluation, the nb08 narrative pattern, and MC option-length parity. Each entry exists because the choice was second-guessed at some point; writing the reasoning down once ends the debate every later time it resurfaces. Most of the critical rules in CLAUDE.md have a matching decision here that explains why the rule is worth enforcing.\nRemember backward. CONVERSATION_LOG.md is the project’s memory: a session-by-session journal, appended (never overwritten) at the end of each working session, now more than two dozen entries long. It is the first place I look when I have forgotten what we tried in a prior round, and the first thing I have the assistant read when a session needs to resume with full context. _project_docs/TROUBLESHOOTING.md is the narrower failure playbook: the ten or so problems I have actually hit, each with its fix, from Quarto render glitches and stale GitHub Pages to Colab breaking on an unescaped $ in a money string and a Colab badge pointing at the wrong file. Future-me reads it so future-me does not re-debug what past-me already solved.\nNone of these five files is glamorous, and together they may be the most important infrastructure in the repository. They are the written form of the rotating-TA lesson from the tradeoffs above: the plan, the rationale, and the memory all live on disk, so the next session, whoever is driving it, starts where the last one left off instead of from scratch.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-6.-automate-the-routine-and-track-the-course-itself",
+    "href": "workflow.html#step-6.-automate-the-routine-and-track-the-course-itself",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "7.6 Step 6. Automate the routine, and track the course itself",
+    "text": "7.6 Step 6. Automate the routine, and track the course itself\n\nMove the rituals from discipline into tooling with hooks (§4.5). The single most useful one is a Stop hook that runs your render-and-commit ritual automatically when a session ends. Ask the assistant:\n\n\nWrite a Stop hook for Claude Code, wired in .claude/settings.local.json, that runs a script to commit and push whatever the session changed. Guardrails: no-op when no tracked file changed; stage tracked changes only (git add -u, never git add .); if a .qmd or .ipynb changed, render the site and stage the output first; tolerate a failed render or an offline push without aborting the session.\n\n\nIf you will run the course and not only build it, track it in a private companion repo (§4.7). Create a separate, private &lt;your-repo&gt;-tasks repository and keep announcements, grading windows, and content deadlines there as labeled issues, so nothing student-identifying ever lands in the public course repo.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-7.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes",
+    "href": "workflow.html#step-7.-reuse-the-bulk-csv-pattern-for-brightspace-quizzes",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "7.7 Step 7. Reuse the bulk-CSV pattern for Brightspace quizzes",
+    "text": "7.7 Step 7. Reuse the bulk-CSV pattern for Brightspace quizzes\n\nEither export one existing quiz from Brightspace as CSV, or build one by hand in the format Brightspace’s Question Library expects.\nSave that file inside a _quizzes/ folder in your own repo. This becomes your schema example. (Mine is intentionally not in the public repo, because quiz banks carry answer keys.)\nGenerate the next quiz by pointing the assistant at the schema example:\n\n\nUse _quizzes/&lt;term&gt;/&lt;example-quiz&gt;.csv as the format. Generate a 10-question quiz on [topic], in the same CSV shape, with plausible distractors and one correct answer per question.\n\n\nReview, edit, upload. The hour you invest in step (a) pays back across the entire semester.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#step-8.-share-what-you-build-and-what-failed",
+    "href": "workflow.html#step-8.-share-what-you-build-and-what-failed",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "7.8 Step 8. Share what you build (and what failed)",
+    "text": "7.8 Step 8. Share what you build (and what failed)\n\nOpen an issue on the course repository describing what you adapted, what worked, and what failed.\nOr just email me directly. I keep updating this page as I learn, and a sharper version of any of these patterns from a different discipline is genuinely useful to me.",
+    "crumbs": [
+      "For Instructors"
+    ]
+  },
+  {
+    "objectID": "workflow.html#sec-starter",
+    "href": "workflow.html#sec-starter",
+    "title": "Designing a Course with an AI Co-Designer",
+    "section": "7.9 If you are starting from scratch",
+    "text": "7.9 If you are starting from scratch\nNot everyone will want to clone this repo, and you do not have to. If you would rather build your own course workflow from a blank page, the moves are the same; you just bootstrap them yourself:\n\nCreate the repo and commit one artifact. Run git init, drop in a single file (even just your syllabus), and commit. That one commit is enough to begin.\nWrite a one-page CLAUDE.md with your course mission, the three style rules you care most about, and a short “see also” list. Do not over-engineer it; it will grow. Use the structure in §4.1 as the skeleton.\nConvert one artifact to a source .md file, a quiz or a content page, edit it with the assistant, and capture every correction back into CLAUDE.md. That single loop will teach you more about the tool than any amount of reading.\nAdopt the render-and-commit ritual the moment you have a website, and keep a CONVERSATION_LOG.md from session one, even three sentences per session. Drift is the most common failure and forgotten context is the next; these two habits remove both.\n\nThen iterate. Expect month one to feel like overhead and month three to feel like leverage. That gap is the cost of learning the tool. It is real, it is shorter than you fear, and you only pay it once.",
     "crumbs": [
       "For Instructors"
     ]
