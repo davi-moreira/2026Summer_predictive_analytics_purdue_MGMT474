@@ -46,7 +46,7 @@ If your course is in a similar shape, meaning files you can read in a text edito
 | Mode | In-person, on campus | Fully online |
 | Daily student engagement | Standard 3-credit class plus outside study | About 112.5 minutes per day |
 | Synchronous time | Regular class meetings | One synchronous Zoom session per week. One synchronous Office-Hour per week. |
-| Primary instruction medium | Live lectures and slides | Micro-videos (≤12 min each) plus Colab notebooks |
+| Primary instruction medium | Live lectures and slides | Micro-videos (target ≤12 min each) plus Colab notebooks |
 | Pedagogy | Lecture, in-class examples, homework | Concept, Demo, PAUSE-AND-DO practice, Solution discussion |
 | AI assistance for students | Optional, ad hoc | Built into the workflow via Gemini in Colab ("vibe coding": draft, verify, document) |
 | Number of lessons | One per class meeting | 21 notebooks (one per business day plus a Day 0 launchpad) |
