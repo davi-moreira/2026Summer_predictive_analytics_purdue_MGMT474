@@ -29,7 +29,7 @@ I am sharing this in the same spirit as Pedro H. C. Sant'Anna's [*My Claude Code
 
 # The starting point {#sec-starting-point}
 
-I did not begin this project from zero. The [**2025 Fall version of QM47400**](https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/) was already a full-semester course (16 weeks, in-person, with quizzes, a Kaggle case competition, and a poster session) I have designed. Three properties of that existing course mattered enormously when I brought Claude Code into the picture:
+I did not begin this project from zero. The [**2025 Fall version of QM47400**](https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/) was already a full-semester course I had designed and created myself (16 weeks, in-person, with quizzes, a Kaggle case competition, and a poster session). Three properties of that existing course mattered enormously when I brought Claude Code into the picture:
 
 1. **The course website was already a [Quarto](https://quarto.org) project.** `index.qmd`, `syllabus.qmd`, and `schedule.qmd` are plain-text files rendered to HTML. The whole site lives in `docs/` and is served by GitHub Pages.
 2. **All other artifacts were already plain-text-friendly.** Slides were Quarto/RevealJS source, notebooks were `.ipynb` JSON, and quizzes, exam, and project rubrics were Markdown.
