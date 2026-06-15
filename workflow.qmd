@@ -63,7 +63,7 @@ I am someone comfortable on the command line, with coding in different programmi
 
 # The honest tradeoffs {#sec-tradeoffs}
 
-Before the recommendations, three lessons I wish I had taken seriously earlier.
+Before the recommendations, the lessons I wish I had taken seriously earlier.
 
 ## You will spend more time than you expect
 
@@ -86,6 +86,16 @@ This is the mental model that finally made the workflow click for me. Claude is 
 > If you would tell a new TA something on their first day, **write it down where the next TA will see it**.
 
 Everything in [Recommendations](#sec-recommendations) below is a consequence of taking that one sentence seriously.
+
+## Speak to your computer, and run a team of agents
+
+The most unexpected lesson is not about the course at all; it is about how I work. For the first time in my life, I drive my computer mainly by *talking* to it rather than typing or reaching for the mouse. It began as a small convenience and turned into a genuine change in working style.
+
+Here is how it happened. Midway through the project I noticed I routinely had several terminal windows open at once, each one a separate Claude Code session working on a different corner of the course. Moving between them, it dawned on me that I was no longer operating a single tool — I was directing a small *team*, each window an agent carrying its own task. Once I saw it that way, typing felt like the wrong interface: you do not type at a team, you talk to it. So I turned on my operating system's dictation and started speaking to these windows, and my throughput jumped. The evidence points the same way — a Stanford, Baidu, and University of Washington study found speech input about **three times faster than typing** on a mobile keyboard, and with a lower error rate ([Ruan et al., 2016](https://arxiv.org/abs/1608.07323)). My setup is a laptop, not a phone, but the direction holds: for the long, discursive instructions this work needs, speaking beats typing by a wide margin.
+
+What turned "several terminals" into an actual system was tying each agent to a *tracked task*. Every window was working one of the issues I had created with the `course-tasks` skill — a GitHub issue in a private companion repo (see [§ Skills became the backbone](#sec-skills)) — and as it worked, it kept that issue updated, refined, and ultimately checked off. The issues were the shared, persistent memory the agents wrote back to, so progress outlived any single session. That is what let one setup both *build* the course and *manage* it: the task list, the working memory, and the team of agents were the same thing, and I conducted it by voice.
+
+One honest caveat rides along with dictation. Spoken prompts arrive a little loose — homophones slip through, punctuation goes missing, the occasional clause lands garbled — so the assistant earns its keep by **confirming intent when an instruction is ambiguous** rather than guessing and barreling ahead. Bake that "check before acting" habit into your `CLAUDE.md`, and the rough edges of voice stop mattering.
 
 # Recommendations {#sec-recommendations}
 
@@ -240,7 +250,7 @@ Git remembers *what* changed. It does not remember *why*. I keep three companion
 - `CONVERSATION_LOG.md` is a session-by-session journal, appended at the end of each working session. More than two dozen sessions in, this is where I look first when I have forgotten what we tried in a prior round.
 - `_project_docs/TROUBLESHOOTING.md` lists the failure modes I have actually hit: Quarto rendering glitches, GitHub Pages caching, Colab MathJax breaking on unescaped `$` in money strings. Future-me reads this so future-me does not re-debug it.
 
-## Skills became the backbone: running the course from a private companion repo
+## Skills became the backbone: running the course from a private companion repo {#sec-skills}
 
 In the mid-stream draft of this page I wrote that I had not built any skills yet and would "invest there in the next iteration." That turned out to be the best prediction I made here: **skills became the backbone of how I run the course**, and I now wish I had built the first one in week one.
 
@@ -249,12 +259,6 @@ Claude Code supports user-defined **skills** — reusable, invocable workflows (
 The design decision I most want a colleague to copy is **where those tasks live**. They do **not** live in the public course repository. Each course repo `X` is paired with a **separate, private companion repo named `X-tasks`** (for this course, `…MGMT474-tasks`) that holds every issue. That separation is deliberate, and I think it is important: a course-operations tracker inevitably accumulates things you must never publish — student names, individual standing, grades. Keeping the tracker in a private companion repo means I can record *anything*, sensitive or not, in one place, while the public-facing repository stays exactly that. It is the same FERPA-minded instinct that keeps every student-identifying artifact — rosters, submissions, grades — out of the public repo: that material lives in a gitignored admin tree and never touches GitHub Pages or the public history, by construction rather than by my remembering to be careful.
 
 If you are starting a new project, skills are the highest-leverage place to invest early, and a private companion repo for tasks costs nothing on day one while saving you a FERPA headache later. For a domain-specific catalog of how academics are using skills, I recommend the [*Claude Code Skills for Academics*](https://github.com/aspi6246/Claude-Code-Skills-for-Academics/blob/main/Claude%20Code%20Skills%20for%20Academics.pdf) PDF (listed in the references below), which collects concrete patterns by discipline and is the cleanest starting point I have found.
-
-## Drive the assistant by voice
-
-The most recent change to my workflow is also the one I least expected to matter: I largely stopped typing. Partway through delivery I turned on my operating system's dictation and started *speaking* my requests to Claude Code — both in the terminal and in the VS Code integration — instead of typing them. For expressing what I actually want, talking is faster and less effortful than typing, especially for the long, discursive instructions this kind of work needs ("rename these three folders wherever they're referenced, but leave the public versions alone, and do not rewrite the history log"). I do not expect to go back.
-
-There is one caveat worth stating plainly, because it changes how the assistant should behave. Dictated prompts arrive a little loose: homophones slip through, punctuation goes missing, a clause occasionally lands garbled. The right response is not for me to enunciate like a robot; it is for the assistant to **confirm intent when an instruction is ambiguous** rather than guess and barrel ahead. I have leaned into exactly that rhythm — short spoken instruction, quick read-back of what was understood, then action — and it is genuinely more pleasant than typing ever was. If you try voice, write the "check before acting on an ambiguous instruction" habit into your `CLAUDE.md`, and the loose edges of dictation stop mattering.
 
 # Examples from this repository {#sec-examples}
 
@@ -431,6 +435,7 @@ b. Or just [email me](mailto:dcordeir@purdue.edu) directly. I keep updating this
 - Google. **NotebookLM: AI-powered research and notetaking assistant.** <https://notebooklm.google.com/>. *(Used to generate podcast-style audio summaries of instructor notebooks, wired into this repo by the `sync_instructor_md.sh` hook.)*
 - Google Research. **Gemini in Colab.** <https://colab.research.google.com/>. *(The in-notebook AI assistant students use in QM47400, framed as "vibe coding": draft, verify, document.)*
 - Cunningham, S. **Claude Code Changed How I Work.** *Causal Inference* (Substack). <https://causalinf.substack.com/p/claude-code-changed-how-i-work-part>. *(A working economist's account of bringing Claude Code into research and teaching workflows.)*
+- Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., & Landay, J. A. (2016). **Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices.** arXiv:1608.07323. <https://arxiv.org/abs/1608.07323>. *(A Stanford, Baidu, and University of Washington study finding speech input about 3× faster than a smartphone keyboard, with a lower error rate. The basis for the "speak, don't type" lesson above.)*
 - Xu, Y., & Yang, L. Y. (2026). **Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.** Working paper. *(A complementary view on template-executor architectures for AI-assisted reproducible research.)*
 - Moreira, D. (2025). **QM47400 Predictive Analytics, 2025 Fall (semester-length, in-person).** Course website. <https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/>. *(The 16-week course this 4-week intensive was translated from.)*
 - Moreira, D. (2026). **QM47400 Predictive Analytics: Course Repository.** GitHub: <https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474>. *(The repository this page describes. Everything cited above, including `CLAUDE.md`, `scripts/audit_cv_first.py`, `scripts/voice_check_guides.py`, the brightspace source pages, the notebook template, and the conversation log, is open for inspection.)*
