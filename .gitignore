@@ -64,8 +64,9 @@ _command_line_activity_solution.qmd
 _command_line_activity_solution.html
 _command_line_activity_solution_files/
 
-# Instructor solution notebooks (keep out of public repo)
+# Instructor solution notebooks (keep out of public repo) — ALL locations, not just notebooks/
 notebooks/*_instructor*.ipynb
+**/*_instructor*.ipynb
 
 # Video lecture guides (local only, not for students)
 video_guides/
