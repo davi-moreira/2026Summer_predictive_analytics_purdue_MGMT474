@@ -208,7 +208,7 @@ Claude Code lets you configure shell commands to run automatically around tool c
 }
 ```
 
-Translation: every time the assistant edits an instructor notebook, a shell script regenerates the corresponding `_notebook_lm/<basename>.md` file so [NotebookLM](https://notebooklm.google.com/) (Google's research and podcast tool) can ingest the latest version automatically. I never have to remember to export to markdown for NotebookLM, because the hook does it on every edit. This is the same idea Pedro Sant'Anna documents extensively in his guide.
+Translation: every time the assistant edits an instructor notebook, a shell script regenerates the corresponding `_notebook_lm/<basename>.md` file so [NotebookLM](https://notebooklm.google.com/) (Google's research and podcast tool) can ingest the latest version automatically. This is not hypothetical: in this repo the hook keeps a markdown companion in sync for all 21 instructor notebooks, and I have never once had to remember to export one by hand. It is the same idea Pedro Sant'Anna documents extensively in his guide.
 
 ### The hook that ended "did I remember to push?"
 
