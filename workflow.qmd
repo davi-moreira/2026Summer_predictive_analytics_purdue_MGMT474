@@ -50,15 +50,15 @@ If your course is in a similar shape, meaning files you can read in a text edito
 | Pedagogy | Lecture, in-class examples, homework | Concept, Demo, PAUSE-AND-DO practice, Solution discussion |
 | AI assistance for students | Optional, ad hoc | Built into the workflow via Gemini in Colab ("vibe coding": draft, verify, document) |
 | Number of lessons | One per class meeting | 21 notebooks (one per business day plus a Day 0 launchpad) |
-| Assessment mix | Attendance, participation, quizzes, homework, Kaggle case competition, final project and poster | Quizzes, daily PAUSE-AND-DO, midterm casebook, project milestones, final case competition, peer review |
-| Capstone | Poster at the Undergraduate Research Conference | Executive narrative plus a project case video |
-| Topic coverage | Linear regression, classification, resampling, regularization, trees and ensembles, time series, deep learning, unsupervised learning | The same predictive arc compressed into 20 days; deep learning and unsupervised learning are trimmed to make room for explicit CV-first evaluation, calibration, fairness, and a deployment-and-monitoring notebook |
+| Assessment mix | Attendance, participation, quizzes, homework, Kaggle case competition, final project and poster | Quizzes, Participation through daily PAUSE-AND-DO, Online Midterm Exam, Final Project (project milestones), Course Case Competition (Kaggle) |
+| Capstone | Poster at the Undergraduate Research Conference | Team final project built across milestones (proposal → baseline model → tuned model and abstract → poster), culminating in a research poster and a reproducible final notebook (conference presentation optional) |
+| Topic coverage | Linear regression, classification, resampling, regularization, trees and ensembles, time series, deep learning, unsupervised learning | The same predictive arc compressed into 20 days: regression, regularization, classification and thresholding, cross-validation and model selection, trees and ensembles (random forests, gradient boosting), time series forecasting, and a condensed introduction to deep learning. Unsupervised learning is trimmed; in its place the summer leans into an explicit CV-first evaluation spine with a locked test-set protocol, plus dedicated notebooks on data communication (the poster) and an end-to-end competition workflow |
 | Source-of-truth files | Slides, syllabus, homework PDFs | Notebooks, video guides, brightspace pages, quizzes, exam, all as plain text |
 :::
 
 ::: {.callout-tip}
 ## You do not need to be a developer
-I am comfortable on the command line and with Git, and that lowered my activation cost. But everything I describe below can be done in **natural language**, which means telling Claude what you want, reviewing what it produced, and asking it to commit the change. You do not need to type a single Git command yourself.
+I am someone comfortable on the command line, with coding in different programming languages, `.md` files, and with Git, and that lowered my activation cost. But everything I describe below can be done in **natural language**, which means telling Claude what you want, reviewing what it produced, and asking it to commit the change. You do not need to type a single Git command yourself.
 :::
 
 # The honest tradeoffs {#sec-tradeoffs}
@@ -67,7 +67,7 @@ Before the recommendations, three lessons I wish I had taken seriously earlier.
 
 ## You will spend more time than you expect
 
-Translating a 16-week course into a 4-week intensive looks, on paper, like compression. In practice it is a **redesign**. Cognitive load, daily engagement of roughly 112.5 minutes per day, notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in fourteen business days: none of that survives the move unchanged. The `CONVERSATION_LOG.md` in this repo logs **sixteen numbered working sessions during the intensive design phase alone, before delivery even began**, and then a run of dated entries through delivery — more than two dozen in all. The AI sped up *production*, not *deliberation*. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant just propose a plan, the plan was bland and had to be redone.
+Translating a 16-week course into a 4-week intensive looks, on paper, like compression. In practice it is a **redesign**. Cognitive load, daily engagement of roughly 112.5 minutes per day, notebook pacing, the order in which concepts appear, the difficulty curve from EDA to gradient boosting in thirteen business days: none of that survives the move unchanged. The `CONVERSATION_LOG.md` in this repo logs **sixteen numbered working sessions during the intensive design phase alone, before delivery even began**, and then a run of dated entries through delivery — more than two dozen in all. The AI sped up *production*, not *deliberation*. I still had to decide what to teach, in what order, and at what depth. The minute I tried to skip that step and let the assistant just propose a plan, the plan was bland and had to be redone.
 
 ## Flexibility is a double-edged sword
 
