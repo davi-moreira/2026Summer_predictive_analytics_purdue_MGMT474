@@ -227,7 +227,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#sec-examples" id="toc-sec-examples" class="nav-link" data-scroll-target="#sec-examples"><span class="header-section-number">5</span> Examples from this repository</a>
   <ul class="collapse">
-  <li><a href="#the-pause-and-do-block" id="toc-the-pause-and-do-block" class="nav-link" data-scroll-target="#the-pause-and-do-block"><span class="header-section-number">5.1</span> The Pause-and-Do block</a></li>
+  <li><a href="#the-pause-and-do-block" id="toc-the-pause-and-do-block" class="nav-link" data-scroll-target="#the-pause-and-do-block"><span class="header-section-number">5.1</span> The PAUSE-AND-DO block</a></li>
   <li><a href="#the-narrative-polish-pattern" id="toc-the-narrative-polish-pattern" class="nav-link" data-scroll-target="#the-narrative-polish-pattern"><span class="header-section-number">5.2</span> The narrative polish pattern</a></li>
   <li><a href="#the-render-and-commit-ritual" id="toc-the-render-and-commit-ritual" class="nav-link" data-scroll-target="#the-render-and-commit-ritual"><span class="header-section-number">5.3</span> The render-and-commit ritual</a></li>
   </ul></li>
@@ -373,7 +373,7 @@ div.csl-indent {
 <tr class="even">
 <td>Synchronous time</td>
 <td>Regular class meetings</td>
-<td>One synchronous Zoom session per week. One synchronous Office-Hour per week.</td>
+<td>One synchronous Zoom session per week. One synchronous office hour per week.</td>
 </tr>
 <tr class="odd">
 <td>Primary instruction medium</td>
@@ -413,7 +413,7 @@ div.csl-indent {
 <tr class="even">
 <td>Source-of-truth files</td>
 <td>Slides, syllabus, homework PDFs</td>
-<td>Notebooks, video guides, brightspace pages, quizzes, exam, all as plain text</td>
+<td>Notebooks, video guides, Brightspace pages, quizzes, exam, all as plain text</td>
 </tr>
 </tbody>
 </table>
@@ -461,8 +461,8 @@ div.csl-indent {
 <section id="speak-to-your-computer-and-run-a-team-of-agents" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="speak-to-your-computer-and-run-a-team-of-agents"><span class="header-section-number">3.5</span> Speak to your computer, and run a team of agents</h2>
 <p>The most unexpected lesson is not about the course at all; it is about how I work. For the first time in my life, I drive my computer mainly by <em>talking</em> to it rather than typing or reaching for the mouse. It began as a small convenience and turned into a genuine change in working style.</p>
-<p>Here is how it happened. Midway through the project I noticed I routinely had several terminal windows open at once, each one a separate Claude Code session working on a different corner of the course. Moving between them, it dawned on me that I was no longer operating a single tool: I was directing a small <em>team</em>, each window an agent carrying its own task. Once I saw it that way, typing felt like the wrong interface: you do not type at a team, you talk to it. So I turned on my operating system’s dictation and started speaking to these windows, and my throughput jumped. The evidence points the same way: a Stanford, Baidu, and University of Washington study found speech input about <strong>three times faster than typing</strong> on a mobile keyboard, and with a lower error rate (<a href="https://arxiv.org/abs/1608.07323">Ruan et al., 2016</a>). My setup is a laptop, not a phone, but the direction holds: for the long, discursive instructions this work needs, speaking beats typing by a wide margin.</p>
-<p>What turned “several terminals” into an actual system was tying each agent to a <em>tracked task</em>. Every window was working one of the issues I had created with the <code>course-tasks</code> skill, a GitHub issue in a private companion repo (see <a href="#sec-skills">§ Skills became the backbone</a>), and as it worked, it kept that issue updated, refined, and ultimately checked off. The issues were the shared, persistent memory the agents wrote back to, so progress outlived any single session. That is what let one setup both <em>build</em> the course and <em>manage</em> it: the task list, the working memory, and the team of agents were the same thing, and I conducted it by voice.</p>
+<p>Here is how it happened. Midway through the project I noticed I routinely had several terminal windows open at once, each one a separate Claude Code session working on a different corner of the course. Moving between them, it dawned on me that I was no longer operating a single tool: I was directing a small <em>team</em>, each window an agent carrying its own task. Once I saw it that way, typing felt like the wrong interface: you do not type at a team, you talk to it. So I turned on my operating system’s dictation and started speaking to these windows, and my throughput jumped. The evidence points the same way: a Stanford, Baidu, and University of Washington study found speech input about <strong>three times faster than typing</strong> on a mobile keyboard, at a lower error rate (<a href="https://arxiv.org/abs/1608.07323">Ruan et al., 2016</a>). My setup is a laptop, not a phone, but the direction holds: for the long, discursive instructions this work needs, speaking beats typing by a wide margin.</p>
+<p>What turned “several terminals” into an actual system was tying each agent to a <em>tracked task</em>. Every window was working one of the issues I had created with the <code>course-tasks</code> skill, a GitHub issue in a private companion repo (see <a href="#sec-skills">Skills became the backbone</a>, below), and as it worked, it kept that issue updated, refined, and ultimately checked off. The issues were the shared, persistent memory the agents wrote back to, so progress outlived any single session. That is what let one setup both <em>build</em> the course and <em>manage</em> it: the task list, the working memory, and the team of agents were the same thing, and I conducted it by voice.</p>
 <p>One honest caveat rides along with dictation. Spoken prompts arrive a little loose: homophones slip through, punctuation goes missing, the occasional clause lands garbled. So the assistant earns its keep by <strong>confirming intent when an instruction is ambiguous</strong> rather than guessing and barreling ahead. Bake that “check before acting” habit into your <code>CLAUDE.md</code>, and the rough edges of voice stop mattering.</p>
 </section>
 </section>
@@ -583,7 +583,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p>Two benefits compound here. First, the AI can <strong>read and edit</strong> any of these directly. There is no copy-paste from a web UI, no screenshots, no “look at this PDF.” Second, when a quiz question changes, you can ask the assistant to <strong>propagate that change</strong> to the matching brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.</p>
+<p>Two benefits compound here. First, the AI can <strong>read and edit</strong> any of these directly. There is no copy-paste from a web UI, no screenshots, no “look at this PDF.” Second, when a quiz question changes, you can ask the assistant to <strong>propagate that change</strong> to the matching Brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.</p>
 <p>The same discipline extends to <strong>assignments and their grading rubrics</strong>: each milestone and the case competition has a plain-text specification with its rubric, so the criteria students are handed are the criteria they are evaluated against, and the assistant can keep an assignment, its rubric, and the schedule in sync. One firm boundary comes with this: <strong>anything that identifies a student, such as rosters, submissions, grades, or filled-in rubrics, must be set up under FERPA from the very start.</strong> In this repo that means all of it lives in a gitignored admin tree, with the task tracker in a private companion repo, never in the public-facing repository or its history.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -595,7 +595,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Not just the artifact itself, but also the <strong>rationale</strong> for it. Each brightspace page in this repo begins with <em>what the student is learning today</em>, <em>why this matters</em>, and <em>how this connects to yesterday and tomorrow</em>. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.</p>
+<p>Not just the artifact itself, but also the <strong>rationale</strong> for it. Each Brightspace page in this repo begins with <em>what the student is learning today</em>, <em>why this matters</em>, and <em>how this connects to yesterday and tomorrow</em>. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.</p>
 </div>
 </div>
 </section>
@@ -709,8 +709,8 @@ div.csl-indent {
 <h1 data-number="5"><span class="header-section-number">5</span> Examples from this repository</h1>
 <p>Concrete is more useful than abstract. Three patterns from this course, named so a colleague can lift them.</p>
 <section id="the-pause-and-do-block" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-pause-and-do-block"><span class="header-section-number">5.1</span> The Pause-and-Do block</h2>
-<p>Every student notebook is organized around the rhythm <strong>Concept, Demo, Pause-and-Do practice, Solution discussion</strong>. The Pause-and-Do block has a fixed six-cell anatomy in the <em>instructor</em> notebook (cells 4 through 6 are stripped from the student copy):</p>
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-pause-and-do-block"><span class="header-section-number">5.1</span> The PAUSE-AND-DO block</h2>
+<p>Every student notebook is organized around the rhythm <strong>Concept, Demo, PAUSE-AND-DO practice, Solution discussion</strong>. The PAUSE-AND-DO block has a fixed six-cell anatomy in the <em>instructor</em> notebook (cells 4 through 6 are stripped from the student copy):</p>
 <pre><code>1. ## 📝 PAUSE-AND-DO Exercise X       (markdown, prompt)
 2. &gt; 💡 Gemini Prompt: ...              (markdown, AI prompt + verify checklist)
 3. # YOUR SOLUTION CODE HERE           (code, student writes here)
@@ -790,7 +790,7 @@ div.csl-indent {
 <li>Ask for the file map:</li>
 </ol>
 <blockquote class="blockquote">
-<p>List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).</p>
+<p>List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, Brightspace pages, quizzes, exam, and so on).</p>
 </blockquote>
 <ol start="3" type="a">
 <li>Spot-check by opening one notebook the assistant cites, for example <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb08_cross_validation_model_comparison_student.ipynb"><code>notebooks/nb08_cross_validation_model_comparison_student.ipynb</code></a>, so you can see what “canonical voice” actually looks like.</li>
@@ -903,7 +903,7 @@ div.csl-indent {
 <li>Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., &amp; Landay, J. A. (2016). <strong>Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices.</strong> arXiv:1608.07323. <a href="https://arxiv.org/abs/1608.07323" class="uri">https://arxiv.org/abs/1608.07323</a>. <em>(A Stanford, Baidu, and University of Washington study finding speech input about 3× faster than a smartphone keyboard, with a lower error rate. The basis for the “speak, don’t type” lesson above.)</em></li>
 <li>Xu, Y., &amp; Yang, L. Y. (2026). <strong>Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.</strong> Working paper. <em>(A complementary view on template-executor architectures for AI-assisted reproducible research.)</em></li>
 <li>Moreira, D. (2025). <strong>QM47400 Predictive Analytics, 2025 Fall (semester-length, in-person).</strong> Course website. <a href="https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/" class="uri">https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/</a>. <em>(The 16-week course this 4-week intensive was translated from.)</em></li>
-<li>Moreira, D. (2026). <strong>QM47400 Predictive Analytics: Course Repository.</strong> GitHub: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" class="uri">https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474</a>. <em>(The repository this page describes. Everything cited above, including <code>CLAUDE.md</code>, <code>scripts/audit_cv_first.py</code>, <code>scripts/voice_check_guides.py</code>, the brightspace source pages, the notebook template, and the conversation log, is open for inspection.)</em></li>
+<li>Moreira, D. (2026). <strong>QM47400 Predictive Analytics: Course Repository.</strong> GitHub: <a href="https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474" class="uri">https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474</a>. <em>(The repository this page describes. Everything cited above, including <code>CLAUDE.md</code>, <code>scripts/audit_cv_first.py</code>, <code>scripts/voice_check_guides.py</code>, the Brightspace source pages, the notebook template, and the conversation log, is open for inspection.)</em></li>
 </ul>
 </div>
 <hr>

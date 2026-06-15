@@ -45,7 +45,7 @@ If your course is in a similar shape, meaning files you can read in a text edito
 | Duration | 16 weeks | 4 weeks (20 business days plus a Day 0 launchpad) |
 | Mode | In-person, on campus | Fully online |
 | Daily student engagement | Standard 3-credit class plus outside study | About 112.5 minutes per day |
-| Synchronous time | Regular class meetings | One synchronous Zoom session per week. One synchronous Office-Hour per week. |
+| Synchronous time | Regular class meetings | One synchronous Zoom session per week. One synchronous office hour per week. |
 | Primary instruction medium | Live lectures and slides | Micro-videos (target ≤12 min each) plus Colab notebooks |
 | Pedagogy | Lecture, in-class examples, homework | Concept, Demo, PAUSE-AND-DO practice, Solution discussion |
 | AI assistance for students | Optional, ad hoc | Built into the workflow via Gemini in Colab ("vibe coding": draft, verify, document) |
@@ -53,7 +53,7 @@ If your course is in a similar shape, meaning files you can read in a text edito
 | Assessment mix | Attendance, participation, quizzes, homework, Kaggle case competition, final project and poster | Quizzes, Participation through daily PAUSE-AND-DO, Online Midterm Exam, Final Project (project milestones), Course Case Competition (Kaggle) |
 | Capstone | Poster at the Undergraduate Research Conference | Team final project built across milestones (proposal → baseline model → tuned model and abstract → poster), culminating in a research poster and a reproducible final notebook (conference presentation optional) |
 | Topic coverage | Linear regression, classification, resampling, regularization, trees and ensembles, time series, deep learning, unsupervised learning | The same predictive arc compressed into 20 days: regression, regularization, classification and thresholding, cross-validation and model selection, trees and ensembles (random forests, gradient boosting), time series forecasting, and a condensed introduction to deep learning. Unsupervised learning is trimmed; in its place the summer leans into an explicit CV-first evaluation spine with a locked test-set protocol, plus dedicated notebooks on data communication (the poster) and an end-to-end competition workflow |
-| Source-of-truth files | Slides, syllabus, homework PDFs | Notebooks, video guides, brightspace pages, quizzes, exam, all as plain text |
+| Source-of-truth files | Slides, syllabus, homework PDFs | Notebooks, video guides, Brightspace pages, quizzes, exam, all as plain text |
 :::
 
 ::: {.callout-tip}
@@ -91,9 +91,9 @@ Everything in [Recommendations](#sec-recommendations) below is a consequence of 
 
 The most unexpected lesson is not about the course at all; it is about how I work. For the first time in my life, I drive my computer mainly by *talking* to it rather than typing or reaching for the mouse. It began as a small convenience and turned into a genuine change in working style.
 
-Here is how it happened. Midway through the project I noticed I routinely had several terminal windows open at once, each one a separate Claude Code session working on a different corner of the course. Moving between them, it dawned on me that I was no longer operating a single tool: I was directing a small *team*, each window an agent carrying its own task. Once I saw it that way, typing felt like the wrong interface: you do not type at a team, you talk to it. So I turned on my operating system's dictation and started speaking to these windows, and my throughput jumped. The evidence points the same way: a Stanford, Baidu, and University of Washington study found speech input about **three times faster than typing** on a mobile keyboard, and with a lower error rate ([Ruan et al., 2016](https://arxiv.org/abs/1608.07323)). My setup is a laptop, not a phone, but the direction holds: for the long, discursive instructions this work needs, speaking beats typing by a wide margin.
+Here is how it happened. Midway through the project I noticed I routinely had several terminal windows open at once, each one a separate Claude Code session working on a different corner of the course. Moving between them, it dawned on me that I was no longer operating a single tool: I was directing a small *team*, each window an agent carrying its own task. Once I saw it that way, typing felt like the wrong interface: you do not type at a team, you talk to it. So I turned on my operating system's dictation and started speaking to these windows, and my throughput jumped. The evidence points the same way: a Stanford, Baidu, and University of Washington study found speech input about **three times faster than typing** on a mobile keyboard, at a lower error rate ([Ruan et al., 2016](https://arxiv.org/abs/1608.07323)). My setup is a laptop, not a phone, but the direction holds: for the long, discursive instructions this work needs, speaking beats typing by a wide margin.
 
-What turned "several terminals" into an actual system was tying each agent to a *tracked task*. Every window was working one of the issues I had created with the `course-tasks` skill, a GitHub issue in a private companion repo (see [§ Skills became the backbone](#sec-skills)), and as it worked, it kept that issue updated, refined, and ultimately checked off. The issues were the shared, persistent memory the agents wrote back to, so progress outlived any single session. That is what let one setup both *build* the course and *manage* it: the task list, the working memory, and the team of agents were the same thing, and I conducted it by voice.
+What turned "several terminals" into an actual system was tying each agent to a *tracked task*. Every window was working one of the issues I had created with the `course-tasks` skill, a GitHub issue in a private companion repo (see [Skills became the backbone](#sec-skills), below), and as it worked, it kept that issue updated, refined, and ultimately checked off. The issues were the shared, persistent memory the agents wrote back to, so progress outlived any single session. That is what let one setup both *build* the course and *manage* it: the task list, the working memory, and the team of agents were the same thing, and I conducted it by voice.
 
 One honest caveat rides along with dictation. Spoken prompts arrive a little loose: homophones slip through, punctuation goes missing, the occasional clause lands garbled. So the assistant earns its keep by **confirming intent when an instruction is ambiguous** rather than guessing and barreling ahead. Bake that "check before acting" habit into your `CLAUDE.md`, and the rough edges of voice stop mattering.
 
@@ -148,13 +148,13 @@ This is the recommendation I would give first if a colleague asked me for one th
 | Troubleshooting playbook | `_project_docs/TROUBLESHOOTING.md` |
 | Session-by-session history | `CONVERSATION_LOG.md` |
 
-Two benefits compound here. First, the AI can **read and edit** any of these directly. There is no copy-paste from a web UI, no screenshots, no "look at this PDF." Second, when a quiz question changes, you can ask the assistant to **propagate that change** to the matching brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.
+Two benefits compound here. First, the AI can **read and edit** any of these directly. There is no copy-paste from a web UI, no screenshots, no "look at this PDF." Second, when a quiz question changes, you can ask the assistant to **propagate that change** to the matching Brightspace page, to the relevant video-guide section, and to the schedule. Plain-text source files are what make that propagation possible.
 
 The same discipline extends to **assignments and their grading rubrics**: each milestone and the case competition has a plain-text specification with its rubric, so the criteria students are handed are the criteria they are evaluated against, and the assistant can keep an assignment, its rubric, and the schedule in sync. One firm boundary comes with this: **anything that identifies a student, such as rosters, submissions, grades, or filled-in rubrics, must be set up under FERPA from the very start.** In this repo that means all of it lives in a gitignored admin tree, with the task tracker in a private companion repo, never in the public-facing repository or its history.
 
 ::: {.callout-tip}
 ## What goes into a source `.md` file
-Not just the artifact itself, but also the **rationale** for it. Each brightspace page in this repo begins with *what the student is learning today*, *why this matters*, and *how this connects to yesterday and tomorrow*. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.
+Not just the artifact itself, but also the **rationale** for it. Each Brightspace page in this repo begins with *what the student is learning today*, *why this matters*, and *how this connects to yesterday and tomorrow*. That framing is for me and for the assistant, not only for the student. When the assistant has the rationale, it edits the artifact in ways that preserve intent.
 :::
 
 ## Adopt an instructor-first notebook workflow
@@ -268,9 +268,9 @@ If you are starting a new project, skills are the highest-leverage place to inve
 
 Concrete is more useful than abstract. Three patterns from this course, named so a colleague can lift them.
 
-## The Pause-and-Do block
+## The PAUSE-AND-DO block
 
-Every student notebook is organized around the rhythm **Concept, Demo, Pause-and-Do practice, Solution discussion**. The Pause-and-Do block has a fixed six-cell anatomy in the *instructor* notebook (cells 4 through 6 are stripped from the student copy):
+Every student notebook is organized around the rhythm **Concept, Demo, PAUSE-AND-DO practice, Solution discussion**. The PAUSE-AND-DO block has a fixed six-cell anatomy in the *instructor* notebook (cells 4 through 6 are stripped from the student copy):
 
 ```
 1. ## 📝 PAUSE-AND-DO Exercise X       (markdown, prompt)
@@ -355,7 +355,7 @@ a. Ask the assistant to read the constitution and the course plan, then describe
 
 b. Ask for the file map:
 
-> List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, brightspace pages, quizzes, exam, and so on).
+> List every kind of source file in this repo and what each one is the source of truth for. Group them by artifact type (notebooks, video guides, Brightspace pages, quizzes, exam, and so on).
 
 c. Spot-check by opening one notebook the assistant cites, for example [`notebooks/nb08_cross_validation_model_comparison_student.ipynb`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/notebooks/nb08_cross_validation_model_comparison_student.ipynb), so you can see what "canonical voice" actually looks like.
 
@@ -448,7 +448,7 @@ Then iterate. Expect month one to feel like overhead and month three to feel lik
 - Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., & Landay, J. A. (2016). **Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices.** arXiv:1608.07323. <https://arxiv.org/abs/1608.07323>. *(A Stanford, Baidu, and University of Washington study finding speech input about 3× faster than a smartphone keyboard, with a lower error rate. The basis for the "speak, don't type" lesson above.)*
 - Xu, Y., & Yang, L. Y. (2026). **Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.** Working paper. *(A complementary view on template-executor architectures for AI-assisted reproducible research.)*
 - Moreira, D. (2025). **QM47400 Predictive Analytics, 2025 Fall (semester-length, in-person).** Course website. <https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/>. *(The 16-week course this 4-week intensive was translated from.)*
-- Moreira, D. (2026). **QM47400 Predictive Analytics: Course Repository.** GitHub: <https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474>. *(The repository this page describes. Everything cited above, including `CLAUDE.md`, `scripts/audit_cv_first.py`, `scripts/voice_check_guides.py`, the brightspace source pages, the notebook template, and the conversation log, is open for inspection.)*
+- Moreira, D. (2026). **QM47400 Predictive Analytics: Course Repository.** GitHub: <https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474>. *(The repository this page describes. Everything cited above, including `CLAUDE.md`, `scripts/audit_cv_first.py`, `scripts/voice_check_guides.py`, the Brightspace source pages, the notebook template, and the conversation log, is open for inspection.)*
 :::
 
 ---
