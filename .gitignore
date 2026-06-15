@@ -89,6 +89,13 @@ brightspace/
 *.m4a
 *.mov
 
+# Video recordings/renders folder (local only — very large; 173GB as of 2026-06)
+videos/
+
+# Notebook HTML render artifacts (generated; the Quarto site output lives in docs/)
+notebooks/*.html
+notebooks/*_files/
+
 # Keep docs for GitHub Pages
 !docs/
 
@@ -96,5 +103,7 @@ brightspace/
 *.tmp
 *.bak
 .scratch/
+# Office lock/temp files (e.g. ~$guidelines.docx)
+~$*
 
 **/*.quarto_ipynb
