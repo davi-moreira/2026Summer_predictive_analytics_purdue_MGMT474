@@ -27,6 +27,8 @@ This page is written for **faculty colleagues**, especially those building or re
 
 I am sharing this in the same spirit as Pedro H. C. Sant'Anna's [*My Claude Code Setup*](https://psantanna.com/claude-code-my-workflow/workflow-guide.html), which is, frankly, the page that nudged me to write my own. Where Pedro's guide is the polished playbook of a research economist building an end-to-end agent system, mine is a teaching-oriented field report on what an undergraduate business-analytics course actually looks like when an AI is sitting beside you while you build it.
 
+If you would rather read the story than the reference, I have also published a shorter, narrative companion essay on Substack: [*How Co-Designing a Course With AI Changed the Way I Work and Use My Computer*](https://davicmoreira.substack.com/p/how-co-designing-a-course-with-ai). This page is the detailed field report; that essay is the same experience told as a narrative.
+
 # The starting point {#sec-starting-point}
 
 I did not begin this project from zero. The [**2025 Fall version of QM47400**](https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/) was already a full-semester course I had designed and created myself (16 weeks, in-person, with quizzes, a Kaggle case competition, and a poster session). Three properties of that existing course mattered enormously when I brought Claude Code into the picture:
@@ -448,6 +450,7 @@ Then iterate. Expect month one to feel like overhead and month three to feel lik
 - Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., & Landay, J. A. (2016). **Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices.** arXiv:1608.07323. <https://arxiv.org/abs/1608.07323>. *(A Stanford, Baidu, and University of Washington study finding speech input about 3× faster than a smartphone keyboard, with a lower error rate. The basis for the "speak, don't type" lesson above.)*
 - Xu, Y., & Yang, L. Y. (2026). **Scaling Reproducibility: An AI-Assisted Workflow for Large-Scale Reanalysis.** Working paper. *(A complementary view on template-executor architectures for AI-assisted reproducible research.)*
 - Moreira, D. (2025). **QM47400 Predictive Analytics, 2025 Fall (semester-length, in-person).** Course website. <https://davi-moreira.github.io/2025F_predictive_analytics_purdue_MGMT474/>. *(The 16-week course this 4-week intensive was translated from.)*
+- Moreira, D. (2026). **How Co-Designing a Course With AI Changed the Way I Work and Use My Computer.** *Substack.* <https://davicmoreira.substack.com/p/how-co-designing-a-course-with-ai>. *(A shorter, narrative companion to this page, adapted from it.)*
 - Moreira, D. (2026). **QM47400 Predictive Analytics: Course Repository.** GitHub: <https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474>. *(The repository this page describes. Everything cited above, including `CLAUDE.md`, `scripts/audit_cv_first.py`, `scripts/voice_check_guides.py`, the Brightspace source pages, the notebook template, and the conversation log, is open for inspection.)*
 :::
 
