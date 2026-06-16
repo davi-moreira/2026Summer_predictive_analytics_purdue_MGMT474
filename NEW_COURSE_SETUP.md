@@ -16,7 +16,7 @@ next Claude session exactly what is reusable as-is versus what to rewrite.
 | Reuse as-is (the "core") | Rewrite for the new term | Regenerate (do NOT carry over) |
 |---|---|---|
 | `notebooks/*_student.ipynb` (the 21-notebook arc) | `schedule.qmd` (20 business days → full semester) | `docs/` (Quarto render output) |
-| `claude.md` → **rename to `CLAUDE.md`** | `syllabus.qmd` (dates, term, policies) | `_notebook_lm/` (NotebookLM transcripts) |
+| `CLAUDE.md` (operating manual) | `syllabus.qmd` (dates, term, policies) | `_notebook_lm/` (NotebookLM transcripts) |
 | `_project_docs/DECISIONS.md`, `NOTEBOOK_TEMPLATE.md`, `TROUBLESHOOTING.md` | `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md` → new full-semester plan | `videos/`, `lecture_slides/` (record fresh) |
 | `scripts/` (audit, voice-check, sync, this seed script) | `_project_docs/claude_course_plan.md` (cadence/sequence) | `_adm_stuff/`, `_announcements/` (per-term, private) |
 | `video_guides/` structure + template | `index.qmd` (title/landing) | `notebooks/data/` (re-download datasets) |
@@ -43,10 +43,9 @@ bash scripts/make_seed.sh "../2026F_predictive_analytics__QM474"
 bash scripts/make_seed.sh "../2026F_predictive_analytics__QM474" --go
 ```
 
-### 2. Rename the operating manual + initialize git
+### 2. Initialize git
 ```bash
 cd ../2026F_predictive_analytics__QM474
-git mv claude.md CLAUDE.md 2>/dev/null || mv claude.md CLAUDE.md   # canonical, case-sensitive-safe
 git init
 git add -A
 git commit -m "chore: Seed 2026F QM474 from 2026Summer course core"

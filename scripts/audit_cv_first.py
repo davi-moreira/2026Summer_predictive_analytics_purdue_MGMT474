@@ -4,7 +4,7 @@ CV-First / Test-Set-Lock Audit
 ==============================
 
 Scans notebooks/*_student.ipynb for model-evaluation uses of X_test/y_test that
-violate the CV-first rule (see claude.md → "CRITICAL RULE - CV-First Evaluation
+violate the CV-first rule (see CLAUDE.md → "CRITICAL RULE - CV-First Evaluation
 + Test-Set Lock").
 
 The only acceptable hits are:

@@ -135,7 +135,7 @@ This document records design decisions made during course development and the re
 - Inline Q&A pre-empts the most common confusions, reducing "I'm stuck and don't know what to ask" moments.
 - The `"A question that often comes up here"` phrase is grep-findable for tooling and audits.
 
-**Implication:** New markdown cells longer than ~150 words should be checked against the polish pattern before commit. See `claude.md` for the polish helper script and the audit checklist.
+**Implication:** New markdown cells longer than ~150 words should be checked against the polish pattern before commit. See `CLAUDE.md` for the polish helper script and the audit checklist.
 
 ---
 

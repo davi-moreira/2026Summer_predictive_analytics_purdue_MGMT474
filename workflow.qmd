@@ -351,7 +351,7 @@ c. (Optional but recommended.) Open the same directory in your preferred editor 
 
 a. Ask the assistant to read the constitution and the course plan, then describe the project back to you:
 
-> Read [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) and [`_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md). Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.
+> Read [`CLAUDE.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/CLAUDE.md) and [`_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md). Describe back to me how this course is structured: the pedagogy, the 21-notebook arc, the source-of-truth files, and the rules that are non-obvious.
 
 b. Ask for the file map:
 
@@ -361,7 +361,7 @@ c. Spot-check by opening one notebook the assistant cites, for example [`noteboo
 
 ## Step 3. Translate the constitution to your domain
 
-a. Copy [`claude.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/claude.md) into your own repo (rename to `CLAUDE.md` or keep it lowercase, either works), then ask the assistant to adapt it:
+a. Copy [`CLAUDE.md`](https://github.com/davi-moreira/2026Summer_predictive_analytics_purdue_MGMT474/blob/main/CLAUDE.md) into your own repo, then ask the assistant to adapt it:
 
 > This is the constitution from another course's repo. Adapt it for my course, which is [your course code and topic]. Replace QM47400, swap "predictive analytics" for my subject, and go through each critical rule and anti-pattern one by one. For each, tell me whether it transfers cleanly, needs editing, or does not apply.
 

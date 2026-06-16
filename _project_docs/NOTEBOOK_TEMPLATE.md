@@ -85,7 +85,7 @@ print(f"Random seed: {RANDOM_SEED}")
 - Visualizations with clear labels
 - Subsections as needed (`### 1.1`, `### 1.2`, etc.)
 
-Apply the **Narrative Polish Pattern** (see `claude.md`):
+Apply the **Narrative Polish Pattern** (see `CLAUDE.md`):
 - Open analytical sections with a "Why This Matters" cell anchored on a named stakeholder.
 - Prefer narrative prose over bullet lists for "Reading the output" cells.
 - Anticipate confusion with inline `"A question that often comes up here"` Q&A blocks.
