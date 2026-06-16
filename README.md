@@ -216,6 +216,8 @@ The course assessment is based on multiple components designed to ensure continu
 
 4. **Video Recording:** Each day requires 6 micro-videos (8-10 minutes each) following the concept-demo-practice-solution pattern detailed in `_project_docs/MGMT47400_Online4Week_Plan_2026Summer.md`
 
+5. **How this course was built with an AI co-designer:** read the detailed [For Instructors workflow page](https://davi-moreira.github.io/2026Summer_predictive_analytics_purdue_MGMT474/workflow.html), and the shorter narrative companion essay on Substack, [*How Co-Designing a Course With AI Changed the Way I Work and Use My Computer*](https://davicmoreira.substack.com/p/how-co-designing-a-course-with-ai).
+
 ## Contact Information
 
 **Professor Davi Moreira**
