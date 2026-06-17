@@ -26,6 +26,7 @@ This file documents the rules and workflows that change Claude's behavior in thi
 | `scripts/voice_check_guides.py` | Run before every video-guide edit |
 | `scripts/audit_answer_length.py` | Run before importing ANY quiz/exam CSV to Brightspace (MC answer-length cue gate) |
 | `scripts/_distractor_rewrite_instructions.md` | Authoring/rewriting MC distractors — the full length-parity spec |
+| `_project_docs/COURSE_EVAL_ANALYSIS.md` | End of term — analyzing the official anonymous course-evaluation PDFs into a performance report (`scripts/analyze_course_eval.py`) |
 
 **Canonical notebook reference:** `notebooks/nb01_eda_splits_student.ipynb`. Match its formatting exactly.
 
